@@ -45,6 +45,16 @@ jobs:
           cp backend/data/products.json frontend/.output/public/api/products
           cp backend/data/collections.json frontend/.output/public/api/collections
 
+      - name: Copy product images
+        run: |
+          if [ -d "backend/uploads" ] && [ "$(ls -A backend/uploads 2>/dev/null)" ]; then
+            mkdir -p frontend/.output/public/uploads
+            cp backend/uploads/* frontend/.output/public/uploads/
+            echo "Copied $(ls backend/uploads | wc -l) images"
+          else
+            echo "No images in backend/uploads (gitignored — see PROJECT_NOTES.md)"
+          fi
+
       - name: Upload Pages artifact
         uses: actions/upload-pages-artifact@v3
         with:

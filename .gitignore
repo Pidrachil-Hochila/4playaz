@@ -11,9 +11,9 @@ node_modules/
 !*.env.example
 secrets/
 
-# Загруженные файлы (хранятся на сервере)
-backend/uploads/*
-!backend/uploads/.gitkeep
+# Загруженные файлы — теперь отслеживаются git'ом.
+# Добавь изображения командой: git add backend/uploads/
+# Если 959 МБ много — сожми PNG через pngquant перед коммитом.
 
 # Логи
 *.log
