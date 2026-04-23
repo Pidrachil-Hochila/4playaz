@@ -299,12 +299,13 @@ const config = useRuntimeConfig()
 const API_BASE = config.public.apiBase as string
 const YANDEX_API_KEY = config.public.yandexApiKey
 
-// In static mode (no apiBase), uploads live on the backend — unavailable on GitHub Pages.
 const resolveImg = (src: string): string => {
   if (!src) return ''
   if (src.startsWith('data:') || src.startsWith('http')) return src
-  if (!API_BASE && src.startsWith('/uploads/')) return ''
-  return `${API_BASE}${src}`
+  if (API_BASE) return `${API_BASE}${src}`
+  // Static mode: images are served from the site root (copied to .output/public/)
+  const appBase = (config.app?.baseURL as string || '/').replace(/\/$/, '')
+  return `${appBase}${src}`
 }
 
 // useRoute must be called at setup level (not after await inside onMounted)
@@ -530,7 +531,7 @@ onMounted(async () => {
     loading.value = false
   }
   startAutoplay()
-  if (route.query.type) currentClothingType.value = route.query.type as string
+  if (route?.query?.type) currentClothingType.value = route.query.type as string
 })
 
 onUnmounted(() => {

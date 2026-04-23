@@ -426,7 +426,9 @@ const supabase = createClient(config.public.supabaseUrl, config.public.supabaseK
 const resolveImg = (src: string): string => {
   if (!src) return ''
   if (src.startsWith('data:') || src.startsWith('http')) return src
-  return `${API_BASE}${src}`
+  if (API_BASE) return `${API_BASE}${src}`
+  const appBase = (config.app?.baseURL as string || '/').replace(/\/$/, '')
+  return `${appBase}${src}`
 }
 const formatPrice = (price: number) => price.toLocaleString('ru') + ' ₽'
 
