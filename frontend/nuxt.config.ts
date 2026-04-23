@@ -1,6 +1,5 @@
 export default defineNuxtConfig({
   devtools: { enabled: true },
-  ssr: false,
 
   app: {
     baseURL: process.env.NUXT_APP_BASE_URL || '/',
@@ -18,6 +17,7 @@ export default defineNuxtConfig({
         }
       ],
       link: [
+        { rel: 'icon', type: 'image/svg+xml', href: 'favicon.svg' },
         { rel: 'preconnect', href: 'https://fonts.googleapis.com' },
         { rel: 'preconnect', href: 'https://fonts.gstatic.com', crossorigin: '' },
         {
@@ -28,9 +28,22 @@ export default defineNuxtConfig({
     }
   },
 
+  // Admin pages use localStorage — keep them client-only
+  routeRules: {
+    '/admin/**': { ssr: false },
+  },
+
+  nitro: {
+    prerender: {
+      // Pre-render API routes as static JSON files for GitHub Pages
+      routes: ['/api/products', '/api/collections'],
+    },
+  },
+
   runtimeConfig: {
     public: {
-      apiBase: process.env.NUXT_PUBLIC_API_BASE || 'http://localhost:3001',
+      // Use ?? so empty string from env var is preserved (not replaced by fallback)
+      apiBase: process.env.NUXT_PUBLIC_API_BASE ?? 'http://localhost:3001',
       yandexApiKey: process.env.NUXT_PUBLIC_YANDEX_API_KEY || '',
       cdekServicePath: process.env.NUXT_PUBLIC_CDEK_SERVICE_PATH || '',
       supabaseUrl: process.env.NUXT_PUBLIC_SUPABASE_URL || 'https://gmmtxvobjnmdpryhsrpu.supabase.co',

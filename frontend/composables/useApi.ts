@@ -1,6 +1,14 @@
-export const useApi = () => {
+const getBase = () => {
   const config = useRuntimeConfig()
-  const base = config.public.apiBase
+  const apiBase = config.public.apiBase as string
+  // When apiBase is empty (GitHub Pages SSG mode), fall back to app.baseURL
+  // so fetch('/4playaz/api/products') resolves correctly under the sub-path.
+  const appBase = (config.app?.baseURL ?? '/').replace(/\/$/, '')
+  return apiBase || appBase
+}
+
+export const useApi = () => {
+  const base = getBase()
 
   const getProducts = async (category?: string) => {
     const url = category
@@ -13,12 +21,15 @@ export const useApi = () => {
     return await $fetch(`${base}/api/products/${id}`)
   }
 
-  return { getProducts, getProduct, base }
+  const getCollections = async () => {
+    return await $fetch(`${base}/api/collections`)
+  }
+
+  return { getProducts, getProduct, getCollections, base }
 }
 
 export const useAdminApi = () => {
-  const config = useRuntimeConfig()
-  const base = config.public.apiBase
+  const base = getBase()
 
   const getToken = () => {
     if (process.client) return localStorage.getItem('admin_token') || ''

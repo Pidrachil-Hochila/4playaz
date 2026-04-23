@@ -35,7 +35,9 @@ jobs:
         working-directory: frontend
         env:
           NUXT_APP_BASE_URL: /${{ github.event.repository.name }}/
-          NUXT_PUBLIC_API_BASE: ${{ secrets.NUXT_PUBLIC_API_BASE }}
+          # Empty string: client-side fetches fall back to app.baseURL (/4playaz)
+          # which maps to the prerendered /api/products static file on GitHub Pages
+          NUXT_PUBLIC_API_BASE: ""
 
       - name: Upload Pages artifact
         uses: actions/upload-pages-artifact@v3

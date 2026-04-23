@@ -296,14 +296,19 @@ import { ref, computed, onMounted, onUnmounted, inject, nextTick } from 'vue'
 import { useApi } from '~/composables/useApi'
 
 const config = useRuntimeConfig()
-const API_BASE = config.public.apiBase
+const API_BASE = config.public.apiBase as string
 const YANDEX_API_KEY = config.public.yandexApiKey
 
+// In static mode (no apiBase), uploads live on the backend — unavailable on GitHub Pages.
 const resolveImg = (src: string): string => {
   if (!src) return ''
   if (src.startsWith('data:') || src.startsWith('http')) return src
+  if (!API_BASE && src.startsWith('/uploads/')) return ''
   return `${API_BASE}${src}`
 }
+
+// useRoute must be called at setup level (not after await inside onMounted)
+const route = useRoute()
 
 const { getProducts } = useApi()
 
@@ -416,9 +421,9 @@ const createPayment = async () => {
 
 // ─── CAROUSEL ──────────────────────────────────────────────
 const newProducts = computed(() => {
-  const withNew = allProducts.value.filter((p: any) => p.badge === 'New' && p.image)
+  const withNew = allProducts.value.filter((p: any) => p.badge === 'New' && resolveImg(p.image))
   if (withNew.length < 3) {
-    const others = allProducts.value.filter((p: any) => p.badge !== 'New' && p.image)
+    const others = allProducts.value.filter((p: any) => p.badge !== 'New' && resolveImg(p.image))
     return [...withNew, ...others].slice(0, 6)
   }
   return withNew
@@ -525,7 +530,6 @@ onMounted(async () => {
     loading.value = false
   }
   startAutoplay()
-  const route = useRoute()
   if (route.query.type) currentClothingType.value = route.query.type as string
 })
 

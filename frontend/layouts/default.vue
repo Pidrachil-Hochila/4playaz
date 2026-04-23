@@ -23,7 +23,7 @@
         <NuxtLink to="/" class="logo">4PLAYAZ</NuxtLink>
         <div class="nav-right">
           <a href="https://t.me/otzivi_4playaz" target="_blank" class="nav-link">Отзывы</a>
-                    <a href="/zamer" target="_blank" class="nav-link">Замеры</a>
+          <NuxtLink to="/zamer" class="nav-link">Замеры</NuxtLink>
           <button class="cart-btn" @click="openCart" aria-label="Корзина">
             <svg class="cart-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
               <path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/>
