@@ -1,0 +1,60 @@
+@font-face {
+  font-family: 'Mellizan';
+  src: url('/fonts/Mellizan-Rp3Ao.otf') format('opentype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@300;400;500;600;700&family=Barlow+Condensed:wght@300;400;500;600&display=swap');
+
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  /* ─── COLOR PALETTE ─── */
+  --black:       #0a0a0a;
+  --deep:        #111111;
+  --surface:     #161616;
+  --card:        #1c1c1c;
+  --elevated:    #222222;
+  --border:      #2a2a2a;
+  --border-red:  #5a0000;
+  --mid:         #666666;
+  --light:       #999999;
+  --white:       #f0ece6;
+  --off-white:   #d8d4ce;
+  --red:         #c0392b;
+  --red-bright:  #e74c3c;
+  --red-deep:    #7b0000;
+  --red-glow:    rgba(192, 57, 43, 0.35);
+
+  /* ─── TYPOGRAPHY ─── */
+  --font-gothic:  'Mellizan', 'Oswald', sans-serif;
+  --font-cinzel:  'Oswald', 'Barlow Condensed', sans-serif;
+  --font-body:    'Barlow Condensed', 'Oswald', sans-serif;
+}
+
+html { scroll-behavior: smooth; }
+
+body {
+  background: var(--black);
+  color: var(--white);
+  font-family: var(--font-body);
+  font-weight: 300;
+  font-size: 14px;
+  letter-spacing: 0.03em;
+  overflow-x: hidden;
+}
+
+::-webkit-scrollbar { width: 4px; }
+::-webkit-scrollbar-track { background: var(--deep); }
+::-webkit-scrollbar-thumb { background: var(--red-deep); }
+
+::selection { background: var(--red-deep); color: var(--white); }
+
+a { text-decoration: none; color: inherit; }
+button { font-family: var(--font-body); cursor: pointer; }

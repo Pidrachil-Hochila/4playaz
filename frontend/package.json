@@ -1,0 +1,20 @@
+{
+  "name": "4playaz-frontend",
+  "private": true,
+  "scripts": {
+    "build": "nuxt build",
+    "dev": "nuxt dev",
+    "generate": "nuxt generate",
+    "preview": "nuxt preview",
+    "postinstall": "nuxt prepare"
+  },
+  "dependencies": {
+    "@supabase/supabase-js": "^2.104.0",
+    "nuxt": "^3.10.0",
+    "vue": "^3.4.0",
+    "vue-router": "^4.2.5"
+  },
+  "devDependencies": {
+    "@nuxt/devtools": "latest"
+  }
+}

@@ -1,0 +1,30 @@
+# Зависимости
+node_modules/
+
+# Сборка Nuxt
+.nuxt/
+.output/
+
+# Секреты (никогда не коммитить!)
+.env
+*.env
+!*.env.example
+secrets/
+
+# Загруженные файлы (хранятся на сервере)
+backend/uploads/*
+!backend/uploads/.gitkeep
+
+# Логи
+*.log
+npm-debug.log*
+
+# OS мусор
+.DS_Store
+Thumbs.db
+
+# Claude Code сессионные файлы
+.claude/
+
+# Секреты бэкенда
+backend/data/totp_secrets.json
