@@ -1,10 +1,18 @@
 const getBase = () => {
   const config = useRuntimeConfig()
   const apiBase = config.public.apiBase as string
-  // When apiBase is empty (GitHub Pages SSG mode), fall back to app.baseURL
-  // so fetch('/4playaz/api/products') resolves correctly under the sub-path.
   const appBase = (config.app?.baseURL ?? '/').replace(/\/$/, '')
   return apiBase || appBase
+}
+
+// GitHub Pages serves extensionless files as application/octet-stream,
+// which causes $fetch (ofetch) to return a Blob instead of parsed JSON.
+// Using native fetch + text() + JSON.parse bypasses Content-Type detection.
+const fetchJson = async (url: string): Promise<any> => {
+  const res = await fetch(url)
+  if (!res.ok) throw new Error(`HTTP ${res.status}: ${url}`)
+  const text = await res.text()
+  return JSON.parse(text)
 }
 
 export const useApi = () => {
@@ -14,7 +22,8 @@ export const useApi = () => {
     const url = category
       ? `${base}/api/products?category=${encodeURIComponent(category)}`
       : `${base}/api/products`
-    return await $fetch(url)
+    const data = await fetchJson(url)
+    return Array.isArray(data) ? data : []
   }
 
   const getProduct = async (id: number) => {
@@ -22,7 +31,8 @@ export const useApi = () => {
   }
 
   const getCollections = async () => {
-    return await $fetch(`${base}/api/collections`)
+    const data = await fetchJson(`${base}/api/collections`)
+    return Array.isArray(data) ? data : []
   }
 
   return { getProducts, getProduct, getCollections, base }

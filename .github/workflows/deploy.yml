@@ -39,6 +39,12 @@ jobs:
           # which maps to the prerendered /api/products static file on GitHub Pages
           NUXT_PUBLIC_API_BASE: ""
 
+      - name: Copy API data files
+        run: |
+          mkdir -p frontend/.output/public/api
+          cp backend/data/products.json frontend/.output/public/api/products
+          cp backend/data/collections.json frontend/.output/public/api/collections
+
       - name: Upload Pages artifact
         uses: actions/upload-pages-artifact@v3
         with:

@@ -1,6 +1,9 @@
 export default defineNuxtConfig({
   devtools: { enabled: true },
 
+  // SPA mode: avoids SSR/hydration issues on GitHub Pages static hosting
+  ssr: false,
+
   app: {
     baseURL: process.env.NUXT_APP_BASE_URL || '/',
     head: {
@@ -28,7 +31,6 @@ export default defineNuxtConfig({
     }
   },
 
-  // Admin pages use localStorage — keep them client-only
   routeRules: {
     '/admin/**': { ssr: false },
   },
