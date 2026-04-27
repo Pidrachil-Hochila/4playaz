@@ -11,23 +11,30 @@
         </section>
 
         <section>
-          <h2>Размерная сетка — модель 1</h2>
+          <h2>Футболки</h2>
           <div class="zamer-image-frame">
-            <img src="/public/zamer.jpg" alt="Таблица размеров — модель 1" class="zamer-img" />
+            <img src="/zamer-tshirt.png" alt="Таблица размеров — футболки" class="zamer-img" />
           </div>
         </section>
 
         <section>
-          <h2>Размерная сетка — модель 2</h2>
+          <h2>Худи</h2>
           <div class="zamer-image-frame">
-            <img src="/public/zamer2.jpg" alt="Таблица размеров — модель 2" class="zamer-img" />
+            <img src="/zamer-hoodie.png" alt="Таблица размеров — худи" class="zamer-img" />
           </div>
         </section>
 
         <section>
-          <h2>Размерная сетка — модель 3</h2>
+          <h2>Худи оверсайз</h2>
           <div class="zamer-image-frame">
-            <img src="/public/zamer3.jpg" alt="Таблица размеров — модель 3" class="zamer-img" />
+            <img src="/zamer-hoodie-oversize.png" alt="Таблица размеров — худи оверсайз" class="zamer-img" />
+          </div>
+        </section>
+
+        <section>
+          <h2>Лонгсливы</h2>
+          <div class="zamer-image-frame">
+            <img src="/zamer-longsleeve.png" alt="Таблица размеров — лонгсливы" class="zamer-img" />
           </div>
         </section>
 
