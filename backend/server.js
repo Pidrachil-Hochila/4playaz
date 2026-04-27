@@ -29,6 +29,9 @@ app.use(express.urlencoded({ extended: true, limit: '50mb' }))
 const paymentRoutes = require('./payment')
 app.use('/api/payment', paymentRoutes)
 
+const ordersRoutes = require('./orders')
+app.use('/api/orders', ordersRoutes)
+
 const cdekRoutes = require('./cdek')
 app.use('/api/cdek', cdekRoutes)
 
@@ -100,13 +103,20 @@ function getClientIp(req) {
 function isIpBanned(ip) {
   const entry = loginAttempts.get(ip)
   if (!entry || !entry.bannedAt) return false
+
+  // banlist.json — источник истины. Если IP убрали из файла руками,
+  // снимаем бан и из памяти тоже (без перезапуска бэкенда).
+  const fileBl = loadBanlist()
+  if (!fileBl[ip]) {
+    loginAttempts.delete(ip)
+    return false
+  }
+
   const elapsed = Date.now() - entry.bannedAt
   if (elapsed >= BAN_DURATION) {
-    // Снимаем бан по истечении срока
     loginAttempts.delete(ip)
-    const bl = loadBanlist()
-    delete bl[ip]
-    saveBanlist(bl)
+    delete fileBl[ip]
+    saveBanlist(fileBl)
     return false
   }
   return true
@@ -261,7 +271,8 @@ app.post('/api/admin/collections', authMiddleware, (req, res) => {
   if (collections.includes(name)) return res.status(409).json({ error: 'Уже существует' })
   collections.push(name)
   saveCollections(collections)
-  res.status(201).json({ name })
+  const linkedCount = products.filter(p => p.category === name).length
+  res.status(201).json({ name, linkedCount })
 })
 app.delete('/api/admin/collections/:name', authMiddleware, (req, res) => {
   const name = sanitizeString(decodeURIComponent(req.params.name), 100)

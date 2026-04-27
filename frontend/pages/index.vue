@@ -146,6 +146,19 @@
               <div v-if="selectedProduct.images && selectedProduct.images.length > 1" class="modal-thumbs">
                 <img v-for="(img, i) in selectedProduct.images" :key="i" :src="resolveImg(img)" class="modal-thumb" :class="{ active: i === modalImgIndex }" @click="modalImgIndex = Number(i)">
               </div>
+              <div v-if="availableSizes(selectedProduct).length > 0" class="size-selector">
+                <div class="size-label">Размер</div>
+                <div class="size-options">
+                  <button
+                    v-for="sz in availableSizes(selectedProduct)"
+                    :key="sz"
+                    class="size-btn"
+                    :class="{ active: selectedSize === sz }"
+                    @click="selectedSize = sz; sizeError = false"
+                  >{{ sz }}</button>
+                </div>
+                <span v-if="sizeError" class="size-error">Выберите размер</span>
+              </div>
               <button class="btn-primary btn-buy" @click="handleAddToCart(selectedProduct)">
                 Добавить в корзину
               </button>
@@ -184,43 +197,61 @@
                   <span v-if="errors.fullName" class="form-error">{{ errors.fullName }}</span>
                 </div>
                 <div class="form-group">
-                  <label class="form-label">Email *</label>
-                  <input v-model="form.email" type="email" class="form-input" :class="{ error: errors.email }" placeholder="ivan@mail.ru">
-                  <span v-if="errors.email" class="form-error">{{ errors.email }}</span>
+                  <label class="form-label">Номер телефона *</label>
+                  <input v-model="form.phone" type="tel" class="form-input" :class="{ error: errors.phone }" placeholder="+7 (999) 123-45-67">
+                  <span v-if="errors.phone" class="form-error">{{ errors.phone }}</span>
+                </div>
+                <div class="form-group">
+                  <label class="form-label">Telegram</label>
+                  <input v-model="form.telegram" type="text" class="form-input" placeholder="@username">
                 </div>
               </div>
 
               <div class="form-section">
-                <h3 class="form-section-title">Способ доставки</h3>
+                <h3 class="form-section-title">Способ получения</h3>
                 <div class="delivery-options">
-                  <label v-for="opt in deliveryOptions" :key="opt.value" class="delivery-option" :class="{ active: form.deliveryMethod === opt.value }">
-                    <input type="radio" v-model="form.deliveryMethod" :value="opt.value" class="delivery-radio">
+                  <label v-for="opt in deliveryOptions" :key="opt.value" class="delivery-option" :class="{ active: form.deliveryType === opt.value }">
+                    <input type="radio" v-model="form.deliveryType" :value="opt.value" class="delivery-radio">
                     <div class="delivery-option-content">
                       <div class="delivery-option-name">{{ opt.name }}</div>
                       <div class="delivery-option-desc">{{ opt.desc }}</div>
                     </div>
                   </label>
                 </div>
-                <span v-if="errors.deliveryMethod" class="form-error">{{ errors.deliveryMethod }}</span>
+                <span v-if="errors.deliveryType" class="form-error">{{ errors.deliveryType }}</span>
               </div>
 
-              <!-- АДРЕС ДОСТАВКИ -->
-              <div class="form-section" v-if="form.deliveryMethod">
+              <!-- ПВЗ -->
+              <div class="form-section" v-if="form.deliveryType === 'pvz'">
+                <h3 class="form-section-title">Адрес пункта выдачи</h3>
+                <div class="form-group">
+                  <label class="form-label">Адрес ПВЗ *</label>
+                  <input v-model="form.pvzAddress" type="text" class="form-input" :class="{ error: errors.pvzAddress }" placeholder="г. Москва, ул. Ленина, д. 5">
+                  <span v-if="errors.pvzAddress" class="form-error">{{ errors.pvzAddress }}</span>
+                </div>
+              </div>
+
+              <!-- КУРЬЕР -->
+              <div class="form-section" v-if="form.deliveryType === 'courier'">
                 <h3 class="form-section-title">Адрес доставки</h3>
                 <div class="form-group">
-                  <label class="form-label">Город *</label>
-                  <input v-model="form.city" type="text" class="form-input" :class="{ error: errors.city }" placeholder="Москва">
-                  <span v-if="errors.city" class="form-error">{{ errors.city }}</span>
+                  <label class="form-label">Улица и дом *</label>
+                  <input v-model="form.street" type="text" class="form-input" :class="{ error: errors.street }" placeholder="ул. Ленина, д. 5">
+                  <span v-if="errors.street" class="form-error">{{ errors.street }}</span>
                 </div>
-                <div class="form-group">
-                  <label class="form-label">Улица, дом, квартира *</label>
-                  <input v-model="form.address" type="text" class="form-input" :class="{ error: errors.address }" placeholder="ул. Ленина, д. 5, кв. 10">
-                  <span v-if="errors.address" class="form-error">{{ errors.address }}</span>
-                </div>
-                <div class="form-group">
-                  <label class="form-label">Индекс *</label>
-                  <input v-model="form.postalCode" type="text" class="form-input" :class="{ error: errors.postalCode }" placeholder="123456">
-                  <span v-if="errors.postalCode" class="form-error">{{ errors.postalCode }}</span>
+                <div class="form-row-3">
+                  <div class="form-group">
+                    <label class="form-label">Квартира</label>
+                    <input v-model="form.apartment" type="text" class="form-input" placeholder="10">
+                  </div>
+                  <div class="form-group">
+                    <label class="form-label">Подъезд</label>
+                    <input v-model="form.entrance" type="text" class="form-input" placeholder="2">
+                  </div>
+                  <div class="form-group">
+                    <label class="form-label">Этаж</label>
+                    <input v-model="form.floor" type="text" class="form-input" placeholder="5">
+                  </div>
                 </div>
               </div>
 
@@ -243,11 +274,11 @@
             </div>
           </div>
 
-          <!-- STEP 2: ОПЛАТА -->
+          <!-- STEP 2: ПОДТВЕРЖДЕНИЕ -->
           <div v-if="checkoutStep === 2" class="checkout-panel">
             <div class="checkout-header">
               <div class="checkout-step-label">Шаг 2 из 2</div>
-              <h2 class="checkout-title">Оплата</h2>
+              <h2 class="checkout-title">Подтверждение</h2>
             </div>
 
             <div class="order-summary">
@@ -260,7 +291,15 @@
                 <span>{{ form.fullName }}</span>
               </div>
               <div class="summary-row">
-                <span>Адрес</span>
+                <span>Телефон</span>
+                <span>{{ form.phone }}</span>
+              </div>
+              <div v-if="form.telegram" class="summary-row">
+                <span>Telegram</span>
+                <span>{{ form.telegram }}</span>
+              </div>
+              <div class="summary-row">
+                <span>{{ form.deliveryType === 'pvz' ? 'ПВЗ' : 'Адрес' }}</span>
                 <span>{{ fullAddress }}</span>
               </div>
               <div class="summary-row total">
@@ -270,7 +309,7 @@
             </div>
 
             <div class="payment-note">
-              <p>Нажимая «Оплатить», вы будете перенаправлены на страницу безопасной оплаты ЮКасса.</p>
+              <p>После подтверждения мы свяжемся с вами по номеру <strong>{{ form.phone }}</strong>{{ form.telegram ? ` или Telegram ${form.telegram}` : '' }} и отправим ссылку на оплату.</p>
             </div>
 
             <div v-if="paymentError" class="payment-error">{{ paymentError }}</div>
@@ -279,9 +318,17 @@
               <button class="btn-back" @click="checkoutStep = 1">← Назад</button>
               <button class="btn-primary btn-pay" :disabled="paymentLoading" @click="createPayment">
                 <span v-if="paymentLoading" class="btn-spinner"></span>
-                {{ paymentLoading ? 'Создаём заказ...' : `Оплатить ${formatPrice(checkoutProduct?.price || 0)}` }}
+                {{ paymentLoading ? 'Оформляем...' : 'Оформить заказ' }}
               </button>
             </div>
+          </div>
+
+          <!-- STEP 3: УСПЕХ -->
+          <div v-if="checkoutStep === 3" class="checkout-panel checkout-success">
+            <div class="success-icon">✓</div>
+            <h2 class="checkout-title">Заказ оформлен!</h2>
+            <p class="success-text">Мы свяжемся с вами по номеру <strong>{{ form.phone }}</strong>{{ form.telegram ? ` или Telegram ${form.telegram}` : '' }} и отправим ссылку на оплату.</p>
+            <button class="btn-primary" @click="closeCheckout">Закрыть</button>
           </div>
         </div>
       </div>
@@ -292,7 +339,7 @@
 </template>
 
 <script setup lang="ts">
-import { ref, computed, onMounted, onUnmounted, inject, nextTick } from 'vue'
+import { ref, computed, onMounted, onUnmounted, inject } from 'vue'
 import { useApi } from '~/composables/useApi'
 
 const config = useRuntimeConfig()
@@ -311,13 +358,30 @@ const resolveImg = (src: string): string => {
 // useRoute must be called at setup level (not after await inside onMounted)
 const route = useRoute()
 
-const { getProducts } = useApi()
+const { getProducts, getCollections } = useApi()
 
 // Inject cart functions from layout
 const addToCartFn = inject<(product: any) => void>('addToCart')
 
+const SIZES_BY_TYPE: Record<string, string[]> = {
+  tshirt:     ['S', 'M', 'L', 'XL', '2XL', '3XL'],
+  hoodie:     ['XS', 'S', 'M', 'L', 'XL', '2XL', '3XL', '4XL'],
+  longsleeve: ['S', 'M', 'L', 'XL', '2XL'],
+}
+
+const selectedSize = ref('')
+const sizeError = ref(false)
+
+const availableSizes = (product: any): string[] =>
+  product?.clothingType ? (SIZES_BY_TYPE[product.clothingType] || []) : []
+
 const handleAddToCart = (product: any) => {
-  if (addToCartFn) addToCartFn(product)
+  const sizes = availableSizes(product)
+  if (sizes.length > 0 && !selectedSize.value) {
+    sizeError.value = true
+    return
+  }
+  if (addToCartFn) addToCartFn({ ...product, size: selectedSize.value || undefined })
   closeModal()
 }
 
@@ -341,35 +405,42 @@ const paymentError = ref('')
 
 const form = ref({
   fullName: '',
-  email: '',
-  deliveryMethod: '',
-  city: '',
-  address: '',
-  postalCode: '',
+  phone: '',
+  telegram: '',
+  deliveryType: '',   // 'pvz' | 'courier'
+  pvzAddress: '',
+  street: '',
+  apartment: '',
+  entrance: '',
+  floor: '',
   ofertaAccepted: false
 })
 
 const errors = ref<Record<string, string>>({})
 
 const deliveryOptions = [
-  { value: 'cdek', name: 'СДЭК', desc: 'Пункт выдачи или курьер · стоимость рассчитывается по адресу' },
+  { value: 'pvz',     name: 'ПВЗ СДЭК',  desc: 'Самовывоз из пункта выдачи заказов' },
+  { value: 'courier', name: 'Курьер',     desc: 'Доставка до двери' },
 ]
 
-
 const fullAddress = computed(() => {
-  return [form.value.city, form.value.address, form.value.postalCode].filter(Boolean).join(', ')
+  if (form.value.deliveryType === 'pvz') return form.value.pvzAddress
+  const parts = [form.value.street]
+  if (form.value.apartment) parts.push(`кв. ${form.value.apartment}`)
+  if (form.value.entrance)  parts.push(`подъезд ${form.value.entrance}`)
+  if (form.value.floor)     parts.push(`этаж ${form.value.floor}`)
+  return parts.filter(Boolean).join(', ')
 })
 
 // ─── VALIDATION ────────────────────────────────────────────
 const validateStep1 = () => {
   const e: Record<string, string> = {}
   if (!form.value.fullName.trim()) e.fullName = 'Введите ФИО'
-  if (!form.value.email.trim()) e.email = 'Введите email'
-  else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(form.value.email)) e.email = 'Неверный формат email'
-  if (!form.value.deliveryMethod) e.deliveryMethod = 'Выберите способ доставки'
-  if (!form.value.city.trim()) e.city = 'Введите город'
-  if (!form.value.address.trim()) e.address = 'Введите адрес'
-  if (!form.value.postalCode.trim()) e.postalCode = 'Введите индекс'
+  if (!form.value.phone.trim()) e.phone = 'Введите номер телефона'
+  else if (!/^[\+\d][\d\s\(\)\-]{6,18}$/.test(form.value.phone.trim())) e.phone = 'Неверный формат телефона'
+  if (!form.value.deliveryType) e.deliveryType = 'Выберите способ получения'
+  if (form.value.deliveryType === 'pvz' && !form.value.pvzAddress.trim()) e.pvzAddress = 'Введите адрес пункта выдачи'
+  if (form.value.deliveryType === 'courier' && !form.value.street.trim()) e.street = 'Введите улицу и дом'
   if (!form.value.ofertaAccepted) e.oferta = 'Необходимо принять условия оферты'
   errors.value = e
   return Object.keys(e).length === 0
@@ -382,39 +453,33 @@ const proceedToPayment = () => {
   }
 }
 
-// ─── PAYMENT ───────────────────────────────────────────────
+// ─── ORDER ─────────────────────────────────────────────────
 const createPayment = async () => {
   if (!checkoutProduct.value) return
   paymentLoading.value = true
   paymentError.value = ''
 
   try {
-    const res: any = await $fetch(`${API_BASE}/api/payment/create`, {
+    await $fetch(`${API_BASE}/api/orders/create`, {
       method: 'POST',
       body: {
-        productId: checkoutProduct.value.id,
         productName: checkoutProduct.value.name,
-        amount: checkoutProduct.value.price,
+        amount:      checkoutProduct.value.price,
         customer: {
           fullName: form.value.fullName,
-          email: form.value.email,
+          phone:    form.value.phone,
+          telegram: form.value.telegram || null,
         },
         delivery: {
-          method: form.value.deliveryMethod,
-          city: form.value.city,
-          address: form.value.address,
-          postalCode: form.value.postalCode || null,
+          method:        form.value.deliveryType,
+          address:       fullAddress.value,
           deliveryPrice: 0,
         },
       }
     })
-    if (res.confirmationUrl) {
-      window.location.href = res.confirmationUrl
-    } else {
-      paymentError.value = 'Не удалось создать платёж. Попробуйте снова.'
-    }
+    checkoutStep.value = 3
   } catch (err: any) {
-    paymentError.value = err?.data?.message || 'Ошибка при создании платежа'
+    paymentError.value = err?.data?.message || 'Ошибка при оформлении заказа'
   } finally {
     paymentLoading.value = false
   }
@@ -448,11 +513,7 @@ const nextModalImg = () => {
 }
 
 // ─── FILTERS ───────────────────────────────────────────────
-const categories = [
-  { value: '', label: 'ВСЕ' },
-  { value: 'DJ XBOX360', label: 'DJ XBOX360' },
-  { value: '3.5 PROPOVEDNIK COLLECTION', label: '3.5 PROPOVEDNIK COLLECTION' },
-]
+const categories = ref<{ value: string; label: string }[]>([{ value: '', label: 'ВСЕ' }])
 
 const filteredProducts = computed(() => {
   let list = [...allProducts.value]
@@ -483,6 +544,8 @@ const formatPrice = (price: number) => price.toLocaleString('ru') + ' ₽'
 const openProduct = (product: any) => {
   selectedProduct.value = product
   modalImgIndex.value = 0
+  selectedSize.value = ''
+  sizeError.value = false
   modalOpen.value = true
   document.body.style.overflow = 'hidden'
 }
@@ -496,10 +559,10 @@ const openCheckout = (product: any) => {
   checkoutStep.value = 1
   checkoutOpen.value = true
   form.value = {
-    fullName: '', email: '',
-    deliveryMethod: '',
-    city: '', address: '',
-    postalCode: '', ofertaAccepted: false
+    fullName: '', phone: '', telegram: '',
+    deliveryType: '',
+    pvzAddress: '', street: '', apartment: '', entrance: '', floor: '',
+    ofertaAccepted: false
   }
   errors.value = {}
   paymentError.value = ''
@@ -524,7 +587,12 @@ onMounted(async () => {
   }
 
   try {
-    allProducts.value = await getProducts() as any[]
+    const [products, cols] = await Promise.all([getProducts(), getCollections()])
+    allProducts.value = products as any[]
+    categories.value = [
+      { value: '', label: 'ВСЕ' },
+      ...(cols as string[]).map((c: string) => ({ value: c, label: c }))
+    ]
   } catch {
     allProducts.value = []
   } finally {
@@ -540,6 +608,15 @@ onUnmounted(() => {
 </script>
 
 <style scoped>
+/* ─── SIZE SELECTOR ─── */
+.size-selector { display: flex; flex-direction: column; gap: 8px; margin-bottom: 10px; }
+.size-label { font-family: var(--font-cinzel); font-size: 9px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--light); }
+.size-options { display: flex; flex-wrap: wrap; gap: 6px; }
+.size-btn { background: none; border: 1px solid var(--border); color: var(--mid); font-family: var(--font-cinzel); font-size: 10px; letter-spacing: 0.1em; padding: 6px 12px; cursor: pointer; transition: all 0.2s; }
+.size-btn:hover { border-color: var(--red); color: var(--white); }
+.size-btn.active { background: var(--red-deep); border-color: var(--red-bright); color: var(--white); }
+.size-error { font-size: 10px; color: #e74c3c; }
+
 /* ─── HERO ─── */
 .hero { display: grid; grid-template-columns: 1fr 1fr; min-height: 88vh; overflow: hidden; }
 .hero-text { display: flex; flex-direction: column; justify-content: center; padding: 80px 64px; background: var(--deep); border-right: 1px solid var(--border-red); }
@@ -692,6 +769,9 @@ onUnmounted(() => {
 .tab-btn:first-child { border-right: none; }
 .tab-btn.active { background: var(--red-deep); border-color: var(--red); color: var(--white); }
 
+/* 3-column row for apartment/entrance/floor */
+.form-row-3 { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 10px; }
+
 /* OFERTA */
 .oferta-section { padding-top: 4px; }
 .oferta-label { display: flex; align-items: flex-start; gap: 12px; cursor: pointer; }
@@ -713,6 +793,9 @@ onUnmounted(() => {
 .btn-back:hover { border-color: var(--white); color: var(--white); }
 .btn-pay { flex: 1; text-align: center; padding: 16px; font-size: 10px; letter-spacing: 0.2em; display: flex; align-items: center; justify-content: center; gap: 10px; }
 .btn-spinner { width: 14px; height: 14px; border: 2px solid rgba(255,255,255,0.3); border-top-color: var(--white); border-radius: 50%; animation: spin 0.7s linear infinite; }
+.checkout-success { display: flex; flex-direction: column; align-items: center; text-align: center; padding: 20px 0; gap: 16px; }
+.success-icon { width: 56px; height: 56px; border: 2px solid var(--red); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 22px; color: var(--red-bright); }
+.success-text { font-size: 13px; color: var(--mid); line-height: 1.7; }
 
 @media (max-width: 900px) {
   .hero { grid-template-columns: 1fr; }

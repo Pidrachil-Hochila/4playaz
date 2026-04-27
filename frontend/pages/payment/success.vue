@@ -17,6 +17,19 @@
 
 <script setup lang="ts">
 useHead({ title: 'Заказ оформлен — 4PLAYAZ' })
+
+onMounted(() => {
+  const url = new URL(window.location.href)
+  if (!url.searchParams.has('opened')) {
+    url.searchParams.set('opened', '1')
+    window.open(url.toString(), '_blank')
+    if (window.history.length > 1) {
+      window.history.back()
+    } else {
+      window.location.replace('/')
+    }
+  }
+})
 </script>
 
 <style scoped>

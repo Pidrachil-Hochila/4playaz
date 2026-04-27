@@ -1,5 +1,344 @@
 [
   {
+    "id": 1777303579916,
+    "name": "Memphis Tennesee Thrash White Logo Black Tee",
+    "category": "",
+    "clothingType": "tshirt",
+    "price": 2500,
+    "oldPrice": null,
+    "desc": "",
+    "badge": "Exclusive",
+    "image": "/uploads/bdc639dbae4f94e4e8316479632a7b77.webp",
+    "images": [
+      "/uploads/bdc639dbae4f94e4e8316479632a7b77.webp"
+    ]
+  },
+  {
+    "id": 1777303550410,
+    "name": "Memphis Tennesee Thrash White Logo Black Longsleeve",
+    "category": "",
+    "clothingType": "longsleeve",
+    "price": 3000,
+    "oldPrice": null,
+    "desc": "",
+    "badge": "Exclusive",
+    "image": "/uploads/72445b035433612225bbcc1c5521510f.webp",
+    "images": [
+      "/uploads/72445b035433612225bbcc1c5521510f.webp"
+    ]
+  },
+  {
+    "id": 1777303527536,
+    "name": "Memphis Tennesee Thrash White Logo Black Hoodie",
+    "category": "",
+    "clothingType": "hoodie",
+    "price": 4500,
+    "oldPrice": null,
+    "desc": "",
+    "badge": "Exclusive",
+    "image": "/uploads/d0ecea98f61bd3c9890f68fa52729c23.webp",
+    "images": [
+      "/uploads/d0ecea98f61bd3c9890f68fa52729c23.webp"
+    ]
+  },
+  {
+    "id": 1777303503230,
+    "name": "Memphis Tennesee Thrash Red White Tee",
+    "category": "",
+    "clothingType": "tshirt",
+    "price": 2500,
+    "oldPrice": null,
+    "desc": "",
+    "badge": "Exclusive",
+    "image": "/uploads/7093a3b97a764d3b9dcd66df8d95a031.webp",
+    "images": [
+      "/uploads/7093a3b97a764d3b9dcd66df8d95a031.webp"
+    ]
+  },
+  {
+    "id": 1777303465215,
+    "name": "Memphis Tennesee Thrash Red White Longsleeve",
+    "category": "",
+    "clothingType": "longsleeve",
+    "price": 3000,
+    "oldPrice": null,
+    "desc": "",
+    "badge": "Exclusive",
+    "image": "/uploads/7615b663eb2dab64fa7b8b948f368299.webp",
+    "images": [
+      "/uploads/7615b663eb2dab64fa7b8b948f368299.webp"
+    ]
+  },
+  {
+    "id": 1777303435842,
+    "name": "Memphis Tennesee Thrash Red White Hoodie",
+    "category": "",
+    "clothingType": "hoodie",
+    "price": 4500,
+    "oldPrice": null,
+    "desc": "",
+    "badge": "Exclusive",
+    "image": "/uploads/6de6a29997fc70d0b15e091c0e5e115c.webp",
+    "images": [
+      "/uploads/6de6a29997fc70d0b15e091c0e5e115c.webp"
+    ]
+  },
+  {
+    "id": 1777303365973,
+    "name": "Memphis Tennesee Thrash Red Black Tee",
+    "category": "",
+    "clothingType": "tshirt",
+    "price": 2500,
+    "oldPrice": null,
+    "desc": "",
+    "badge": "Exclusive",
+    "image": "/uploads/dacc8cbf76af988ef062258f853dc7c4.webp",
+    "images": [
+      "/uploads/dacc8cbf76af988ef062258f853dc7c4.webp"
+    ]
+  },
+  {
+    "id": 1777303333570,
+    "name": "Memphis Tennesee Thrash Red Black Longsleeve",
+    "category": "",
+    "clothingType": "longsleeve",
+    "price": 3000,
+    "oldPrice": null,
+    "desc": "",
+    "badge": "Exclusive",
+    "image": "/uploads/d3f4370f7fa9b430b2146fb66dd44e24.webp",
+    "images": [
+      "/uploads/d3f4370f7fa9b430b2146fb66dd44e24.webp"
+    ]
+  },
+  {
+    "id": 1777303303875,
+    "name": "Memphis Tennesee Thrash Red Black Hoodie",
+    "category": "",
+    "clothingType": "hoodie",
+    "price": 4500,
+    "oldPrice": null,
+    "desc": "",
+    "badge": "Exclusive",
+    "image": "/uploads/07d72f258a24355ad6b8a28f0c578ff1.webp",
+    "images": [
+      "/uploads/07d72f258a24355ad6b8a28f0c578ff1.webp"
+    ]
+  },
+  {
+    "id": 1777303254490,
+    "name": "Memphis Tennesee Thrash Original White Tee",
+    "category": "",
+    "clothingType": "tshirt",
+    "price": 2500,
+    "oldPrice": null,
+    "desc": "",
+    "badge": "Exclusive",
+    "image": "/uploads/d8f59808ff694f939072ece38c6db38e.webp",
+    "images": [
+      "/uploads/d8f59808ff694f939072ece38c6db38e.webp"
+    ]
+  },
+  {
+    "id": 1777303221534,
+    "name": "Memphis Tennesee Thrash Original White Longsleeve",
+    "category": "",
+    "clothingType": "longsleeve",
+    "price": 4500,
+    "oldPrice": null,
+    "desc": "",
+    "badge": "Exclusive",
+    "image": "/uploads/2ade99d2c56c11a047818b010109f680.webp",
+    "images": [
+      "/uploads/2ade99d2c56c11a047818b010109f680.webp"
+    ]
+  },
+  {
+    "id": 1777303186136,
+    "name": "Memphis Tennesee Thrash Original White Hoodie",
+    "category": "",
+    "clothingType": "hoodie",
+    "price": 4500,
+    "oldPrice": null,
+    "desc": "",
+    "badge": "Exclusive",
+    "image": "/uploads/9e93d93d0ada6a560df78ef56abfc773.webp",
+    "images": [
+      "/uploads/9e93d93d0ada6a560df78ef56abfc773.webp"
+    ]
+  },
+  {
+    "id": 1777303152670,
+    "name": "Memphis Tennesee Thrash Original Black Tee",
+    "category": "",
+    "clothingType": "tshirt",
+    "price": 2500,
+    "oldPrice": null,
+    "desc": "",
+    "badge": "Exclusive",
+    "image": "/uploads/cb46ab857db9807370bee6772bd29748.webp",
+    "images": [
+      "/uploads/cb46ab857db9807370bee6772bd29748.webp"
+    ]
+  },
+  {
+    "id": 1777303123542,
+    "name": "Memphis Tennesee Thrash Original Black Longsleeve",
+    "category": "",
+    "clothingType": "longsleeve",
+    "price": 3000,
+    "oldPrice": null,
+    "desc": "",
+    "badge": "Exclusive",
+    "image": "/uploads/28c4a11540abeb07bd92e57813cebbd2.webp",
+    "images": [
+      "/uploads/28c4a11540abeb07bd92e57813cebbd2.webp"
+    ]
+  },
+  {
+    "id": 1777303090903,
+    "name": "Memphis Tennesee Thrash Original Black Hoodie",
+    "category": "",
+    "clothingType": "hoodie",
+    "price": 4500,
+    "oldPrice": null,
+    "desc": "",
+    "badge": "Exclusive",
+    "image": "/uploads/7cc6f2fdadc619f9e5676767dea5ba99.png",
+    "images": [
+      "/uploads/7cc6f2fdadc619f9e5676767dea5ba99.png"
+    ]
+  },
+  {
+    "id": 1777303061949,
+    "name": "Memphis Tennesee Thrash Black Logo White Hoodie",
+    "category": "",
+    "clothingType": "hoodie",
+    "price": 4500,
+    "oldPrice": null,
+    "desc": "",
+    "badge": "Exclusive",
+    "image": "/uploads/7d2d6b972ed8545ed16994579b86d7a0.png",
+    "images": [
+      "/uploads/7d2d6b972ed8545ed16994579b86d7a0.png"
+    ]
+  },
+  {
+    "id": 1777303017147,
+    "name": "Memphis Jookin As Buck Black Longsleeve",
+    "category": "",
+    "clothingType": "longsleeve",
+    "price": 3000,
+    "oldPrice": null,
+    "desc": "",
+    "badge": "Exclusive",
+    "image": "/uploads/2d45d37e4a9f4664456aa4d2b91629d0.webp",
+    "images": [
+      "/uploads/2d45d37e4a9f4664456aa4d2b91629d0.webp"
+    ]
+  },
+  {
+    "id": 1777302881375,
+    "name": "Memphis Jookin As Buck Black Hoodie",
+    "category": "",
+    "clothingType": "hoodie",
+    "price": 4500,
+    "oldPrice": null,
+    "desc": "",
+    "badge": "Exclusive",
+    "image": "/uploads/4f3369a1a3ae0881a70a1f257dcc43f2.png",
+    "images": [
+      "/uploads/4f3369a1a3ae0881a70a1f257dcc43f2.png",
+      "/uploads/ae18b64cdb517e570ea74ef36514e2e8.png"
+    ]
+  },
+  {
+    "id": 1777302379615,
+    "name": "Уходя Рисуй Везде! White Tee",
+    "category": "",
+    "clothingType": "tshirt",
+    "price": 2500,
+    "oldPrice": null,
+    "desc": "",
+    "badge": "Exclusive",
+    "image": "/uploads/63bc53dca8f24ad65d63bfae0f19f0f4.webp",
+    "images": [
+      "/uploads/63bc53dca8f24ad65d63bfae0f19f0f4.webp"
+    ]
+  },
+  {
+    "id": 1777302346146,
+    "name": "Уходя Рисуй Везде! Black Tee",
+    "category": "",
+    "clothingType": "tshirt",
+    "price": 2500,
+    "oldPrice": null,
+    "desc": "",
+    "badge": "Exclusive",
+    "image": "/uploads/ff038668cc5c582d374ebf2458378789.webp",
+    "images": [
+      "/uploads/ff038668cc5c582d374ebf2458378789.webp"
+    ]
+  },
+  {
+    "id": 1777302322377,
+    "name": "Уходя Рисуй Везде! Black Longsleeve",
+    "category": "",
+    "clothingType": "longsleeve",
+    "price": 3000,
+    "oldPrice": null,
+    "desc": "",
+    "badge": "Exclusive",
+    "image": "/uploads/98d52c4efae156e36c7fa10910c56bad.webp",
+    "images": [
+      "/uploads/98d52c4efae156e36c7fa10910c56bad.webp"
+    ]
+  },
+  {
+    "id": 1777302281062,
+    "name": "Уходя Рисуй Везде! White Longsleeve",
+    "category": "",
+    "clothingType": "longsleeve",
+    "price": 3000,
+    "oldPrice": null,
+    "desc": "",
+    "badge": "Exclusive",
+    "image": "/uploads/78031b62e46e1d2fac4de67c892e7725.webp",
+    "images": [
+      "/uploads/78031b62e46e1d2fac4de67c892e7725.webp"
+    ]
+  },
+  {
+    "id": 1777302231318,
+    "name": "Уходя Рисуй Везде! White Hoodie",
+    "category": "",
+    "clothingType": "hoodie",
+    "price": 4500,
+    "oldPrice": null,
+    "desc": "",
+    "badge": "Exclusive",
+    "image": "/uploads/c146c4691358f0012f0dd2ac2651d243.webp",
+    "images": [
+      "/uploads/c146c4691358f0012f0dd2ac2651d243.webp",
+      "/uploads/39c79dbe98137e8b4291768f2df9e487.webp"
+    ]
+  },
+  {
+    "id": 1777302157421,
+    "name": "Уходя Рисуй Везде! Black Hoodie",
+    "category": "",
+    "clothingType": "hoodie",
+    "price": 4500,
+    "oldPrice": null,
+    "desc": "",
+    "badge": "Exclusive",
+    "image": "/uploads/8bf6253910ab063a0c20d1eecbcc254f.webp",
+    "images": [
+      "/uploads/8bf6253910ab063a0c20d1eecbcc254f.webp",
+      "/uploads/7c5ddc624341c01265e5e9b48df52beb.webp"
+    ]
+  },
+  {
     "id": 1776899481437,
     "name": "(DOOMSHOP) War Before Civilization 1726 Tee",
     "category": "DOOMSHOP",
@@ -8,25 +347,25 @@
     "oldPrice": null,
     "desc": "",
     "badge": "",
-    "image": "/uploads/07934a00b7f70e299541ce704d6080f7.png",
+    "image": "/uploads/07934a00b7f70e299541ce704d6080f7.webp",
     "images": [
-      "/uploads/07934a00b7f70e299541ce704d6080f7.png",
-      "/uploads/1946a7280be549dc74bb7a2f902ee2b4.png"
+      "/uploads/07934a00b7f70e299541ce704d6080f7.webp",
+      "/uploads/1946a7280be549dc74bb7a2f902ee2b4.webp"
     ]
   },
   {
     "id": 1776899481450,
-    "name": "3-6 MAFIA",
+    "name": "3-6 MAFIA Tee",
     "category": "THREE SIX MAFIA",
     "clothingType": "tshirt",
     "price": 2500,
     "oldPrice": null,
     "desc": "",
     "badge": "",
-    "image": "/uploads/fa97daeadefec294a2269a654e3deff9.png",
+    "image": "/uploads/fa97daeadefec294a2269a654e3deff9.webp",
     "images": [
-      "/uploads/fa97daeadefec294a2269a654e3deff9.png",
-      "/uploads/73c0d175d0b9b921868f095d0e88ed15.png"
+      "/uploads/fa97daeadefec294a2269a654e3deff9.webp",
+      "/uploads/73c0d175d0b9b921868f095d0e88ed15.webp"
     ]
   },
   {
@@ -38,10 +377,10 @@
     "oldPrice": null,
     "desc": "",
     "badge": "New",
-    "image": "/uploads/90492b087a590a6dbc3e7b133c515ad3.png",
+    "image": "/uploads/90492b087a590a6dbc3e7b133c515ad3.webp",
     "images": [
-      "/uploads/90492b087a590a6dbc3e7b133c515ad3.png",
-      "/uploads/88cbccd852b419a9a49b893bf3b06ffa.png"
+      "/uploads/90492b087a590a6dbc3e7b133c515ad3.webp",
+      "/uploads/88cbccd852b419a9a49b893bf3b06ffa.webp"
     ]
   },
   {
@@ -49,14 +388,14 @@
     "name": "3.5 PROPOVEDNIK COLLECTION Longsleeve",
     "category": "3.5 PROPOVEDNIK COLLECTION",
     "clothingType": "longsleeve",
-    "price": 3500,
+    "price": 3000,
     "oldPrice": null,
     "desc": "",
     "badge": "New",
-    "image": "/uploads/24007c3e91f8b8ec9adac27a8569bb87.png",
+    "image": "/uploads/24007c3e91f8b8ec9adac27a8569bb87.webp",
     "images": [
-      "/uploads/24007c3e91f8b8ec9adac27a8569bb87.png",
-      "/uploads/d60f3e3b0f0b0473e0ab215034f63711.png"
+      "/uploads/24007c3e91f8b8ec9adac27a8569bb87.webp",
+      "/uploads/d60f3e3b0f0b0473e0ab215034f63711.webp"
     ]
   },
   {
@@ -68,25 +407,25 @@
     "oldPrice": null,
     "desc": "",
     "badge": "New",
-    "image": "/uploads/c71f35f3fcf8c60b147da0916170252a.png",
+    "image": "/uploads/c71f35f3fcf8c60b147da0916170252a.webp",
     "images": [
-      "/uploads/c71f35f3fcf8c60b147da0916170252a.png",
-      "/uploads/9d251bc5aa74628e7e834b9ca5cb5221.png"
+      "/uploads/c71f35f3fcf8c60b147da0916170252a.webp",
+      "/uploads/9d251bc5aa74628e7e834b9ca5cb5221.webp"
     ]
   },
   {
     "id": 1776899481618,
-    "name": "4playaz tee",
+    "name": "4PLAYAZ TEE",
     "category": "4PLAYAZ",
     "clothingType": "tshirt",
     "price": 2500,
     "oldPrice": null,
     "desc": "",
     "badge": "",
-    "image": "/uploads/9e2730f72f01ace07505a0775d69c963.png",
+    "image": "/uploads/9e2730f72f01ace07505a0775d69c963.webp",
     "images": [
-      "/uploads/9e2730f72f01ace07505a0775d69c963.png",
-      "/uploads/d201768b0cf20320e4ec994999d2eb65.png"
+      "/uploads/9e2730f72f01ace07505a0775d69c963.webp",
+      "/uploads/d201768b0cf20320e4ec994999d2eb65.webp"
     ]
   },
   {
@@ -98,10 +437,10 @@
     "oldPrice": null,
     "desc": "",
     "badge": "",
-    "image": "/uploads/a3b3244a99fa8a2eba055c63ed478fb9.png",
+    "image": "/uploads/a3b3244a99fa8a2eba055c63ed478fb9.webp",
     "images": [
-      "/uploads/a3b3244a99fa8a2eba055c63ed478fb9.png",
-      "/uploads/ac810ec3989d351fd0f3a680f7f8bdc6.png"
+      "/uploads/a3b3244a99fa8a2eba055c63ed478fb9.webp",
+      "/uploads/ac810ec3989d351fd0f3a680f7f8bdc6.webp"
     ]
   },
   {
@@ -113,10 +452,10 @@
     "oldPrice": null,
     "desc": "",
     "badge": "",
-    "image": "/uploads/e007d0d4ee3430c9d7bf3b88334c8c75.png",
+    "image": "/uploads/e007d0d4ee3430c9d7bf3b88334c8c75.webp",
     "images": [
-      "/uploads/e007d0d4ee3430c9d7bf3b88334c8c75.png",
-      "/uploads/c0904986d4cf2791525492148000c239.png"
+      "/uploads/e007d0d4ee3430c9d7bf3b88334c8c75.webp",
+      "/uploads/c0904986d4cf2791525492148000c239.webp"
     ]
   },
   {
@@ -124,13 +463,13 @@
     "name": "Bone Thugs-N-Harmony White Longsleeve",
     "category": "BONE THUGS-N-HARMONY",
     "clothingType": "longsleeve",
-    "price": 3500,
+    "price": 3000,
     "oldPrice": null,
     "desc": "",
     "badge": "",
-    "image": "/uploads/0de149d0c95b8018101ec16894160bcb.png",
+    "image": "/uploads/0de149d0c95b8018101ec16894160bcb.webp",
     "images": [
-      "/uploads/0de149d0c95b8018101ec16894160bcb.png"
+      "/uploads/0de149d0c95b8018101ec16894160bcb.webp"
     ]
   },
   {
@@ -138,13 +477,13 @@
     "name": "DEVILISH Black Longsleeve",
     "category": "DEVILISH TRIO",
     "clothingType": "longsleeve",
-    "price": 3500,
+    "price": 3000,
     "oldPrice": null,
     "desc": "",
     "badge": "",
-    "image": "/uploads/6e7f98a4a50c5ebd13db884a330f5a71.png",
+    "image": "/uploads/6e7f98a4a50c5ebd13db884a330f5a71.webp",
     "images": [
-      "/uploads/6e7f98a4a50c5ebd13db884a330f5a71.png"
+      "/uploads/6e7f98a4a50c5ebd13db884a330f5a71.webp"
     ]
   },
   {
@@ -152,13 +491,13 @@
     "name": "Devilish Trio - Past Junts Black Longsleeve",
     "category": "DEVILISH TRIO",
     "clothingType": "longsleeve",
-    "price": 3500,
+    "price": 3000,
     "oldPrice": null,
     "desc": "",
     "badge": "",
-    "image": "/uploads/030b78da5f16aec18ff772bfac1e4bfb.png",
+    "image": "/uploads/030b78da5f16aec18ff772bfac1e4bfb.webp",
     "images": [
-      "/uploads/030b78da5f16aec18ff772bfac1e4bfb.png"
+      "/uploads/030b78da5f16aec18ff772bfac1e4bfb.webp"
     ]
   },
   {
@@ -170,10 +509,10 @@
     "oldPrice": null,
     "desc": "",
     "badge": "",
-    "image": "/uploads/ca0ea12ebac0bbc4c58d54b531392e53.png",
+    "image": "/uploads/ca0ea12ebac0bbc4c58d54b531392e53.webp",
     "images": [
-      "/uploads/ca0ea12ebac0bbc4c58d54b531392e53.png",
-      "/uploads/63988f3aec2f7eb764d37478a4fcfde1.png"
+      "/uploads/ca0ea12ebac0bbc4c58d54b531392e53.webp",
+      "/uploads/63988f3aec2f7eb764d37478a4fcfde1.webp"
     ]
   },
   {
@@ -185,10 +524,10 @@
     "oldPrice": null,
     "desc": "",
     "badge": "",
-    "image": "/uploads/cbecdff0815421a3ea1a259e30ad5bee.png",
+    "image": "/uploads/cbecdff0815421a3ea1a259e30ad5bee.webp",
     "images": [
-      "/uploads/cbecdff0815421a3ea1a259e30ad5bee.png",
-      "/uploads/e06a4f913e55ea7b608aa08e73d2a5d8.png"
+      "/uploads/cbecdff0815421a3ea1a259e30ad5bee.webp",
+      "/uploads/e06a4f913e55ea7b608aa08e73d2a5d8.webp"
     ]
   },
   {
@@ -200,40 +539,40 @@
     "oldPrice": null,
     "desc": "",
     "badge": "",
-    "image": "/uploads/0b4b7ecac23aaa7da1cf1cccd110e8c0.png",
+    "image": "/uploads/0b4b7ecac23aaa7da1cf1cccd110e8c0.webp",
     "images": [
-      "/uploads/0b4b7ecac23aaa7da1cf1cccd110e8c0.png",
-      "/uploads/fa8693fbbb5ed5b0f2b0dd33dc2665de.png"
+      "/uploads/0b4b7ecac23aaa7da1cf1cccd110e8c0.webp",
+      "/uploads/fa8693fbbb5ed5b0f2b0dd33dc2665de.webp"
     ]
   },
   {
     "id": 1776899481805,
-    "name": "Devilish Trio tee old logo",
+    "name": "Devilish Trio Old Logo Tee",
     "category": "DEVILISH TRIO",
     "clothingType": "tshirt",
     "price": 2500,
     "oldPrice": null,
     "desc": "",
     "badge": "",
-    "image": "/uploads/bb900397bce953dd68262d66b69e37a4.png",
+    "image": "/uploads/bb900397bce953dd68262d66b69e37a4.webp",
     "images": [
-      "/uploads/bb900397bce953dd68262d66b69e37a4.png",
-      "/uploads/b1999ea885cbe77a721e18ffb3fe3d67.png"
+      "/uploads/bb900397bce953dd68262d66b69e37a4.webp",
+      "/uploads/b1999ea885cbe77a721e18ffb3fe3d67.webp"
     ]
   },
   {
     "id": 1776899481821,
-    "name": "DEVILISH TRIO",
+    "name": "DEVILISH TRIO Hoodie",
     "category": "DEVILISH TRIO",
-    "clothingType": "tshirt",
-    "price": 2500,
+    "clothingType": "hoodie",
+    "price": 4500,
     "oldPrice": null,
     "desc": "",
     "badge": "",
-    "image": "/uploads/5fd11fb2dca773c2b85a3d38b58dc1e3.png",
+    "image": "/uploads/5fd11fb2dca773c2b85a3d38b58dc1e3.webp",
     "images": [
-      "/uploads/5fd11fb2dca773c2b85a3d38b58dc1e3.png",
-      "/uploads/b769a48a8cf1d36351c37d4a7212781c.png"
+      "/uploads/5fd11fb2dca773c2b85a3d38b58dc1e3.webp",
+      "/uploads/b769a48a8cf1d36351c37d4a7212781c.webp"
     ]
   },
   {
@@ -241,29 +580,29 @@
     "name": "DJ Akoza Black Longsleeve",
     "category": "DJ AKOZA",
     "clothingType": "longsleeve",
-    "price": 3500,
+    "price": 3000,
     "oldPrice": null,
     "desc": "",
     "badge": "",
-    "image": "/uploads/10ceaabf4f53da39797ac167c3333875.png",
+    "image": "/uploads/10ceaabf4f53da39797ac167c3333875.webp",
     "images": [
-      "/uploads/10ceaabf4f53da39797ac167c3333875.png",
-      "/uploads/922b3018e05a7f136b5d4a67a400701a.png"
+      "/uploads/10ceaabf4f53da39797ac167c3333875.webp",
+      "/uploads/922b3018e05a7f136b5d4a67a400701a.webp"
     ]
   },
   {
     "id": 1776899481905,
-    "name": "dj akoza",
+    "name": "DJ Akoza Black Hoodie",
     "category": "DJ AKOZA",
-    "clothingType": "tshirt",
-    "price": 2500,
+    "clothingType": "hoodie",
+    "price": 4500,
     "oldPrice": null,
     "desc": "",
     "badge": "",
-    "image": "/uploads/40fc83d3815bfc54dcc7410ce80da39d.png",
+    "image": "/uploads/40fc83d3815bfc54dcc7410ce80da39d.webp",
     "images": [
-      "/uploads/40fc83d3815bfc54dcc7410ce80da39d.png",
-      "/uploads/4333d00fe435a7a48290146081003e5b.png"
+      "/uploads/40fc83d3815bfc54dcc7410ce80da39d.webp",
+      "/uploads/4333d00fe435a7a48290146081003e5b.webp"
     ]
   },
   {
@@ -275,25 +614,25 @@
     "oldPrice": null,
     "desc": "",
     "badge": "",
-    "image": "/uploads/c1ae5182fac27037fe131fe84c84de4d.png",
+    "image": "/uploads/c1ae5182fac27037fe131fe84c84de4d.webp",
     "images": [
-      "/uploads/c1ae5182fac27037fe131fe84c84de4d.png",
-      "/uploads/d768cb21dae090bce05733a3c300e819.png"
+      "/uploads/c1ae5182fac27037fe131fe84c84de4d.webp",
+      "/uploads/d768cb21dae090bce05733a3c300e819.webp"
     ]
   },
   {
     "id": 1776899481932,
-    "name": "DJ Akoza – Inherit The Wasteland",
+    "name": "DJ Akoza – Inherit The Wasteland Hoodie",
     "category": "DJ AKOZA",
-    "clothingType": "tshirt",
-    "price": 2500,
+    "clothingType": "hoodie",
+    "price": 4500,
     "oldPrice": null,
     "desc": "",
     "badge": "",
-    "image": "/uploads/0aa55e1479dae3392dea1a51792d7991.png",
+    "image": "/uploads/0aa55e1479dae3392dea1a51792d7991.webp",
     "images": [
-      "/uploads/0aa55e1479dae3392dea1a51792d7991.png",
-      "/uploads/e420e78bd6b1f0d320eb7799a1b33d5a.png"
+      "/uploads/0aa55e1479dae3392dea1a51792d7991.webp",
+      "/uploads/e420e78bd6b1f0d320eb7799a1b33d5a.webp"
     ]
   },
   {
@@ -305,10 +644,10 @@
     "oldPrice": null,
     "desc": "",
     "badge": "",
-    "image": "/uploads/d66787df0602f6636f7654468f8963d0.png",
+    "image": "/uploads/d66787df0602f6636f7654468f8963d0.webp",
     "images": [
-      "/uploads/d66787df0602f6636f7654468f8963d0.png",
-      "/uploads/a6ee8a5ec8b6036831ba3c259bdf9bb5.png"
+      "/uploads/d66787df0602f6636f7654468f8963d0.webp",
+      "/uploads/a6ee8a5ec8b6036831ba3c259bdf9bb5.webp"
     ]
   },
   {
@@ -320,10 +659,10 @@
     "oldPrice": null,
     "desc": "",
     "badge": "",
-    "image": "/uploads/11bd6e476f68815f2d46ba378f415d06.png",
+    "image": "/uploads/11bd6e476f68815f2d46ba378f415d06.webp",
     "images": [
-      "/uploads/11bd6e476f68815f2d46ba378f415d06.png",
-      "/uploads/8840933c821758690875febe54457a29.png"
+      "/uploads/11bd6e476f68815f2d46ba378f415d06.webp",
+      "/uploads/8840933c821758690875febe54457a29.webp"
     ]
   },
   {
@@ -335,10 +674,10 @@
     "oldPrice": null,
     "desc": "",
     "badge": "",
-    "image": "/uploads/4d903f6368ee464962a446391639b79d.png",
+    "image": "/uploads/4d903f6368ee464962a446391639b79d.webp",
     "images": [
-      "/uploads/4d903f6368ee464962a446391639b79d.png",
-      "/uploads/ed36730d926209366e7421454ade9b79.png"
+      "/uploads/4d903f6368ee464962a446391639b79d.webp",
+      "/uploads/ed36730d926209366e7421454ade9b79.webp"
     ]
   },
   {
@@ -350,9 +689,10 @@
     "oldPrice": null,
     "desc": "",
     "badge": "",
-    "image": "/uploads/437c0b58a8e48a920b9a29911a714e47.png",
+    "image": "/uploads/437c0b58a8e48a920b9a29911a714e47.webp",
     "images": [
-      "/uploads/437c0b58a8e48a920b9a29911a714e47.png"
+      "/uploads/437c0b58a8e48a920b9a29911a714e47.webp",
+      "/uploads/e3958f36062fae74132d5e960da8bebd.webp"
     ]
   },
   {
@@ -364,24 +704,10 @@
     "oldPrice": null,
     "desc": "",
     "badge": "",
-    "image": "/uploads/70ecd23f99860b7f535ee4f133cf6b95.png",
+    "image": "/uploads/70ecd23f99860b7f535ee4f133cf6b95.webp",
     "images": [
-      "/uploads/70ecd23f99860b7f535ee4f133cf6b95.png",
-      "/uploads/4eb4c5d5aa88edb03ef5cb2764fe13f2.png"
-    ]
-  },
-  {
-    "id": 1776899482016,
-    "name": "DJ SACRED",
-    "category": "DJ SACRED",
-    "clothingType": "tshirt",
-    "price": 2500,
-    "oldPrice": null,
-    "desc": "",
-    "badge": "",
-    "image": "/uploads/50916c9b0a6fa289f92072c0f83992de.png",
-    "images": [
-      "/uploads/50916c9b0a6fa289f92072c0f83992de.png"
+      "/uploads/70ecd23f99860b7f535ee4f133cf6b95.webp",
+      "/uploads/4eb4c5d5aa88edb03ef5cb2764fe13f2.webp"
     ]
   },
   {
@@ -389,13 +715,13 @@
     "name": "DJ SCREW Black Longsleeve",
     "category": "DJ SCREW",
     "clothingType": "longsleeve",
-    "price": 3500,
+    "price": 3000,
     "oldPrice": null,
     "desc": "",
     "badge": "",
-    "image": "/uploads/29b54f7f087a455827b1910085c5762b.png",
+    "image": "/uploads/29b54f7f087a455827b1910085c5762b.webp",
     "images": [
-      "/uploads/29b54f7f087a455827b1910085c5762b.png"
+      "/uploads/29b54f7f087a455827b1910085c5762b.webp"
     ]
   },
   {
@@ -407,25 +733,25 @@
     "oldPrice": null,
     "desc": "",
     "badge": "",
-    "image": "/uploads/95337ca2dbabdd01c7863c435b17317f.png",
+    "image": "/uploads/95337ca2dbabdd01c7863c435b17317f.webp",
     "images": [
-      "/uploads/95337ca2dbabdd01c7863c435b17317f.png",
-      "/uploads/70fbad01e5a6808bbc14050632d42ae0.png"
+      "/uploads/95337ca2dbabdd01c7863c435b17317f.webp",
+      "/uploads/70fbad01e5a6808bbc14050632d42ae0.webp"
     ]
   },
   {
     "id": 1776899482078,
-    "name": "DJ SCREW",
+    "name": "DJ SCREW Hoodie",
     "category": "DJ SCREW",
-    "clothingType": "tshirt",
-    "price": 2500,
+    "clothingType": "hoodie",
+    "price": 4500,
     "oldPrice": null,
     "desc": "",
     "badge": "",
-    "image": "/uploads/2cea421d57c453e72067f2e611aa05fc.png",
+    "image": "/uploads/2cea421d57c453e72067f2e611aa05fc.webp",
     "images": [
-      "/uploads/2cea421d57c453e72067f2e611aa05fc.png",
-      "/uploads/cf125a8492e785c9f7ae0506e83e6a4d.png"
+      "/uploads/2cea421d57c453e72067f2e611aa05fc.webp",
+      "/uploads/cf125a8492e785c9f7ae0506e83e6a4d.webp"
     ]
   },
   {
@@ -437,10 +763,10 @@
     "oldPrice": null,
     "desc": "",
     "badge": "",
-    "image": "/uploads/56ad2f180a9da762e5efac6fe651e8e1.png",
+    "image": "/uploads/56ad2f180a9da762e5efac6fe651e8e1.webp",
     "images": [
-      "/uploads/56ad2f180a9da762e5efac6fe651e8e1.png",
-      "/uploads/9e274f32ccb9e3bad5a730a35778b6e6.png"
+      "/uploads/56ad2f180a9da762e5efac6fe651e8e1.webp",
+      "/uploads/9e274f32ccb9e3bad5a730a35778b6e6.webp"
     ]
   },
   {
@@ -452,10 +778,10 @@
     "oldPrice": null,
     "desc": "",
     "badge": "",
-    "image": "/uploads/98bd973bd703086d3a13833298518009.png",
+    "image": "/uploads/98bd973bd703086d3a13833298518009.webp",
     "images": [
-      "/uploads/98bd973bd703086d3a13833298518009.png",
-      "/uploads/7529c9e67c6f7b8ace315f3e6e48d0d7.png"
+      "/uploads/98bd973bd703086d3a13833298518009.webp",
+      "/uploads/7529c9e67c6f7b8ace315f3e6e48d0d7.webp"
     ]
   },
   {
@@ -467,10 +793,10 @@
     "oldPrice": null,
     "desc": "",
     "badge": "",
-    "image": "/uploads/4125c7a6f796e01f870167315917cd47.png",
+    "image": "/uploads/4125c7a6f796e01f870167315917cd47.webp",
     "images": [
-      "/uploads/4125c7a6f796e01f870167315917cd47.png",
-      "/uploads/7529c9e67c6f7b8ace315f3e6e48d0d7.png"
+      "/uploads/4125c7a6f796e01f870167315917cd47.webp",
+      "/uploads/7529c9e67c6f7b8ace315f3e6e48d0d7.webp"
     ]
   },
   {
@@ -482,9 +808,9 @@
     "oldPrice": null,
     "desc": "",
     "badge": "",
-    "image": "/uploads/5a6c114556050d5808d453e1aa9ef4e5.png",
+    "image": "/uploads/5a6c114556050d5808d453e1aa9ef4e5.webp",
     "images": [
-      "/uploads/5a6c114556050d5808d453e1aa9ef4e5.png"
+      "/uploads/5a6c114556050d5808d453e1aa9ef4e5.webp"
     ]
   },
   {
@@ -496,9 +822,9 @@
     "oldPrice": null,
     "desc": "",
     "badge": "",
-    "image": "/uploads/c61e246ab4ef25b2d98cfdb426518ea8.png",
+    "image": "/uploads/c61e246ab4ef25b2d98cfdb426518ea8.webp",
     "images": [
-      "/uploads/c61e246ab4ef25b2d98cfdb426518ea8.png"
+      "/uploads/c61e246ab4ef25b2d98cfdb426518ea8.webp"
     ]
   },
   {
@@ -506,13 +832,13 @@
     "name": "DJ Sacred Memphis Rap Strikes Back Black Longsleeve",
     "category": "DJ SACRED",
     "clothingType": "longsleeve",
-    "price": 3500,
+    "price": 3000,
     "oldPrice": null,
     "desc": "",
     "badge": "",
-    "image": "/uploads/a3c6670991f21347f74e1e4da588f9b8.png",
+    "image": "/uploads/a3c6670991f21347f74e1e4da588f9b8.webp",
     "images": [
-      "/uploads/a3c6670991f21347f74e1e4da588f9b8.png"
+      "/uploads/a3c6670991f21347f74e1e4da588f9b8.webp"
     ]
   },
   {
@@ -524,10 +850,10 @@
     "oldPrice": null,
     "desc": "",
     "badge": "",
-    "image": "/uploads/19aafcee26e9db67117c783e4ec64578.png",
+    "image": "/uploads/19aafcee26e9db67117c783e4ec64578.webp",
     "images": [
-      "/uploads/19aafcee26e9db67117c783e4ec64578.png",
-      "/uploads/b62f4e042a525b13e05aa1dff984ba46.png"
+      "/uploads/19aafcee26e9db67117c783e4ec64578.webp",
+      "/uploads/b62f4e042a525b13e05aa1dff984ba46.webp"
     ]
   },
   {
@@ -539,10 +865,10 @@
     "oldPrice": null,
     "desc": "",
     "badge": "",
-    "image": "/uploads/6143b747a94f548ef3100cc15628f946.png",
+    "image": "/uploads/6143b747a94f548ef3100cc15628f946.webp",
     "images": [
-      "/uploads/6143b747a94f548ef3100cc15628f946.png",
-      "/uploads/1d2f206cba2300f65eb1f50f6ee094ca.png"
+      "/uploads/6143b747a94f548ef3100cc15628f946.webp",
+      "/uploads/1d2f206cba2300f65eb1f50f6ee094ca.webp"
     ]
   },
   {
@@ -554,10 +880,10 @@
     "oldPrice": null,
     "desc": "",
     "badge": "",
-    "image": "/uploads/7d7907a1915e8b231928647ff21db33b.png",
+    "image": "/uploads/7d7907a1915e8b231928647ff21db33b.webp",
     "images": [
-      "/uploads/7d7907a1915e8b231928647ff21db33b.png",
-      "/uploads/20d3c212a1cc98e9a3b1062c5a0829cd.png"
+      "/uploads/7d7907a1915e8b231928647ff21db33b.webp",
+      "/uploads/20d3c212a1cc98e9a3b1062c5a0829cd.webp"
     ]
   },
   {
@@ -565,29 +891,29 @@
     "name": "DOOMSHOP Black Longsleeve",
     "category": "DOOMSHOP",
     "clothingType": "longsleeve",
-    "price": 3500,
+    "price": 3000,
     "oldPrice": null,
     "desc": "",
     "badge": "",
-    "image": "/uploads/bf6a80aa3f4206c6ba8c9b02cc349be5.png",
+    "image": "/uploads/bf6a80aa3f4206c6ba8c9b02cc349be5.webp",
     "images": [
-      "/uploads/bf6a80aa3f4206c6ba8c9b02cc349be5.png",
-      "/uploads/3712537c3da163f1fafbab76564caf8c.png"
+      "/uploads/bf6a80aa3f4206c6ba8c9b02cc349be5.webp",
+      "/uploads/3712537c3da163f1fafbab76564caf8c.webp"
     ]
   },
   {
     "id": 1776899482388,
-    "name": "doomshop fire logo",
+    "name": "DOOMSHOP FIRE LOGO Hoodie",
     "category": "DOOMSHOP",
-    "clothingType": "tshirt",
-    "price": 2500,
+    "clothingType": "hoodie",
+    "price": 4500,
     "oldPrice": null,
     "desc": "",
     "badge": "",
-    "image": "/uploads/c4898747f7b07bf1e2a464b985bfc1bc.png",
+    "image": "/uploads/c4898747f7b07bf1e2a464b985bfc1bc.webp",
     "images": [
-      "/uploads/c4898747f7b07bf1e2a464b985bfc1bc.png",
-      "/uploads/343dba1f64c824efd69110f65682fc48.png"
+      "/uploads/c4898747f7b07bf1e2a464b985bfc1bc.webp",
+      "/uploads/343dba1f64c824efd69110f65682fc48.webp"
     ]
   },
   {
@@ -599,10 +925,10 @@
     "oldPrice": null,
     "desc": "",
     "badge": "",
-    "image": "/uploads/ed76c7c53a03fb969510e1846a90267d.png",
+    "image": "/uploads/ed76c7c53a03fb969510e1846a90267d.webp",
     "images": [
-      "/uploads/ed76c7c53a03fb969510e1846a90267d.png",
-      "/uploads/372ec2a2eba579ef84f1929196ee72e3.png"
+      "/uploads/ed76c7c53a03fb969510e1846a90267d.webp",
+      "/uploads/372ec2a2eba579ef84f1929196ee72e3.webp"
     ]
   },
   {
@@ -614,10 +940,10 @@
     "oldPrice": null,
     "desc": "",
     "badge": "",
-    "image": "/uploads/cbdca79c374478dca5f99dca448adb86.png",
+    "image": "/uploads/cbdca79c374478dca5f99dca448adb86.webp",
     "images": [
-      "/uploads/cbdca79c374478dca5f99dca448adb86.png",
-      "/uploads/72fd9eb6786e980ffe52115e0747ac9a.png"
+      "/uploads/cbdca79c374478dca5f99dca448adb86.webp",
+      "/uploads/72fd9eb6786e980ffe52115e0747ac9a.webp"
     ]
   },
   {
@@ -629,10 +955,10 @@
     "oldPrice": null,
     "desc": "",
     "badge": "",
-    "image": "/uploads/16ae74c27498023989211e75f2104b19.png",
+    "image": "/uploads/16ae74c27498023989211e75f2104b19.webp",
     "images": [
-      "/uploads/16ae74c27498023989211e75f2104b19.png",
-      "/uploads/11c68388334f92429136e7b69e1f024b.png"
+      "/uploads/16ae74c27498023989211e75f2104b19.webp",
+      "/uploads/11c68388334f92429136e7b69e1f024b.webp"
     ]
   },
   {
@@ -644,10 +970,10 @@
     "oldPrice": null,
     "desc": "",
     "badge": "",
-    "image": "/uploads/4a768bfd6056bf569269a271af152f85.png",
+    "image": "/uploads/4a768bfd6056bf569269a271af152f85.webp",
     "images": [
-      "/uploads/4a768bfd6056bf569269a271af152f85.png",
-      "/uploads/02a40848df6cf8fe1d6f6d591a58efb4.png"
+      "/uploads/4a768bfd6056bf569269a271af152f85.webp",
+      "/uploads/02a40848df6cf8fe1d6f6d591a58efb4.webp"
     ]
   },
   {
@@ -655,14 +981,14 @@
     "name": "DOOMSHOP RECORDS (Fire Logo) Black Longsleeve",
     "category": "DOOMSHOP",
     "clothingType": "longsleeve",
-    "price": 3500,
+    "price": 3000,
     "oldPrice": null,
     "desc": "",
     "badge": "",
-    "image": "/uploads/c804a33d88a406a9387303a9fdb11bb4.png",
+    "image": "/uploads/c804a33d88a406a9387303a9fdb11bb4.webp",
     "images": [
-      "/uploads/c804a33d88a406a9387303a9fdb11bb4.png",
-      "/uploads/c0953a7784373eba2c05c6d054257033.png"
+      "/uploads/c804a33d88a406a9387303a9fdb11bb4.webp",
+      "/uploads/c0953a7784373eba2c05c6d054257033.webp"
     ]
   },
   {
@@ -674,10 +1000,10 @@
     "oldPrice": null,
     "desc": "",
     "badge": "",
-    "image": "/uploads/a4fa343c5fe7caf8c0bf983d9fb0a857.png",
+    "image": "/uploads/a4fa343c5fe7caf8c0bf983d9fb0a857.webp",
     "images": [
-      "/uploads/a4fa343c5fe7caf8c0bf983d9fb0a857.png",
-      "/uploads/df1585cca71e0f04dd66f1ab6b3a6431.png"
+      "/uploads/a4fa343c5fe7caf8c0bf983d9fb0a857.webp",
+      "/uploads/df1585cca71e0f04dd66f1ab6b3a6431.webp"
     ]
   },
   {
@@ -689,10 +1015,10 @@
     "oldPrice": null,
     "desc": "",
     "badge": "",
-    "image": "/uploads/de362964d32848772b84d9613f56a001.png",
+    "image": "/uploads/de362964d32848772b84d9613f56a001.webp",
     "images": [
-      "/uploads/de362964d32848772b84d9613f56a001.png",
-      "/uploads/f970fd1da640ee05236769493a97fcaf.png"
+      "/uploads/de362964d32848772b84d9613f56a001.webp",
+      "/uploads/f970fd1da640ee05236769493a97fcaf.webp"
     ]
   },
   {
@@ -704,10 +1030,10 @@
     "oldPrice": null,
     "desc": "",
     "badge": "",
-    "image": "/uploads/863d8ae26fce2394ef6ae81c6501bab0.png",
+    "image": "/uploads/863d8ae26fce2394ef6ae81c6501bab0.webp",
     "images": [
-      "/uploads/863d8ae26fce2394ef6ae81c6501bab0.png",
-      "/uploads/a351e4046737453592ab586ba461b825.png"
+      "/uploads/863d8ae26fce2394ef6ae81c6501bab0.webp",
+      "/uploads/a351e4046737453592ab586ba461b825.webp"
     ]
   },
   {
@@ -719,10 +1045,10 @@
     "oldPrice": null,
     "desc": "",
     "badge": "",
-    "image": "/uploads/ab846c11480b7d4a39ce4d059bbd787b.png",
+    "image": "/uploads/ab846c11480b7d4a39ce4d059bbd787b.webp",
     "images": [
-      "/uploads/ab846c11480b7d4a39ce4d059bbd787b.png",
-      "/uploads/45883e6027e1ad8455aea0222221b277.png"
+      "/uploads/ab846c11480b7d4a39ce4d059bbd787b.webp",
+      "/uploads/45883e6027e1ad8455aea0222221b277.webp"
     ]
   },
   {
@@ -734,10 +1060,10 @@
     "oldPrice": null,
     "desc": "",
     "badge": "",
-    "image": "/uploads/01c32705571294353cf91ccf6901a5cd.png",
+    "image": "/uploads/01c32705571294353cf91ccf6901a5cd.webp",
     "images": [
-      "/uploads/01c32705571294353cf91ccf6901a5cd.png",
-      "/uploads/246c5733101a200cf8e28590278e4de9.png"
+      "/uploads/01c32705571294353cf91ccf6901a5cd.webp",
+      "/uploads/246c5733101a200cf8e28590278e4de9.webp"
     ]
   },
   {
@@ -749,10 +1075,10 @@
     "oldPrice": null,
     "desc": "",
     "badge": "",
-    "image": "/uploads/c9edfc2b2947752d4963d6903c8cb117.png",
+    "image": "/uploads/c9edfc2b2947752d4963d6903c8cb117.webp",
     "images": [
-      "/uploads/c9edfc2b2947752d4963d6903c8cb117.png",
-      "/uploads/6f316c48ddc595ed454fa968c0240bf0.png"
+      "/uploads/c9edfc2b2947752d4963d6903c8cb117.webp",
+      "/uploads/6f316c48ddc595ed454fa968c0240bf0.webp"
     ]
   },
   {
@@ -764,10 +1090,10 @@
     "oldPrice": null,
     "desc": "",
     "badge": "",
-    "image": "/uploads/54220fdf6751b88eb325a38eb3927b2e.png",
+    "image": "/uploads/54220fdf6751b88eb325a38eb3927b2e.webp",
     "images": [
-      "/uploads/54220fdf6751b88eb325a38eb3927b2e.png",
-      "/uploads/52d47d2589494f31fa81bad03bfc71a3.png"
+      "/uploads/54220fdf6751b88eb325a38eb3927b2e.webp",
+      "/uploads/52d47d2589494f31fa81bad03bfc71a3.webp"
     ]
   },
   {
@@ -779,10 +1105,10 @@
     "oldPrice": null,
     "desc": "",
     "badge": "",
-    "image": "/uploads/b64b5b37b4c3729e7b2d82335e4cefc9.png",
+    "image": "/uploads/b64b5b37b4c3729e7b2d82335e4cefc9.webp",
     "images": [
-      "/uploads/b64b5b37b4c3729e7b2d82335e4cefc9.png",
-      "/uploads/347c6b0c017fabe02a5e83002ac34500.png"
+      "/uploads/b64b5b37b4c3729e7b2d82335e4cefc9.webp",
+      "/uploads/347c6b0c017fabe02a5e83002ac34500.webp"
     ]
   },
   {
@@ -790,13 +1116,13 @@
     "name": "doomshop records Black Longsleeve",
     "category": "DOOMSHOP",
     "clothingType": "longsleeve",
-    "price": 3500,
+    "price": 3000,
     "oldPrice": null,
     "desc": "",
     "badge": "",
-    "image": "/uploads/003102fd82a859cf9250c29a8320d36c.png",
+    "image": "/uploads/003102fd82a859cf9250c29a8320d36c.webp",
     "images": [
-      "/uploads/003102fd82a859cf9250c29a8320d36c.png"
+      "/uploads/003102fd82a859cf9250c29a8320d36c.webp"
     ]
   },
   {
@@ -808,10 +1134,10 @@
     "oldPrice": null,
     "desc": "",
     "badge": "",
-    "image": "/uploads/74f9bc7b495673b445d4cef417f8986e.png",
+    "image": "/uploads/74f9bc7b495673b445d4cef417f8986e.webp",
     "images": [
-      "/uploads/74f9bc7b495673b445d4cef417f8986e.png",
-      "/uploads/a6b0e2e1573a6eda92c6893ef80ccfbc.png"
+      "/uploads/74f9bc7b495673b445d4cef417f8986e.webp",
+      "/uploads/a6b0e2e1573a6eda92c6893ef80ccfbc.webp"
     ]
   },
   {
@@ -823,10 +1149,10 @@
     "oldPrice": null,
     "desc": "",
     "badge": "",
-    "image": "/uploads/a281e09686c642606127b30cc98003a4.png",
+    "image": "/uploads/a281e09686c642606127b30cc98003a4.webp",
     "images": [
-      "/uploads/a281e09686c642606127b30cc98003a4.png",
-      "/uploads/3dfc25f52f62d3ef0f8654b2a6df9380.png"
+      "/uploads/a281e09686c642606127b30cc98003a4.webp",
+      "/uploads/3dfc25f52f62d3ef0f8654b2a6df9380.webp"
     ]
   },
   {
@@ -838,25 +1164,25 @@
     "oldPrice": null,
     "desc": "",
     "badge": "",
-    "image": "/uploads/364df2022a6b00ada45a7c5d2ce4df8d.png",
+    "image": "/uploads/364df2022a6b00ada45a7c5d2ce4df8d.webp",
     "images": [
-      "/uploads/364df2022a6b00ada45a7c5d2ce4df8d.png",
-      "/uploads/980418683c08cda6914f078a27d75cb9.png"
+      "/uploads/364df2022a6b00ada45a7c5d2ce4df8d.webp",
+      "/uploads/980418683c08cda6914f078a27d75cb9.webp"
     ]
   },
   {
     "id": 1776899482772,
-    "name": "doomshop records",
+    "name": "DOOMSHOP RECORDS Hoodie",
     "category": "DOOMSHOP",
-    "clothingType": "tshirt",
-    "price": 2500,
+    "clothingType": "hoodie",
+    "price": 4500,
     "oldPrice": null,
     "desc": "",
     "badge": "",
-    "image": "/uploads/b7f0e9ddf21a5c879375cc725bb1d851.png",
+    "image": "/uploads/b7f0e9ddf21a5c879375cc725bb1d851.webp",
     "images": [
-      "/uploads/b7f0e9ddf21a5c879375cc725bb1d851.png",
-      "/uploads/1a7a923e846cceedc877371d47f099bf.png"
+      "/uploads/b7f0e9ddf21a5c879375cc725bb1d851.webp",
+      "/uploads/1a7a923e846cceedc877371d47f099bf.webp"
     ]
   },
   {
@@ -868,10 +1194,10 @@
     "oldPrice": null,
     "desc": "",
     "badge": "",
-    "image": "/uploads/15bb1809a7c5b35cdbce3b4a2fdb5309.png",
+    "image": "/uploads/15bb1809a7c5b35cdbce3b4a2fdb5309.webp",
     "images": [
-      "/uploads/15bb1809a7c5b35cdbce3b4a2fdb5309.png",
-      "/uploads/0481b92f4375a4daafbd16fe1341540d.png"
+      "/uploads/15bb1809a7c5b35cdbce3b4a2fdb5309.webp",
+      "/uploads/0481b92f4375a4daafbd16fe1341540d.webp"
     ]
   },
   {
@@ -883,25 +1209,25 @@
     "oldPrice": null,
     "desc": "",
     "badge": "",
-    "image": "/uploads/afcb4330e4b591769b40afe0dee5d18b.png",
+    "image": "/uploads/afcb4330e4b591769b40afe0dee5d18b.webp",
     "images": [
-      "/uploads/afcb4330e4b591769b40afe0dee5d18b.png",
-      "/uploads/a19ed4cde2f6da13bbcc3f835087ac77.png"
+      "/uploads/afcb4330e4b591769b40afe0dee5d18b.webp",
+      "/uploads/a19ed4cde2f6da13bbcc3f835087ac77.webp"
     ]
   },
   {
     "id": 1776899482816,
-    "name": "doomshop",
+    "name": "DOOMSHOP RECORDS MAIN Hoodie",
     "category": "DOOMSHOP",
-    "clothingType": "tshirt",
-    "price": 2500,
+    "clothingType": "hoodie",
+    "price": 4500,
     "oldPrice": null,
     "desc": "",
     "badge": "",
-    "image": "/uploads/dd7ea77adad79de4deceba26a0b73f34.png",
+    "image": "/uploads/dd7ea77adad79de4deceba26a0b73f34.webp",
     "images": [
-      "/uploads/dd7ea77adad79de4deceba26a0b73f34.png",
-      "/uploads/8f14fec26ad6b86ee0e41948f9c775e8.png"
+      "/uploads/dd7ea77adad79de4deceba26a0b73f34.webp",
+      "/uploads/8f14fec26ad6b86ee0e41948f9c775e8.webp"
     ]
   },
   {
@@ -913,10 +1239,10 @@
     "oldPrice": null,
     "desc": "",
     "badge": "",
-    "image": "/uploads/c5a86b73e2580b94f7de4dff94ac3fe5.png",
+    "image": "/uploads/c5a86b73e2580b94f7de4dff94ac3fe5.webp",
     "images": [
-      "/uploads/c5a86b73e2580b94f7de4dff94ac3fe5.png",
-      "/uploads/bd2d9fb79d3b7d206d91acac49f7cd4a.png"
+      "/uploads/c5a86b73e2580b94f7de4dff94ac3fe5.webp",
+      "/uploads/bd2d9fb79d3b7d206d91acac49f7cd4a.webp"
     ]
   },
   {
@@ -924,13 +1250,13 @@
     "name": "DOOMSHOP War Before Civilization 1726 White Longsleeve",
     "category": "DOOMSHOP",
     "clothingType": "longsleeve",
-    "price": 3500,
+    "price": 3000,
     "oldPrice": null,
     "desc": "",
     "badge": "",
-    "image": "/uploads/6efe75b0bcebd5cc8eab10c147b516dc.png",
+    "image": "/uploads/6efe75b0bcebd5cc8eab10c147b516dc.webp",
     "images": [
-      "/uploads/6efe75b0bcebd5cc8eab10c147b516dc.png"
+      "/uploads/6efe75b0bcebd5cc8eab10c147b516dc.webp"
     ]
   },
   {
@@ -938,13 +1264,13 @@
     "name": "FAYB Black Longsleeve",
     "category": "FAYB",
     "clothingType": "longsleeve",
-    "price": 3500,
+    "price": 3000,
     "oldPrice": null,
     "desc": "",
     "badge": "",
-    "image": "/uploads/b6383a3e9b479f4ff4475b8a985f7995.png",
+    "image": "/uploads/b6383a3e9b479f4ff4475b8a985f7995.webp",
     "images": [
-      "/uploads/b6383a3e9b479f4ff4475b8a985f7995.png"
+      "/uploads/b6383a3e9b479f4ff4475b8a985f7995.webp"
     ]
   },
   {
@@ -956,10 +1282,10 @@
     "oldPrice": null,
     "desc": "",
     "badge": "",
-    "image": "/uploads/c42092b9252fffcdd94fe1a965b0f870.png",
+    "image": "/uploads/c42092b9252fffcdd94fe1a965b0f870.webp",
     "images": [
-      "/uploads/c42092b9252fffcdd94fe1a965b0f870.png",
-      "/uploads/280b03ce8aa0ff07257eb98eadb3a63e.png"
+      "/uploads/c42092b9252fffcdd94fe1a965b0f870.webp",
+      "/uploads/280b03ce8aa0ff07257eb98eadb3a63e.webp"
     ]
   },
   {
@@ -971,10 +1297,10 @@
     "oldPrice": null,
     "desc": "",
     "badge": "",
-    "image": "/uploads/e269cdae2f7137cd6226fe8940e31d29.png",
+    "image": "/uploads/e269cdae2f7137cd6226fe8940e31d29.webp",
     "images": [
-      "/uploads/e269cdae2f7137cd6226fe8940e31d29.png",
-      "/uploads/48843f458df659673dec610dbbc39be0.png"
+      "/uploads/e269cdae2f7137cd6226fe8940e31d29.webp",
+      "/uploads/48843f458df659673dec610dbbc39be0.webp"
     ]
   },
   {
@@ -986,25 +1312,25 @@
     "oldPrice": null,
     "desc": "",
     "badge": "",
-    "image": "/uploads/fe8e4c10e806fec420ea4c169af4608e.png",
+    "image": "/uploads/fe8e4c10e806fec420ea4c169af4608e.webp",
     "images": [
-      "/uploads/fe8e4c10e806fec420ea4c169af4608e.png",
-      "/uploads/62bd5f868d5e6dc372da04eb12b0179e.png"
+      "/uploads/fe8e4c10e806fec420ea4c169af4608e.webp",
+      "/uploads/62bd5f868d5e6dc372da04eb12b0179e.webp"
     ]
   },
   {
     "id": 1776899483010,
-    "name": "FAYB",
+    "name": "FAYB Hoodie",
     "category": "FAYB",
-    "clothingType": "tshirt",
-    "price": 2500,
+    "clothingType": "hoodie",
+    "price": 4500,
     "oldPrice": null,
     "desc": "",
     "badge": "",
-    "image": "/uploads/b5d7f0cd5fcce0fc979ab4d2a71e1a89.png",
+    "image": "/uploads/b5d7f0cd5fcce0fc979ab4d2a71e1a89.webp",
     "images": [
-      "/uploads/b5d7f0cd5fcce0fc979ab4d2a71e1a89.png",
-      "/uploads/4472ba9b5caa5515a95d5cad2ea2567e.png"
+      "/uploads/b5d7f0cd5fcce0fc979ab4d2a71e1a89.webp",
+      "/uploads/4472ba9b5caa5515a95d5cad2ea2567e.webp"
     ]
   },
   {
@@ -1016,10 +1342,10 @@
     "oldPrice": null,
     "desc": "",
     "badge": "",
-    "image": "/uploads/8fdad11ac3ae823fa42eacadab33e375.png",
+    "image": "/uploads/8fdad11ac3ae823fa42eacadab33e375.webp",
     "images": [
-      "/uploads/8fdad11ac3ae823fa42eacadab33e375.png",
-      "/uploads/c75200098a829244ebc35a7495692fd3.png"
+      "/uploads/8fdad11ac3ae823fa42eacadab33e375.webp",
+      "/uploads/c75200098a829244ebc35a7495692fd3.webp"
     ]
   },
   {
@@ -1031,10 +1357,10 @@
     "oldPrice": null,
     "desc": "",
     "badge": "",
-    "image": "/uploads/a48d8bbbd103559404201b3756d980d9.png",
+    "image": "/uploads/a48d8bbbd103559404201b3756d980d9.webp",
     "images": [
-      "/uploads/a48d8bbbd103559404201b3756d980d9.png",
-      "/uploads/f093be66b960c2a6a592d33502d6d7c6.png"
+      "/uploads/a48d8bbbd103559404201b3756d980d9.webp",
+      "/uploads/f093be66b960c2a6a592d33502d6d7c6.webp"
     ]
   },
   {
@@ -1046,10 +1372,10 @@
     "oldPrice": null,
     "desc": "",
     "badge": "",
-    "image": "/uploads/13761e6d47ef51cda709b8fcbfe3074b.png",
+    "image": "/uploads/13761e6d47ef51cda709b8fcbfe3074b.webp",
     "images": [
-      "/uploads/13761e6d47ef51cda709b8fcbfe3074b.png",
-      "/uploads/cc166a9401a2a73c52550d49bab5db1c.png"
+      "/uploads/13761e6d47ef51cda709b8fcbfe3074b.webp",
+      "/uploads/cc166a9401a2a73c52550d49bab5db1c.webp"
     ]
   },
   {
@@ -1061,10 +1387,10 @@
     "oldPrice": null,
     "desc": "",
     "badge": "",
-    "image": "/uploads/36ff94fd8cd16016d306a7a52f2549e2.png",
+    "image": "/uploads/36ff94fd8cd16016d306a7a52f2549e2.webp",
     "images": [
-      "/uploads/36ff94fd8cd16016d306a7a52f2549e2.png",
-      "/uploads/1da7a65226e24ef18dda62ec82cf7da7.png"
+      "/uploads/36ff94fd8cd16016d306a7a52f2549e2.webp",
+      "/uploads/1da7a65226e24ef18dda62ec82cf7da7.webp"
     ]
   },
   {
@@ -1076,10 +1402,10 @@
     "oldPrice": null,
     "desc": "",
     "badge": "",
-    "image": "/uploads/05a58f8292223b6861c0ce98612e95cf.png",
+    "image": "/uploads/05a58f8292223b6861c0ce98612e95cf.webp",
     "images": [
-      "/uploads/05a58f8292223b6861c0ce98612e95cf.png",
-      "/uploads/c2f2eb2bb632d91dc793d7b62d4a39d3.png"
+      "/uploads/05a58f8292223b6861c0ce98612e95cf.webp",
+      "/uploads/c2f2eb2bb632d91dc793d7b62d4a39d3.webp"
     ]
   },
   {
@@ -1091,10 +1417,10 @@
     "oldPrice": null,
     "desc": "",
     "badge": "",
-    "image": "/uploads/f272ad155b25c18acd0e398114a1dead.png",
+    "image": "/uploads/f272ad155b25c18acd0e398114a1dead.webp",
     "images": [
-      "/uploads/f272ad155b25c18acd0e398114a1dead.png",
-      "/uploads/d72cc8210f2afb42b173916a0de051ee.png"
+      "/uploads/f272ad155b25c18acd0e398114a1dead.webp",
+      "/uploads/d72cc8210f2afb42b173916a0de051ee.webp"
     ]
   },
   {
@@ -1106,10 +1432,10 @@
     "oldPrice": null,
     "desc": "",
     "badge": "",
-    "image": "/uploads/62f9e1f06c92667af706fec705e5b21a.png",
+    "image": "/uploads/62f9e1f06c92667af706fec705e5b21a.webp",
     "images": [
-      "/uploads/62f9e1f06c92667af706fec705e5b21a.png",
-      "/uploads/c3b9e7a06657e327f18c6815a12f4334.png"
+      "/uploads/62f9e1f06c92667af706fec705e5b21a.webp",
+      "/uploads/c3b9e7a06657e327f18c6815a12f4334.webp"
     ]
   },
   {
@@ -1121,10 +1447,10 @@
     "oldPrice": null,
     "desc": "",
     "badge": "",
-    "image": "/uploads/2cb141e4783a8e1c4ae475467a5708be.png",
+    "image": "/uploads/2cb141e4783a8e1c4ae475467a5708be.webp",
     "images": [
-      "/uploads/2cb141e4783a8e1c4ae475467a5708be.png",
-      "/uploads/792af209004f547e54e467fb139a877b.png"
+      "/uploads/2cb141e4783a8e1c4ae475467a5708be.webp",
+      "/uploads/792af209004f547e54e467fb139a877b.webp"
     ]
   },
   {
@@ -1132,13 +1458,13 @@
     "name": "Hypnotize Minds Black Longsleeve",
     "category": "HYPNOTIZE MINDS",
     "clothingType": "longsleeve",
-    "price": 3500,
+    "price": 3000,
     "oldPrice": null,
     "desc": "",
     "badge": "",
-    "image": "/uploads/63fc28a194400da9764100a4578cfb1a.png",
+    "image": "/uploads/63fc28a194400da9764100a4578cfb1a.webp",
     "images": [
-      "/uploads/63fc28a194400da9764100a4578cfb1a.png"
+      "/uploads/63fc28a194400da9764100a4578cfb1a.webp"
     ]
   },
   {
@@ -1150,25 +1476,25 @@
     "oldPrice": null,
     "desc": "",
     "badge": "",
-    "image": "/uploads/10c692b944c250bb7f8e68b320632c5e.png",
+    "image": "/uploads/10c692b944c250bb7f8e68b320632c5e.webp",
     "images": [
-      "/uploads/10c692b944c250bb7f8e68b320632c5e.png",
-      "/uploads/cfa5ecff692285dd0ddb359fc8d03826.png"
+      "/uploads/10c692b944c250bb7f8e68b320632c5e.webp",
+      "/uploads/cfa5ecff692285dd0ddb359fc8d03826.webp"
     ]
   },
   {
     "id": 1776899483166,
-    "name": "hypnotize",
+    "name": "HYPNOTIZE Hoodie",
     "category": "HYPNOTIZE MINDS",
-    "clothingType": "tshirt",
-    "price": 2500,
+    "clothingType": "hoodie",
+    "price": 4500,
     "oldPrice": null,
     "desc": "",
     "badge": "",
-    "image": "/uploads/af181f8350d868a211e832d800a12401.png",
+    "image": "/uploads/af181f8350d868a211e832d800a12401.webp",
     "images": [
-      "/uploads/af181f8350d868a211e832d800a12401.png",
-      "/uploads/44e151a6ebe90632426a8c681aad0cbb.png"
+      "/uploads/af181f8350d868a211e832d800a12401.webp",
+      "/uploads/44e151a6ebe90632426a8c681aad0cbb.webp"
     ]
   },
   {
@@ -1180,10 +1506,10 @@
     "oldPrice": null,
     "desc": "",
     "badge": "",
-    "image": "/uploads/b9cc016d3441f134bfb4900de7fb0f68.png",
+    "image": "/uploads/b9cc016d3441f134bfb4900de7fb0f68.webp",
     "images": [
-      "/uploads/b9cc016d3441f134bfb4900de7fb0f68.png",
-      "/uploads/1d26c87abaab8e3e6843ad32fdf51723.png"
+      "/uploads/b9cc016d3441f134bfb4900de7fb0f68.webp",
+      "/uploads/1d26c87abaab8e3e6843ad32fdf51723.webp"
     ]
   },
   {
@@ -1195,10 +1521,10 @@
     "oldPrice": null,
     "desc": "",
     "badge": "",
-    "image": "/uploads/1dd846edb1f4833a159697297644b1df.png",
+    "image": "/uploads/1dd846edb1f4833a159697297644b1df.webp",
     "images": [
-      "/uploads/1dd846edb1f4833a159697297644b1df.png",
-      "/uploads/53046cd44b380929120079603cd44bd9.png"
+      "/uploads/1dd846edb1f4833a159697297644b1df.webp",
+      "/uploads/53046cd44b380929120079603cd44bd9.webp"
     ]
   },
   {
@@ -1210,9 +1536,9 @@
     "oldPrice": null,
     "desc": "",
     "badge": "",
-    "image": "/uploads/d61d8e8a3befc3cad429e89c5ad5281a.png",
+    "image": "/uploads/d61d8e8a3befc3cad429e89c5ad5281a.webp",
     "images": [
-      "/uploads/d61d8e8a3befc3cad429e89c5ad5281a.png"
+      "/uploads/d61d8e8a3befc3cad429e89c5ad5281a.webp"
     ]
   },
   {
@@ -1224,24 +1550,24 @@
     "oldPrice": null,
     "desc": "",
     "badge": "",
-    "image": "/uploads/ab7766dde31ad440e05edb1f8835d2ed.png",
+    "image": "/uploads/ab7766dde31ad440e05edb1f8835d2ed.webp",
     "images": [
-      "/uploads/ab7766dde31ad440e05edb1f8835d2ed.png",
-      "/uploads/9891e9f0209201462fda4b73ab56dea6.png"
+      "/uploads/ab7766dde31ad440e05edb1f8835d2ed.webp",
+      "/uploads/9891e9f0209201462fda4b73ab56dea6.webp"
     ]
   },
   {
     "id": 1776899483231,
-    "name": "LIL UGLY MANE - MISTA THUG ISOLATION",
+    "name": "LIL UGLY MANE - MISTA THUG ISOLATION Hoodie",
     "category": "LIL UGLY MANE",
-    "clothingType": "tshirt",
-    "price": 2500,
+    "clothingType": "hoodie",
+    "price": 4500,
     "oldPrice": null,
     "desc": "",
     "badge": "",
-    "image": "/uploads/944db88111d3af295dcac31cd7dc2d91.png",
+    "image": "/uploads/944db88111d3af295dcac31cd7dc2d91.webp",
     "images": [
-      "/uploads/944db88111d3af295dcac31cd7dc2d91.png"
+      "/uploads/944db88111d3af295dcac31cd7dc2d91.webp"
     ]
   },
   {
@@ -1249,13 +1575,13 @@
     "name": "LIL UGLY MANE MISTA THUG ISOLATION 2 Black Longsleeve",
     "category": "LIL UGLY MANE",
     "clothingType": "longsleeve",
-    "price": 3500,
+    "price": 3000,
     "oldPrice": null,
     "desc": "",
     "badge": "",
-    "image": "/uploads/8282028c1b5fa123dd04cda0d909a0e8.png",
+    "image": "/uploads/8282028c1b5fa123dd04cda0d909a0e8.webp",
     "images": [
-      "/uploads/8282028c1b5fa123dd04cda0d909a0e8.png"
+      "/uploads/8282028c1b5fa123dd04cda0d909a0e8.webp"
     ]
   },
   {
@@ -1263,13 +1589,13 @@
     "name": "LIL UGLY MANE MISTA THUG ISOLATION Black Longsleeve",
     "category": "LIL UGLY MANE",
     "clothingType": "longsleeve",
-    "price": 3500,
+    "price": 3000,
     "oldPrice": null,
     "desc": "",
     "badge": "",
-    "image": "/uploads/c037eadddd0bcdddfd30185b3f1c39fc.png",
+    "image": "/uploads/c037eadddd0bcdddfd30185b3f1c39fc.webp",
     "images": [
-      "/uploads/c037eadddd0bcdddfd30185b3f1c39fc.png"
+      "/uploads/c037eadddd0bcdddfd30185b3f1c39fc.webp"
     ]
   },
   {
@@ -1277,13 +1603,13 @@
     "name": "Memphis Black Longsleeve",
     "category": "MEMPHIS",
     "clothingType": "longsleeve",
-    "price": 3500,
+    "price": 3000,
     "oldPrice": null,
     "desc": "",
     "badge": "",
-    "image": "/uploads/1004b41a943582d3fb904050f8edc720.png",
+    "image": "/uploads/1004b41a943582d3fb904050f8edc720.webp",
     "images": [
-      "/uploads/1004b41a943582d3fb904050f8edc720.png"
+      "/uploads/1004b41a943582d3fb904050f8edc720.webp"
     ]
   },
   {
@@ -1291,13 +1617,13 @@
     "name": "OCCVLT Black Longsleeve",
     "category": "OCCVLT",
     "clothingType": "longsleeve",
-    "price": 3500,
+    "price": 3000,
     "oldPrice": null,
     "desc": "",
     "badge": "",
-    "image": "/uploads/df26caac8a0cc4d4b612a38f925c48ab.png",
+    "image": "/uploads/df26caac8a0cc4d4b612a38f925c48ab.webp",
     "images": [
-      "/uploads/df26caac8a0cc4d4b612a38f925c48ab.png"
+      "/uploads/df26caac8a0cc4d4b612a38f925c48ab.webp"
     ]
   },
   {
@@ -1309,25 +1635,25 @@
     "oldPrice": null,
     "desc": "",
     "badge": "",
-    "image": "/uploads/2be9ca88bd4b9287353f4197465374ff.png",
+    "image": "/uploads/2be9ca88bd4b9287353f4197465374ff.webp",
     "images": [
-      "/uploads/2be9ca88bd4b9287353f4197465374ff.png",
-      "/uploads/6547b44c6a2386177eeebf9553218c5b.png"
+      "/uploads/2be9ca88bd4b9287353f4197465374ff.webp",
+      "/uploads/6547b44c6a2386177eeebf9553218c5b.webp"
     ]
   },
   {
     "id": 1776899483402,
-    "name": "OCCVLT",
+    "name": "OCCVLT Hoodie",
     "category": "OCCVLT",
-    "clothingType": "tshirt",
-    "price": 2500,
+    "clothingType": "hoodie",
+    "price": 4500,
     "oldPrice": null,
     "desc": "",
     "badge": "",
-    "image": "/uploads/cfcc9b6006f82e4999ac2c44f467d5ef.png",
+    "image": "/uploads/cfcc9b6006f82e4999ac2c44f467d5ef.webp",
     "images": [
-      "/uploads/cfcc9b6006f82e4999ac2c44f467d5ef.png",
-      "/uploads/a9c3b91096293b66701bb45e30ae8232.png"
+      "/uploads/cfcc9b6006f82e4999ac2c44f467d5ef.webp",
+      "/uploads/a9c3b91096293b66701bb45e30ae8232.webp"
     ]
   },
   {
@@ -1339,10 +1665,10 @@
     "oldPrice": null,
     "desc": "",
     "badge": "",
-    "image": "/uploads/bb088765a10d6517f571aad94f5cb1e2.png",
+    "image": "/uploads/bb088765a10d6517f571aad94f5cb1e2.webp",
     "images": [
-      "/uploads/bb088765a10d6517f571aad94f5cb1e2.png",
-      "/uploads/a61d4644201ca5b351207308f6446904.png"
+      "/uploads/bb088765a10d6517f571aad94f5cb1e2.webp",
+      "/uploads/a61d4644201ca5b351207308f6446904.webp"
     ]
   },
   {
@@ -1354,10 +1680,10 @@
     "oldPrice": null,
     "desc": "",
     "badge": "",
-    "image": "/uploads/181ab753596d1deb8f89e15fc5db8800.png",
+    "image": "/uploads/181ab753596d1deb8f89e15fc5db8800.webp",
     "images": [
-      "/uploads/181ab753596d1deb8f89e15fc5db8800.png",
-      "/uploads/52ac49d0f66ebb74f38d7465efc0471d.png"
+      "/uploads/181ab753596d1deb8f89e15fc5db8800.webp",
+      "/uploads/52ac49d0f66ebb74f38d7465efc0471d.webp"
     ]
   },
   {
@@ -1365,13 +1691,13 @@
     "name": "PRODUCTS OF DA UNDAGROUND White Longsleeve",
     "category": "PRODUCTS OF DA UNDAGROUND",
     "clothingType": "longsleeve",
-    "price": 3500,
+    "price": 3000,
     "oldPrice": null,
     "desc": "",
     "badge": "",
-    "image": "/uploads/c893aeb0894b5e13d285d09c8cfc92c9.png",
+    "image": "/uploads/c893aeb0894b5e13d285d09c8cfc92c9.webp",
     "images": [
-      "/uploads/c893aeb0894b5e13d285d09c8cfc92c9.png"
+      "/uploads/c893aeb0894b5e13d285d09c8cfc92c9.webp"
     ]
   },
   {
@@ -1383,25 +1709,25 @@
     "oldPrice": null,
     "desc": "",
     "badge": "",
-    "image": "/uploads/f3acf8f78c20198579156285383b62db.png",
+    "image": "/uploads/f3acf8f78c20198579156285383b62db.webp",
     "images": [
-      "/uploads/f3acf8f78c20198579156285383b62db.png",
-      "/uploads/96f0d72eedbb46bf12a0527ecd82810f.png"
+      "/uploads/f3acf8f78c20198579156285383b62db.webp",
+      "/uploads/96f0d72eedbb46bf12a0527ecd82810f.webp"
     ]
   },
   {
     "id": 1776899483512,
-    "name": "RVIDXR KLVN",
+    "name": "RVIDXR KLVN Hoodie",
     "category": "RVIDXR KLVN",
-    "clothingType": "tshirt",
-    "price": 2500,
+    "clothingType": "hoodie",
+    "price": 4500,
     "oldPrice": null,
     "desc": "",
     "badge": "",
-    "image": "/uploads/293874a3acc1bdc8bf7ca34f24643b29.png",
+    "image": "/uploads/293874a3acc1bdc8bf7ca34f24643b29.webp",
     "images": [
-      "/uploads/293874a3acc1bdc8bf7ca34f24643b29.png",
-      "/uploads/685188fada64922545bf885d048b4905.png"
+      "/uploads/293874a3acc1bdc8bf7ca34f24643b29.webp",
+      "/uploads/685188fada64922545bf885d048b4905.webp"
     ]
   },
   {
@@ -1409,13 +1735,13 @@
     "name": "RVIDXR KLVN Black Longsleeve",
     "category": "RVIDXR KLVN",
     "clothingType": "longsleeve",
-    "price": 3500,
+    "price": 3000,
     "oldPrice": null,
     "desc": "",
     "badge": "",
-    "image": "/uploads/09a481b5565d0125bc9874ebbdd523ae.png",
+    "image": "/uploads/09a481b5565d0125bc9874ebbdd523ae.webp",
     "images": [
-      "/uploads/09a481b5565d0125bc9874ebbdd523ae.png"
+      "/uploads/09a481b5565d0125bc9874ebbdd523ae.webp"
     ]
   },
   {
@@ -1423,13 +1749,13 @@
     "name": "Screwed Up Click 2 Black Longsleeve",
     "category": "SCREWED UP CLICK",
     "clothingType": "longsleeve",
-    "price": 3500,
+    "price": 3000,
     "oldPrice": null,
     "desc": "",
     "badge": "",
-    "image": "/uploads/e52013ec34538bb40f6a28dc3e0ec852.png",
+    "image": "/uploads/e52013ec34538bb40f6a28dc3e0ec852.webp",
     "images": [
-      "/uploads/e52013ec34538bb40f6a28dc3e0ec852.png"
+      "/uploads/e52013ec34538bb40f6a28dc3e0ec852.webp"
     ]
   },
   {
@@ -1441,9 +1767,9 @@
     "oldPrice": null,
     "desc": "",
     "badge": "",
-    "image": "/uploads/a672486b57aa9b221bc905b446b71f7b.png",
+    "image": "/uploads/a672486b57aa9b221bc905b446b71f7b.webp",
     "images": [
-      "/uploads/a672486b57aa9b221bc905b446b71f7b.png"
+      "/uploads/a672486b57aa9b221bc905b446b71f7b.webp"
     ]
   },
   {
@@ -1451,13 +1777,13 @@
     "name": "Screwed Up Click White Longsleeve",
     "category": "SCREWED UP CLICK",
     "clothingType": "longsleeve",
-    "price": 3500,
+    "price": 3000,
     "oldPrice": null,
     "desc": "",
     "badge": "",
-    "image": "/uploads/dd880480a554e1ebe271fa97f5a8ebc6.png",
+    "image": "/uploads/dd880480a554e1ebe271fa97f5a8ebc6.webp",
     "images": [
-      "/uploads/dd880480a554e1ebe271fa97f5a8ebc6.png"
+      "/uploads/dd880480a554e1ebe271fa97f5a8ebc6.webp"
     ]
   },
   {
@@ -1465,13 +1791,13 @@
     "name": "SIXSET Black Longsleeve",
     "category": "SIXSET",
     "clothingType": "longsleeve",
-    "price": 3500,
+    "price": 3000,
     "oldPrice": null,
     "desc": "",
     "badge": "",
-    "image": "/uploads/5dccb4898a681527fdb5ea4d34aaf296.png",
+    "image": "/uploads/5dccb4898a681527fdb5ea4d34aaf296.webp",
     "images": [
-      "/uploads/5dccb4898a681527fdb5ea4d34aaf296.png"
+      "/uploads/5dccb4898a681527fdb5ea4d34aaf296.webp"
     ]
   },
   {
@@ -1483,9 +1809,9 @@
     "oldPrice": null,
     "desc": "",
     "badge": "",
-    "image": "/uploads/a5572886ccfcc252a1317cb696bcfc5b.png",
+    "image": "/uploads/a5572886ccfcc252a1317cb696bcfc5b.webp",
     "images": [
-      "/uploads/a5572886ccfcc252a1317cb696bcfc5b.png"
+      "/uploads/a5572886ccfcc252a1317cb696bcfc5b.webp"
     ]
   },
   {
@@ -1497,10 +1823,10 @@
     "oldPrice": null,
     "desc": "",
     "badge": "",
-    "image": "/uploads/ddf92bdddf604cfedabbccd297a2ef36.png",
+    "image": "/uploads/ddf92bdddf604cfedabbccd297a2ef36.webp",
     "images": [
-      "/uploads/ddf92bdddf604cfedabbccd297a2ef36.png",
-      "/uploads/996f1952b647cbe9a98809ad79238cd9.png"
+      "/uploads/ddf92bdddf604cfedabbccd297a2ef36.webp",
+      "/uploads/996f1952b647cbe9a98809ad79238cd9.webp"
     ]
   },
   {
@@ -1512,10 +1838,10 @@
     "oldPrice": null,
     "desc": "",
     "badge": "",
-    "image": "/uploads/df8d1b5cddaf08e84b37c421a247d7d7.png",
+    "image": "/uploads/df8d1b5cddaf08e84b37c421a247d7d7.webp",
     "images": [
-      "/uploads/df8d1b5cddaf08e84b37c421a247d7d7.png",
-      "/uploads/e1a9a9df30704fcf50658af3234d95f1.png"
+      "/uploads/df8d1b5cddaf08e84b37c421a247d7d7.webp",
+      "/uploads/e1a9a9df30704fcf50658af3234d95f1.webp"
     ]
   },
   {
@@ -1527,10 +1853,10 @@
     "oldPrice": null,
     "desc": "",
     "badge": "",
-    "image": "/uploads/167933259cf551957f86f86c19b2ced0.png",
+    "image": "/uploads/167933259cf551957f86f86c19b2ced0.webp",
     "images": [
-      "/uploads/167933259cf551957f86f86c19b2ced0.png",
-      "/uploads/d4e256fbccdfe5ef7750b8b187270f01.png"
+      "/uploads/167933259cf551957f86f86c19b2ced0.webp",
+      "/uploads/d4e256fbccdfe5ef7750b8b187270f01.webp"
     ]
   },
   {
@@ -1542,25 +1868,25 @@
     "oldPrice": null,
     "desc": "",
     "badge": "",
-    "image": "/uploads/2dda9d042594a11c9cb16f4f1697a878.png",
+    "image": "/uploads/2dda9d042594a11c9cb16f4f1697a878.webp",
     "images": [
-      "/uploads/2dda9d042594a11c9cb16f4f1697a878.png",
-      "/uploads/a2b01f731b9029689709f47f5d3f65bc.png"
+      "/uploads/2dda9d042594a11c9cb16f4f1697a878.webp",
+      "/uploads/a2b01f731b9029689709f47f5d3f65bc.webp"
     ]
   },
   {
     "id": 1776899483738,
-    "name": "SIXSET",
+    "name": "SIXSET Hoodie",
     "category": "SIXSET",
-    "clothingType": "tshirt",
-    "price": 2500,
+    "clothingType": "hoodie",
+    "price": 4500,
     "oldPrice": null,
     "desc": "",
     "badge": "",
-    "image": "/uploads/3a2648786da399d7693d0269fe9e92e0.png",
+    "image": "/uploads/3a2648786da399d7693d0269fe9e92e0.webp",
     "images": [
-      "/uploads/3a2648786da399d7693d0269fe9e92e0.png",
-      "/uploads/21cebd23d4aee38b644f5ce19fe2b224.png"
+      "/uploads/3a2648786da399d7693d0269fe9e92e0.webp",
+      "/uploads/21cebd23d4aee38b644f5ce19fe2b224.webp"
     ]
   },
   {
@@ -1568,13 +1894,13 @@
     "name": "The Devilish Trio Black Longsleeve",
     "category": "DEVILISH TRIO",
     "clothingType": "longsleeve",
-    "price": 3500,
+    "price": 3000,
     "oldPrice": null,
     "desc": "",
     "badge": "",
-    "image": "/uploads/743a5bfba478648719e1fa2d5c24fb91.png",
+    "image": "/uploads/743a5bfba478648719e1fa2d5c24fb91.webp",
     "images": [
-      "/uploads/743a5bfba478648719e1fa2d5c24fb91.png"
+      "/uploads/743a5bfba478648719e1fa2d5c24fb91.webp"
     ]
   },
   {
@@ -1586,10 +1912,10 @@
     "oldPrice": null,
     "desc": "",
     "badge": "",
-    "image": "/uploads/c3fe9651aa534b5278c08989feb8d3ab.png",
+    "image": "/uploads/c3fe9651aa534b5278c08989feb8d3ab.webp",
     "images": [
-      "/uploads/c3fe9651aa534b5278c08989feb8d3ab.png",
-      "/uploads/1ad09e2a8e0b4c39f64f4def5e46d98e.png"
+      "/uploads/c3fe9651aa534b5278c08989feb8d3ab.webp",
+      "/uploads/1ad09e2a8e0b4c39f64f4def5e46d98e.webp"
     ]
   },
   {
@@ -1601,10 +1927,10 @@
     "oldPrice": null,
     "desc": "",
     "badge": "",
-    "image": "/uploads/f9d27295a194001b4fa0c2412c9c6b10.png",
+    "image": "/uploads/f9d27295a194001b4fa0c2412c9c6b10.webp",
     "images": [
-      "/uploads/f9d27295a194001b4fa0c2412c9c6b10.png",
-      "/uploads/5fd99fd7c42e4495d1edfe7de8f38467.png"
+      "/uploads/f9d27295a194001b4fa0c2412c9c6b10.webp",
+      "/uploads/5fd99fd7c42e4495d1edfe7de8f38467.webp"
     ]
   },
   {
@@ -1612,43 +1938,43 @@
     "name": "THREE SIX MAFIA 2 Black Longsleeve",
     "category": "THREE SIX MAFIA",
     "clothingType": "longsleeve",
-    "price": 3500,
+    "price": 3000,
     "oldPrice": null,
     "desc": "",
     "badge": "",
-    "image": "/uploads/2c1efcaeab0bfc276a29ac1cf9006c1c.png",
+    "image": "/uploads/2c1efcaeab0bfc276a29ac1cf9006c1c.webp",
     "images": [
-      "/uploads/2c1efcaeab0bfc276a29ac1cf9006c1c.png"
+      "/uploads/2c1efcaeab0bfc276a29ac1cf9006c1c.webp"
     ]
   },
   {
     "id": 1776899483855,
-    "name": "three six mafia",
+    "name": "THREE SIX MAFIA",
     "category": "THREE SIX MAFIA",
-    "clothingType": "tshirt",
-    "price": 2500,
+    "clothingType": "hoodie",
+    "price": 4500,
     "oldPrice": null,
     "desc": "",
     "badge": "",
-    "image": "/uploads/179ce533d471e4e740ca3edda6341ace.png",
+    "image": "/uploads/179ce533d471e4e740ca3edda6341ace.webp",
     "images": [
-      "/uploads/179ce533d471e4e740ca3edda6341ace.png",
-      "/uploads/ebda56aadb5057c159c1231aa11f69bf.png"
+      "/uploads/179ce533d471e4e740ca3edda6341ace.webp",
+      "/uploads/ebda56aadb5057c159c1231aa11f69bf.webp"
     ]
   },
   {
     "id": 1776899483870,
-    "name": "THREE SIX MAFIA2",
+    "name": "THREE SIX MAFIA 2 Hoodie",
     "category": "THREE SIX MAFIA",
-    "clothingType": "tshirt",
-    "price": 2500,
+    "clothingType": "hoodie",
+    "price": 4500,
     "oldPrice": null,
     "desc": "",
     "badge": "",
-    "image": "/uploads/5c2ad506c765b1dd8557cd650f2d509a.png",
+    "image": "/uploads/5c2ad506c765b1dd8557cd650f2d509a.webp",
     "images": [
-      "/uploads/5c2ad506c765b1dd8557cd650f2d509a.png",
-      "/uploads/3c1d33fc83329bc15f18a209d5d092a1.png"
+      "/uploads/5c2ad506c765b1dd8557cd650f2d509a.webp",
+      "/uploads/3c1d33fc83329bc15f18a209d5d092a1.webp"
     ]
   },
   {
@@ -1660,10 +1986,10 @@
     "oldPrice": null,
     "desc": "",
     "badge": "",
-    "image": "/uploads/74f6558cc0925a7e8e322efde2676cd6.png",
+    "image": "/uploads/74f6558cc0925a7e8e322efde2676cd6.webp",
     "images": [
-      "/uploads/74f6558cc0925a7e8e322efde2676cd6.png",
-      "/uploads/1a8609881d38a8fc1ef4dd53429b1c1e.png"
+      "/uploads/74f6558cc0925a7e8e322efde2676cd6.webp",
+      "/uploads/1a8609881d38a8fc1ef4dd53429b1c1e.webp"
     ]
   },
   {
@@ -1671,13 +1997,13 @@
     "name": "Tommy Wright III Black Longsleeve",
     "category": "TOMMY WRIGHT III",
     "clothingType": "longsleeve",
-    "price": 3500,
+    "price": 3000,
     "oldPrice": null,
     "desc": "",
     "badge": "",
-    "image": "/uploads/0c085f859a6ada0335a934a5bcd3472a.png",
+    "image": "/uploads/0c085f859a6ada0335a934a5bcd3472a.webp",
     "images": [
-      "/uploads/0c085f859a6ada0335a934a5bcd3472a.png"
+      "/uploads/0c085f859a6ada0335a934a5bcd3472a.webp"
     ]
   },
   {
@@ -1689,10 +2015,10 @@
     "oldPrice": null,
     "desc": "",
     "badge": "",
-    "image": "/uploads/fae9a0168833b4a00cc274bad094033f.png",
+    "image": "/uploads/fae9a0168833b4a00cc274bad094033f.webp",
     "images": [
-      "/uploads/fae9a0168833b4a00cc274bad094033f.png",
-      "/uploads/76eb97044b6c1295ea4da01b16ef7db7.png"
+      "/uploads/fae9a0168833b4a00cc274bad094033f.webp",
+      "/uploads/76eb97044b6c1295ea4da01b16ef7db7.webp"
     ]
   },
   {
@@ -1700,13 +2026,13 @@
     "name": "Tommy Wright III White Longsleeve",
     "category": "TOMMY WRIGHT III",
     "clothingType": "longsleeve",
-    "price": 3500,
+    "price": 3000,
     "oldPrice": null,
     "desc": "",
     "badge": "",
-    "image": "/uploads/503318aaef14d91192f3cc2e0fa35a54.png",
+    "image": "/uploads/503318aaef14d91192f3cc2e0fa35a54.webp",
     "images": [
-      "/uploads/503318aaef14d91192f3cc2e0fa35a54.png"
+      "/uploads/503318aaef14d91192f3cc2e0fa35a54.webp"
     ]
   },
   {
@@ -1718,25 +2044,25 @@
     "oldPrice": null,
     "desc": "",
     "badge": "",
-    "image": "/uploads/603997eb3c33bd826b7a63fc6e987fb9.png",
+    "image": "/uploads/603997eb3c33bd826b7a63fc6e987fb9.webp",
     "images": [
-      "/uploads/603997eb3c33bd826b7a63fc6e987fb9.png",
-      "/uploads/a67e585634fe1b90bc4b9254c629d4af.png"
+      "/uploads/603997eb3c33bd826b7a63fc6e987fb9.webp",
+      "/uploads/a67e585634fe1b90bc4b9254c629d4af.webp"
     ]
   },
   {
     "id": 1776899484045,
-    "name": "TOMMY",
+    "name": "TOMMY Hoodie",
     "category": "TOMMY WRIGHT III",
-    "clothingType": "tshirt",
-    "price": 2500,
+    "clothingType": "hoodie",
+    "price": 4500,
     "oldPrice": null,
     "desc": "",
     "badge": "",
-    "image": "/uploads/d3c2d119b533ce4b8c0c1f5058821bbf.png",
+    "image": "/uploads/d3c2d119b533ce4b8c0c1f5058821bbf.webp",
     "images": [
-      "/uploads/d3c2d119b533ce4b8c0c1f5058821bbf.png",
-      "/uploads/6fa1f0be235759c2ec376851692d1c73.png"
+      "/uploads/d3c2d119b533ce4b8c0c1f5058821bbf.webp",
+      "/uploads/6fa1f0be235759c2ec376851692d1c73.webp"
     ]
   },
   {
@@ -1744,13 +2070,13 @@
     "name": "Triple Six Mafia Vol. 1 Black Longsleeve",
     "category": "THREE SIX MAFIA",
     "clothingType": "longsleeve",
-    "price": 3500,
+    "price": 3000,
     "oldPrice": null,
     "desc": "",
     "badge": "",
-    "image": "/uploads/1def7a85e5d2664701098bcfb420dddc.png",
+    "image": "/uploads/1def7a85e5d2664701098bcfb420dddc.webp",
     "images": [
-      "/uploads/1def7a85e5d2664701098bcfb420dddc.png"
+      "/uploads/1def7a85e5d2664701098bcfb420dddc.webp"
     ]
   },
   {
@@ -1758,13 +2084,13 @@
     "name": "Triple Six Mafia Vol. 1 White Longsleeve",
     "category": "THREE SIX MAFIA",
     "clothingType": "longsleeve",
-    "price": 3500,
+    "price": 3000,
     "oldPrice": null,
     "desc": "",
     "badge": "",
-    "image": "/uploads/de2054f721aee01ee77e9f9a35fca075.png",
+    "image": "/uploads/de2054f721aee01ee77e9f9a35fca075.webp",
     "images": [
-      "/uploads/de2054f721aee01ee77e9f9a35fca075.png"
+      "/uploads/de2054f721aee01ee77e9f9a35fca075.webp"
     ]
   },
   {
@@ -1776,24 +2102,24 @@
     "oldPrice": null,
     "desc": "",
     "badge": "",
-    "image": "/uploads/1ade50dec88680179cef04fcd9dcbaf0.png",
+    "image": "/uploads/1ade50dec88680179cef04fcd9dcbaf0.webp",
     "images": [
-      "/uploads/1ade50dec88680179cef04fcd9dcbaf0.png"
+      "/uploads/1ade50dec88680179cef04fcd9dcbaf0.webp"
     ]
   },
   {
     "id": 1776899484206,
-    "name": "TRIPLE SIX MAFIA",
+    "name": "TRIPLE SIX MAFIA Hoodie",
     "category": "THREE SIX MAFIA",
-    "clothingType": "tshirt",
-    "price": 2500,
+    "clothingType": "hoodie",
+    "price": 4500,
     "oldPrice": null,
     "desc": "",
     "badge": "",
-    "image": "/uploads/0fc5380d4f48ca63c88d6bb6dd5e2618.png",
+    "image": "/uploads/0fc5380d4f48ca63c88d6bb6dd5e2618.webp",
     "images": [
-      "/uploads/0fc5380d4f48ca63c88d6bb6dd5e2618.png",
-      "/uploads/b73d78296b5ebf730184c5bf26fc3462.png"
+      "/uploads/0fc5380d4f48ca63c88d6bb6dd5e2618.webp",
+      "/uploads/b73d78296b5ebf730184c5bf26fc3462.webp"
     ]
   }
 ]

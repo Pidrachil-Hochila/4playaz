@@ -25,6 +25,13 @@
         </section>
 
         <section>
+          <h2>Размерная сетка — модель 3</h2>
+          <div class="zamer-image-frame">
+            <img src="/public/zamer3.jpg" alt="Таблица размеров — модель 3" class="zamer-img" />
+          </div>
+        </section>
+
+        <section>
           <h2>Советы по выбору размера</h2>
           <p>Если ваши параметры находятся между двумя размерами — рекомендуем выбрать больший. При возникновении вопросов обращайтесь в Telegram: <a href="https://t.me/playaz_store" target="_blank">@playaz_store</a></p>
         </section>

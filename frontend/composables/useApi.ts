@@ -35,11 +35,33 @@ export const useApi = () => {
     return Array.isArray(data) ? data : []
   }
 
-  return { getProducts, getProduct, getCollections, base }
+  const createOrder = async (order: {
+    productName: string
+    productSize?: string
+    amount: number
+    customer: { fullName: string; phone: string; telegram: string; email: string }
+    delivery: { method: string; address: string; deliveryPrice?: number }
+  }) => {
+    return await $fetch(`${base}/api/orders/create`, {
+      method: 'POST',
+      body: order
+    })
+  }
+
+  return { getProducts, getProduct, getCollections, createOrder, base }
 }
 
 export const useAdminApi = () => {
+  const config = useRuntimeConfig()
   const base = getBase()
+
+  // Без явного API base админ-запросы пойдут по относительному пути
+  // и попадут в Nuxt-сервер вместо бэкенда → 404/HTML.
+  if (process.client && !config.public.apiBase) {
+    console.warn(
+      '[useAdminApi] NUXT_PUBLIC_API_BASE не задан. Админ-запросы пойдут по относительному пути и не достигнут бэкенда. Добавь в frontend/.env: NUXT_PUBLIC_API_BASE=http://localhost:3001'
+    )
+  }
 
   const getToken = () => {
     if (process.client) return localStorage.getItem('admin_token') || ''
@@ -76,5 +98,21 @@ export const useAdminApi = () => {
     })
   }
 
-  return { login, addProduct, deleteProduct, updateProduct }
+  const getOrders = async (pendingOnly = false) => {
+    const url = pendingOnly ? `${base}/api/orders?pending=1` : `${base}/api/orders`
+    const data = await $fetch(url, {
+      headers: { Authorization: `Bearer ${getToken()}` }
+    })
+    return Array.isArray(data) ? data : []
+  }
+
+  const sendPaymentLink = async (id: number, paymentLink: string, deliveryPrice: number) => {
+    return await $fetch(`${base}/api/orders/${id}/send-link`, {
+      method: 'POST',
+      headers: { Authorization: `Bearer ${getToken()}` },
+      body: { paymentLink, deliveryPrice }
+    })
+  }
+
+  return { login, addProduct, deleteProduct, updateProduct, getOrders, sendPaymentLink }
 }

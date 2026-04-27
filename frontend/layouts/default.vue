@@ -66,7 +66,7 @@
           <!-- CART ITEMS + FOOTER -->
           <div v-else-if="!checkoutMode" class="cart-content">
             <div class="cart-items">
-              <div v-for="item in cartItems" :key="item.id" class="cart-item">
+              <div v-for="item in cartItems" :key="item.cartKey" class="cart-item">
                 <div class="cart-item-img">
                   <img v-if="item.image" :src="resolveImg(item.image)" :alt="item.name">
                   <div v-else class="cart-item-img-placeholder">4PZ</div>
@@ -74,16 +74,17 @@
                 <div class="cart-item-info">
                   <div class="cart-item-category">{{ item.category }}</div>
                   <div class="cart-item-name">{{ item.name }}</div>
+                  <div v-if="item.size" class="cart-item-size">{{ item.size }}</div>
                   <div class="cart-item-price-row">
                     <div class="cart-item-qty">
-                      <button class="qty-btn" @click="updateQuantity(item.id, item.quantity - 1)">−</button>
+                      <button class="qty-btn" @click="updateQuantity(item.cartKey, item.quantity - 1)">−</button>
                       <span class="qty-value">{{ item.quantity }}</span>
-                      <button class="qty-btn" @click="updateQuantity(item.id, item.quantity + 1)">+</button>
+                      <button class="qty-btn" @click="updateQuantity(item.cartKey, item.quantity + 1)">+</button>
                     </div>
                     <div class="cart-item-price">{{ formatPrice(item.price * item.quantity) }}</div>
                   </div>
                 </div>
-                <button class="cart-item-remove" @click="removeFromCart(item.id)" title="Удалить">
+                <button class="cart-item-remove" @click="removeFromCart(item.cartKey)" title="Удалить">
                   <svg viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.5" width="12" height="12">
                     <path d="M1 1l12 12M13 1L1 13"/>
                   </svg>
@@ -130,6 +131,28 @@
               <!-- ─── 1. КОНТАКТНЫЕ ДАННЫЕ ─── -->
               <div class="form-section">
                 <h4 class="form-section-title">Контактные данные</h4>
+                <div class="form-group">
+                  <label class="form-label">👤 ФИО *</label>
+                  <input
+                    v-model="cartForm.fullName"
+                    type="text"
+                    class="form-input"
+                    :class="{ error: cartErrors.fullName }"
+                    placeholder="Иванов Иван Иванович"
+                  >
+                  <span v-if="cartErrors.fullName" class="form-error">{{ cartErrors.fullName }}</span>
+                </div>
+                <div class="form-group">
+                  <label class="form-label">📞 Номер телефона *</label>
+                  <input
+                    v-model="cartForm.phone"
+                    type="tel"
+                    class="form-input"
+                    :class="{ error: cartErrors.phone }"
+                    placeholder="+7 900 000 00 00"
+                  >
+                  <span v-if="cartErrors.phone" class="form-error">{{ cartErrors.phone }}</span>
+                </div>
                 <div class="form-group">
                   <label class="form-label">📧 Email *</label>
                   <input
@@ -190,22 +213,11 @@
                     <span v-if="cartErrors.city" class="form-error">{{ cartErrors.city }}</span>
                   </div>
                   <div class="form-group">
-                    <label class="form-label">Индекс *</label>
-                    <input
-                      v-model="cartForm.cdekPostalCode"
-                      type="text"
-                      inputmode="numeric"
-                      maxlength="6"
-                      class="form-input"
-                      :class="{ error: cartErrors.cdekPostalCode }"
-                      placeholder="123456"
-                    >
-                    <span v-if="cartErrors.cdekPostalCode" class="form-error">{{ cartErrors.cdekPostalCode }}</span>
-                  </div>
+                 </div>
                 </div>
 
                 <div class="form-group">
-                  <label class="form-label">Улица, дом, квартира *</label>
+                  <label class="form-label">Улица, дом *</label>
                   <input
                     v-model="cartForm.cdekAddress"
                     type="text"
@@ -232,7 +244,7 @@
                   <span v-if="cartErrors.yandexCity" class="form-error">{{ cartErrors.yandexCity }}</span>
                 </div>
                 <div class="form-group">
-                  <label class="form-label">Улица, дом, квартира *</label>
+                  <label class="form-label">Улица, дом *</label>
                   <input v-model="cartForm.yandexAddress" type="text" class="form-input" :class="{ error: cartErrors.yandexAddress }" placeholder="ул. Ленина, д. 5, кв. 10">
                   <span v-if="cartErrors.yandexAddress" class="form-error">{{ cartErrors.yandexAddress }}</span>
                 </div>
@@ -248,9 +260,6 @@
                 </div>
                 <div class="form-row-2">
                   <div class="form-group">
-                    <label class="form-label">Индекс *</label>
-                    <input v-model="cartForm.pochtaPostalCode" type="text" inputmode="numeric" maxlength="6" class="form-input" :class="{ error: cartErrors.pochtaPostalCode }" placeholder="123456">
-                    <span v-if="cartErrors.pochtaPostalCode" class="form-error">{{ cartErrors.pochtaPostalCode }}</span>
                   </div>
                   <div class="form-group">
                     <label class="form-label">Город *</label>
@@ -259,7 +268,7 @@
                   </div>
                 </div>
                 <div class="form-group">
-                  <label class="form-label">Улица, дом, квартира *</label>
+                  <label class="form-label">Улица, дом *</label>
                   <input v-model="cartForm.pochtaAddress" type="text" class="form-input" :class="{ error: cartErrors.pochtaAddress }" placeholder="ул. Ленина, д. 5, кв. 10">
                   <span v-if="cartErrors.pochtaAddress" class="form-error">{{ cartErrors.pochtaAddress }}</span>
                 </div>
@@ -291,13 +300,14 @@
               <div class="order-review">
                 <h4 class="form-section-title">Ваш заказ</h4>
                 <div class="order-items-list">
-                  <div class="order-item-row" v-for="item in cartItems" :key="item.id">
+                  <div class="order-item-row" v-for="item in cartItems" :key="item.cartKey">
                     <div class="order-item-img">
                       <img v-if="item.image" :src="resolveImg(item.image)" :alt="item.name">
                       <div v-else class="order-item-img-ph">4PZ</div>
                     </div>
                     <div class="order-item-details">
                       <div class="order-item-name">{{ item.name }}</div>
+                      <div v-if="item.size" class="order-item-size">Размер: {{ item.size }}</div>
                       <div class="order-item-qty">× {{ item.quantity }}</div>
                     </div>
                     <div class="order-item-price">{{ formatPrice(item.price * item.quantity) }}</div>
@@ -309,9 +319,13 @@
                     <span>Товары ({{ totalItems }} шт.)</span>
                     <span>{{ formatPrice(subtotalPrice) }}</span>
                   </div>
-                  <div class="summary-line" v-if="recipientName">
-                    <span>Получатель</span>
-                    <span>{{ recipientName }}</span>
+                  <div class="summary-line">
+                    <span>ФИО</span>
+                    <span>{{ cartForm.fullName }}</span>
+                  </div>
+                  <div class="summary-line">
+                    <span>Телефон</span>
+                    <span>{{ cartForm.phone }}</span>
                   </div>
                   <div class="summary-line">
                     <span>Email</span>
@@ -338,10 +352,11 @@
                 <p>После оформления заказа ссылка на оплату придёт вам на почту. Проверяйте папку «Входящие» и «Спам».</p>
               </div>
 
+              <div v-if="cartSubmitError" class="submit-error">{{ cartSubmitError }}</div>
               <div class="checkout-nav">
-                <button class="btn-back-sm" @click="cartCheckoutStep = 1">← Назад</button>
-                <button class="btn-pay" @click="cartCreatePayment">
-                  Оформить заказ →
+                <button class="btn-back-sm" @click="cartCheckoutStep = 1" :disabled="cartSubmitting">← Назад</button>
+                <button class="btn-pay" @click="cartCreatePayment" :disabled="cartSubmitting">
+                  {{ cartSubmitting ? 'Оформление...' : 'Оформить заказ →' }}
                 </button>
               </div>
             </div>
@@ -394,8 +409,8 @@
 
 <script setup lang="ts">
 import { ref, computed, provide, nextTick } from 'vue'
-import { createClient } from '@supabase/supabase-js'
 import { useCart } from '~/composables/useCart'
+import { useApi } from '~/composables/useApi'
 
 const {
   cartItems, cartOpen, totalItems,
@@ -422,7 +437,7 @@ provide('addToCart', (product: any) => {
 
 const config = useRuntimeConfig()
 const API_BASE = config.public.apiBase
-const supabase = createClient(config.public.supabaseUrl, config.public.supabaseKey)
+const { createOrder } = useApi()
 const resolveImg = (src: string): string => {
   if (!src) return ''
   if (src.startsWith('data:') || src.startsWith('http')) return src
@@ -437,7 +452,9 @@ const checkoutMode = ref(false)
 const cartCheckoutStep = ref(1)
 
 const cartForm = ref({
-  // 1. Связь (оба обязательны)
+  // 1. Контакты
+  fullName: '',
+  phone: '',
   email: '',
   telegram: '',
   // 2. Способ доставки
@@ -464,9 +481,9 @@ const cartForm = ref({
 const cartErrors = ref<Record<string, string>>({})
 
 const deliveryOptions = [
-  { value: 'cdek',   name: 'СДЭК',           desc: 'Пункт выдачи на карте',  days: '2–5 дн',  icon: '📫' },
-  { value: 'yandex', name: 'Яндекс Доставка', desc: 'Курьер до двери',        days: '1–3 дн',  icon: '🚚' },
-  { value: 'pochta', name: 'Почта России',    desc: 'Доставка по индексу',    days: '5–14 дн', icon: '✉️' },
+  { value: 'cdek',   name: 'СДЭК',           desc: 'Пункт выдачи',  days: '2–5 дн',  icon: '📫' },
+  { value: 'yandex', name: 'Яндекс Доставка', desc: 'Пункт выдачи',        days: '1–3 дн',  icon: '🚚' },
+  { value: 'pochta', name: 'Почта России',    desc: 'Пункт выдачи',    days: '5–14 дн', icon: '✉️' },
 ]
 
 // ─── CDEK WIDGET (inline) ──────────────────────────────────
@@ -564,6 +581,13 @@ const cartValidateStep1 = () => {
   const e: Record<string, string> = {}
   const f = cartForm.value
 
+  // 1. ФИО
+  if (!f.fullName.trim()) e.fullName = 'Введите ФИО'
+
+  // 1. Телефон
+  if (!f.phone.trim()) e.phone = 'Введите номер телефона'
+  else if (!/^[\d\s+\-()]{7,20}$/.test(f.phone.trim())) e.phone = 'Неверный формат номера'
+
   // 1. Email (обязателен)
   if (!f.email.trim()) e.email = 'Введите email'
   else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(f.email)) e.email = 'Неверный формат email'
@@ -579,14 +603,12 @@ const cartValidateStep1 = () => {
   if (f.deliveryMethod === 'cdek') {
     if (!f.city.trim())          e.city = 'Введите город'
     if (!f.cdekAddress.trim())   e.cdekAddress = 'Введите улицу и дом'
-    if (!/^\d{6}$/.test(f.cdekPostalCode.trim())) e.cdekPostalCode = 'Введите индекс (6 цифр)'
   } else if (f.deliveryMethod === 'yandex') {
     if (!f.yandexRecipient.trim()) e.yandexRecipient = 'Введите ФИО получателя'
     if (!f.yandexCity.trim())      e.yandexCity = 'Введите город'
     if (!f.yandexAddress.trim())   e.yandexAddress = 'Введите адрес'
   } else if (f.deliveryMethod === 'pochta') {
     if (!f.pochtaRecipient.trim())                  e.pochtaRecipient = 'Введите ФИО получателя'
-    if (!/^\d{6}$/.test(f.pochtaPostalCode.trim())) e.pochtaPostalCode = 'Введите индекс (6 цифр)'
     if (!f.pochtaCity.trim())                       e.pochtaCity = 'Введите город'
     if (!f.pochtaAddress.trim())                    e.pochtaAddress = 'Введите адрес'
   }
@@ -608,25 +630,46 @@ const cartProceedStep2 = () => {
 }
 
 // ─── ОФОРМЛЕНИЕ ЗАКАЗА ─────────────────────────────────────
+const cartSubmitting = ref(false)
+const cartSubmitError = ref('')
+
 const cartCreatePayment = async () => {
   const f = cartForm.value
   const tg = f.telegram.trim()
 
-  await supabase.from('customers').insert({
-    full_name: recipientName.value || f.email,
-    phone: tg.startsWith('@') ? tg : '@' + tg,
-    email: f.email.trim(),
-    product_name: cartItems.value.map(i => `${i.name} ×${i.quantity}`).join(', '),
-    product_id: cartItems.value.map(i => String(i.id)).join(','),
-    delivery_method: f.deliveryMethod,
-    delivery_address: fullDeliveryAddress.value,
-    product_price: totalPrice.value,
-    delivery_price: 0,
-    status: 'paid',
-  })
-
-  clearCart()
-  navigateTo('/payment/success')
+  cartSubmitting.value = true
+  cartSubmitError.value = ''
+  try {
+    await createOrder({
+      productName: cartItems.value.map(i => `${i.name} ×${i.quantity}`).join(', '),
+      productSize: cartItems.value
+        .filter(i => i.size)
+        .map(i => `${i.size} ×${i.quantity}`)
+        .join(', ') || undefined,
+      amount: totalPrice.value,
+      customer: {
+        fullName: f.fullName.trim(),
+        phone:    f.phone.trim(),
+        telegram: tg.startsWith('@') ? tg : `@${tg}`,
+        email:    f.email.trim(),
+      },
+      delivery: {
+        method:        f.deliveryMethod,
+        address:       fullDeliveryAddress.value,
+        deliveryPrice: 0,
+      },
+    })
+    clearCart()
+    closeCart()
+    checkoutMode.value = false
+    cartCheckoutStep.value = 1
+    document.body.style.overflow = ''
+    navigateTo('/payment/success')
+  } catch (err: any) {
+    cartSubmitError.value = err?.data?.message || err?.message || 'Ошибка при оформлении заказа'
+  } finally {
+    cartSubmitting.value = false
+  }
 }
 </script>
 
@@ -820,7 +863,11 @@ header {
 }
 .cart-item-name {
   font-family: var(--font-cinzel); font-size: 13px; color: var(--white);
-  line-height: 1.4; margin-bottom: 12px;
+  line-height: 1.4; margin-bottom: 4px;
+}
+.cart-item-size {
+  font-family: var(--font-cinzel); font-size: 9px; letter-spacing: 0.12em;
+  color: var(--red-bright); text-transform: uppercase; margin-bottom: 10px;
 }
 .cart-item-price-row { display: flex; align-items: center; justify-content: space-between; }
 .cart-item-qty { display: flex; align-items: center; gap: 0; border: 1px solid var(--border); }
@@ -1022,6 +1069,7 @@ header {
 
 /* CHECKOUT NAV */
 .checkout-nav { display: flex; gap: 10px; align-items: center; padding-top: 4px; }
+.submit-error { font-size: 12px; color: var(--red-bright); padding: 10px 14px; background: rgba(192,57,43,0.08); border-left: 3px solid var(--red); margin-bottom: 8px; }
 .btn-back-sm {
   background: none; border: 1px solid var(--border); color: var(--mid);
   font-family: var(--font-cinzel); font-size: 8px; letter-spacing: 0.15em;
@@ -1055,6 +1103,7 @@ header {
 .order-item-img-ph { font-family: var(--font-gothic); font-size: 11px; color: rgba(192,57,43,0.2); }
 .order-item-details { flex: 1; }
 .order-item-name { font-family: var(--font-cinzel); font-size: 11px; color: var(--white); }
+.order-item-size { font-size: 10px; color: var(--mid); margin-top: 1px; }
 .order-item-qty { font-size: 10px; color: var(--mid); }
 .order-item-price { font-family: var(--font-cinzel); font-size: 12px; color: var(--off-white); }
 

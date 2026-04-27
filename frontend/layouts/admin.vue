@@ -10,6 +10,10 @@
           <span class="nav-icon">◈</span>
           <span>Дашборд</span>
         </NuxtLink>
+        <NuxtLink to="/admin/orders" class="nav-item">
+          <span class="nav-icon">◎</span>
+          <span>Заказы</span>
+        </NuxtLink>
         <NuxtLink to="/admin/products" class="nav-item">
           <span class="nav-icon">◉</span>
           <span>Товары</span>

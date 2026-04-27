@@ -31,6 +31,11 @@ export default defineNuxtConfig({
     }
   },
 
+  devServer: {
+    host: '0.0.0.0',
+    port: 3000,
+  },
+
   routeRules: {
     '/admin/**': { ssr: false },
   },
@@ -45,7 +50,7 @@ export default defineNuxtConfig({
   runtimeConfig: {
     public: {
       // Use ?? so empty string from env var is preserved (not replaced by fallback)
-      apiBase: process.env.NUXT_PUBLIC_API_BASE ?? 'http://localhost:3001',
+      apiBase: process.env.NUXT_PUBLIC_API_BASE ?? '',
       yandexApiKey: process.env.NUXT_PUBLIC_YANDEX_API_KEY || '',
       cdekServicePath: process.env.NUXT_PUBLIC_CDEK_SERVICE_PATH || '',
       supabaseUrl: process.env.NUXT_PUBLIC_SUPABASE_URL || 'https://gmmtxvobjnmdpryhsrpu.supabase.co',

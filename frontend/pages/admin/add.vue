@@ -234,6 +234,7 @@
       </div>
 
       <div v-if="errorMsg" class="form-error">{{ errorMsg }}</div>
+      <div v-if="successMsg" class="form-success">{{ successMsg }}</div>
 
       <button class="submit-btn" :disabled="submitting" @click="handleSubmit">
         <span v-if="submitting">Сохранение...</span>
@@ -275,8 +276,13 @@ const addCollection = async () => {
       body: JSON.stringify({ name }),
     })
     if (res.ok) {
+      const data = await res.json()
       await fetchCollections()
       form.category = name
+      successMsg.value = data.linkedCount > 0
+        ? `Коллекция «${name}» создана. Автоматически привязано товаров: ${data.linkedCount}`
+        : `Коллекция «${name}» создана`
+      setTimeout(() => { successMsg.value = '' }, 5000)
     } else {
       const err = await res.json()
       errorMsg.value = err.error || 'Ошибка'
@@ -403,6 +409,7 @@ const badges = ['', 'New', 'Best Seller', 'Sale', 'Pre-Order', 'Exclusive']
 const images = ref<string[]>([])
 const urlInput = ref('')
 const errorMsg = ref('')
+const successMsg = ref('')
 const submitting = ref(false)
 const isDragging = ref(false)
 const fileInputRef = ref<HTMLInputElement | null>(null)
@@ -652,6 +659,7 @@ onMounted(() => {
 .images-hint { font-size: 10px; color: var(--mid); margin-top: 6px; letter-spacing: 0.05em; }
 
 .form-error { font-family: var(--font-cinzel); font-size: 9px; letter-spacing: 0.12em; color: var(--red-bright); margin-bottom: 16px; padding: 12px 14px; border: 1px solid var(--red-deep); background: rgba(120,0,0,0.1); line-height: 1.6; }
+.form-success { font-family: var(--font-cinzel); font-size: 9px; letter-spacing: 0.12em; color: #2ecc71; margin-bottom: 16px; padding: 12px 14px; border: 1px solid #196f3d; background: rgba(46,204,113,0.08); line-height: 1.6; }
 .submit-btn { width: 100%; background: var(--red-deep); border: 1px solid var(--red); color: var(--white); padding: 15px; font-family: var(--font-cinzel); font-size: 10px; letter-spacing: 0.25em; text-transform: uppercase; cursor: pointer; transition: all 0.2s; }
 .submit-btn:hover:not(:disabled) { background: var(--red); box-shadow: 0 0 24px var(--red-glow); }
 .submit-btn:disabled { opacity: 0.5; cursor: not-allowed; }
