@@ -36,8 +36,10 @@
               <label>Коллекция</label>
               <select v-model="form.category">
                 <option value="">Без коллекции</option>
-                <option value="DJ XBOX360">DJ XBOX360</option>
-                <option value="3.5 PROPOVEDNIK COLLECTION">3.5 PROPOVEDNIK COLLECTION</option>
+                <option v-for="col in collections" :key="col" :value="col">{{ col }}</option>
+                <option v-if="form.category && !collections.includes(form.category)" :value="form.category">
+                  {{ form.category }} (не в коллекциях)
+                </option>
               </select>
             </div>
             <div class="form-group">
@@ -149,6 +151,15 @@ const images = ref<string[]>([])
 
 const badges = ['', 'New', 'Best Seller', 'Sale', 'Pre-Order', 'Exclusive']
 
+const collections = ref<string[]>([])
+
+const fetchCollections = async () => {
+  try {
+    const res = await fetch(`${API_BASE}/api/collections`)
+    collections.value = await res.json()
+  } catch { collections.value = [] }
+}
+
 const form = reactive({
   name: '',
   category: '',
@@ -160,6 +171,7 @@ const form = reactive({
 })
 
 onMounted(async () => {
+  await fetchCollections()
   const id = route.params.id
   try {
     const res = await fetch(`${API_BASE}/api/products/${id}`)
