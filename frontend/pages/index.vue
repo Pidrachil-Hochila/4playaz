@@ -356,7 +356,7 @@
       <div class="search-float" :class="{ 'search-float--open': searchOpen }">
 
         <Transition name="search-drop">
-          <div v-if="searchOpen && searchQuery.trim()" class="search-dropdown">
+          <div v-if="searchOpen && searchInput.trim()" class="search-dropdown">
             <div v-if="searchResults.length === 0" class="search-empty">Ничего не найдено</div>
             <div
               v-for="p in searchResults"
@@ -380,7 +380,8 @@
           <div v-if="searchOpen" class="search-bar-wrap">
             <input
               ref="searchInputRef"
-              v-model="searchQuery"
+              :value="searchInput"
+              @input="onSearchInput"
               class="search-input"
               placeholder="Поиск товаров..."
               @keydown.esc="closeSearch"
@@ -470,8 +471,16 @@ const handleAddToCart = (product: any) => {
 
 // ─── SEARCH ────────────────────────────────────────────────
 const searchOpen = ref(false)
+const searchInput = ref('')
 const searchQuery = ref('')
 const searchInputRef = ref<HTMLInputElement | null>(null)
+let searchDebounceTimer: ReturnType<typeof setTimeout> | null = null
+
+const onSearchInput = (e: Event) => {
+  searchInput.value = (e.target as HTMLInputElement).value
+  if (searchDebounceTimer) clearTimeout(searchDebounceTimer)
+  searchDebounceTimer = setTimeout(() => { searchQuery.value = searchInput.value }, 200)
+}
 
 const searchResults = computed(() => {
   const q = searchQuery.value.trim().toLowerCase()
@@ -488,6 +497,7 @@ const searchResults = computed(() => {
 const toggleSearch = async () => {
   searchOpen.value = !searchOpen.value
   if (searchOpen.value) {
+    searchInput.value = ''
     searchQuery.value = ''
     await nextTick()
     searchInputRef.value?.focus()
@@ -496,7 +506,9 @@ const toggleSearch = async () => {
 
 const closeSearch = () => {
   searchOpen.value = false
+  searchInput.value = ''
   searchQuery.value = ''
+  if (searchDebounceTimer) clearTimeout(searchDebounceTimer)
 }
 
 const openSearchProduct = (product: any) => {
@@ -732,7 +744,7 @@ onUnmounted(() => {
 .size-selector { display: flex; flex-direction: column; gap: 8px; margin-bottom: 10px; }
 .size-label { font-family: var(--font-cinzel); font-size: 9px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--light); }
 .size-options { display: flex; flex-wrap: wrap; gap: 6px; }
-.size-btn { background: none; border: 1px solid var(--border); color: var(--mid); font-family: var(--font-cinzel); font-size: 10px; letter-spacing: 0.1em; padding: 6px 12px; cursor: pointer; transition: all 0.2s; }
+.size-btn { background: none; border: 1px solid var(--border); color: var(--mid); font-family: var(--font-cinzel); font-size: 10px; letter-spacing: 0.1em; padding: 6px 12px; cursor: pointer; transition: border-color 0.2s, color 0.2s, background 0.2s; }
 .size-btn:hover { border-color: var(--red); color: var(--white); }
 .size-btn.active { background: var(--red-deep); border-color: var(--red-bright); color: var(--white); }
 .size-error { font-size: 10px; color: #e74c3c; }
@@ -744,7 +756,7 @@ onUnmounted(() => {
 .hero-title { font-family: var(--font-gothic); font-weight: 400; font-size: clamp(52px, 6vw, 90px); line-height: 1.0; letter-spacing: 0.02em; color: var(--white); margin-bottom: 28px; text-shadow: 0 0 60px rgba(192,57,43,0.2); }
 .hero-accent { color: var(--red-bright); text-shadow: 0 0 30px var(--red); }
 .hero-desc { color: var(--mid); font-size: 13px; line-height: 1.8; max-width: 380px; margin-bottom: 40px; }
-.btn-primary { display: inline-block; background: transparent; color: var(--red-bright); padding: 14px 40px; font-family: var(--font-cinzel); font-size: 9px; letter-spacing: 0.25em; text-transform: uppercase; border: 1px solid var(--red); cursor: pointer; transition: all 0.3s; width: fit-content; text-decoration: none; }
+.btn-primary { display: inline-block; background: transparent; color: var(--red-bright); padding: 14px 40px; font-family: var(--font-cinzel); font-size: 9px; letter-spacing: 0.25em; text-transform: uppercase; border: 1px solid var(--red); cursor: pointer; transition: background 0.3s, box-shadow 0.3s; width: fit-content; text-decoration: none; }
 .btn-primary:hover { background: var(--red-deep); border-color: var(--red-bright); color: var(--white); box-shadow: 0 0 30px var(--red-glow); }
 .btn-primary:disabled { opacity: 0.4; cursor: not-allowed; }
 .btn-primary:disabled:hover { background: transparent; border-color: var(--red); color: var(--red-bright); box-shadow: none; }
@@ -762,10 +774,10 @@ onUnmounted(() => {
 .carousel-name { font-family: var(--font-cinzel); font-size: 16px; font-weight: 600; color: var(--white); letter-spacing: 0.05em; }
 .carousel-price { font-family: var(--font-cinzel); font-size: 13px; color: var(--off-white); margin-top: 4px; }
 .carousel-nav { position: absolute; bottom: 70px; left: 0; right: 0; display: flex; align-items: center; justify-content: center; gap: 12px; z-index: 10; }
-.carousel-btn { background: rgba(0,0,0,0.6); border: 1px solid var(--border-red); color: var(--white); width: 36px; height: 36px; font-size: 20px; cursor: pointer; transition: all 0.2s; display: flex; align-items: center; justify-content: center; line-height: 1; }
+.carousel-btn { background: rgba(0,0,0,0.6); border: 1px solid var(--border-red); color: var(--white); width: 36px; height: 36px; font-size: 20px; cursor: pointer; transition: background 0.2s; display: flex; align-items: center; justify-content: center; line-height: 1; }
 .carousel-btn:hover { background: var(--red-deep); border-color: var(--red); }
 .carousel-dots { display: flex; gap: 6px; align-items: center; }
-.dot { width: 6px; height: 6px; border-radius: 50%; background: var(--border); border: none; cursor: pointer; transition: all 0.2s; padding: 0; }
+.dot { width: 6px; height: 6px; border-radius: 50%; background: var(--border); border: none; cursor: pointer; transition: background 0.2s, transform 0.2s; padding: 0; }
 .dot.active { background: var(--red-bright); transform: scale(1.4); }
 .hero-placeholder { width: 100%; height: 100%; display: flex; align-items: center; justify-content: center; background: linear-gradient(160deg, #1a0000 0%, #0a0a0a 60%, #000 100%); position: relative; overflow: hidden; }
 .hero-placeholder-text { font-family: var(--font-gothic); font-size: 72px; color: rgba(192,57,43,0.12); letter-spacing: 0.15em; z-index: 2; }
@@ -782,7 +794,7 @@ onUnmounted(() => {
 .filters-clothing { background: var(--deep); border-bottom: 1px solid var(--border-red); }
 .filters-collections { background: var(--surface); padding-top: 2px; padding-bottom: 2px; }
 .filters-label { font-family: var(--font-cinzel); font-size: 8px; letter-spacing: 0.22em; text-transform: uppercase; color: var(--mid); padding: 0 16px 0 0; white-space: nowrap; flex-shrink: 0; }
-.filter-btn { background: none; border: none; border-bottom: 2px solid transparent; padding: 16px 20px; font-family: var(--font-cinzel); font-size: 9px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--mid); cursor: pointer; transition: all 0.2s; white-space: nowrap; margin-bottom: -1px; }
+.filter-btn { background: none; border: none; border-bottom: 2px solid transparent; padding: 16px 20px; font-family: var(--font-cinzel); font-size: 9px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--mid); cursor: pointer; transition: color 0.2s, border-color 0.2s; white-space: nowrap; margin-bottom: -1px; }
 .filter-btn:hover { color: var(--white); }
 .filter-btn.active { color: var(--red-bright); border-bottom-color: var(--red-bright); }
 .filter-btn-sm { padding: 10px 16px; font-size: 8px; letter-spacing: 0.15em; }
@@ -792,10 +804,10 @@ onUnmounted(() => {
 
 /* ─── PRODUCT GRID ─── */
 .products-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 1px; background: var(--border); margin: 0 40px 80px; border: 1px solid var(--border); }
-.product-card { background: var(--surface); position: relative; overflow: hidden; cursor: pointer; transition: background 0.2s; }
+.product-card { background: var(--surface); position: relative; overflow: hidden; cursor: pointer; transition: background 0.2s; contain: layout style paint; }
 .product-card:hover { background: var(--card); }
 .product-card-image { aspect-ratio: 3/4; overflow: hidden; position: relative; background: var(--deep); display: flex; align-items: center; justify-content: center; }
-.card-img { width: 100%; height: 100%; object-fit: contain; object-position: center; display: block; transition: transform 0.6s ease; }
+.card-img { width: 100%; height: 100%; object-fit: contain; object-position: center; display: block; transition: transform 0.6s ease; will-change: transform; }
 .product-card:hover .card-img { transform: scale(1.04); }
 .no-img { width: 100%; height: 100%; display: flex; align-items: center; justify-content: center; background: linear-gradient(145deg, #1c1c1c, #111); font-family: var(--font-gothic); font-size: 40px; color: rgba(192,57,43,0.15); letter-spacing: 0.15em; }
 .card-overlay { position: absolute; inset: 0; background: rgba(120,0,0,0.75); display: flex; align-items: center; justify-content: center; opacity: 0; transition: opacity 0.3s; }
@@ -827,12 +839,12 @@ onUnmounted(() => {
 .modal-carousel { position: relative; width: 100%; height: 100%; min-height: 400px; overflow: hidden; }
 .modal-carousel-track { display: flex; height: 100%; transition: transform 0.4s ease; }
 .modal-carousel-img { min-width: 100%; width: 100%; height: 100%; object-fit: contain; object-position: center; display: block; background: var(--deep); }
-.modal-carousel-btn { position: absolute; top: 50%; transform: translateY(-50%); background: rgba(0,0,0,0.7); border: 1px solid var(--border-red); color: var(--white); width: 36px; height: 36px; font-size: 20px; cursor: pointer; display: flex; align-items: center; justify-content: center; transition: all 0.2s; z-index: 5; line-height: 1; }
+.modal-carousel-btn { position: absolute; top: 50%; transform: translateY(-50%); background: rgba(0,0,0,0.7); border: 1px solid var(--border-red); color: var(--white); width: 36px; height: 36px; font-size: 20px; cursor: pointer; display: flex; align-items: center; justify-content: center; transition: background 0.2s; z-index: 5; line-height: 1; }
 .modal-carousel-btn.prev { left: 8px; }
 .modal-carousel-btn.next { right: 8px; }
 .modal-carousel-btn:hover { background: var(--red-deep); border-color: var(--red); }
 .modal-dots { position: absolute; bottom: 10px; left: 0; right: 0; display: flex; justify-content: center; gap: 6px; z-index: 5; }
-.modal-dot { width: 6px; height: 6px; border-radius: 50%; background: rgba(255,255,255,0.3); cursor: pointer; transition: all 0.2s; }
+.modal-dot { width: 6px; height: 6px; border-radius: 50%; background: rgba(255,255,255,0.3); cursor: pointer; transition: background 0.2s, transform 0.2s; }
 .modal-dot.active { background: var(--red-bright); transform: scale(1.3); }
 .modal-info { padding: 40px 36px; display: flex; flex-direction: column; }
 .modal-category { font-family: var(--font-cinzel); font-size: 9px; letter-spacing: 0.22em; text-transform: uppercase; color: var(--red); margin-bottom: 14px; }
@@ -845,7 +857,7 @@ onUnmounted(() => {
 .modal-thumb.active { border-color: var(--red-bright); opacity: 1; }
 .modal-thumb:hover { opacity: 1; }
 .btn-buy { width: 100%; text-align: center; padding: 16px; font-size: 10px; letter-spacing: 0.3em; }
-.modal-close { position: absolute; top: 16px; right: 16px; background: var(--deep); border: 1px solid var(--border-red); width: 36px; height: 36px; cursor: pointer; font-size: 14px; display: flex; align-items: center; justify-content: center; color: var(--mid); transition: all 0.2s; z-index: 10; }
+.modal-close { position: absolute; top: 16px; right: 16px; background: var(--deep); border: 1px solid var(--border-red); width: 36px; height: 36px; cursor: pointer; font-size: 14px; display: flex; align-items: center; justify-content: center; color: var(--mid); transition: background 0.2s, color 0.2s; z-index: 10; }
 .modal-close:hover { background: var(--red-deep); color: var(--white); border-color: var(--red); }
 
 /* ─── CHECKOUT MODAL ─── */
@@ -876,7 +888,7 @@ onUnmounted(() => {
 
 /* DELIVERY OPTIONS */
 .delivery-options { display: flex; flex-direction: column; gap: 10px; }
-.delivery-option { display: flex; align-items: flex-start; gap: 12px; padding: 14px; border: 1px solid var(--border); cursor: pointer; transition: all 0.2s; }
+.delivery-option { display: flex; align-items: flex-start; gap: 12px; padding: 14px; border: 1px solid var(--border); cursor: pointer; transition: border-color 0.2s, background 0.2s; }
 .delivery-option.active { border-color: var(--red); background: rgba(192,57,43,0.06); }
 .delivery-option:hover { border-color: var(--border-red); }
 .delivery-radio { margin-top: 2px; accent-color: var(--red-bright); }
@@ -885,7 +897,7 @@ onUnmounted(() => {
 
 /* TABS */
 .delivery-type-tabs { display: flex; gap: 0; margin-bottom: 16px; }
-.tab-btn { flex: 1; padding: 10px; font-family: var(--font-cinzel); font-size: 9px; letter-spacing: 0.15em; text-transform: uppercase; background: none; border: 1px solid var(--border); color: var(--mid); cursor: pointer; transition: all 0.2s; }
+.tab-btn { flex: 1; padding: 10px; font-family: var(--font-cinzel); font-size: 9px; letter-spacing: 0.15em; text-transform: uppercase; background: none; border: 1px solid var(--border); color: var(--mid); cursor: pointer; transition: background 0.2s, color 0.2s, border-color 0.2s; }
 .tab-btn:first-child { border-right: none; }
 .tab-btn.active { background: var(--red-deep); border-color: var(--red); color: var(--white); }
 
@@ -909,7 +921,7 @@ onUnmounted(() => {
 .payment-note { font-size: 11px; color: var(--mid); line-height: 1.7; margin-bottom: 24px; padding: 14px; border-left: 2px solid var(--border-red); }
 .payment-error { background: rgba(231,76,60,0.12); border: 1px solid var(--red); color: var(--red-bright); padding: 12px 16px; font-size: 12px; margin-bottom: 20px; }
 .checkout-actions { display: flex; gap: 12px; }
-.btn-back { background: none; border: 1px solid var(--border); color: var(--mid); padding: 14px 24px; font-family: var(--font-cinzel); font-size: 9px; letter-spacing: 0.2em; text-transform: uppercase; cursor: pointer; transition: all 0.2s; white-space: nowrap; }
+.btn-back { background: none; border: 1px solid var(--border); color: var(--mid); padding: 14px 24px; font-family: var(--font-cinzel); font-size: 9px; letter-spacing: 0.2em; text-transform: uppercase; cursor: pointer; transition: border-color 0.2s, color 0.2s; white-space: nowrap; }
 .btn-back:hover { border-color: var(--white); color: var(--white); }
 .btn-pay { flex: 1; text-align: center; padding: 16px; font-size: 10px; letter-spacing: 0.2em; display: flex; align-items: center; justify-content: center; gap: 10px; }
 .btn-spinner { width: 14px; height: 14px; border: 2px solid rgba(255,255,255,0.3); border-top-color: var(--white); border-radius: 50%; animation: spin 0.7s linear infinite; }
@@ -945,7 +957,7 @@ onUnmounted(() => {
 .cdek-modal-title { font-family: var(--font-cinzel); font-size: 12px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--white); }
 .cdek-map-container { flex: 1; overflow: hidden; }
 .cdek-map-container > * { width: 100% !important; height: 100% !important; }
-.btn-cdek-widget { width: 100%; padding: 12px 16px; background: var(--red-deep); border: 1px solid var(--red); color: var(--white); font-family: var(--font-cinzel); font-size: 9px; letter-spacing: 0.2em; text-transform: uppercase; cursor: pointer; transition: all 0.2s; display: flex; align-items: center; justify-content: center; gap: 8px; margin-top: 8px; }
+.btn-cdek-widget { width: 100%; padding: 12px 16px; background: var(--red-deep); border: 1px solid var(--red); color: var(--white); font-family: var(--font-cinzel); font-size: 9px; letter-spacing: 0.2em; text-transform: uppercase; cursor: pointer; transition: background 0.2s, box-shadow 0.2s; display: flex; align-items: center; justify-content: center; gap: 8px; margin-top: 8px; }
 .btn-cdek-widget:hover { background: var(--red); box-shadow: 0 0 20px var(--red-glow); }
 .cdek-icon { font-size: 16px; }
 .cdek-selected { display: flex; align-items: flex-start; gap: 10px; padding: 12px 14px; background: rgba(192,57,43,0.08); border: 1px solid var(--red); margin-top: 10px; }
@@ -953,6 +965,12 @@ onUnmounted(() => {
 .cdek-selected-title { font-family: var(--font-cinzel); font-size: 10px; letter-spacing: 0.1em; color: var(--red-bright); margin-bottom: 4px; }
 .cdek-selected-addr { font-size: 12px; color: var(--light); line-height: 1.5; }
 .delivery-calculating { color: var(--mid); font-style: italic; font-size: 12px; }
+
+/* ─── ТАЧ: убираем hover-анимации (стреляют при скролле) ─── */
+@media (pointer: coarse) {
+  .card-img { transition: none; will-change: auto; }
+  .card-overlay { display: none; }
+}
 
 /* ─── ПОИСК ПЛАВАЮЩИЙ ─── */
 .search-float {
@@ -979,7 +997,7 @@ onUnmounted(() => {
   align-items: center;
   justify-content: center;
   cursor: pointer;
-  transition: all 0.25s;
+  transition: background 0.25s, border-color 0.25s, box-shadow 0.25s;
   box-shadow: 0 4px 20px rgba(0,0,0,0.5);
   flex-shrink: 0;
 }
@@ -1079,12 +1097,12 @@ onUnmounted(() => {
 }
 
 /* Анимации */
-.search-bar-enter-active { transition: all 0.22s ease; }
-.search-bar-leave-active { transition: all 0.18s ease; }
+.search-bar-enter-active { transition: opacity 0.22s ease, transform 0.22s ease; }
+.search-bar-leave-active { transition: opacity 0.18s ease, transform 0.18s ease; }
 .search-bar-enter-from, .search-bar-leave-to { opacity: 0; transform: translateX(20px) scaleX(0.85); transform-origin: right; }
 
-.search-drop-enter-active { transition: all 0.22s ease; }
-.search-drop-leave-active { transition: all 0.15s ease; }
+.search-drop-enter-active { transition: opacity 0.22s ease, transform 0.22s ease; }
+.search-drop-leave-active { transition: opacity 0.15s ease, transform 0.15s ease; }
 .search-drop-enter-from, .search-drop-leave-to { opacity: 0; transform: translateY(10px); }
 
 @media (max-width: 480px) {
