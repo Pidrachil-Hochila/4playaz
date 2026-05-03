@@ -351,11 +351,61 @@
     </Teleport>
 
 
+    <!-- ═══ ПОИСК ═══════════════════════════════════════════════ -->
+    <Teleport to="body">
+      <div class="search-float" :class="{ 'search-float--open': searchOpen }">
+
+        <Transition name="search-drop">
+          <div v-if="searchOpen && searchQuery.trim()" class="search-dropdown">
+            <div v-if="searchResults.length === 0" class="search-empty">Ничего не найдено</div>
+            <div
+              v-for="p in searchResults"
+              :key="p.id"
+              class="search-item"
+              @click="openSearchProduct(p)"
+            >
+              <div class="search-item-img">
+                <img v-if="p.image" :src="resolveImg(p.image)" :alt="p.name">
+                <span v-else class="search-item-placeholder">4PZ</span>
+              </div>
+              <div class="search-item-info">
+                <div class="search-item-name">{{ p.name }}</div>
+                <div class="search-item-price">{{ formatPrice(p.price) }}</div>
+              </div>
+            </div>
+          </div>
+        </Transition>
+
+        <Transition name="search-bar">
+          <div v-if="searchOpen" class="search-bar-wrap">
+            <input
+              ref="searchInputRef"
+              v-model="searchQuery"
+              class="search-input"
+              placeholder="Поиск товаров..."
+              @keydown.esc="closeSearch"
+            >
+            <button class="search-x" type="button" @click="closeSearch">✕</button>
+          </div>
+        </Transition>
+
+        <button class="search-fab" type="button" @click="toggleSearch" :class="{ active: searchOpen }">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round">
+            <circle cx="11" cy="11" r="8"/>
+            <line x1="21" y1="21" x2="16.65" y2="16.65"/>
+          </svg>
+        </button>
+
+      </div>
+
+      <div v-if="searchOpen" class="search-backdrop" @click="closeSearch"></div>
+    </Teleport>
+
   </div>
 </template>
 
 <script setup lang="ts">
-import { ref, computed, onMounted, onUnmounted, inject } from 'vue'
+import { ref, computed, onMounted, onUnmounted, inject, nextTick } from 'vue'
 import { useApi } from '~/composables/useApi'
 
 const config = useRuntimeConfig()
@@ -416,6 +466,42 @@ const handleAddToCart = (product: any) => {
     : selectedSize.value
   if (addToCartFn) addToCartFn({ ...product, size: sizeLabel || undefined })
   closeModal()
+}
+
+// ─── SEARCH ────────────────────────────────────────────────
+const searchOpen = ref(false)
+const searchQuery = ref('')
+const searchInputRef = ref<HTMLInputElement | null>(null)
+
+const searchResults = computed(() => {
+  const q = searchQuery.value.trim().toLowerCase()
+  if (!q) return []
+  return allProducts.value
+    .filter(p =>
+      p.name?.toLowerCase().includes(q) ||
+      p.category?.toLowerCase().includes(q) ||
+      p.desc?.toLowerCase().includes(q)
+    )
+    .slice(0, 7)
+})
+
+const toggleSearch = async () => {
+  searchOpen.value = !searchOpen.value
+  if (searchOpen.value) {
+    searchQuery.value = ''
+    await nextTick()
+    searchInputRef.value?.focus()
+  }
+}
+
+const closeSearch = () => {
+  searchOpen.value = false
+  searchQuery.value = ''
+}
+
+const openSearchProduct = (product: any) => {
+  closeSearch()
+  openProduct(product)
 }
 
 // ─── PRODUCTS STATE ────────────────────────────────────────
@@ -867,5 +953,143 @@ onUnmounted(() => {
 .cdek-selected-title { font-family: var(--font-cinzel); font-size: 10px; letter-spacing: 0.1em; color: var(--red-bright); margin-bottom: 4px; }
 .cdek-selected-addr { font-size: 12px; color: var(--light); line-height: 1.5; }
 .delivery-calculating { color: var(--mid); font-style: italic; font-size: 12px; }
+
+/* ─── ПОИСК ПЛАВАЮЩИЙ ─── */
+.search-float {
+  position: fixed;
+  bottom: 28px;
+  right: 28px;
+  z-index: 350;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 10px;
+  pointer-events: none;
+}
+.search-float > * { pointer-events: auto; }
+
+.search-fab {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background: var(--deep);
+  border: 1px solid var(--border-red);
+  color: var(--mid);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.25s;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.5);
+  flex-shrink: 0;
+}
+.search-fab:hover, .search-fab.active {
+  background: var(--red-deep);
+  border-color: var(--red);
+  color: var(--white);
+  box-shadow: 0 4px 24px var(--red-glow);
+}
+
+.search-bar-wrap {
+  display: flex;
+  align-items: center;
+  background: var(--deep);
+  border: 1px solid var(--border-red);
+  box-shadow: 0 4px 24px rgba(0,0,0,0.5);
+  overflow: hidden;
+  width: 280px;
+}
+.search-input {
+  flex: 1;
+  background: transparent;
+  border: none;
+  outline: none;
+  color: var(--white);
+  font-family: var(--font-cinzel);
+  font-size: 11px;
+  letter-spacing: 0.12em;
+  padding: 13px 14px;
+}
+.search-input::placeholder { color: var(--mid); }
+.search-x {
+  background: none;
+  border: none;
+  color: var(--mid);
+  font-size: 12px;
+  padding: 0 14px;
+  cursor: pointer;
+  transition: color 0.2s;
+  height: 100%;
+}
+.search-x:hover { color: var(--white); }
+
+.search-dropdown {
+  width: 280px;
+  background: var(--deep);
+  border: 1px solid var(--border-red);
+  box-shadow: 0 8px 32px rgba(0,0,0,0.6);
+  max-height: 420px;
+  overflow-y: auto;
+}
+.search-empty {
+  padding: 18px 16px;
+  font-family: var(--font-cinzel);
+  font-size: 9px;
+  letter-spacing: 0.18em;
+  color: var(--mid);
+  text-align: center;
+}
+.search-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 10px 14px;
+  cursor: pointer;
+  border-bottom: 1px solid var(--border);
+  transition: background 0.15s;
+}
+.search-item:last-child { border-bottom: none; }
+.search-item:hover { background: rgba(192,57,43,0.08); }
+.search-item-img {
+  width: 38px;
+  height: 50px;
+  flex-shrink: 0;
+  background: var(--surface);
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.search-item-img img { width: 100%; height: 100%; object-fit: cover; }
+.search-item-placeholder { font-family: var(--font-gothic); font-size: 10px; color: rgba(192,57,43,0.3); }
+.search-item-name {
+  font-family: var(--font-cinzel);
+  font-size: 10px;
+  letter-spacing: 0.08em;
+  color: var(--white);
+  line-height: 1.4;
+  margin-bottom: 4px;
+}
+.search-item-price { font-size: 11px; color: var(--red-bright); }
+
+.search-backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: 340;
+}
+
+/* Анимации */
+.search-bar-enter-active { transition: all 0.22s ease; }
+.search-bar-leave-active { transition: all 0.18s ease; }
+.search-bar-enter-from, .search-bar-leave-to { opacity: 0; transform: translateX(20px) scaleX(0.85); transform-origin: right; }
+
+.search-drop-enter-active { transition: all 0.22s ease; }
+.search-drop-leave-active { transition: all 0.15s ease; }
+.search-drop-enter-from, .search-drop-leave-to { opacity: 0; transform: translateY(10px); }
+
+@media (max-width: 480px) {
+  .search-float { bottom: 18px; right: 16px; }
+  .search-bar-wrap, .search-dropdown { width: calc(100vw - 90px); }
+}
 
 </style>
