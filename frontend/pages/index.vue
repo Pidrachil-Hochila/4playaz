@@ -146,6 +146,22 @@
               <div v-if="selectedProduct.images && selectedProduct.images.length > 1" class="modal-thumbs">
                 <img v-for="(img, i) in selectedProduct.images" :key="i" :src="resolveImg(img)" class="modal-thumb" :class="{ active: i === modalImgIndex }" @click="modalImgIndex = Number(i)">
               </div>
+              <div v-if="selectedProduct.clothingType === 'hoodie'" class="size-selector">
+                <div class="size-label">Тип</div>
+                <div class="size-options">
+                  <button
+                    class="size-btn"
+                    :class="{ active: selectedHoodieType === 'regular' }"
+                    @click="selectedHoodieType = 'regular'; selectedSize = ''; sizeError = false"
+                  >Обычный</button>
+                  <button
+                    class="size-btn"
+                    :class="{ active: selectedHoodieType === 'oversize' }"
+                    @click="selectedHoodieType = 'oversize'; selectedSize = ''; sizeError = false"
+                  >Оверсайз</button>
+                </div>
+                <span v-if="sizeError && !selectedHoodieType" class="size-error">Выберите тип</span>
+              </div>
               <div v-if="availableSizes(selectedProduct).length > 0" class="size-selector">
                 <div class="size-label">Размер</div>
                 <div class="size-options">
@@ -157,7 +173,7 @@
                     @click="selectedSize = sz; sizeError = false"
                   >{{ sz }}</button>
                 </div>
-                <span v-if="sizeError" class="size-error">Выберите размер</span>
+                <span v-if="sizeError && selectedHoodieType && !selectedSize" class="size-error">Выберите размер</span>
               </div>
               <button class="btn-primary btn-buy" @click="handleAddToCart(selectedProduct)">
                 Добавить в корзину
@@ -364,24 +380,41 @@ const { getProducts, getCollections } = useApi()
 const addToCartFn = inject<(product: any) => void>('addToCart')
 
 const SIZES_BY_TYPE: Record<string, string[]> = {
-  tshirt:     ['S', 'M', 'L', 'XL', '2XL', '3XL'],
-  hoodie:     ['XS', 'S', 'M', 'L', 'XL', '2XL', '3XL', '4XL'],
-  longsleeve: ['S', 'M', 'L', 'XL', '2XL'],
+  tshirt:           ['S', 'M', 'L', 'XL', '2XL', '3XL'],
+  hoodie:           ['XS', 'S', 'M', 'L', 'XL', '2XL'],
+  'hoodie-oversize': ['S', 'M', 'L', 'XL', '2XL', '3XL'],
+  longsleeve:       ['S', 'M', 'L', 'XL', '2XL'],
 }
 
 const selectedSize = ref('')
 const sizeError = ref(false)
+const selectedHoodieType = ref<'regular' | 'oversize' | ''>('')
 
-const availableSizes = (product: any): string[] =>
-  product?.clothingType ? (SIZES_BY_TYPE[product.clothingType] || []) : []
+const availableSizes = (product: any): string[] => {
+  if (!product?.clothingType) return []
+  if (product.clothingType === 'hoodie') {
+    if (!selectedHoodieType.value) return []
+    return selectedHoodieType.value === 'oversize'
+      ? SIZES_BY_TYPE['hoodie-oversize']
+      : SIZES_BY_TYPE['hoodie']
+  }
+  return SIZES_BY_TYPE[product.clothingType] || []
+}
 
 const handleAddToCart = (product: any) => {
+  if (product?.clothingType === 'hoodie' && !selectedHoodieType.value) {
+    sizeError.value = true
+    return
+  }
   const sizes = availableSizes(product)
   if (sizes.length > 0 && !selectedSize.value) {
     sizeError.value = true
     return
   }
-  if (addToCartFn) addToCartFn({ ...product, size: selectedSize.value || undefined })
+  const sizeLabel = product?.clothingType === 'hoodie' && selectedHoodieType.value === 'oversize'
+    ? `Оверсайз ${selectedSize.value}`
+    : selectedSize.value
+  if (addToCartFn) addToCartFn({ ...product, size: sizeLabel || undefined })
   closeModal()
 }
 
@@ -545,6 +578,7 @@ const openProduct = (product: any) => {
   selectedProduct.value = product
   modalImgIndex.value = 0
   selectedSize.value = ''
+  selectedHoodieType.value = ''
   sizeError.value = false
   modalOpen.value = true
   document.body.style.overflow = 'hidden'
