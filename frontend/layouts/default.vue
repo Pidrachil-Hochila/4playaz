@@ -217,13 +217,14 @@
                 </div>
 
                 <div class="form-group">
-                  <label class="form-label">Улица, дом *</label>
+                  <label class="form-label">Адрес пункта выдачи (ПВЗ) *</label>
+                  <p class="pvz-hint">⚠ Укажите адрес пункта выдачи СДЭК, не домашний адрес</p>
                   <input
                     v-model="cartForm.cdekAddress"
                     type="text"
                     class="form-input"
                     :class="{ error: cartErrors.cdekAddress }"
-                    placeholder="ул. Ленина, д. 5, кв. 10"
+                    placeholder="ул. Ленина, д. 5 (ПВЗ СДЭК)"
                   >
                   <span v-if="cartErrors.cdekAddress" class="form-error">{{ cartErrors.cdekAddress }}</span>
                 </div>
@@ -244,8 +245,9 @@
                   <span v-if="cartErrors.yandexCity" class="form-error">{{ cartErrors.yandexCity }}</span>
                 </div>
                 <div class="form-group">
-                  <label class="form-label">Улица, дом *</label>
-                  <input v-model="cartForm.yandexAddress" type="text" class="form-input" :class="{ error: cartErrors.yandexAddress }" placeholder="ул. Ленина, д. 5, кв. 10">
+                  <label class="form-label">Адрес пункта выдачи (ПВЗ) *</label>
+                  <p class="pvz-hint">⚠ Укажите адрес пункта выдачи, не домашний адрес</p>
+                  <input v-model="cartForm.yandexAddress" type="text" class="form-input" :class="{ error: cartErrors.yandexAddress }" placeholder="ул. Ленина, д. 5 (ПВЗ)">
                   <span v-if="cartErrors.yandexAddress" class="form-error">{{ cartErrors.yandexAddress }}</span>
                 </div>
               </div>
@@ -268,8 +270,9 @@
                   </div>
                 </div>
                 <div class="form-group">
-                  <label class="form-label">Улица, дом *</label>
-                  <input v-model="cartForm.pochtaAddress" type="text" class="form-input" :class="{ error: cartErrors.pochtaAddress }" placeholder="ул. Ленина, д. 5, кв. 10">
+                  <label class="form-label">Адрес пункта выдачи (ПВЗ) *</label>
+                  <p class="pvz-hint">⚠ Укажите адрес отделения Почты России, не домашний адрес</p>
+                  <input v-model="cartForm.pochtaAddress" type="text" class="form-input" :class="{ error: cartErrors.pochtaAddress }" placeholder="ул. Ленина, д. 5 (Почта России)">
                   <span v-if="cartErrors.pochtaAddress" class="form-error">{{ cartErrors.pochtaAddress }}</span>
                 </div>
               </div>
@@ -904,6 +907,7 @@ header {
 .price-label-total { font-family: var(--font-cinzel); font-size: 11px; letter-spacing: 0.22em; text-transform: uppercase; color: var(--white); font-weight: 600; }
 .price-value-total { font-family: var(--font-gothic); font-size: 24px; color: var(--white); text-shadow: 0 0 20px var(--red-glow); }
 .delivery-note { font-family: var(--font-cinzel); font-size: 9px; letter-spacing: 0.1em; color: var(--mid); margin-top: 10px; line-height: 1.6; }
+.pvz-hint { font-size: 11px; color: #c8a84b; background: rgba(200,168,75,0.08); border: 1px solid rgba(200,168,75,0.25); padding: 7px 10px; margin-bottom: 8px; line-height: 1.5; }
 
 /* CART FOOTER */
 .cart-footer {
