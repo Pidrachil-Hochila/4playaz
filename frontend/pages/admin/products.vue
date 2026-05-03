@@ -195,4 +195,19 @@ onMounted(fetchProducts)
   transition: all 0.2s;
 }
 .edit-btn:hover { border-color: var(--red-bright); color: var(--red-bright); }
+
+@media (max-width: 768px) {
+  .page-header { margin-bottom: 14px; }
+  .page-title { font-size: 11px; letter-spacing: 0.12em; }
+  .add-btn { padding: 8px 12px; font-size: 8px; }
+  .product-item { padding: 10px; gap: 10px; }
+  .product-thumb { width: 44px; height: 58px; }
+  .product-name { font-size: 11px; margin-bottom: 4px; }
+  .product-meta { gap: 8px; }
+  .cat { font-size: 9px; }
+  .price { font-size: 11px; }
+  .product-desc { font-size: 10px; }
+  .product-actions { display: flex; flex-direction: column; gap: 5px; }
+  .edit-btn, .delete-btn { padding: 5px 10px; font-size: 7px; }
+}
 </style>

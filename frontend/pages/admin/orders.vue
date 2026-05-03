@@ -523,4 +523,17 @@ onMounted(fetchOrders)
   animation: spin 0.6s linear infinite;
 }
 @keyframes spin { to { transform: rotate(360deg); } }
+
+@media (max-width: 768px) {
+  .page-header { margin-bottom: 14px; gap: 10px; }
+  .page-title { font-size: 11px; letter-spacing: 0.12em; }
+  .header-actions { gap: 8px; width: 100%; }
+  .toggle-btn { padding: 7px 10px; font-size: 8px; }
+  .refresh-btn { padding: 7px 12px; font-size: 8px; }
+  .order-item { flex-direction: column; gap: 10px; padding: 12px 14px; }
+  .order-actions { width: 100%; }
+  .send-btn, .paid-mark { width: 100%; text-align: center; padding: 10px; }
+  .order-name { font-size: 12px; }
+  .order-phone, .order-email, .order-tg { font-size: 11px; }
+}
 </style>

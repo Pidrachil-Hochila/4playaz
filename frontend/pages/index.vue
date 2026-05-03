@@ -841,6 +841,17 @@ onUnmounted(() => {
   .checkout-panel { padding: 40px 24px 32px; }
 }
 
+@media (max-width: 480px) {
+  .products-grid { margin: 0; grid-template-columns: repeat(2, 1fr); gap: 1px; border-left: none; border-right: none; }
+  .section-header, .filters-bar, .sort-row { padding-left: 12px; padding-right: 12px; }
+  .product-info { padding: 10px 10px 14px; }
+  .product-name { font-size: 11px; line-height: 1.35; }
+  .product-category { font-size: 7px; margin-bottom: 5px; }
+  .product-price { font-size: 12px; }
+  .product-badge { font-size: 7px; padding: 3px 7px; top: 7px; left: 7px; }
+  .card-cta { font-size: 9px; padding: 8px 14px; }
+}
+
 /* ─── СДЭК ВИДЖЕТ ─── */
 .cdek-overlay { z-index: 400; }
 .cdek-modal-wrapper { position: relative; width: 95vw; max-width: 1100px; height: 85vh; background: var(--deep); border: 1px solid var(--border-red); display: flex; flex-direction: column; animation: fadeUp 0.3s ease; }

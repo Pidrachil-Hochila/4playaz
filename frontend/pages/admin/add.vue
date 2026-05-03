@@ -669,4 +669,13 @@ onMounted(() => {
   .images-grid { grid-template-columns: repeat(4, 1fr); }
   .presets-list { flex-direction: column; }
 }
+
+@media (max-width: 768px) {
+  .page-title { font-size: 11px; letter-spacing: 0.12em; }
+  .back-btn { font-size: 8px; padding: 6px 10px; }
+  .form-wrapper { padding: 16px; }
+  .form-grid { gap: 20px; }
+  .images-grid { grid-template-columns: repeat(3, 1fr); }
+  .submit-btn { padding: 12px; font-size: 9px; }
+}
 </style>

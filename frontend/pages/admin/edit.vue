@@ -312,4 +312,13 @@ const handleSubmit = async () => {
 .submit-btn { width: 100%; background: var(--red-deep); border: 1px solid var(--red); color: var(--white); padding: 15px; font-family: var(--font-cinzel); font-size: 10px; letter-spacing: 0.25em; text-transform: uppercase; cursor: pointer; transition: all 0.2s; }
 .submit-btn:hover:not(:disabled) { background: var(--red); box-shadow: 0 0 24px var(--red-glow); }
 .submit-btn:disabled { opacity: 0.5; cursor: not-allowed; }
+
+@media (max-width: 768px) {
+  .page-title { font-size: 11px; letter-spacing: 0.12em; }
+  .back-btn { font-size: 8px; padding: 6px 10px; }
+  .form-wrapper { padding: 16px; }
+  .form-grid { grid-template-columns: 1fr; gap: 20px; }
+  .images-grid { grid-template-columns: repeat(3, 1fr); }
+  .submit-btn { padding: 12px; font-size: 9px; }
+}
 </style>
