@@ -20,7 +20,7 @@
         <section>
           <h2>Худи</h2>
           <div class="zamer-image-frame">
-            <img src="/zamer-hoodie.png" alt="Таблица размеров — худи" class="zamer-img" />
+            <img src="/zamer-hoodie.png?v=2" alt="Таблица размеров — худи" class="zamer-img" />
           </div>
         </section>
 
