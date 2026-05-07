@@ -114,9 +114,18 @@
         <div class="product-info">
           <div class="product-category">{{ product.category }}</div>
           <div class="product-name">{{ product.name }}</div>
-          <div class="product-price">
-            <span v-if="product.oldPrice" class="old-price">{{ formatPrice(product.oldPrice) }}</span>
-            {{ formatPrice(product.price) }}
+          <div class="product-price-row">
+            <div class="product-price">
+              <span v-if="product.oldPrice" class="old-price">{{ formatPrice(product.oldPrice) }}</span>
+              {{ formatPrice(product.price) }}
+            </div>
+            <button class="card-share-btn" @click.stop="shareProduct(product)" title="Поделиться">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/>
+                <line x1="8.59" y1="13.51" x2="15.42" y2="17.49"/>
+                <line x1="15.41" y1="6.51" x2="8.59" y2="10.49"/>
+              </svg>
+            </button>
           </div>
           <div v-if="product.desc" class="product-desc">{{ product.desc }}</div>
         </div>
@@ -533,6 +542,25 @@ const clearSharedView = () => {
   router.replace({ query: {} })
 }
 
+const shareProduct = async (product: any) => {
+  const url = new URL(window.location.href)
+  url.search = ''
+  url.searchParams.set('share', String(product.id))
+  const shareUrl = url.toString()
+  if (navigator.share) {
+    try {
+      await navigator.share({ title: product.name, text: `${product.name} — ${formatPrice(product.price)}`, url: shareUrl })
+      return
+    } catch {}
+  }
+  try {
+    await navigator.clipboard.writeText(shareUrl)
+    showToastFn?.('Ссылка скопирована!')
+  } catch {
+    prompt('Скопируйте ссылку:', shareUrl)
+  }
+}
+
 const SIZES_BY_TYPE: Record<string, string[]> = {
   tshirt:           ['S', 'M', 'L', 'XL', '2XL', '3XL'],
   hoodie:           ['XS', 'S', 'M', 'L', 'XL', '2XL'],
@@ -933,8 +961,12 @@ onUnmounted(() => {
 .product-info { padding: 18px 20px 22px; }
 .product-category { font-family: var(--font-cinzel); font-size: 8px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--red); margin-bottom: 8px; }
 .product-name { font-family: var(--font-cinzel); font-weight: 500; font-size: 14px; line-height: 1.4; color: var(--white); margin-bottom: 8px; }
+.product-price-row { display: flex; align-items: center; justify-content: space-between; gap: 8px; }
 .product-price { font-size: 14px; color: var(--off-white); letter-spacing: 0.05em; }
 .old-price { text-decoration: line-through; color: var(--mid); margin-right: 8px; }
+.card-share-btn { display: none; background: none; border: 1px solid var(--border); color: var(--mid); width: 30px; height: 30px; align-items: center; justify-content: center; cursor: pointer; flex-shrink: 0; transition: border-color 0.2s, color 0.2s; }
+.card-share-btn:hover { border-color: var(--red); color: var(--red-bright); }
+@media (pointer: coarse) { .card-share-btn { display: flex; } }
 .product-desc { font-size: 11px; color: var(--mid); line-height: 1.6; margin-top: 8px; overflow: hidden; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; line-clamp: 2; }
 .loading-state { display: flex; flex-direction: column; align-items: center; gap: 20px; padding: 100px 40px; color: var(--mid); font-family: var(--font-cinzel); font-size: 10px; letter-spacing: 0.2em; text-transform: uppercase; }
 .loading-spinner { width: 36px; height: 36px; border: 2px solid var(--border); border-top-color: var(--red); border-radius: 50%; animation: spin 0.8s linear infinite; }
