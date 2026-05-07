@@ -67,24 +67,49 @@
       <button v-for="cat in categories" :key="cat.value" class="filter-btn filter-btn-sm" :class="{ active: currentFilter === cat.value }" @click="filterCategory(cat.value)">{{ cat.label }}</button>
     </div>
 
+    <div v-if="sharedView" class="shared-banner">
+      <span class="shared-banner-text">Подборка · {{ filteredProducts.length }} товаров</span>
+      <button class="shared-banner-close" @click="clearSharedView">Показать все →</button>
+    </div>
+
     <div class="sort-row">
-      <label>Сортировка</label>
-      <select v-model="currentSort">
-        <option value="default">По умолчанию</option>
-        <option value="price-asc">Цена: по возрастанию</option>
-        <option value="price-desc">Цена: по убыванию</option>
-        <option value="name">По названию</option>
-      </select>
+      <button class="select-mode-btn" :class="{ active: selectionMode }" @click="toggleSelectionMode">
+        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+          <rect x="3" y="3" width="18" height="18" rx="2"/>
+          <polyline v-if="selectionMode" points="9 11 12 14 22 4"/>
+        </svg>
+        {{ selectionMode ? 'Отмена' : 'Выбрать' }}
+      </button>
+      <div class="sort-controls">
+        <label>Сортировка</label>
+        <select v-model="currentSort">
+          <option value="default">По умолчанию</option>
+          <option value="price-asc">Цена: по возрастанию</option>
+          <option value="price-desc">Цена: по убыванию</option>
+          <option value="name">По названию</option>
+        </select>
+      </div>
     </div>
 
     <!-- PRODUCTS GRID -->
     <div class="products-grid" v-if="!loading && filteredProducts.length > 0">
-      <div v-for="product in filteredProducts" :key="product.id" class="product-card" @click="openProduct(product)">
+      <div v-for="product in filteredProducts" :key="product.id"
+           class="product-card"
+           :class="{ 'product-card--selected': isSelected(product.id) }"
+           @click="handleCardClick(product)">
         <div class="product-card-image">
           <img v-if="product.image" :src="resolveImg(product.image)" :alt="product.name" loading="lazy" class="card-img">
           <div v-else class="no-img">4PZ</div>
           <span v-if="product.badge" class="product-badge" :class="{ sale: product.badge === 'Sale' }">{{ product.badge }}</span>
-          <div class="card-overlay"><span class="card-cta">В КОРЗИНУ</span></div>
+          <div class="card-overlay">
+            <span v-if="selectionMode" class="card-cta">{{ isSelected(product.id) ? '✓ ВЫБРАН' : 'ВЫБРАТЬ' }}</span>
+            <span v-else class="card-cta">В КОРЗИНУ</span>
+          </div>
+          <div v-if="selectionMode || isSelected(product.id)" class="selection-check" :class="{ checked: isSelected(product.id) }">
+            <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round">
+              <polyline points="20 6 9 17 4 12"/>
+            </svg>
+          </div>
         </div>
         <div class="product-info">
           <div class="product-category">{{ product.category }}</div>
@@ -402,6 +427,24 @@
       <div v-if="searchOpen" class="search-backdrop" @click="closeSearch"></div>
     </Teleport>
 
+    <!-- ═══ SHARE TOOLBAR ═══════════════════════════════════════ -->
+    <Teleport to="body">
+      <Transition name="share-toolbar">
+        <div v-if="selectedProductIds.length > 0" class="share-toolbar">
+          <span class="share-toolbar-count">Выбрано: {{ selectedProductIds.length }}</span>
+          <button class="share-toolbar-btn" @click="shareProducts">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/>
+              <line x1="8.59" y1="13.51" x2="15.42" y2="17.49"/>
+              <line x1="15.41" y1="6.51" x2="8.59" y2="10.49"/>
+            </svg>
+            Поделиться
+          </button>
+          <button class="share-toolbar-clear" @click="clearSelection" title="Снять выделение">✕</button>
+        </div>
+      </Transition>
+    </Teleport>
+
   </div>
 </template>
 
@@ -412,6 +455,8 @@ import { useApi } from '~/composables/useApi'
 const config = useRuntimeConfig()
 const API_BASE = config.public.apiBase as string
 const YANDEX_API_KEY = config.public.yandexApiKey
+const router = useRouter()
+const showToastFn = inject<(msg: string, type?: string) => void>('showToast')
 
 const resolveImg = (src: string): string => {
   if (!src) return ''
@@ -429,6 +474,64 @@ const { getProducts, getCollections } = useApi()
 
 // Inject cart functions from layout
 const addToCartFn = inject<(product: any) => void>('addToCart')
+
+// ─── SELECTION / SHARING ───────────────────────────────────
+const selectionMode = ref(false)
+const selectedProductIds = ref<(number | string)[]>([])
+const sharedView = ref(false)
+const sharedIds = ref<Set<string>>(new Set())
+
+const isSelected = (id: number | string) => selectedProductIds.value.includes(id)
+
+const handleCardClick = (product: any) => {
+  if (selectionMode.value) {
+    const idx = selectedProductIds.value.indexOf(product.id)
+    if (idx >= 0) selectedProductIds.value.splice(idx, 1)
+    else selectedProductIds.value.push(product.id)
+  } else {
+    openProduct(product)
+  }
+}
+
+const toggleSelectionMode = () => {
+  selectionMode.value = !selectionMode.value
+  if (!selectionMode.value) selectedProductIds.value = []
+}
+
+const clearSelection = () => {
+  selectedProductIds.value = []
+  selectionMode.value = false
+}
+
+const generateShareUrl = () => {
+  const ids = selectedProductIds.value.join(',')
+  const url = new URL(window.location.href)
+  url.search = ''
+  url.searchParams.set('share', ids)
+  return url.toString()
+}
+
+const shareProducts = async () => {
+  const url = generateShareUrl()
+  if (navigator.share) {
+    try {
+      await navigator.share({ title: '4PLAYAZ — подборка товаров', text: `Подборка ${selectedProductIds.value.length} товаров`, url })
+      return
+    } catch {}
+  }
+  try {
+    await navigator.clipboard.writeText(url)
+    showToastFn?.('Ссылка скопирована!')
+  } catch {
+    prompt('Скопируйте ссылку:', url)
+  }
+}
+
+const clearSharedView = () => {
+  sharedView.value = false
+  sharedIds.value = new Set()
+  router.replace({ query: {} })
+}
 
 const SIZES_BY_TYPE: Record<string, string[]> = {
   tshirt:           ['S', 'M', 'L', 'XL', '2XL', '3XL'],
@@ -648,6 +751,9 @@ const categories = ref<{ value: string; label: string }[]>([{ value: '', label: 
 
 const filteredProducts = computed(() => {
   let list = [...allProducts.value]
+  if (sharedView.value && sharedIds.value.size > 0) {
+    return list.filter(p => sharedIds.value.has(String(p.id)))
+  }
   if (currentFilter.value) list = list.filter((p: any) => p.category === currentFilter.value)
   if (currentClothingType.value === '__new__') {
     list = list.filter((p: any) => p.badge === 'New')
@@ -661,6 +767,7 @@ const filteredProducts = computed(() => {
 })
 
 const sectionTitle = computed(() => {
+  if (sharedView.value) return 'Подборка'
   if (currentClothingType.value === '__new__') return 'Новинки'
   const typeLabels: Record<string, string> = { hoodie: 'Худи', tshirt: 'Футболки', longsleeve: 'Лонгсливы', jacket: 'Куртки' }
   if (currentClothingType.value && typeLabels[currentClothingType.value]) return typeLabels[currentClothingType.value]
@@ -732,6 +839,10 @@ onMounted(async () => {
   }
   startAutoplay()
   if (route?.query?.type) currentClothingType.value = route.query.type as string
+  if (route?.query?.share) {
+    const ids = new Set((route.query.share as string).split(',').filter(Boolean))
+    if (ids.size > 0) { sharedIds.value = ids; sharedView.value = true }
+  }
 })
 
 onUnmounted(() => {
@@ -798,7 +909,11 @@ onUnmounted(() => {
 .filter-btn:hover { color: var(--white); }
 .filter-btn.active { color: var(--red-bright); border-bottom-color: var(--red-bright); }
 .filter-btn-sm { padding: 10px 16px; font-size: 8px; letter-spacing: 0.15em; }
-.sort-row { display: flex; justify-content: flex-end; align-items: center; padding: 14px 40px; gap: 12px; border-bottom: 1px solid var(--border); }
+.sort-row { display: flex; justify-content: space-between; align-items: center; padding: 14px 40px; gap: 12px; border-bottom: 1px solid var(--border); }
+.sort-controls { display: flex; align-items: center; gap: 12px; }
+.select-mode-btn { display: flex; align-items: center; gap: 7px; background: none; border: 1px solid var(--border); color: var(--mid); font-family: var(--font-cinzel); font-size: 9px; letter-spacing: 0.15em; text-transform: uppercase; padding: 7px 14px; cursor: pointer; transition: border-color 0.2s, color 0.2s, background 0.2s; flex-shrink: 0; }
+.select-mode-btn:hover { border-color: var(--border-red); color: var(--white); }
+.select-mode-btn.active { border-color: var(--red); color: var(--red-bright); background: rgba(192,57,43,0.06); }
 .sort-row label { font-family: var(--font-cinzel); font-size: 9px; letter-spacing: 0.15em; text-transform: uppercase; color: var(--mid); }
 .sort-row select { background: var(--surface); border: 1px solid var(--border); color: var(--white); font-family: var(--font-body); font-size: 11px; padding: 6px 10px; outline: none; cursor: pointer; }
 
@@ -1108,6 +1223,30 @@ onUnmounted(() => {
 @media (max-width: 480px) {
   .search-float { bottom: 18px; right: 16px; }
   .search-bar-wrap, .search-dropdown { width: calc(100vw - 90px); }
+}
+
+/* ─── SELECTION / SHARE ─── */
+.product-card--selected { outline: 2px solid var(--red-bright); outline-offset: -2px; }
+.selection-check { position: absolute; top: 10px; right: 10px; width: 24px; height: 24px; border-radius: 50%; border: 2px solid rgba(255,255,255,0.35); background: rgba(0,0,0,0.55); display: flex; align-items: center; justify-content: center; color: transparent; transition: background 0.2s, border-color 0.2s, color 0.2s; z-index: 5; }
+.selection-check.checked { background: var(--red-bright); border-color: var(--red-bright); color: var(--white); }
+
+.share-toolbar { position: fixed; bottom: 28px; left: 50%; transform: translateX(-50%); background: var(--deep); border: 1px solid var(--red); display: flex; align-items: center; gap: 16px; padding: 12px 20px; z-index: 400; box-shadow: 0 8px 40px rgba(192,57,43,0.3), 0 4px 16px rgba(0,0,0,0.6); white-space: nowrap; }
+.share-toolbar-count { font-family: var(--font-cinzel); font-size: 10px; letter-spacing: 0.15em; color: var(--off-white); text-transform: uppercase; }
+.share-toolbar-btn { display: flex; align-items: center; gap: 8px; background: var(--red-deep); border: 1px solid var(--red-bright); color: var(--white); font-family: var(--font-cinzel); font-size: 9px; letter-spacing: 0.2em; text-transform: uppercase; padding: 9px 18px; cursor: pointer; transition: background 0.2s, box-shadow 0.2s; }
+.share-toolbar-btn:hover { background: var(--red); box-shadow: 0 0 20px var(--red-glow); }
+.share-toolbar-clear { background: none; border: 1px solid var(--border); color: var(--mid); width: 32px; height: 32px; display: flex; align-items: center; justify-content: center; cursor: pointer; font-size: 13px; transition: border-color 0.2s, color 0.2s; flex-shrink: 0; }
+.share-toolbar-clear:hover { border-color: var(--red); color: var(--white); }
+.share-toolbar-enter-active, .share-toolbar-leave-active { transition: transform 0.3s ease, opacity 0.3s ease; }
+.share-toolbar-enter-from, .share-toolbar-leave-to { transform: translateX(-50%) translateY(20px); opacity: 0; }
+
+.shared-banner { display: flex; align-items: center; justify-content: space-between; padding: 12px 40px; background: rgba(192,57,43,0.08); border-bottom: 1px solid var(--red); }
+.shared-banner-text { font-family: var(--font-cinzel); font-size: 10px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--red-bright); }
+.shared-banner-close { background: none; border: 1px solid var(--border-red); color: var(--mid); font-family: var(--font-cinzel); font-size: 9px; letter-spacing: 0.15em; text-transform: uppercase; padding: 6px 14px; cursor: pointer; transition: border-color 0.2s, color 0.2s; }
+.shared-banner-close:hover { border-color: var(--red); color: var(--white); }
+
+@media (max-width: 480px) {
+  .share-toolbar { bottom: 16px; padding: 10px 14px; gap: 10px; max-width: calc(100vw - 32px); }
+  .shared-banner { padding: 10px 12px; }
 }
 
 </style>
