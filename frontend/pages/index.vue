@@ -176,7 +176,7 @@
                 <span v-if="selectedProduct.oldPrice" class="modal-old-price">{{ formatPrice(selectedProduct.oldPrice) }}</span>
                 {{ formatPrice(selectedProduct.price) }}
               </div>
-              <div class="modal-desc">{{ selectedProduct.desc || 'Описание не добавлено.' }}</div>
+              <div class="modal-desc">{{ selectedProduct.desc || CLOTHING_TYPE_DESC[selectedProduct.clothingType] || 'Описание не добавлено.' }}</div>
               <div v-if="selectedProduct.images && selectedProduct.images.length > 1" class="modal-thumbs">
                 <img v-for="(img, i) in selectedProduct.images" :key="i" :src="resolveImg(img)" class="modal-thumb" :class="{ active: i === modalImgIndex }" @click="modalImgIndex = Number(i)">
               </div>
@@ -559,6 +559,12 @@ const shareProduct = async (product: any) => {
   } catch {
     prompt('Скопируйте ссылку:', shareUrl)
   }
+}
+
+const CLOTHING_TYPE_DESC: Record<string, string> = {
+  tshirt: `Простая футболка для повседневной носки.\n\nУход:\nперед стиркой вывернуть наизнанку;\nстирка — не более 1 часа, температура до 30 °C;\nизбегать отбеливателей.`,
+  hoodie: `Базовая толстовка из мягкого материала.\n\nУход:\nперед стиркой вывернуть наизнанку;\nстирать не более 1 часа при температуре до 30 °C;\nсушить в расправленном виде.`,
+  longsleeve: `Лонгслив из хлопковой ткани.\n\nУход:\nперед стиркой обязательно вывернуть наизнанку;\nстирать в деликатном режиме не более 1 часа (температура до 30 °C);\nсушить вдали от нагревательных приборов.`,
 }
 
 const SIZES_BY_TYPE: Record<string, string[]> = {
@@ -998,7 +1004,7 @@ onUnmounted(() => {
 .modal-name { font-family: var(--font-cinzel); font-weight: 600; font-size: 22px; line-height: 1.3; color: var(--white); margin-bottom: 18px; }
 .modal-price { font-size: 18px; color: var(--off-white); margin-bottom: 24px; letter-spacing: 0.05em; }
 .modal-old-price { text-decoration: line-through; color: var(--mid); margin-right: 12px; font-size: 14px; }
-.modal-desc { font-size: 12.5px; color: var(--mid); line-height: 1.8; margin-bottom: 24px; flex: 1; }
+.modal-desc { font-size: 12.5px; color: var(--mid); line-height: 1.8; margin-bottom: 24px; flex: 1; white-space: pre-line; }
 .modal-thumbs { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 24px; }
 .modal-thumb { width: 56px; height: 56px; object-fit: cover; border: 1px solid var(--border); cursor: pointer; transition: border-color 0.2s; opacity: 0.6; }
 .modal-thumb.active { border-color: var(--red-bright); opacity: 1; }
