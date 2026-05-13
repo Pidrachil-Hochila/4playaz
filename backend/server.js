@@ -69,6 +69,7 @@ const PRODUCTS_FILE    = path.join(DATA_DIR, 'products.json')
 const COLLECTIONS_FILE = path.join(DATA_DIR, 'collections.json')
 const SECRETS_FILE     = path.join(DATA_DIR, 'totp_secrets.json')
 const BANLIST_FILE     = path.join(DATA_DIR, 'banlist.json')
+const DISCOUNTS_FILE   = path.join(DATA_DIR, 'discounts.json')
 
 if (!fs.existsSync(DATA_DIR))    fs.mkdirSync(DATA_DIR,    { recursive: true })
 if (!fs.existsSync(UPLOADS_DIR)) fs.mkdirSync(UPLOADS_DIR, { recursive: true })
@@ -208,6 +209,16 @@ function authMiddleware(req, res, next) {
   try { req.user = jwt.verify(token, JWT_SECRET); next() }
   catch { return res.status(401).json({ error: 'Invalid token' }) }
 }
+
+// ─── СКИДКИ ────────────────────────────────────────────────
+function loadDiscounts() {
+  if (!fs.existsSync(DISCOUNTS_FILE)) return []
+  try { return JSON.parse(fs.readFileSync(DISCOUNTS_FILE, 'utf-8')) } catch { return [] }
+}
+function saveDiscounts(d) {
+  fs.writeFileSync(DISCOUNTS_FILE, JSON.stringify(d, null, 2), 'utf-8')
+}
+let discounts = loadDiscounts()
 
 // ─── ТОВАРЫ ────────────────────────────────────────────────
 function getDefaultProducts() {
@@ -477,6 +488,102 @@ app.delete('/api/admin/banlist/:ip', authMiddleware, (req, res) => {
   resetAttempts(ip)
   console.log('[UNBAN]', ip)
   res.json({ ok: true, message: `IP ${ip} разблокирован` })
+})
+
+// ─── PUBLIC: ПРОВЕРКА ПРОМОКОДА ────────────────────────────
+app.post('/api/discount/check', (req, res) => {
+  const code   = sanitizeString(req.body.code || '', 50).toUpperCase()
+  const amount = Number(req.body.amount) || 0
+
+  if (!code) return res.status(400).json({ error: 'Введите промокод' })
+
+  const d = discounts.find(x => x.code === code && x.active)
+  if (!d) return res.status(404).json({ error: 'Промокод не найден или недействителен' })
+
+  if (d.expiresAt && new Date(d.expiresAt) < new Date())
+    return res.status(410).json({ error: 'Срок действия промокода истёк' })
+
+  if (d.maxUses > 0 && d.usedCount >= d.maxUses)
+    return res.status(410).json({ error: 'Промокод исчерпан' })
+
+  if (d.minOrder > 0 && amount < d.minOrder)
+    return res.status(400).json({ error: `Минимальная сумма заказа для этого промокода: ${d.minOrder.toLocaleString('ru')} ₽` })
+
+  const discountAmount = d.type === 'percent'
+    ? Math.round(amount * d.value / 100)
+    : Math.min(d.value, amount)
+
+  res.json({
+    code: d.code,
+    type: d.type,
+    value: d.value,
+    discountAmount,
+    finalAmount: amount - discountAmount,
+  })
+})
+
+// ─── ADMIN: ПРОМОКОДЫ ──────────────────────────────────────
+app.get('/api/admin/discounts', authMiddleware, (req, res) => {
+  res.json(discounts)
+})
+
+app.post('/api/admin/discounts', authMiddleware, (req, res) => {
+  const body = req.body
+
+  const code     = sanitizeString(body.code || '', 50).toUpperCase()
+  const type     = ['percent', 'fixed'].includes(body.type) ? body.type : 'percent'
+  const value    = Number(body.value)
+  const minOrder = Number(body.minOrder) || 0
+  const maxUses  = Number(body.maxUses)  || 0
+  const expiresAt = body.expiresAt ? body.expiresAt : null
+  const active   = body.active !== false
+
+  if (!code)               return res.status(400).json({ error: 'Введите код' })
+  if (!code.match(/^[A-Z0-9_-]{1,50}$/)) return res.status(400).json({ error: 'Код может содержать только буквы, цифры, _ и -' })
+  if (!value || value <= 0) return res.status(400).json({ error: 'Введите значение скидки' })
+  if (type === 'percent' && value > 100) return res.status(400).json({ error: 'Процент не может быть больше 100' })
+  if (discounts.find(d => d.code === code)) return res.status(409).json({ error: 'Промокод с таким кодом уже существует' })
+
+  const discount = {
+    code, type, value, minOrder, maxUses,
+    usedCount: 0,
+    expiresAt,
+    active,
+    createdAt: new Date().toISOString(),
+  }
+  discounts.push(discount)
+  saveDiscounts(discounts)
+  res.status(201).json(discount)
+})
+
+app.put('/api/admin/discounts/:code', authMiddleware, (req, res) => {
+  const code = sanitizeString(decodeURIComponent(req.params.code), 50).toUpperCase()
+  const idx  = discounts.findIndex(d => d.code === code)
+  if (idx === -1) return res.status(404).json({ error: 'Промокод не найден' })
+
+  const body     = req.body
+  const type     = ['percent', 'fixed'].includes(body.type) ? body.type : discounts[idx].type
+  const value    = body.value != null ? Number(body.value) : discounts[idx].value
+  const minOrder = body.minOrder != null ? Number(body.minOrder) : discounts[idx].minOrder
+  const maxUses  = body.maxUses  != null ? Number(body.maxUses)  : discounts[idx].maxUses
+  const expiresAt = body.expiresAt !== undefined ? (body.expiresAt || null) : discounts[idx].expiresAt
+  const active   = body.active !== undefined ? !!body.active : discounts[idx].active
+
+  if (!value || value <= 0) return res.status(400).json({ error: 'Введите значение скидки' })
+  if (type === 'percent' && value > 100) return res.status(400).json({ error: 'Процент не может быть больше 100' })
+
+  discounts[idx] = { ...discounts[idx], type, value, minOrder, maxUses, expiresAt, active }
+  saveDiscounts(discounts)
+  res.json(discounts[idx])
+})
+
+app.delete('/api/admin/discounts/:code', authMiddleware, (req, res) => {
+  const code = sanitizeString(decodeURIComponent(req.params.code), 50).toUpperCase()
+  const idx  = discounts.findIndex(d => d.code === code)
+  if (idx === -1) return res.status(404).json({ error: 'Промокод не найден' })
+  discounts.splice(idx, 1)
+  saveDiscounts(discounts)
+  res.json({ ok: true })
 })
 
 // ─── SETUP TOTP (одноразовый маршрут) ──────────────────────

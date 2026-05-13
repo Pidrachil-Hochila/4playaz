@@ -41,6 +41,8 @@ export const useApi = () => {
     amount: number
     customer: { fullName: string; phone: string; telegram: string; email: string }
     delivery: { method: string; address: string; deliveryPrice?: number }
+    discountCode?: string
+    discountAmount?: number
   }) => {
     return await $fetch(`${base}/api/orders/create`, {
       method: 'POST',
@@ -48,7 +50,14 @@ export const useApi = () => {
     })
   }
 
-  return { getProducts, getProduct, getCollections, createOrder, base }
+  const checkDiscount = async (code: string, amount: number) => {
+    return await $fetch(`${base}/api/discount/check`, {
+      method: 'POST',
+      body: { code, amount }
+    })
+  }
+
+  return { getProducts, getProduct, getCollections, createOrder, checkDiscount, base }
 }
 
 export const useAdminApi = () => {
@@ -114,5 +123,34 @@ export const useAdminApi = () => {
     })
   }
 
-  return { login, addProduct, deleteProduct, updateProduct, getOrders, sendPaymentLink }
+  const getDiscounts = async () => {
+    return await $fetch(`${base}/api/admin/discounts`, {
+      headers: { Authorization: `Bearer ${getToken()}` }
+    })
+  }
+
+  const createDiscount = async (data: any) => {
+    return await $fetch(`${base}/api/admin/discounts`, {
+      method: 'POST',
+      headers: { Authorization: `Bearer ${getToken()}` },
+      body: data
+    })
+  }
+
+  const updateDiscount = async (code: string, data: any) => {
+    return await $fetch(`${base}/api/admin/discounts/${encodeURIComponent(code)}`, {
+      method: 'PUT',
+      headers: { Authorization: `Bearer ${getToken()}` },
+      body: data
+    })
+  }
+
+  const deleteDiscount = async (code: string) => {
+    return await $fetch(`${base}/api/admin/discounts/${encodeURIComponent(code)}`, {
+      method: 'DELETE',
+      headers: { Authorization: `Bearer ${getToken()}` }
+    })
+  }
+
+  return { login, addProduct, deleteProduct, updateProduct, getOrders, sendPaymentLink, getDiscounts, createDiscount, updateDiscount, deleteDiscount }
 }

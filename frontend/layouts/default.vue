@@ -92,11 +92,48 @@
               </div>
             </div>
 
+            <!-- PROMO CODE -->
+            <div class="promo-section">
+              <div class="promo-input-row">
+                <input
+                  v-model="promoInput"
+                  type="text"
+                  class="promo-input"
+                  placeholder="Промокод"
+                  :disabled="!!appliedPromo"
+                  @keydown.enter="applyPromo"
+                  @input="promoInput = promoInput.toUpperCase()"
+                >
+                <button
+                  v-if="!appliedPromo"
+                  class="promo-btn"
+                  @click="applyPromo"
+                  :disabled="promoLoading || !promoInput.trim()"
+                >
+                  {{ promoLoading ? '...' : 'Применить' }}
+                </button>
+                <button v-else class="promo-btn promo-remove" @click="removePromo" title="Убрать промокод">✕</button>
+              </div>
+              <div v-if="promoError" class="promo-error">{{ promoError }}</div>
+              <div v-if="appliedPromo" class="promo-success">
+                ✓ {{ appliedPromo.code }}
+                — скидка {{ appliedPromo.type === 'percent' ? appliedPromo.value + '%' : appliedPromo.value.toLocaleString('ru') + ' ₽' }}
+              </div>
+            </div>
+
             <!-- PRICE SUMMARY -->
             <div class="cart-price-summary">
+              <div v-if="appliedPromo" class="price-row">
+                <span class="price-label">Товары</span>
+                <span class="price-value">{{ formatPrice(subtotalPrice) }}</span>
+              </div>
+              <div v-if="appliedPromo" class="price-row">
+                <span class="price-label discount-label">Скидка ({{ appliedPromo.code }})</span>
+                <span class="price-value discount-value">−{{ formatPrice(promoDiscountAmount) }}</span>
+              </div>
               <div class="price-row total-row">
                 <span class="price-label-total">ИТОГО</span>
-                <span class="price-value-total">{{ formatPrice(totalPrice) }}</span>
+                <span class="price-value-total">{{ formatPrice(finalPrice) }}</span>
               </div>
               <p class="delivery-note">* Итоговая сумма может измениться в зависимости от стоимости доставки</p>
             </div>
@@ -322,6 +359,10 @@
                     <span>Товары ({{ totalItems }} шт.)</span>
                     <span>{{ formatPrice(subtotalPrice) }}</span>
                   </div>
+                  <div v-if="appliedPromo" class="summary-line">
+                    <span style="color: #2ecc71">Скидка ({{ appliedPromo.code }})</span>
+                    <span style="color: #2ecc71">−{{ formatPrice(promoDiscountAmount) }}</span>
+                  </div>
                   <div class="summary-line">
                     <span>ФИО</span>
                     <span>{{ cartForm.fullName }}</span>
@@ -345,7 +386,7 @@
                   <div class="summary-divider"></div>
                   <div class="summary-line summary-total">
                     <span>ИТОГО</span>
-                    <span>{{ formatPrice(totalPrice) }}</span>
+                    <span>{{ formatPrice(finalPrice) }}</span>
                   </div>
                 </div>
               </div>
@@ -423,6 +464,15 @@ const {
   clearCart, openCart, closeCart
 } = useCart()
 
+// ─── ПРОМОКОД ─────────────────────────────────────────────
+const promoInput   = ref('')
+const promoLoading = ref(false)
+const promoError   = ref('')
+const appliedPromo = ref<{ code: string; type: string; value: number; discountAmount: number } | null>(null)
+
+const promoDiscountAmount = computed(() => appliedPromo.value?.discountAmount || 0)
+const finalPrice = computed(() => Math.max(0, subtotalPrice.value - promoDiscountAmount.value))
+
 const toastVisible = ref(false)
 const toastMsg = ref('')
 
@@ -440,7 +490,34 @@ provide('addToCart', (product: any) => {
 
 const config = useRuntimeConfig()
 const API_BASE = config.public.apiBase
-const { createOrder } = useApi()
+const { createOrder, checkDiscount } = useApi()
+
+const applyPromo = async () => {
+  const code = promoInput.value.trim().toUpperCase()
+  if (!code) return
+  promoLoading.value = true
+  promoError.value = ''
+  try {
+    const result = await checkDiscount(code, subtotalPrice.value) as any
+    appliedPromo.value = {
+      code:           result.code,
+      type:           result.type,
+      value:          result.value,
+      discountAmount: result.discountAmount,
+    }
+  } catch (e: any) {
+    promoError.value = e?.data?.error || e?.message || 'Промокод не найден'
+    appliedPromo.value = null
+  } finally {
+    promoLoading.value = false
+  }
+}
+
+const removePromo = () => {
+  appliedPromo.value = null
+  promoInput.value = ''
+  promoError.value = ''
+}
 const resolveImg = (src: string): string => {
   if (!src) return ''
   if (src.startsWith('data:') || src.startsWith('http')) return src
@@ -649,7 +726,7 @@ const cartCreatePayment = async () => {
         .filter(i => i.size)
         .map(i => `${i.size} ×${i.quantity}`)
         .join(', ') || undefined,
-      amount: totalPrice.value,
+      amount: finalPrice.value,
       customer: {
         fullName: f.fullName.trim(),
         phone:    f.phone.trim(),
@@ -661,8 +738,12 @@ const cartCreatePayment = async () => {
         address:       fullDeliveryAddress.value,
         deliveryPrice: 0,
       },
+      discountCode:   appliedPromo.value?.code,
+      discountAmount: promoDiscountAmount.value || undefined,
     })
     clearCart()
+    appliedPromo.value = null
+    promoInput.value = ''
     closeCart()
     checkoutMode.value = false
     cartCheckoutStep.value = 1
@@ -891,6 +972,60 @@ header {
 }
 .cart-item-remove:hover { color: var(--red-bright); }
 
+/* PROMO CODE */
+.promo-section {
+  padding: 14px 32px 0;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+.promo-input-row {
+  display: flex;
+  gap: 0;
+}
+.promo-input {
+  flex: 1;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-right: none;
+  color: var(--white);
+  font-family: var(--font-cinzel);
+  font-size: 11px;
+  letter-spacing: 0.1em;
+  padding: 9px 12px;
+  outline: none;
+  transition: border-color 0.2s;
+  text-transform: uppercase;
+}
+.promo-input:focus { border-color: var(--red); }
+.promo-input:disabled { opacity: 0.6; cursor: not-allowed; }
+.promo-btn {
+  background: none;
+  border: 1px solid var(--border);
+  color: var(--mid);
+  font-family: var(--font-cinzel);
+  font-size: 8px;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  padding: 9px 14px;
+  cursor: pointer;
+  transition: all 0.2s;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+.promo-btn:hover:not(:disabled) { border-color: var(--red); color: var(--red-bright); }
+.promo-btn:disabled { opacity: 0.4; cursor: not-allowed; }
+.promo-remove { color: var(--red); border-color: var(--red-deep); }
+.promo-remove:hover { background: var(--red-deep) !important; color: var(--white) !important; }
+.promo-error { font-size: 10px; color: #e74c3c; letter-spacing: 0.05em; }
+.promo-success {
+  font-family: var(--font-cinzel);
+  font-size: 9px;
+  letter-spacing: 0.1em;
+  color: #2ecc71;
+  text-transform: uppercase;
+}
+
 /* PRICE SUMMARY */
 .cart-price-summary {
   padding: 20px 32px 16px;
@@ -906,6 +1041,8 @@ header {
 .total-row { margin-bottom: 0; }
 .price-label-total { font-family: var(--font-cinzel); font-size: 11px; letter-spacing: 0.22em; text-transform: uppercase; color: var(--white); font-weight: 600; }
 .price-value-total { font-family: var(--font-gothic); font-size: 24px; color: var(--white); text-shadow: 0 0 20px var(--red-glow); }
+.discount-label { color: #2ecc71 !important; }
+.discount-value { color: #2ecc71 !important; }
 .delivery-note { font-family: var(--font-cinzel); font-size: 9px; letter-spacing: 0.1em; color: var(--mid); margin-top: 10px; line-height: 1.6; }
 .pvz-hint { font-size: 11px; color: #c8a84b; background: rgba(200,168,75,0.08); border: 1px solid rgba(200,168,75,0.25); padding: 7px 10px; margin-bottom: 8px; line-height: 1.5; }
 

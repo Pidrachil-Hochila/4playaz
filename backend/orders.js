@@ -6,7 +6,22 @@
 const express = require('express')
 const router  = express.Router()
 const jwt     = require('jsonwebtoken')
+const fs      = require('fs')
+const path    = require('path')
 const { createClient } = require('@supabase/supabase-js')
+
+const DISCOUNTS_FILE = path.join(__dirname, 'data', 'discounts.json')
+function loadDiscounts() {
+  if (!fs.existsSync(DISCOUNTS_FILE)) return []
+  try { return JSON.parse(fs.readFileSync(DISCOUNTS_FILE, 'utf-8')) } catch { return [] }
+}
+function useDiscount(code) {
+  const list = loadDiscounts()
+  const idx  = list.findIndex(d => d.code === code.toUpperCase())
+  if (idx === -1) return
+  list[idx].usedCount = (list[idx].usedCount || 0) + 1
+  fs.writeFileSync(DISCOUNTS_FILE, JSON.stringify(list, null, 2), 'utf-8')
+}
 
 const SUPABASE_URL      = process.env.SUPABASE_URL
 const SUPABASE_SERVICE_KEY = process.env.SUPABASE_SERVICE_KEY
@@ -29,7 +44,7 @@ function authMiddleware(req, res, next) {
 // ─── POST /api/orders/create ── публичный, сохраняет заказ ─
 router.post('/create', async (req, res) => {
   try {
-    const { productName, productSize, amount, customer, delivery } = req.body
+    const { productName, productSize, amount, customer, delivery, discountCode, discountAmount } = req.body
 
     if (!productName) {
       return res.status(400).json({ message: 'Укажите название товара' })
@@ -39,7 +54,7 @@ router.post('/create', async (req, res) => {
     }
 
     if (supabase) {
-      const { error } = await supabase.from('customers').insert({
+      const insertData = {
         full_name:        customer.fullName?.trim() || customer.email || '-',
         phone:            customer.phone?.trim()    || null,
         telegram:         customer.telegram?.trim() || null,
@@ -53,7 +68,12 @@ router.post('/create', async (req, res) => {
         created_at:       new Date().toISOString(),
         status:           'wait',
         link_sent:        false,
-      })
+      }
+      if (discountCode) {
+        insertData.discount_code   = discountCode.toUpperCase()
+        insertData.discount_amount = Number(discountAmount) || 0
+      }
+      const { error } = await supabase.from('customers').insert(insertData)
 
       if (error) {
         console.error('Supabase insert error:', error)
@@ -61,6 +81,7 @@ router.post('/create', async (req, res) => {
       }
     }
 
+    if (discountCode) useDiscount(discountCode)
     console.log('[ORDER] Новый заказ:', productName, customer.phone || customer.email)
     res.json({ success: true })
   } catch (err) {

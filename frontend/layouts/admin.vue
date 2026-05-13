@@ -22,6 +22,10 @@
           <span class="nav-icon">⊕</span>
           <span>Добавить товар</span>
         </NuxtLink>
+        <NuxtLink to="/admin/discounts" class="nav-item">
+          <span class="nav-icon">%</span>
+          <span>Скидки</span>
+        </NuxtLink>
       </nav>
       <div class="sidebar-footer">
         <button class="logout-btn" @click="logout">
