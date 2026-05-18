@@ -106,8 +106,13 @@ test('orders.vue shows total count and pending count', () => {
 
 test('orders.vue sends correct payload to sendPaymentLink', () => {
   assert.match(ordersSrc, /sendPaymentLink\s*\(activeOrder\.value\.id/, 'must pass order id')
-  assert.match(ordersSrc, /linkInput\.value/, 'must pass payment link')
   assert.match(ordersSrc, /deliveryInput/, 'must pass delivery price')
+  assert.doesNotMatch(ordersSrc, /linkInput/, 'must NOT have manual payment link input — link is created automatically')
+})
+
+test('orders.vue shows returned payment URL after creating payment', () => {
+  assert.match(ordersSrc, /resultUrl/, 'must store paymentUrl returned from backend')
+  assert.match(apiSrc, /paymentUrl/, 'sendPaymentLink response must expose paymentUrl')
 })
 
 test('orders.vue updates order in-place after sending link (no full reload)', () => {

@@ -188,7 +188,6 @@
                       <div class="delivery-option-name">{{ opt.name }}</div>
                       <div class="delivery-option-desc">{{ opt.desc }}</div>
                     </div>
-                    <div class="delivery-option-days">{{ opt.days }}</div>
                   </label>
                 </div>
                 <span v-if="cartErrors.deliveryMethod" class="form-error">{{ cartErrors.deliveryMethod }}</span>
@@ -484,9 +483,9 @@ const cartForm = ref({
 const cartErrors = ref<Record<string, string>>({})
 
 const deliveryOptions = [
-  { value: 'cdek',   name: 'СДЭК',           desc: 'Пункт выдачи',  days: '2–5 дн',  icon: '📫' },
-  { value: 'yandex', name: 'Яндекс Доставка', desc: 'Пункт выдачи',        days: '1–3 дн',  icon: '🚚' },
-  { value: 'pochta', name: 'Почта России',    desc: 'Пункт выдачи',    days: '5–14 дн', icon: '✉️' },
+  { value: 'cdek',   name: 'СДЭК',           desc: 'Пункт выдачи',  icon: '📫' },
+  { value: 'yandex', name: 'Яндекс Доставка', desc: 'Пункт выдачи',  icon: '🚚' },
+  { value: 'pochta', name: 'Почта России',    desc: 'Пункт выдачи',  icon: '✉️' },
 ]
 
 // ─── CDEK WIDGET (inline) ──────────────────────────────────

@@ -67,7 +67,7 @@
         <div class="modal-box">
           <button class="modal-close" @click="closeModal">✕</button>
           <div class="modal-header">
-            <div class="modal-label">ОТПРАВКА ССЫЛКИ</div>
+            <div class="modal-label">СОЗДАНИЕ ПЛАТЕЖА</div>
             <div class="modal-customer" v-if="activeOrder">
               {{ activeOrder.full_name }} · {{ activeOrder.phone }}{{ activeOrder.telegram ? ` · ${activeOrder.telegram}` : '' }}
             </div>
@@ -80,7 +80,7 @@
           </div>
 
           <div class="modal-body">
-            <div class="modal-fields">
+            <div v-if="!resultUrl" class="modal-fields">
               <div class="field-group">
                 <label class="field-label">Сумма доставки (₽)</label>
                 <input
@@ -90,32 +90,35 @@
                   class="link-input"
                   :class="{ error: deliveryError }"
                   placeholder="0"
+                  @keydown.enter="submitLink"
                 >
                 <span v-if="deliveryError" class="field-error">{{ deliveryError }}</span>
               </div>
-              <div class="field-group">
-                <label class="field-label">Ссылка на оплату</label>
-                <input
-                  v-model="linkInput"
-                  type="url"
-                  class="link-input"
-                  :class="{ error: linkError }"
-                  placeholder="https://..."
-                  @keydown.enter="submitLink"
-                >
-                <span v-if="linkError" class="field-error">{{ linkError }}</span>
-              </div>
+              <p class="modal-hint">
+                Платёж ЮKassa создастся автоматически. Если у клиента указан email —
+                ссылка уйдёт ему на почту.
+              </p>
+            </div>
+
+            <div v-else class="result-block">
+              <div class="result-ok">✓ Платёж создан{{ activeOrder?.email ? ' · письмо отправлено' : '' }}</div>
+              <label class="field-label">Ссылка на оплату</label>
+              <input class="link-input" :value="resultUrl" readonly @focus="($event.target as HTMLInputElement).select()">
+              <button class="btn-copy" @click="copyUrl">{{ copied ? 'Скопировано' : 'Скопировать ссылку' }}</button>
             </div>
           </div>
 
           <div v-if="sendError" class="send-error">{{ sendError }}</div>
 
           <div class="modal-footer">
-            <button class="btn-cancel" @click="closeModal">Отмена</button>
-            <button class="btn-send" :disabled="sending" @click="submitLink">
-              <span v-if="sending" class="spinner"></span>
-              {{ sending ? 'Отправка...' : 'Отправить' }}
-            </button>
+            <template v-if="!resultUrl">
+              <button class="btn-cancel" @click="closeModal">Отмена</button>
+              <button class="btn-send" :disabled="sending" @click="submitLink">
+                <span v-if="sending" class="spinner"></span>
+                {{ sending ? 'Создаём...' : 'Создать платёж и отправить' }}
+              </button>
+            </template>
+            <button v-else class="btn-send" @click="closeModal">Готово</button>
           </div>
         </div>
       </div>
@@ -138,12 +141,12 @@ const filter = ref<'all' | 'pending'>('pending')
 
 const modalOpen = ref(false)
 const activeOrder = ref<any>(null)
-const linkInput = ref('')
-const linkError = ref('')
 const deliveryInput = ref('')
 const deliveryError = ref('')
 const sending = ref(false)
 const sendError = ref('')
+const resultUrl = ref('')
+const copied = ref(false)
 
 const isPending = (o: any) => !o.link_sent && o.status !== 'paid'
 
@@ -184,11 +187,11 @@ const fetchOrders = async () => {
 
 const openModal = (order: any) => {
   activeOrder.value = order
-  linkInput.value = ''
-  linkError.value = ''
   deliveryInput.value = String(Number(order.delivery_price) || '')
   deliveryError.value = ''
   sendError.value = ''
+  resultUrl.value = ''
+  copied.value = false
   modalOpen.value = true
 }
 
@@ -198,21 +201,24 @@ const closeModal = () => {
   activeOrder.value = null
 }
 
+const copyUrl = async () => {
+  try {
+    await navigator.clipboard.writeText(resultUrl.value)
+    copied.value = true
+    setTimeout(() => { copied.value = false }, 2000)
+  } catch { /* буфер недоступен — ссылку можно выделить вручную */ }
+}
+
 const submitLink = async () => {
-  linkError.value = ''
   deliveryError.value = ''
   sendError.value = ''
 
-  const url = linkInput.value.trim()
   const delivery = Number(deliveryInput.value)
-
   if (isNaN(delivery) || delivery < 0) { deliveryError.value = 'Введите корректную сумму'; return }
-  if (!url) { linkError.value = 'Введите ссылку'; return }
-  if (!/^https?:\/\/.+/.test(url)) { linkError.value = 'Некорректный URL'; return }
 
   sending.value = true
   try {
-    await sendPaymentLink(activeOrder.value.id, url, delivery)
+    const res = await sendPaymentLink(activeOrder.value.id, delivery)
     const idx = orders.value.findIndex(o => o.id === activeOrder.value.id)
     if (idx !== -1) {
       orders.value[idx] = {
@@ -222,10 +228,14 @@ const submitLink = async () => {
         delivery_price: delivery,
       }
     }
-    modalOpen.value = false
-    activeOrder.value = null
+    resultUrl.value = res?.paymentUrl || ''
+    if (!resultUrl.value) {
+      // Платёж создан, но ссылку не вернули — закрываем модалку.
+      modalOpen.value = false
+      activeOrder.value = null
+    }
   } catch (err: any) {
-    sendError.value = err?.data?.message || 'Ошибка при отправке. Попробуйте снова.'
+    sendError.value = err?.data?.message || 'Ошибка при создании платежа. Попробуйте снова.'
   } finally {
     sending.value = false
   }
@@ -468,6 +478,36 @@ onMounted(fetchOrders)
   font-size: 11px;
   color: var(--red-bright);
 }
+.modal-hint {
+  margin: 0;
+  font-size: 11px;
+  line-height: 1.6;
+  color: var(--mid);
+}
+
+.result-block { display: flex; flex-direction: column; gap: 10px; }
+.result-ok {
+  font-family: var(--font-cinzel);
+  font-size: 10px;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: #6ad28a;
+}
+.result-block .link-input { font-size: 12px; }
+.btn-copy {
+  align-self: flex-start;
+  background: transparent;
+  border: 1px solid var(--border);
+  color: var(--off-white);
+  padding: 8px 16px;
+  font-family: var(--font-cinzel);
+  font-size: 9px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+.btn-copy:hover { border-color: var(--red); color: var(--red-bright); }
 
 .send-error {
   font-size: 12px;

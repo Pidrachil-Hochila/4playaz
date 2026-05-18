@@ -106,13 +106,27 @@ export const useAdminApi = () => {
     return Array.isArray(data) ? data : []
   }
 
-  const sendPaymentLink = async (id: number, paymentLink: string, deliveryPrice: number) => {
-    return await $fetch(`${base}/api/orders/${id}/send-link`, {
+  const sendPaymentLink = async (id: number, deliveryPrice: number) => {
+    return await $fetch<{ success: boolean; paymentUrl: string | null }>(`${base}/api/orders/${id}/send-link`, {
       method: 'POST',
       headers: { Authorization: `Bearer ${getToken()}` },
-      body: { paymentLink, deliveryPrice }
+      body: { deliveryPrice }
     })
   }
 
-  return { login, addProduct, deleteProduct, updateProduct, getOrders, sendPaymentLink }
+  const getBroadcastRecipients = async () => {
+    return await $fetch<{ count: number }>(`${base}/api/broadcast/recipients`, {
+      headers: { Authorization: `Bearer ${getToken()}` }
+    })
+  }
+
+  const sendBroadcast = async (subject: string, text: string, testEmail?: string) => {
+    return await $fetch<{ success: boolean; sent: number }>(`${base}/api/broadcast/send`, {
+      method: 'POST',
+      headers: { Authorization: `Bearer ${getToken()}` },
+      body: { subject, text, testEmail }
+    })
+  }
+
+  return { login, addProduct, deleteProduct, updateProduct, getOrders, sendPaymentLink, getBroadcastRecipients, sendBroadcast }
 }

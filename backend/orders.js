@@ -92,18 +92,16 @@ router.get('/', authMiddleware, async (req, res) => {
   }
 })
 
-// ─── POST /api/admin/orders/:id/send-link ── отправить ссылку
+// ─── POST /api/admin/orders/:id/send-link ── создать платёж + отправить ссылку
+// Тело: { deliveryPrice }. Платёж ЮKassa создаёт Edge Function send-payment-link.
 router.post('/:id/send-link', authMiddleware, async (req, res) => {
   const id = parseInt(req.params.id, 10)
   if (isNaN(id)) return res.status(400).json({ message: 'Некорректный ID' })
 
-  const { paymentLink, deliveryPrice } = req.body
-  if (!paymentLink?.trim()) return res.status(400).json({ message: 'Укажите ссылку на оплату' })
-
-  const delivery = Number(deliveryPrice) || 0
+  const delivery = Number(req.body?.deliveryPrice) || 0
 
   try {
-    // Сохраняем сумму доставки до вызова Edge Function — письмо возьмёт актуальные данные из БД
+    // Сохраняем сумму доставки до вызова Edge Function — она возьмёт актуальные данные из БД
     if (supabase) {
       await supabase
         .from('customers')
@@ -119,12 +117,13 @@ router.post('/:id/send-link', authMiddleware, async (req, res) => {
         'Content-Type':   'application/json',
         'x-worker-secret': WORKER_SECRET,
       },
-      body: JSON.stringify({ customer_id: id, payment_url: paymentLink.trim() }),
+      body: JSON.stringify({ customer_id: id }),
     })
 
+    const fnData = await fnRes.json().catch(() => ({}))
+
     if (!fnRes.ok) {
-      const errData = await fnRes.json()
-      return res.status(500).json({ message: errData.error || 'Ошибка отправки письма' })
+      return res.status(500).json({ message: fnData.error || 'Ошибка создания платежа' })
     }
 
     if (supabase) {
@@ -134,8 +133,8 @@ router.post('/:id/send-link', authMiddleware, async (req, res) => {
         .eq('id', id)
     }
 
-    console.log(`[LINK SENT] order #${id} → ${paymentLink.trim()}`)
-    res.json({ success: true })
+    console.log(`[LINK SENT] order #${id} → ${fnData.confirmation_url || '(no url)'}`)
+    res.json({ success: true, paymentUrl: fnData.confirmation_url || null })
   } catch (err) {
     console.error('Send link error:', err)
     res.status(500).json({ message: err.message || 'Ошибка' })

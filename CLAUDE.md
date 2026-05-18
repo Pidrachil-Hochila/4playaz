@@ -2,15 +2,34 @@
 
 This file provides guidance to Claude Code (claude.ai/code) when working with code in this repository.
 
+## ⚠️ GRAPH FIRST
+
+**Перед началом любой работы прочитай `GRAPH_FIRST.md`** и сверься с графом знаний в
+`graphify-out/` (точка входа — `graphify-out/GRAPH_REPORT.md`). Там структура проекта
+и связи между файлами уже разобраны — это ускоряет поиск и понимание кода.
+
 ## SSH
 root@89.108.81.147 ; pass = xYyEIOkEbxCk51ZO
 
 ## Project Overview
 
 **4PLAYAZ** — интернет-магазин одежды (streetwear). Монорепо:
-- **Backend**: Node.js/Express (порт 4000 на проде, 3001 локально) — продукты, оплата ЮKassa, доставка CDEK, TOTP 2FA
+- **Backend**: Node.js/Express (порт 3001) — продукты, заказы, TOTP 2FA
 - **Frontend**: Nuxt 3 SPA (порт 3000) — SSG на GitHub Pages, SSR на VPS
 - **Данные**: продукты/коллекции в JSON-файлах, заказы в Supabase, картинки в `backend/uploads/`
+
+> **Доставка:** CDEK API **больше не используется** (модуль `cdek.js` удалён) —
+> способ и адрес доставки покупатель указывает текстом, стоимость доставки
+> проставляет админ вручную.
+>
+> **Оплата:** платёж в ЮKassa создаётся **автоматически** через Edge Functions
+> (модуль backend `payment.js` удалён, ключи ЮKassa живут в секретах Supabase).
+> Поток: заказ сохраняется в Supabase (`POST /api/orders/create`, статус `wait`)
+> → админ в `/admin/orders` вводит сумму доставки и жмёт кнопку →
+> `POST /api/orders/:id/send-link` → Edge Function `send-payment-link` создаёт
+> платёж в ЮKassa и шлёт покупателю ссылку письмом → ЮKassa по событию
+> `payment.succeeded` дёргает Edge Function `yookassa-webhook`, которая
+> подтверждает платёж и ставит статус `paid`.
 
 ## Commands
 
@@ -75,10 +94,7 @@ pscp -pw xYyEIOkEbxCk51ZO root@89.108.81.147:/var/www/4playaz/backend/data/colle
 - `GET /api/products` — список (`?category=`, `?clothingType=`)
 - `GET /api/products/:id` — один продукт
 - `GET /api/collections` — категории
-- `POST /api/payment/create` — создать платёж ЮKassa + сохранить заказ в Supabase
-- `POST /api/payment/webhook` — колбэк от ЮKassa (отметить заказ paid)
-- `POST /api/cdek/calculate` — расчёт стоимости доставки
-- `GET /api/cdek/city?q=...` — поиск города CDEK
+- `POST /api/orders/create` — сохранить заказ в Supabase (status `wait`)
 
 **Админ (JWT Bearer):**
 - `POST /api/admin/login` — пароль + TOTP → JWT 12ч
@@ -119,9 +135,17 @@ pscp -pw xYyEIOkEbxCk51ZO root@89.108.81.147:/var/www/4playaz/backend/data/colle
 
 ### Supabase
 
-Таблица `customers` — заказы. Ключевые колонки: `product_name`, `product_size` (размер + тип, например «Оверсайз L»), `product_price`, `delivery_method`, `delivery_address`, `status` (`wait`/`sent`/`paid`).
+Таблица `customers` — заказы. Ключевые колонки: `product_name`, `product_size` (размер + тип, например «Оверсайз L»), `product_price`, `delivery_price`, `delivery_method`, `delivery_address`, `status` (`wait`/`send`/`paid`), `link_sent`, `payment_id` (id платежа ЮKassa), `paid_at`.
 
-**Edge Function `notify-paid-order`** (Deno/TypeScript) — отправляет HTML-письмо через Resend API при создании/оплате заказа. Исходник хранится в `edge.md`. Получатели захардкожены в функции. Триггер — database webhook из Supabase.
+**Edge Functions** (Deno/TypeScript, проект Supabase `gmmtxvobjnmdpryhsrpu`). Исходники — в `supabase/functions/<slug>/index.ts`, деплой через Supabase MCP `deploy_edge_function`:
+- **`notify-paid-order`** — письмо админам при создании/оплате заказа (Resend). Триггер — database webhook на `customers`. Исходник также продублирован в `edge.md`.
+- **`notify-customer-order`** — письмо покупателю «заказ оформлен» при INSERT. Триггер — database webhook.
+- **`send-payment-link`** — вызывается backend'ом (`x-worker-secret`), создаёт платёж в ЮKassa (`POST /v3/payments`), сохраняет `payment_id`, шлёт покупателю письмо со ссылкой. Тело: `{ customer_id }`.
+- **`yookassa-webhook`** — публичная (`verify_jwt: false`), принимает HTTP-уведомления ЮKassa. На `payment.succeeded` перепроверяет платёж через `GET /v3/payments/{id}` и ставит `status='paid'`.
+
+Секреты Edge Functions: `RESEND_API_KEY`, `FROM_EMAIL`, `WORKER_SECRET`, `YOOKASSA_SHOP_ID`, `YOOKASSA_SECRET_KEY`, `SITE_URL`, `SUPABASE_URL`, `SUPABASE_SERVICE_ROLE_KEY`.
+
+URL для HTTP-уведомлений в ЛК ЮKassa (событие `payment.succeeded`): `https://gmmtxvobjnmdpryhsrpu.supabase.co/functions/v1/yookassa-webhook`.
 
 ### Nuxt Config
 - `ssr: false` — SPA-режим
@@ -145,14 +169,12 @@ pscp -pw xYyEIOkEbxCk51ZO root@89.108.81.147:/var/www/4playaz/backend/data/colle
 ```
 JWT_SECRET=
 ADMIN_<NAME>_PASSWORD=
+TOTP_SECRET_<NAME>=
 SUPABASE_URL=
 SUPABASE_SERVICE_KEY=
-YOOKASSA_SHOP_ID=
-YOOKASSA_SECRET_KEY=
-CDEK_CLIENT_ID=
-CDEK_CLIENT_SECRET=
+WORKER_SECRET=
 SITE_URL=https://4playaz.ru
-PORT=4000
+PORT=3001
 ```
 
 **`frontend/.env`** (на VPS — пустая строка):
@@ -170,13 +192,15 @@ NUXT_PUBLIC_API_BASE=https://api.4playaz.ru
 
 ## Key Files
 
-- **`backend/server.js`** — Express-сервер: логин + rate limit + TOTP (~строки 276–338), CRUD продуктов
-- **`backend/payment.js`** — ЮKassa: создание платежа + webhook
+- **`backend/server.js`** — точка входа: middleware + монтирование роутеров (тонкий файл)
+- **`backend/lib/`** — `store.js` (продукты/коллекции в памяти + сохранение картинок), `security.js` (IP-бан/rate-limit), `auth.js` (админы, TOTP, JWT-middleware), `sanitize.js` (whitelist + санитизация)
+- **`backend/routes/`** — `catalog.js` (каталог + CRUD товаров/коллекций), `admin-auth.js` (логин, TOTP, бан-лист)
 - **`backend/orders.js`** — CRUD заказов в Supabase
 - **`frontend/pages/index.vue`** — каталог + поиск + модалка товара + корзина + чекаут (главный компонент, ~1000 строк)
 - **`frontend/layouts/default.vue`** — шапка + drawer-корзина + форма оформления заказа
 - **`frontend/layouts/admin.vue`** — sidebar-навигация админки (адаптивная)
 - **`frontend/composables/useApi.ts`** — весь HTTP-слой фронтенда
 - **`frontend/composables/useCart.ts`** — корзина с cartKey
-- **`edge.md`** — исходник Supabase Edge Function `notify-paid-order`
+- **`supabase/functions/`** — исходники Edge Functions (`send-payment-link`, `yookassa-webhook`)
+- **`edge.md`** — исходник Edge Function `notify-paid-order`
 - **`PROJECT_NOTES.md`** — детальная архитектура

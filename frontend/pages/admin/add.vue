@@ -406,48 +406,15 @@ const form = reactive({
 })
 
 const badges = ['', 'New', 'Best Seller', 'Sale', 'Pre-Order', 'Exclusive']
-const images = ref<string[]>([])
-const urlInput = ref('')
 const errorMsg = ref('')
 const successMsg = ref('')
 const submitting = ref(false)
-const isDragging = ref(false)
-const fileInputRef = ref<HTMLInputElement | null>(null)
 
-const readFile = (file: File): Promise<string> => {
-  return new Promise((resolve, reject) => {
-    if (file.size > 10 * 1024 * 1024) { reject(new Error(`Файл ${file.name} превышает 10 МБ`)); return }
-    const reader = new FileReader()
-    reader.onload = (e) => resolve(e.target?.result as string)
-    reader.onerror = () => reject(new Error('Ошибка чтения файла'))
-    reader.readAsDataURL(file)
-  })
-}
+// Загрузка картинок — общий композабл (composables/useImageUpload.ts)
+const { images, isDragging, fileInputRef, urlInput, handleFiles, handleDrop, addImageUrl, removeImage } =
+  useImageUpload({ onError: (msg) => { errorMsg.value = msg } })
 
-const handleFiles = async (e: Event) => {
-  const files = Array.from((e.target as HTMLInputElement).files || [])
-  for (const file of files) {
-    try { images.value.push(await readFile(file)) } catch (err: any) { errorMsg.value = err.message }
-  }
-  if (fileInputRef.value) fileInputRef.value.value = ''
-}
-
-const handleDrop = async (e: DragEvent) => {
-  isDragging.value = false
-  const files = Array.from(e.dataTransfer?.files || []).filter(f => f.type.startsWith('image/'))
-  for (const file of files) {
-    try { images.value.push(await readFile(file)) } catch (err: any) { errorMsg.value = err.message }
-  }
-}
-
-const addImageUrl = () => {
-  const url = urlInput.value.trim()
-  if (!url) return
-  images.value.push(url)
-  urlInput.value = ''
-}
-
-const removeImage = (idx: number) => { images.value.splice(idx, 1) }
+const { addProduct } = useAdminApi()
 
 const handleSubmit = async () => {
   errorMsg.value = ''
@@ -456,29 +423,22 @@ const handleSubmit = async () => {
 
   submitting.value = true
   try {
-    const response = await fetch(`${API_BASE}/api/admin/products`, {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json', 'Authorization': `Bearer ${getToken()}` },
-      body: JSON.stringify({
-        name: form.name.trim(),
-        category: form.category || '',
-        clothingType: form.clothingType || '',
-        price: Number(form.price),
-        oldPrice: form.oldPrice ? Number(form.oldPrice) : null,
-        desc: form.desc.trim(),
-        badge: form.badge,
-        image: images.value[0] || '',
-        images: images.value,
-      }),
+    await addProduct({
+      name: form.name.trim(),
+      category: form.category || '',
+      clothingType: form.clothingType || '',
+      price: Number(form.price),
+      oldPrice: form.oldPrice ? Number(form.oldPrice) : null,
+      desc: form.desc.trim(),
+      badge: form.badge,
+      image: images.value[0] || '',
+      images: images.value,
     })
-    if (!response.ok) {
-      const err = await response.json().catch(() => ({}))
-      errorMsg.value = `Ошибка сервера: ${response.status} — ${err.error || 'неизвестная ошибка'}`
-      return
-    }
     await navigateTo('/admin/products')
   } catch (err: any) {
-    errorMsg.value = `Ошибка соединения: ${err?.message || 'Сервер недоступен'}`
+    errorMsg.value = err?.data?.error
+      ? `Ошибка сервера: ${err.data.error}`
+      : `Ошибка соединения: ${err?.message || 'Сервер недоступен'}`
   } finally {
     submitting.value = false
   }

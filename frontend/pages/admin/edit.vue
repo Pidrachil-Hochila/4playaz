@@ -96,11 +96,12 @@
                 <img :src="resolveImg(img)">
                 <div class="thumb-overlay">
                   <span v-if="idx === 0" class="primary-badge">Главное</span>
+                  <button v-else class="make-primary" type="button" @click.stop="makePrimary(idx)">★ Сделать главным</button>
                   <button class="remove-img" type="button" @click.stop="removeImage(idx)">✕</button>
                 </div>
               </div>
             </div>
-            <p v-if="images.length > 1" class="images-hint">Первое фото — главное</p>
+            <p v-if="images.length > 1" class="images-hint">Нажмите «Сделать главным», чтобы выбрать главное фото</p>
           </div>
 
           <div class="form-group">
@@ -144,12 +145,13 @@ const loadingProduct = ref(true)
 const submitting = ref(false)
 const errorMsg = ref('')
 const successMsg = ref('')
-const isDragging = ref(false)
-const fileInputRef = ref<HTMLInputElement | null>(null)
-const urlInput = ref('')
-const images = ref<string[]>([])
-
 const badges = ['', 'New', 'Best Seller', 'Sale', 'Pre-Order', 'Exclusive']
+
+// Загрузка картинок — общий композабл (composables/useImageUpload.ts)
+const { images, isDragging, fileInputRef, urlInput, handleFiles, handleDrop, addImageUrl, removeImage, makePrimary } =
+  useImageUpload({ onError: (msg) => { errorMsg.value = msg } })
+
+const { updateProduct } = useAdminApi()
 
 const collections = ref<string[]>([])
 
@@ -193,41 +195,6 @@ onMounted(async () => {
   }
 })
 
-const readFile = (file: File): Promise<string> => {
-  return new Promise((resolve, reject) => {
-    if (file.size > 10 * 1024 * 1024) { reject(new Error(`Файл ${file.name} > 10МБ`)); return }
-    const reader = new FileReader()
-    reader.onload = (e) => resolve(e.target?.result as string)
-    reader.onerror = () => reject(new Error('Ошибка чтения файла'))
-    reader.readAsDataURL(file)
-  })
-}
-
-const handleFiles = async (e: Event) => {
-  const files = Array.from((e.target as HTMLInputElement).files || [])
-  for (const file of files) {
-    try { images.value.push(await readFile(file)) } catch (err: any) { errorMsg.value = err.message }
-  }
-  if (fileInputRef.value) fileInputRef.value.value = ''
-}
-
-const handleDrop = async (e: DragEvent) => {
-  isDragging.value = false
-  const files = Array.from(e.dataTransfer?.files || []).filter(f => f.type.startsWith('image/'))
-  for (const file of files) {
-    try { images.value.push(await readFile(file)) } catch (err: any) { errorMsg.value = err.message }
-  }
-}
-
-const addImageUrl = () => {
-  const url = urlInput.value.trim()
-  if (!url) return
-  images.value.push(url)
-  urlInput.value = ''
-}
-
-const removeImage = (idx: number) => { images.value.splice(idx, 1) }
-
 const handleSubmit = async () => {
   errorMsg.value = ''
   successMsg.value = ''
@@ -236,31 +203,23 @@ const handleSubmit = async () => {
 
   submitting.value = true
   try {
-    const token = localStorage.getItem('admin_token') || ''
-    const response = await fetch(`${API_BASE}/api/admin/products/${route.params.id}`, {
-      method: 'PUT',
-      headers: { 'Content-Type': 'application/json', 'Authorization': `Bearer ${token}` },
-      body: JSON.stringify({
-        name: form.name.trim(),
-        category: form.category,
-        clothingType: form.clothingType,
-        price: Number(form.price),
-        oldPrice: form.oldPrice ? Number(form.oldPrice) : null,
-        desc: form.desc.trim(),
-        badge: form.badge,
-        image: images.value[0] || '',
-        images: images.value,
-      }),
+    await updateProduct(Number(route.params.id), {
+      name: form.name.trim(),
+      category: form.category,
+      clothingType: form.clothingType,
+      price: Number(form.price),
+      oldPrice: form.oldPrice ? Number(form.oldPrice) : null,
+      desc: form.desc.trim(),
+      badge: form.badge,
+      image: images.value[0] || '',
+      images: images.value,
     })
-    if (!response.ok) {
-      const err = await response.json().catch(() => ({}))
-      errorMsg.value = `Ошибка: ${response.status} — ${err.error || 'неизвестная'}`
-      return
-    }
     successMsg.value = '✓ Товар обновлён'
     setTimeout(() => navigateTo('/admin/products'), 1000)
   } catch (err: any) {
-    errorMsg.value = `Ошибка соединения: ${err?.message}`
+    errorMsg.value = err?.data?.error
+      ? `Ошибка: ${err.data.error}`
+      : `Ошибка соединения: ${err?.message || 'Сервер недоступен'}`
   } finally {
     submitting.value = false
   }
@@ -302,6 +261,8 @@ const handleSubmit = async () => {
 .primary-badge { font-family: var(--font-cinzel); font-size: 7px; letter-spacing: 0.15em; color: var(--white); background: var(--red-deep); border: 1px solid var(--red); padding: 2px 6px; width: fit-content; }
 .remove-img { background: rgba(0,0,0,0.7); border: 1px solid var(--border-red); color: var(--white); width: 24px; height: 24px; font-size: 10px; cursor: pointer; transition: all 0.2s; align-self: flex-end; display: flex; align-items: center; justify-content: center; }
 .remove-img:hover { background: var(--red-deep); border-color: var(--red); }
+.make-primary { background: rgba(0,0,0,0.7); border: 1px solid var(--border); color: var(--white); font-family: var(--font-cinzel); font-size: 7px; letter-spacing: 0.1em; text-transform: uppercase; padding: 4px 6px; cursor: pointer; transition: all 0.2s; width: fit-content; }
+.make-primary:hover { background: var(--red-deep); border-color: var(--red); }
 .images-hint { font-size: 10px; color: var(--mid); margin-top: 6px; }
 .url-row { display: flex; gap: 8px; }
 .url-row input { flex: 1; }

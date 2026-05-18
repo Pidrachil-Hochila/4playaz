@@ -14,6 +14,10 @@
           <span class="nav-icon">◎</span>
           <span>Заказы</span>
         </NuxtLink>
+        <NuxtLink to="/admin/broadcast" class="nav-item">
+          <span class="nav-icon">✉</span>
+          <span>Рассылка</span>
+        </NuxtLink>
         <NuxtLink to="/admin/products" class="nav-item">
           <span class="nav-icon">◉</span>
           <span>Товары</span>

@@ -1,0 +1,5138 @@
+{
+  "directed": false,
+  "multigraph": false,
+  "graph": {
+    "hyperedges": [
+      {
+        "id": "admin_login_security_flow",
+        "label": "Admin login: rate limit + IP ban + TOTP",
+        "nodes": [
+          "adminauth_login",
+          "security_isipbanned",
+          "security_recordfailedattempt",
+          "security_resetattempts",
+          "auth_getadminsecret"
+        ],
+        "relation": "participate_in",
+        "confidence": "EXTRACTED",
+        "confidence_score": 1.0,
+        "source_file": "backend/routes/admin-auth.js"
+      },
+      {
+        "id": "product_image_upload_pipeline",
+        "label": "Product image upload pipeline: frontend composable to backend base64 storage",
+        "nodes": [
+          "useimageupload_useimageupload",
+          "add_handlesubmit",
+          "id_handlesubmit",
+          "catalog_postproducts",
+          "store_savebase64image"
+        ],
+        "relation": "form",
+        "confidence": "INFERRED",
+        "confidence_score": 0.75,
+        "source_file": "backend/routes/catalog.js"
+      }
+    ]
+  },
+  "nodes": [
+    {
+      "label": "orders.js",
+      "file_type": "code",
+      "source_file": "backend/orders.js",
+      "source_location": "L1",
+      "community": 9,
+      "norm_label": "orders.js",
+      "id": "backend_orders_js"
+    },
+    {
+      "label": "express",
+      "file_type": "code",
+      "source_file": "backend/orders.js",
+      "source_location": "L6",
+      "community": 9,
+      "norm_label": "express",
+      "id": "backend_orders_express"
+    },
+    {
+      "label": "router",
+      "file_type": "code",
+      "source_file": "backend/orders.js",
+      "source_location": "L7",
+      "community": 9,
+      "norm_label": "router",
+      "id": "backend_orders_router"
+    },
+    {
+      "label": "jwt",
+      "file_type": "code",
+      "source_file": "backend/orders.js",
+      "source_location": "L8",
+      "community": 9,
+      "norm_label": "jwt",
+      "id": "backend_orders_jwt"
+    },
+    {
+      "label": "{ createClient }",
+      "file_type": "code",
+      "source_file": "backend/orders.js",
+      "source_location": "L9",
+      "community": 9,
+      "norm_label": "{ createclient }",
+      "id": "backend_orders_createclient"
+    },
+    {
+      "label": "authMiddleware()",
+      "file_type": "code",
+      "source_file": "backend/orders.js",
+      "source_location": "L22",
+      "community": 9,
+      "norm_label": "authmiddleware()",
+      "id": "backend_orders_authmiddleware"
+    },
+    {
+      "label": "q",
+      "file_type": "code",
+      "source_file": "backend/orders.js",
+      "source_location": "L77",
+      "community": 9,
+      "norm_label": "q",
+      "id": "backend_orders_q"
+    },
+    {
+      "label": "id",
+      "file_type": "code",
+      "source_file": "backend/orders.js",
+      "source_location": "L97",
+      "community": 9,
+      "norm_label": "id",
+      "id": "backend_orders_id"
+    },
+    {
+      "label": "orders.test.js",
+      "file_type": "code",
+      "source_file": "backend/test/orders.test.js",
+      "source_location": "L1",
+      "community": 2,
+      "norm_label": "orders.test.js",
+      "id": "backend_test_orders_test_js"
+    },
+    {
+      "label": "test",
+      "file_type": "code",
+      "source_file": "frontend/test/orders.test.js",
+      "source_location": "L4",
+      "community": 2,
+      "norm_label": "test",
+      "id": "test_orders_test_test"
+    },
+    {
+      "label": "assert",
+      "file_type": "code",
+      "source_file": "frontend/test/orders.test.js",
+      "source_location": "L5",
+      "community": 2,
+      "norm_label": "assert",
+      "id": "test_orders_test_assert"
+    },
+    {
+      "label": "fs",
+      "file_type": "code",
+      "source_file": "frontend/test/orders.test.js",
+      "source_location": "L6",
+      "community": 2,
+      "norm_label": "fs",
+      "id": "test_orders_test_fs"
+    },
+    {
+      "label": "path",
+      "file_type": "code",
+      "source_file": "frontend/test/orders.test.js",
+      "source_location": "L7",
+      "community": 2,
+      "norm_label": "path",
+      "id": "test_orders_test_path"
+    },
+    {
+      "label": "src",
+      "file_type": "code",
+      "source_file": "backend/test/orders.test.js",
+      "source_location": "L9",
+      "community": 2,
+      "norm_label": "src",
+      "id": "test_orders_test_src"
+    },
+    {
+      "label": "router",
+      "file_type": "code",
+      "source_file": "backend/test/orders.test.js",
+      "source_location": "L21",
+      "community": 2,
+      "norm_label": "router",
+      "id": "test_orders_test_router"
+    },
+    {
+      "label": "createIdx",
+      "file_type": "code",
+      "source_file": "backend/test/orders.test.js",
+      "source_location": "L42",
+      "community": 2,
+      "norm_label": "createidx",
+      "id": "test_orders_test_createidx"
+    },
+    {
+      "label": "dynamicIdx",
+      "file_type": "code",
+      "source_file": "backend/test/orders.test.js",
+      "source_location": "L43",
+      "community": 2,
+      "norm_label": "dynamicidx",
+      "id": "test_orders_test_dynamicidx"
+    },
+    {
+      "label": "serverSrc",
+      "file_type": "code",
+      "source_file": "backend/test/orders.test.js",
+      "source_location": "L54",
+      "community": 2,
+      "norm_label": "serversrc",
+      "id": "test_orders_test_serversrc"
+    },
+    {
+      "label": "createSection",
+      "file_type": "code",
+      "source_file": "backend/test/orders.test.js",
+      "source_location": "L70",
+      "community": 2,
+      "norm_label": "createsection",
+      "id": "test_orders_test_createsection"
+    },
+    {
+      "label": "insertBlock",
+      "file_type": "code",
+      "source_file": "backend/test/orders.test.js",
+      "source_location": "L89",
+      "community": 2,
+      "norm_label": "insertblock",
+      "id": "test_orders_test_insertblock"
+    },
+    {
+      "label": "sendSection",
+      "file_type": "code",
+      "source_file": "backend/test/orders.test.js",
+      "source_location": "L120",
+      "community": 2,
+      "norm_label": "sendsection",
+      "id": "test_orders_test_sendsection"
+    },
+    {
+      "label": "app.vue",
+      "file_type": "code",
+      "source_file": "frontend/app.vue",
+      "source_location": "L1",
+      "community": 25,
+      "norm_label": "app.vue",
+      "id": "frontend_app_vue"
+    },
+    {
+      "label": "nuxt.config.ts",
+      "file_type": "code",
+      "source_file": "frontend/nuxt.config.ts",
+      "source_location": "L1",
+      "community": 26,
+      "norm_label": "nuxt.config.ts",
+      "id": "frontend_nuxt_config_ts"
+    },
+    {
+      "label": "useApi.ts",
+      "file_type": "code",
+      "source_file": "frontend/composables/useApi.ts",
+      "source_location": "L1",
+      "community": 12,
+      "norm_label": "useapi.ts",
+      "id": "frontend_composables_useapi_ts"
+    },
+    {
+      "label": "getBase()",
+      "file_type": "code",
+      "source_file": "frontend/composables/useApi.ts",
+      "source_location": "L1",
+      "community": 12,
+      "norm_label": "getbase()",
+      "id": "composables_useapi_getbase"
+    },
+    {
+      "label": "fetchJson()",
+      "file_type": "code",
+      "source_file": "frontend/composables/useApi.ts",
+      "source_location": "L11",
+      "community": 12,
+      "norm_label": "fetchjson()",
+      "id": "composables_useapi_fetchjson"
+    },
+    {
+      "label": "useApi()",
+      "file_type": "code",
+      "source_file": "frontend/composables/useApi.ts",
+      "source_location": "L18",
+      "community": 12,
+      "norm_label": "useapi()",
+      "id": "composables_useapi_useapi"
+    },
+    {
+      "label": "useAdminApi()",
+      "file_type": "code",
+      "source_file": "frontend/composables/useApi.ts",
+      "source_location": "L54",
+      "community": 12,
+      "norm_label": "useadminapi()",
+      "id": "composables_useapi_useadminapi"
+    },
+    {
+      "label": "useCart.ts",
+      "file_type": "code",
+      "source_file": "frontend/composables/useCart.ts",
+      "source_location": "L1",
+      "community": 13,
+      "norm_label": "usecart.ts",
+      "id": "frontend_composables_usecart_ts"
+    },
+    {
+      "label": "CartItem",
+      "file_type": "code",
+      "source_file": "frontend/composables/useCart.ts",
+      "source_location": "L3",
+      "community": 13,
+      "norm_label": "cartitem",
+      "id": "composables_usecart_cartitem"
+    },
+    {
+      "label": "cartItems",
+      "file_type": "code",
+      "source_file": "frontend/composables/useCart.ts",
+      "source_location": "L14",
+      "community": 13,
+      "norm_label": "cartitems",
+      "id": "composables_usecart_cartitems"
+    },
+    {
+      "label": "cartOpen",
+      "file_type": "code",
+      "source_file": "frontend/composables/useCart.ts",
+      "source_location": "L15",
+      "community": 13,
+      "norm_label": "cartopen",
+      "id": "composables_usecart_cartopen"
+    },
+    {
+      "label": "useCart()",
+      "file_type": "code",
+      "source_file": "frontend/composables/useCart.ts",
+      "source_location": "L17",
+      "community": 13,
+      "norm_label": "usecart()",
+      "id": "composables_usecart_usecart"
+    },
+    {
+      "label": "admin.vue",
+      "file_type": "code",
+      "source_file": "frontend/layouts/admin.vue",
+      "source_location": "L1",
+      "community": 27,
+      "norm_label": "admin.vue",
+      "id": "frontend_layouts_admin_vue"
+    },
+    {
+      "label": "auth.ts",
+      "file_type": "code",
+      "source_file": "frontend/middleware/auth.ts",
+      "source_location": "L1",
+      "community": 18,
+      "norm_label": "auth.ts",
+      "id": "frontend_middleware_auth_ts"
+    },
+    {
+      "label": "token",
+      "file_type": "code",
+      "source_file": "frontend/middleware/auth.ts",
+      "source_location": "L4",
+      "community": 18,
+      "norm_label": "token",
+      "id": "middleware_auth_token"
+    },
+    {
+      "label": "index.vue",
+      "file_type": "code",
+      "source_file": "frontend/pages/index.vue",
+      "source_location": "L1",
+      "community": 8,
+      "norm_label": "index.vue",
+      "id": "frontend_pages_index_vue"
+    },
+    {
+      "label": "sizes",
+      "file_type": "code",
+      "source_file": "frontend/pages/index.vue",
+      "source_location": "L597",
+      "community": 8,
+      "norm_label": "sizes",
+      "id": "pages_index_sizes"
+    },
+    {
+      "label": "q",
+      "file_type": "code",
+      "source_file": "frontend/pages/index.vue",
+      "source_location": "L623",
+      "community": 8,
+      "norm_label": "q",
+      "id": "pages_index_q"
+    },
+    {
+      "label": "parts",
+      "file_type": "code",
+      "source_file": "frontend/pages/index.vue",
+      "source_location": "L696",
+      "community": 8,
+      "norm_label": "parts",
+      "id": "pages_index_parts"
+    },
+    {
+      "label": "withNew",
+      "file_type": "code",
+      "source_file": "frontend/pages/index.vue",
+      "source_location": "L758",
+      "community": 8,
+      "norm_label": "withnew",
+      "id": "pages_index_withnew"
+    },
+    {
+      "label": "others",
+      "file_type": "code",
+      "source_file": "frontend/pages/index.vue",
+      "source_location": "L760",
+      "community": 8,
+      "norm_label": "others",
+      "id": "pages_index_others"
+    },
+    {
+      "label": "list",
+      "file_type": "code",
+      "source_file": "frontend/pages/index.vue",
+      "source_location": "L787",
+      "community": 8,
+      "norm_label": "list",
+      "id": "pages_index_list"
+    },
+    {
+      "label": "string",
+      "file_type": "code",
+      "source_file": "frontend/pages/index.vue",
+      "source_location": "L806",
+      "community": 8,
+      "norm_label": "string",
+      "id": "pages_index_string"
+    },
+    {
+      "label": "script",
+      "file_type": "code",
+      "source_file": "frontend/pages/index.vue",
+      "source_location": "L855",
+      "community": 8,
+      "norm_label": "script",
+      "id": "pages_index_script"
+    },
+    {
+      "label": "ids",
+      "file_type": "code",
+      "source_file": "frontend/pages/index.vue",
+      "source_location": "L877",
+      "community": 8,
+      "norm_label": "ids",
+      "id": "pages_index_ids"
+    },
+    {
+      "label": "oferta.vue",
+      "file_type": "code",
+      "source_file": "frontend/pages/oferta.vue",
+      "source_location": "L1",
+      "community": 28,
+      "norm_label": "oferta.vue",
+      "id": "frontend_pages_oferta_vue"
+    },
+    {
+      "label": "zamer.vue",
+      "file_type": "code",
+      "source_file": "frontend/pages/zamer.vue",
+      "source_location": "L1",
+      "community": 29,
+      "norm_label": "zamer.vue",
+      "id": "frontend_pages_zamer_vue"
+    },
+    {
+      "label": "index.vue",
+      "file_type": "code",
+      "source_file": "frontend/pages/admin/index.vue",
+      "source_location": "L1",
+      "community": 30,
+      "norm_label": "index.vue",
+      "id": "frontend_pages_admin_index_vue"
+    },
+    {
+      "label": "login.vue",
+      "file_type": "code",
+      "source_file": "frontend/pages/admin/login.vue",
+      "source_location": "L1",
+      "community": 31,
+      "norm_label": "login.vue",
+      "id": "frontend_pages_admin_login_vue"
+    },
+    {
+      "label": "orders.vue",
+      "file_type": "code",
+      "source_file": "frontend/pages/admin/orders.vue",
+      "source_location": "L1",
+      "community": 32,
+      "norm_label": "orders.vue",
+      "id": "frontend_pages_admin_orders_vue"
+    },
+    {
+      "label": "products.vue",
+      "file_type": "code",
+      "source_file": "frontend/pages/admin/products.vue",
+      "source_location": "L1",
+      "community": 33,
+      "norm_label": "products.vue",
+      "id": "frontend_pages_admin_products_vue"
+    },
+    {
+      "label": "success.vue",
+      "file_type": "code",
+      "source_file": "frontend/pages/payment/success.vue",
+      "source_location": "L1",
+      "community": 19,
+      "norm_label": "success.vue",
+      "id": "frontend_pages_payment_success_vue"
+    },
+    {
+      "label": "url",
+      "file_type": "code",
+      "source_file": "frontend/pages/payment/success.vue",
+      "source_location": "L22",
+      "community": 19,
+      "norm_label": "url",
+      "id": "payment_success_url"
+    },
+    {
+      "label": "collections.get.ts",
+      "file_type": "code",
+      "source_file": "frontend/server/api/collections.get.ts",
+      "source_location": "L1",
+      "community": 20,
+      "norm_label": "collections.get.ts",
+      "id": "frontend_server_api_collections_get_ts"
+    },
+    {
+      "label": "file",
+      "file_type": "code",
+      "source_file": "frontend/server/api/collections.get.ts",
+      "source_location": "L5",
+      "community": 20,
+      "norm_label": "file",
+      "id": "api_collections_get_file"
+    },
+    {
+      "label": "products.get.ts",
+      "file_type": "code",
+      "source_file": "frontend/server/api/products.get.ts",
+      "source_location": "L1",
+      "community": 14,
+      "norm_label": "products.get.ts",
+      "id": "frontend_server_api_products_get_ts"
+    },
+    {
+      "label": "query",
+      "file_type": "code",
+      "source_file": "frontend/server/api/products.get.ts",
+      "source_location": "L5",
+      "community": 14,
+      "norm_label": "query",
+      "id": "api_products_get_query"
+    },
+    {
+      "label": "file",
+      "file_type": "code",
+      "source_file": "frontend/server/api/products.get.ts",
+      "source_location": "L6",
+      "community": 14,
+      "norm_label": "file",
+      "id": "api_products_get_file"
+    },
+    {
+      "label": "products",
+      "file_type": "code",
+      "source_file": "frontend/server/api/products.get.ts",
+      "source_location": "L9",
+      "community": 14,
+      "norm_label": "products",
+      "id": "api_products_get_products"
+    },
+    {
+      "label": "checkout-form.test.js",
+      "file_type": "code",
+      "source_file": "frontend/test/checkout-form.test.js",
+      "source_location": "L1",
+      "community": 10,
+      "norm_label": "checkout-form.test.js",
+      "id": "frontend_test_checkout_form_test_js"
+    },
+    {
+      "label": "test",
+      "file_type": "code",
+      "source_file": "frontend/test/checkout-form.test.js",
+      "source_location": "L4",
+      "community": 10,
+      "norm_label": "test",
+      "id": "test_checkout_form_test_test"
+    },
+    {
+      "label": "assert",
+      "file_type": "code",
+      "source_file": "frontend/test/checkout-form.test.js",
+      "source_location": "L5",
+      "community": 10,
+      "norm_label": "assert",
+      "id": "test_checkout_form_test_assert"
+    },
+    {
+      "label": "fs",
+      "file_type": "code",
+      "source_file": "frontend/test/checkout-form.test.js",
+      "source_location": "L6",
+      "community": 10,
+      "norm_label": "fs",
+      "id": "test_checkout_form_test_fs"
+    },
+    {
+      "label": "path",
+      "file_type": "code",
+      "source_file": "frontend/test/checkout-form.test.js",
+      "source_location": "L7",
+      "community": 10,
+      "norm_label": "path",
+      "id": "test_checkout_form_test_path"
+    },
+    {
+      "label": "layoutSrc",
+      "file_type": "code",
+      "source_file": "frontend/test/checkout-form.test.js",
+      "source_location": "L9",
+      "community": 10,
+      "norm_label": "layoutsrc",
+      "id": "test_checkout_form_test_layoutsrc"
+    },
+    {
+      "label": "contactIdx",
+      "file_type": "code",
+      "source_file": "frontend/test/checkout-form.test.js",
+      "source_location": "L81",
+      "community": 10,
+      "norm_label": "contactidx",
+      "id": "test_checkout_form_test_contactidx"
+    },
+    {
+      "label": "deliveryIdx",
+      "file_type": "code",
+      "source_file": "frontend/test/checkout-form.test.js",
+      "source_location": "L82",
+      "community": 10,
+      "norm_label": "deliveryidx",
+      "id": "test_checkout_form_test_deliveryidx"
+    },
+    {
+      "label": "orders.test.js",
+      "file_type": "code",
+      "source_file": "frontend/test/orders.test.js",
+      "source_location": "L1",
+      "community": 2,
+      "norm_label": "orders.test.js",
+      "id": "frontend_test_orders_test_js"
+    },
+    {
+      "label": "apiSrc",
+      "file_type": "code",
+      "source_file": "frontend/test/orders.test.js",
+      "source_location": "L9",
+      "community": 2,
+      "norm_label": "apisrc",
+      "id": "test_orders_test_apisrc"
+    },
+    {
+      "label": "ordersSrc",
+      "file_type": "code",
+      "source_file": "frontend/test/orders.test.js",
+      "source_location": "L10",
+      "community": 2,
+      "norm_label": "orderssrc",
+      "id": "test_orders_test_orderssrc"
+    },
+    {
+      "label": "loginSrc",
+      "file_type": "code",
+      "source_file": "frontend/test/orders.test.js",
+      "source_location": "L11",
+      "community": 2,
+      "norm_label": "loginsrc",
+      "id": "test_orders_test_loginsrc"
+    },
+    {
+      "label": "loginKey",
+      "file_type": "code",
+      "source_file": "frontend/test/orders.test.js",
+      "source_location": "L24",
+      "community": 2,
+      "norm_label": "loginkey",
+      "id": "test_orders_test_loginkey"
+    },
+    {
+      "label": "apiKey",
+      "file_type": "code",
+      "source_file": "frontend/test/orders.test.js",
+      "source_location": "L25",
+      "community": 2,
+      "norm_label": "apikey",
+      "id": "test_orders_test_apikey"
+    },
+    {
+      "label": "getOrdersBlock",
+      "file_type": "code",
+      "source_file": "frontend/test/orders.test.js",
+      "source_location": "L43",
+      "community": 2,
+      "norm_label": "getordersblock",
+      "id": "test_orders_test_getordersblock"
+    },
+    {
+      "label": "sendBlock",
+      "file_type": "code",
+      "source_file": "frontend/test/orders.test.js",
+      "source_location": "L67",
+      "community": 2,
+      "norm_label": "sendblock",
+      "id": "test_orders_test_sendblock"
+    },
+    {
+      "label": "envPath",
+      "file_type": "code",
+      "source_file": "frontend/test/orders.test.js",
+      "source_location": "L126",
+      "community": 2,
+      "norm_label": "envpath",
+      "id": "test_orders_test_envpath"
+    },
+    {
+      "label": "env",
+      "file_type": "code",
+      "source_file": "frontend/test/orders.test.js",
+      "source_location": "L128",
+      "community": 2,
+      "norm_label": "env",
+      "id": "test_orders_test_env"
+    },
+    {
+      "label": "examplePath",
+      "file_type": "code",
+      "source_file": "frontend/test/orders.test.js",
+      "source_location": "L133",
+      "community": 2,
+      "norm_label": "examplepath",
+      "id": "test_orders_test_examplepath"
+    },
+    {
+      "label": "orders authMiddleware",
+      "file_type": "code",
+      "source_file": "backend/orders.js",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "community": 34,
+      "norm_label": "orders authmiddleware",
+      "id": "orders_authmiddleware"
+    },
+    {
+      "label": "orders Supabase client",
+      "file_type": "code",
+      "source_file": "backend/orders.js",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "community": 15,
+      "norm_label": "orders supabase client",
+      "id": "orders_supabase"
+    },
+    {
+      "label": "Supabase customers table",
+      "file_type": "code",
+      "source_file": "backend/migrations/001_add_price_columns.sql",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "community": 15,
+      "norm_label": "supabase customers table",
+      "id": "customers_table"
+    },
+    {
+      "label": "Edge Function send-payment-link",
+      "file_type": "code",
+      "source_file": "backend/orders.js",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "community": 15,
+      "norm_label": "edge function send-payment-link",
+      "id": "edgefn_send_payment_link"
+    },
+    {
+      "label": "useApi composable",
+      "file_type": "code",
+      "source_file": "frontend/composables/useApi.ts",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "community": 11,
+      "norm_label": "useapi composable",
+      "id": "useapi_useapi"
+    },
+    {
+      "label": "useAdminApi composable",
+      "file_type": "code",
+      "source_file": "frontend/composables/useApi.ts",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "community": 11,
+      "norm_label": "useadminapi composable",
+      "id": "useapi_useadminapi"
+    },
+    {
+      "label": "fetchJson",
+      "file_type": "code",
+      "source_file": "frontend/composables/useApi.ts",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "community": 11,
+      "norm_label": "fetchjson",
+      "id": "useapi_fetchjson"
+    },
+    {
+      "label": "getBase",
+      "file_type": "code",
+      "source_file": "frontend/composables/useApi.ts",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "community": 11,
+      "norm_label": "getbase",
+      "id": "useapi_getbase"
+    },
+    {
+      "label": "createOrder",
+      "file_type": "code",
+      "source_file": "frontend/composables/useApi.ts",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "community": 15,
+      "norm_label": "createorder",
+      "id": "useapi_createorder"
+    },
+    {
+      "label": "useCart composable",
+      "file_type": "code",
+      "source_file": "frontend/composables/useCart.ts",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "community": 11,
+      "norm_label": "usecart composable",
+      "id": "usecart_usecart"
+    },
+    {
+      "label": "cartKey composite identifier",
+      "file_type": "rationale",
+      "source_file": "frontend/composables/useCart.ts",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "community": 35,
+      "norm_label": "cartkey composite identifier",
+      "id": "usecart_cartkey"
+    },
+    {
+      "label": "frontend auth route middleware",
+      "file_type": "code",
+      "source_file": "frontend/middleware/auth.ts",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "community": 21,
+      "norm_label": "frontend auth route middleware",
+      "id": "auth_authmiddleware_fn"
+    },
+    {
+      "label": "admin layout",
+      "file_type": "code",
+      "source_file": "frontend/layouts/admin.vue",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "community": 21,
+      "norm_label": "admin layout",
+      "id": "admin_layout"
+    },
+    {
+      "label": "index.vue catalog page",
+      "file_type": "code",
+      "source_file": "frontend/pages/index.vue",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "community": 11,
+      "norm_label": "index.vue catalog page",
+      "id": "index_page"
+    },
+    {
+      "label": "Public Offer Page (oferta.vue)",
+      "file_type": "code",
+      "source_file": "frontend/pages/oferta.vue",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "community": 16,
+      "norm_label": "public offer page (oferta.vue)",
+      "id": "oferta_page"
+    },
+    {
+      "label": "Size Chart Page (zamer.vue)",
+      "file_type": "code",
+      "source_file": "frontend/pages/zamer.vue",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "community": 16,
+      "norm_label": "size chart page (zamer.vue)",
+      "id": "zamer_page"
+    },
+    {
+      "label": "Admin Dashboard (index.vue)",
+      "file_type": "code",
+      "source_file": "frontend/pages/admin/index.vue",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "community": 4,
+      "norm_label": "admin dashboard (index.vue)",
+      "id": "index_dashboard"
+    },
+    {
+      "label": "Admin Login handleLogin",
+      "file_type": "code",
+      "source_file": "frontend/pages/admin/login.vue",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "community": 4,
+      "norm_label": "admin login handlelogin",
+      "id": "login_handlelogin"
+    },
+    {
+      "label": "Admin Orders fetchOrders",
+      "file_type": "code",
+      "source_file": "frontend/pages/admin/orders.vue",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "community": 4,
+      "norm_label": "admin orders fetchorders",
+      "id": "orders_fetchorders"
+    },
+    {
+      "label": "Admin Orders submitLink",
+      "file_type": "code",
+      "source_file": "frontend/pages/admin/orders.vue",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "community": 4,
+      "norm_label": "admin orders submitlink",
+      "id": "orders_submitlink"
+    },
+    {
+      "label": "Admin Products List fetchProducts",
+      "file_type": "code",
+      "source_file": "frontend/pages/admin/products.vue",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "community": 4,
+      "norm_label": "admin products list fetchproducts",
+      "id": "products_fetchproducts"
+    },
+    {
+      "label": "Admin Products List handleDelete",
+      "file_type": "code",
+      "source_file": "frontend/pages/admin/products.vue",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "community": 4,
+      "norm_label": "admin products list handledelete",
+      "id": "products_handledelete"
+    },
+    {
+      "label": "Payment Success Page (success.vue)",
+      "file_type": "code",
+      "source_file": "frontend/pages/payment/success.vue",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "community": 22,
+      "norm_label": "payment success page (success.vue)",
+      "id": "success_page"
+    },
+    {
+      "label": "Nuxt Server Route collections.get",
+      "file_type": "code",
+      "source_file": "frontend/server/api/collections.get.ts",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "community": 4,
+      "norm_label": "nuxt server route collections.get",
+      "id": "collections_get_handler"
+    },
+    {
+      "label": "Nuxt Server Route products.get",
+      "file_type": "code",
+      "source_file": "frontend/server/api/products.get.ts",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "community": 4,
+      "norm_label": "nuxt server route products.get",
+      "id": "products_get_handler"
+    },
+    {
+      "label": "Checkout Form Structural Tests",
+      "file_type": "code",
+      "source_file": "frontend/test/checkout-form.test.js",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "community": 22,
+      "norm_label": "checkout form structural tests",
+      "id": "checkout_form_test"
+    },
+    {
+      "label": "Admin Orders Flow Tests",
+      "file_type": "code",
+      "source_file": "frontend/test/orders.test.js",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "community": 4,
+      "norm_label": "admin orders flow tests",
+      "id": "orders_test"
+    },
+    {
+      "label": "Supabase Edge Function notify-paid-order",
+      "file_type": "code",
+      "source_file": "edge.md",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "community": 17,
+      "norm_label": "supabase edge function notify-paid-order",
+      "id": "edge_notify_paid_order"
+    },
+    {
+      "label": "buildEmailHtml (order email template)",
+      "file_type": "code",
+      "source_file": "edge.md",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "community": 17,
+      "norm_label": "buildemailhtml (order email template)",
+      "id": "edge_buildemailhtml"
+    },
+    {
+      "label": "Resend Email API",
+      "file_type": "concept",
+      "source_file": "edge.md",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "community": 17,
+      "norm_label": "resend email api",
+      "id": "resend_api"
+    },
+    {
+      "label": "products.json data store",
+      "file_type": "document",
+      "source_file": "backend/data/products.json",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "community": 4,
+      "norm_label": "products.json data store",
+      "id": "products_json"
+    },
+    {
+      "label": "collections.json data store",
+      "file_type": "document",
+      "source_file": "backend/data/collections.json",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "community": 4,
+      "norm_label": "collections.json data store",
+      "id": "collections_json"
+    },
+    {
+      "label": "useApi composable",
+      "file_type": "code",
+      "source_file": "frontend/composables/useApi.ts",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "community": 4,
+      "norm_label": "useapi composable",
+      "id": "useapi_composable"
+    },
+    {
+      "label": "useAdminApi composable",
+      "file_type": "code",
+      "source_file": "frontend/composables/useApi.ts",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "community": 4,
+      "norm_label": "useadminapi composable",
+      "id": "useadminapi_composable"
+    },
+    {
+      "label": "auth middleware (JWT guard)",
+      "file_type": "code",
+      "source_file": "frontend/middleware/auth.ts",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "community": 4,
+      "norm_label": "auth middleware (jwt guard)",
+      "id": "auth_middleware"
+    },
+    {
+      "label": "admin_token localStorage key",
+      "file_type": "rationale",
+      "source_file": "frontend/pages/admin/login.vue",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "community": 4,
+      "norm_label": "admin_token localstorage key",
+      "id": "admin_token_concept"
+    },
+    {
+      "label": "PROJECT_NOTES architecture document",
+      "file_type": "document",
+      "source_file": "PROJECT_NOTES.md",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "community": 4,
+      "norm_label": "project_notes architecture document",
+      "id": "project_notes_doc"
+    },
+    {
+      "label": "SSG prerender of API JSON for GitHub Pages",
+      "file_type": "rationale",
+      "source_file": "PROJECT_NOTES.md",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "community": 4,
+      "norm_label": "ssg prerender of api json for github pages",
+      "id": "ssg_prerender_concept"
+    },
+    {
+      "label": "In-memory cart (no persistence)",
+      "file_type": "rationale",
+      "source_file": "PROJECT_NOTES.md",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "community": 36,
+      "norm_label": "in-memory cart (no persistence)",
+      "id": "cart_inmemory_concept"
+    },
+    {
+      "label": "Mellizan.ttf font",
+      "file_type": "document",
+      "source_file": "frontend/public/fonts/README.txt",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "community": 16,
+      "norm_label": "mellizan.ttf font",
+      "id": "mellizan_font"
+    },
+    {
+      "label": "server.js",
+      "file_type": "code",
+      "source_file": "backend/server.js",
+      "source_location": "L1",
+      "id": "backend_server_js",
+      "community": 3,
+      "norm_label": "server.js"
+    },
+    {
+      "label": "express",
+      "file_type": "code",
+      "source_file": "backend/server.js",
+      "source_location": "L10",
+      "id": "backend_server_express",
+      "community": 3,
+      "norm_label": "express"
+    },
+    {
+      "label": "cors",
+      "file_type": "code",
+      "source_file": "backend/server.js",
+      "source_location": "L11",
+      "id": "backend_server_cors",
+      "community": 3,
+      "norm_label": "cors"
+    },
+    {
+      "label": "app",
+      "file_type": "code",
+      "source_file": "backend/server.js",
+      "source_location": "L13",
+      "id": "backend_server_app",
+      "community": 3,
+      "norm_label": "app"
+    },
+    {
+      "label": "{ getAdmins }",
+      "file_type": "code",
+      "source_file": "backend/server.js",
+      "source_location": "L35",
+      "id": "backend_server_getadmins",
+      "community": 3,
+      "norm_label": "{ getadmins }"
+    },
+    {
+      "label": "{ UPLOADS_DIR }",
+      "file_type": "code",
+      "source_file": "backend/server.js",
+      "source_location": "L42",
+      "id": "backend_server_uploads_dir",
+      "community": 3,
+      "norm_label": "{ uploads_dir }"
+    },
+    {
+      "label": "auth.js",
+      "file_type": "code",
+      "source_file": "backend/lib/auth.js",
+      "source_location": "L1",
+      "id": "backend_lib_auth_js",
+      "community": 0,
+      "norm_label": "auth.js"
+    },
+    {
+      "label": "fs",
+      "file_type": "code",
+      "source_file": "backend/lib/auth.js",
+      "source_location": "L6",
+      "id": "lib_auth_fs",
+      "community": 0,
+      "norm_label": "fs"
+    },
+    {
+      "label": "path",
+      "file_type": "code",
+      "source_file": "backend/lib/auth.js",
+      "source_location": "L7",
+      "id": "lib_auth_path",
+      "community": 0,
+      "norm_label": "path"
+    },
+    {
+      "label": "jwt",
+      "file_type": "code",
+      "source_file": "backend/lib/auth.js",
+      "source_location": "L8",
+      "id": "lib_auth_jwt",
+      "community": 0,
+      "norm_label": "jwt"
+    },
+    {
+      "label": "SECRETS_FILE",
+      "file_type": "code",
+      "source_file": "backend/lib/auth.js",
+      "source_location": "L10",
+      "id": "lib_auth_secrets_file",
+      "community": 0,
+      "norm_label": "secrets_file"
+    },
+    {
+      "label": "getAdmins()",
+      "file_type": "code",
+      "source_file": "backend/lib/auth.js",
+      "source_location": "L14",
+      "id": "lib_auth_getadmins",
+      "community": 0,
+      "norm_label": "getadmins()"
+    },
+    {
+      "label": "loadSecrets()",
+      "file_type": "code",
+      "source_file": "backend/lib/auth.js",
+      "source_location": "L32",
+      "id": "lib_auth_loadsecrets",
+      "community": 0,
+      "norm_label": "loadsecrets()"
+    },
+    {
+      "label": "saveSecrets()",
+      "file_type": "code",
+      "source_file": "backend/lib/auth.js",
+      "source_location": "L36",
+      "id": "lib_auth_savesecrets",
+      "community": 0,
+      "norm_label": "savesecrets()"
+    },
+    {
+      "label": "getAdminSecret()",
+      "file_type": "code",
+      "source_file": "backend/lib/auth.js",
+      "source_location": "L39",
+      "id": "lib_auth_getadminsecret",
+      "community": 0,
+      "norm_label": "getadminsecret()"
+    },
+    {
+      "label": "authMiddleware()",
+      "file_type": "code",
+      "source_file": "backend/lib/auth.js",
+      "source_location": "L45",
+      "id": "lib_auth_authmiddleware",
+      "community": 0,
+      "norm_label": "authmiddleware()"
+    },
+    {
+      "label": "sanitize.js",
+      "file_type": "code",
+      "source_file": "backend/lib/sanitize.js",
+      "source_location": "L1",
+      "id": "backend_lib_sanitize_js",
+      "community": 1,
+      "norm_label": "sanitize.js"
+    },
+    {
+      "label": "ALLOWED_BADGES",
+      "file_type": "code",
+      "source_file": "backend/lib/sanitize.js",
+      "source_location": "L6",
+      "id": "lib_sanitize_allowed_badges",
+      "community": 1,
+      "norm_label": "allowed_badges"
+    },
+    {
+      "label": "ALLOWED_CLOTHING",
+      "file_type": "code",
+      "source_file": "backend/lib/sanitize.js",
+      "source_location": "L7",
+      "id": "lib_sanitize_allowed_clothing",
+      "community": 1,
+      "norm_label": "allowed_clothing"
+    },
+    {
+      "label": "sanitizeString()",
+      "file_type": "code",
+      "source_file": "backend/lib/sanitize.js",
+      "source_location": "L9",
+      "id": "lib_sanitize_sanitizestring",
+      "community": 1,
+      "norm_label": "sanitizestring()"
+    },
+    {
+      "label": "security.js",
+      "file_type": "code",
+      "source_file": "backend/lib/security.js",
+      "source_location": "L1",
+      "id": "backend_lib_security_js",
+      "community": 6,
+      "norm_label": "security.js"
+    },
+    {
+      "label": "fs",
+      "file_type": "code",
+      "source_file": "backend/lib/security.js",
+      "source_location": "L7",
+      "id": "lib_security_fs",
+      "community": 6,
+      "norm_label": "fs"
+    },
+    {
+      "label": "path",
+      "file_type": "code",
+      "source_file": "backend/lib/security.js",
+      "source_location": "L8",
+      "id": "lib_security_path",
+      "community": 6,
+      "norm_label": "path"
+    },
+    {
+      "label": "BANLIST_FILE",
+      "file_type": "code",
+      "source_file": "backend/lib/security.js",
+      "source_location": "L10",
+      "id": "lib_security_banlist_file",
+      "community": 6,
+      "norm_label": "banlist_file"
+    },
+    {
+      "label": "loginAttempts",
+      "file_type": "code",
+      "source_file": "backend/lib/security.js",
+      "source_location": "L16",
+      "id": "lib_security_loginattempts",
+      "community": 6,
+      "norm_label": "loginattempts"
+    },
+    {
+      "label": "loadBanlist()",
+      "file_type": "code",
+      "source_file": "backend/lib/security.js",
+      "source_location": "L18",
+      "id": "lib_security_loadbanlist",
+      "community": 6,
+      "norm_label": "loadbanlist()"
+    },
+    {
+      "label": "saveBanlist()",
+      "file_type": "code",
+      "source_file": "backend/lib/security.js",
+      "source_location": "L22",
+      "id": "lib_security_savebanlist",
+      "community": 6,
+      "norm_label": "savebanlist()"
+    },
+    {
+      "label": "getClientIp()",
+      "file_type": "code",
+      "source_file": "backend/lib/security.js",
+      "source_location": "L31",
+      "id": "lib_security_getclientip",
+      "community": 6,
+      "norm_label": "getclientip()"
+    },
+    {
+      "label": "getEntry()",
+      "file_type": "code",
+      "source_file": "backend/lib/security.js",
+      "source_location": "L38",
+      "id": "lib_security_getentry",
+      "community": 6,
+      "norm_label": "getentry()"
+    },
+    {
+      "label": "isIpBanned()",
+      "file_type": "code",
+      "source_file": "backend/lib/security.js",
+      "source_location": "L42",
+      "id": "lib_security_isipbanned",
+      "community": 6,
+      "norm_label": "isipbanned()"
+    },
+    {
+      "label": "recordFailedAttempt()",
+      "file_type": "code",
+      "source_file": "backend/lib/security.js",
+      "source_location": "L64",
+      "id": "lib_security_recordfailedattempt",
+      "community": 6,
+      "norm_label": "recordfailedattempt()"
+    },
+    {
+      "label": "resetAttempts()",
+      "file_type": "code",
+      "source_file": "backend/lib/security.js",
+      "source_location": "L84",
+      "id": "lib_security_resetattempts",
+      "community": 6,
+      "norm_label": "resetattempts()"
+    },
+    {
+      "label": "store.js",
+      "file_type": "code",
+      "source_file": "backend/lib/store.js",
+      "source_location": "L1",
+      "id": "backend_lib_store_js",
+      "community": 3,
+      "norm_label": "store.js"
+    },
+    {
+      "label": "fs",
+      "file_type": "code",
+      "source_file": "backend/lib/store.js",
+      "source_location": "L7",
+      "id": "lib_store_fs",
+      "community": 3,
+      "norm_label": "fs"
+    },
+    {
+      "label": "path",
+      "file_type": "code",
+      "source_file": "backend/lib/store.js",
+      "source_location": "L8",
+      "id": "lib_store_path",
+      "community": 3,
+      "norm_label": "path"
+    },
+    {
+      "label": "crypto",
+      "file_type": "code",
+      "source_file": "backend/lib/store.js",
+      "source_location": "L9",
+      "id": "lib_store_crypto",
+      "community": 3,
+      "norm_label": "crypto"
+    },
+    {
+      "label": "DATA_DIR",
+      "file_type": "code",
+      "source_file": "backend/lib/store.js",
+      "source_location": "L12",
+      "id": "lib_store_data_dir",
+      "community": 3,
+      "norm_label": "data_dir"
+    },
+    {
+      "label": "UPLOADS_DIR",
+      "file_type": "code",
+      "source_file": "backend/lib/store.js",
+      "source_location": "L13",
+      "id": "lib_store_uploads_dir",
+      "community": 3,
+      "norm_label": "uploads_dir"
+    },
+    {
+      "label": "PRODUCTS_FILE",
+      "file_type": "code",
+      "source_file": "backend/lib/store.js",
+      "source_location": "L14",
+      "id": "lib_store_products_file",
+      "community": 3,
+      "norm_label": "products_file"
+    },
+    {
+      "label": "COLLECTIONS_FILE",
+      "file_type": "code",
+      "source_file": "backend/lib/store.js",
+      "source_location": "L15",
+      "id": "lib_store_collections_file",
+      "community": 3,
+      "norm_label": "collections_file"
+    },
+    {
+      "label": "saveBase64Image()",
+      "file_type": "code",
+      "source_file": "backend/lib/store.js",
+      "source_location": "L24",
+      "id": "lib_store_savebase64image",
+      "community": 3,
+      "norm_label": "savebase64image()"
+    },
+    {
+      "label": "getDefaultProducts()",
+      "file_type": "code",
+      "source_file": "backend/lib/store.js",
+      "source_location": "L50",
+      "id": "lib_store_getdefaultproducts",
+      "community": 3,
+      "norm_label": "getdefaultproducts()"
+    },
+    {
+      "label": "loadProducts()",
+      "file_type": "code",
+      "source_file": "backend/lib/store.js",
+      "source_location": "L61",
+      "id": "lib_store_loadproducts",
+      "community": 3,
+      "norm_label": "loadproducts()"
+    },
+    {
+      "label": "products",
+      "file_type": "code",
+      "source_file": "backend/lib/store.js",
+      "source_location": "L67",
+      "id": "lib_store_products",
+      "community": 3,
+      "norm_label": "products"
+    },
+    {
+      "label": "saveProducts()",
+      "file_type": "code",
+      "source_file": "backend/lib/store.js",
+      "source_location": "L69",
+      "id": "lib_store_saveproducts",
+      "community": 3,
+      "norm_label": "saveproducts()"
+    },
+    {
+      "label": "DEFAULT_COLLECTIONS",
+      "file_type": "code",
+      "source_file": "backend/lib/store.js",
+      "source_location": "L74",
+      "id": "lib_store_default_collections",
+      "community": 3,
+      "norm_label": "default_collections"
+    },
+    {
+      "label": "loadCollections()",
+      "file_type": "code",
+      "source_file": "backend/lib/store.js",
+      "source_location": "L76",
+      "id": "lib_store_loadcollections",
+      "community": 3,
+      "norm_label": "loadcollections()"
+    },
+    {
+      "label": "collections",
+      "file_type": "code",
+      "source_file": "backend/lib/store.js",
+      "source_location": "L85",
+      "id": "lib_store_collections",
+      "community": 3,
+      "norm_label": "collections"
+    },
+    {
+      "label": "saveCollections()",
+      "file_type": "code",
+      "source_file": "backend/lib/store.js",
+      "source_location": "L87",
+      "id": "lib_store_savecollections",
+      "community": 3,
+      "norm_label": "savecollections()"
+    },
+    {
+      "label": "admin-auth.js",
+      "file_type": "code",
+      "source_file": "backend/routes/admin-auth.js",
+      "source_location": "L1",
+      "id": "backend_routes_admin_auth_js",
+      "community": 0,
+      "norm_label": "admin-auth.js"
+    },
+    {
+      "label": "express",
+      "file_type": "code",
+      "source_file": "backend/routes/admin-auth.js",
+      "source_location": "L7",
+      "id": "routes_admin_auth_express",
+      "community": 0,
+      "norm_label": "express"
+    },
+    {
+      "label": "jwt",
+      "file_type": "code",
+      "source_file": "backend/routes/admin-auth.js",
+      "source_location": "L8",
+      "id": "routes_admin_auth_jwt",
+      "community": 0,
+      "norm_label": "jwt"
+    },
+    {
+      "label": "speakeasy",
+      "file_type": "code",
+      "source_file": "backend/routes/admin-auth.js",
+      "source_location": "L9",
+      "id": "routes_admin_auth_speakeasy",
+      "community": 0,
+      "norm_label": "speakeasy"
+    },
+    {
+      "label": "QRCode",
+      "file_type": "code",
+      "source_file": "backend/routes/admin-auth.js",
+      "source_location": "L10",
+      "id": "routes_admin_auth_qrcode",
+      "community": 0,
+      "norm_label": "qrcode"
+    },
+    {
+      "label": "router",
+      "file_type": "code",
+      "source_file": "backend/routes/admin-auth.js",
+      "source_location": "L11",
+      "id": "routes_admin_auth_router",
+      "community": 0,
+      "norm_label": "router"
+    },
+    {
+      "label": "security",
+      "file_type": "code",
+      "source_file": "backend/routes/admin-auth.js",
+      "source_location": "L13",
+      "id": "routes_admin_auth_security",
+      "community": 0,
+      "norm_label": "security"
+    },
+    {
+      "label": "{ getAdmins, getAdminSecret, loadSecrets, saveSecrets, authMiddleware }",
+      "file_type": "code",
+      "source_file": "backend/routes/admin-auth.js",
+      "source_location": "L14",
+      "id": "routes_admin_auth_getadmins_getadminsecret_loadsecrets_savesecrets_authmiddleware",
+      "community": 0,
+      "norm_label": "{ getadmins, getadminsecret, loadsecrets, savesecrets, authmiddleware }"
+    },
+    {
+      "label": "{ sanitizeString }",
+      "file_type": "code",
+      "source_file": "backend/routes/admin-auth.js",
+      "source_location": "L15",
+      "id": "routes_admin_auth_sanitizestring",
+      "community": 0,
+      "norm_label": "{ sanitizestring }"
+    },
+    {
+      "label": "ip",
+      "file_type": "code",
+      "source_file": "backend/routes/admin-auth.js",
+      "source_location": "L19",
+      "id": "routes_admin_auth_ip",
+      "community": 0,
+      "norm_label": "ip"
+    },
+    {
+      "label": "entry",
+      "file_type": "code",
+      "source_file": "backend/routes/admin-auth.js",
+      "source_location": "L23",
+      "id": "routes_admin_auth_entry",
+      "community": 0,
+      "norm_label": "entry"
+    },
+    {
+      "label": "remaining",
+      "file_type": "code",
+      "source_file": "backend/routes/admin-auth.js",
+      "source_location": "L24",
+      "id": "routes_admin_auth_remaining",
+      "community": 0,
+      "norm_label": "remaining"
+    },
+    {
+      "label": "secret",
+      "file_type": "code",
+      "source_file": "backend/routes/admin-auth.js",
+      "source_location": "L51",
+      "id": "routes_admin_auth_secret",
+      "community": 0,
+      "norm_label": "secret"
+    },
+    {
+      "label": "verified",
+      "file_type": "code",
+      "source_file": "backend/routes/admin-auth.js",
+      "source_location": "L56",
+      "id": "routes_admin_auth_verified",
+      "community": 0,
+      "norm_label": "verified"
+    },
+    {
+      "label": "token",
+      "file_type": "code",
+      "source_file": "backend/routes/admin-auth.js",
+      "source_location": "L72",
+      "id": "routes_admin_auth_token",
+      "community": 0,
+      "norm_label": "token"
+    },
+    {
+      "label": "bl",
+      "file_type": "code",
+      "source_file": "backend/routes/admin-auth.js",
+      "source_location": "L83",
+      "id": "routes_admin_auth_bl",
+      "community": 0,
+      "norm_label": "bl"
+    },
+    {
+      "label": "result",
+      "file_type": "code",
+      "source_file": "backend/routes/admin-auth.js",
+      "source_location": "L84",
+      "id": "routes_admin_auth_result",
+      "community": 0,
+      "norm_label": "result"
+    },
+    {
+      "label": "username",
+      "file_type": "code",
+      "source_file": "backend/routes/admin-auth.js",
+      "source_location": "L106",
+      "id": "routes_admin_auth_username",
+      "community": 0,
+      "norm_label": "username"
+    },
+    {
+      "label": "secrets",
+      "file_type": "code",
+      "source_file": "backend/routes/admin-auth.js",
+      "source_location": "L109",
+      "id": "routes_admin_auth_secrets",
+      "community": 0,
+      "norm_label": "secrets"
+    },
+    {
+      "label": "catalog.js",
+      "file_type": "code",
+      "source_file": "backend/routes/catalog.js",
+      "source_location": "L1",
+      "id": "backend_routes_catalog_js",
+      "community": 1,
+      "norm_label": "catalog.js"
+    },
+    {
+      "label": "express",
+      "file_type": "code",
+      "source_file": "backend/routes/catalog.js",
+      "source_location": "L6",
+      "id": "routes_catalog_express",
+      "community": 1,
+      "norm_label": "express"
+    },
+    {
+      "label": "fs",
+      "file_type": "code",
+      "source_file": "backend/routes/catalog.js",
+      "source_location": "L7",
+      "id": "routes_catalog_fs",
+      "community": 1,
+      "norm_label": "fs"
+    },
+    {
+      "label": "path",
+      "file_type": "code",
+      "source_file": "backend/routes/catalog.js",
+      "source_location": "L8",
+      "id": "routes_catalog_path",
+      "community": 1,
+      "norm_label": "path"
+    },
+    {
+      "label": "router",
+      "file_type": "code",
+      "source_file": "backend/routes/catalog.js",
+      "source_location": "L9",
+      "id": "routes_catalog_router",
+      "community": 1,
+      "norm_label": "router"
+    },
+    {
+      "label": "store",
+      "file_type": "code",
+      "source_file": "backend/routes/catalog.js",
+      "source_location": "L11",
+      "id": "routes_catalog_store",
+      "community": 1,
+      "norm_label": "store"
+    },
+    {
+      "label": "{ authMiddleware }",
+      "file_type": "code",
+      "source_file": "backend/routes/catalog.js",
+      "source_location": "L12",
+      "id": "routes_catalog_authmiddleware",
+      "community": 1,
+      "norm_label": "{ authmiddleware }"
+    },
+    {
+      "label": "{ ALLOWED_BADGES, sanitizeString }",
+      "file_type": "code",
+      "source_file": "backend/routes/catalog.js",
+      "source_location": "L13",
+      "id": "routes_catalog_allowed_badges_sanitizestring",
+      "community": 1,
+      "norm_label": "{ allowed_badges, sanitizestring }"
+    },
+    {
+      "label": "result",
+      "file_type": "code",
+      "source_file": "backend/routes/catalog.js",
+      "source_location": "L17",
+      "id": "routes_catalog_result",
+      "community": 1,
+      "norm_label": "result"
+    },
+    {
+      "label": "id",
+      "file_type": "code",
+      "source_file": "backend/routes/catalog.js",
+      "source_location": "L25",
+      "id": "routes_catalog_id",
+      "community": 1,
+      "norm_label": "id"
+    },
+    {
+      "label": "p",
+      "file_type": "code",
+      "source_file": "backend/routes/catalog.js",
+      "source_location": "L27",
+      "id": "routes_catalog_p",
+      "community": 1,
+      "norm_label": "p"
+    },
+    {
+      "label": "name",
+      "file_type": "code",
+      "source_file": "backend/routes/catalog.js",
+      "source_location": "L37",
+      "id": "routes_catalog_name",
+      "community": 1,
+      "norm_label": "name"
+    },
+    {
+      "label": "collections",
+      "file_type": "code",
+      "source_file": "backend/routes/catalog.js",
+      "source_location": "L39",
+      "id": "routes_catalog_collections",
+      "community": 1,
+      "norm_label": "collections"
+    },
+    {
+      "label": "category",
+      "file_type": "code",
+      "source_file": "backend/routes/catalog.js",
+      "source_location": "L60",
+      "id": "routes_catalog_category",
+      "community": 1,
+      "norm_label": "category"
+    },
+    {
+      "label": "clothingType",
+      "file_type": "code",
+      "source_file": "backend/routes/catalog.js",
+      "source_location": "L61",
+      "id": "routes_catalog_clothingtype",
+      "community": 1,
+      "norm_label": "clothingtype"
+    },
+    {
+      "label": "desc",
+      "file_type": "code",
+      "source_file": "backend/routes/catalog.js",
+      "source_location": "L62",
+      "id": "routes_catalog_desc",
+      "community": 1,
+      "norm_label": "desc"
+    },
+    {
+      "label": "price",
+      "file_type": "code",
+      "source_file": "backend/routes/catalog.js",
+      "source_location": "L63",
+      "id": "routes_catalog_price",
+      "community": 1,
+      "norm_label": "price"
+    },
+    {
+      "label": "saved",
+      "file_type": "code",
+      "source_file": "backend/routes/catalog.js",
+      "source_location": "L77",
+      "id": "routes_catalog_saved",
+      "community": 1,
+      "norm_label": "saved"
+    },
+    {
+      "label": "product",
+      "file_type": "code",
+      "source_file": "backend/routes/catalog.js",
+      "source_location": "L79",
+      "id": "routes_catalog_product",
+      "community": 1,
+      "norm_label": "product"
+    },
+    {
+      "label": "products",
+      "file_type": "code",
+      "source_file": "backend/routes/catalog.js",
+      "source_location": "L95",
+      "id": "routes_catalog_products",
+      "community": 1,
+      "norm_label": "products"
+    },
+    {
+      "label": "resolved",
+      "file_type": "code",
+      "source_file": "backend/routes/catalog.js",
+      "source_location": "L102",
+      "id": "routes_catalog_resolved",
+      "community": 1,
+      "norm_label": "resolved"
+    },
+    {
+      "label": "idx",
+      "file_type": "code",
+      "source_file": "backend/routes/catalog.js",
+      "source_location": "L120",
+      "id": "routes_catalog_idx",
+      "community": 1,
+      "norm_label": "idx"
+    },
+    {
+      "label": "useImageUpload.ts",
+      "file_type": "code",
+      "source_file": "frontend/composables/useImageUpload.ts",
+      "source_location": "L1",
+      "id": "frontend_composables_useimageupload_ts",
+      "community": 23,
+      "norm_label": "useimageupload.ts"
+    },
+    {
+      "label": "useImageUpload()",
+      "file_type": "code",
+      "source_file": "frontend/composables/useImageUpload.ts",
+      "source_location": "L10",
+      "id": "composables_useimageupload_useimageupload",
+      "community": 23,
+      "norm_label": "useimageupload()"
+    },
+    {
+      "label": "default.vue",
+      "file_type": "code",
+      "source_file": "frontend/layouts/default.vue",
+      "source_location": "L1",
+      "id": "frontend_layouts_default_vue",
+      "community": 37,
+      "norm_label": "default.vue"
+    },
+    {
+      "label": "add.vue",
+      "file_type": "code",
+      "source_file": "frontend/pages/admin/add.vue",
+      "source_location": "L1",
+      "id": "frontend_pages_admin_add_vue",
+      "community": 38,
+      "norm_label": "add.vue"
+    },
+    {
+      "label": "edit.vue",
+      "file_type": "code",
+      "source_file": "frontend/pages/admin/edit.vue",
+      "source_location": "L1",
+      "id": "frontend_pages_admin_edit_vue",
+      "community": 39,
+      "norm_label": "edit.vue"
+    },
+    {
+      "label": "[id].vue",
+      "file_type": "code",
+      "source_file": "frontend/pages/admin/edit/[id].vue",
+      "source_location": "L1",
+      "id": "frontend_pages_admin_edit_id_vue",
+      "community": 40,
+      "norm_label": "[id].vue"
+    },
+    {
+      "label": "Express app entry point",
+      "file_type": "code",
+      "source_file": "backend/server.js",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "id": "server_app",
+      "community": 7,
+      "norm_label": "express app entry point"
+    },
+    {
+      "label": "getAdmins",
+      "file_type": "code",
+      "source_file": "backend/lib/auth.js",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "id": "auth_getadmins",
+      "community": 7,
+      "norm_label": "getadmins"
+    },
+    {
+      "label": "getAdminSecret",
+      "file_type": "code",
+      "source_file": "backend/lib/auth.js",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "id": "auth_getadminsecret",
+      "community": 7,
+      "norm_label": "getadminsecret"
+    },
+    {
+      "label": "authMiddleware (JWT)",
+      "file_type": "code",
+      "source_file": "backend/lib/auth.js",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "id": "auth_authmiddleware",
+      "community": 5,
+      "norm_label": "authmiddleware (jwt)"
+    },
+    {
+      "label": "loadSecrets",
+      "file_type": "code",
+      "source_file": "backend/lib/auth.js",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "id": "auth_loadsecrets",
+      "community": 7,
+      "norm_label": "loadsecrets"
+    },
+    {
+      "label": "saveSecrets",
+      "file_type": "code",
+      "source_file": "backend/lib/auth.js",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "id": "auth_savesecrets",
+      "community": 7,
+      "norm_label": "savesecrets"
+    },
+    {
+      "label": "sanitizeString",
+      "file_type": "code",
+      "source_file": "backend/lib/sanitize.js",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "id": "sanitize_sanitizestring",
+      "community": 5,
+      "norm_label": "sanitizestring"
+    },
+    {
+      "label": "isIpBanned",
+      "file_type": "code",
+      "source_file": "backend/lib/security.js",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "id": "security_isipbanned",
+      "community": 7,
+      "norm_label": "isipbanned"
+    },
+    {
+      "label": "recordFailedAttempt",
+      "file_type": "code",
+      "source_file": "backend/lib/security.js",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "id": "security_recordfailedattempt",
+      "community": 7,
+      "norm_label": "recordfailedattempt"
+    },
+    {
+      "label": "resetAttempts",
+      "file_type": "code",
+      "source_file": "backend/lib/security.js",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "id": "security_resetattempts",
+      "community": 7,
+      "norm_label": "resetattempts"
+    },
+    {
+      "label": "loadBanlist",
+      "file_type": "code",
+      "source_file": "backend/lib/security.js",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "id": "security_loadbanlist",
+      "community": 7,
+      "norm_label": "loadbanlist"
+    },
+    {
+      "label": "saveBanlist",
+      "file_type": "code",
+      "source_file": "backend/lib/security.js",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "id": "security_savebanlist",
+      "community": 7,
+      "norm_label": "savebanlist"
+    },
+    {
+      "label": "saveBase64Image",
+      "file_type": "code",
+      "source_file": "backend/lib/store.js",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "id": "store_savebase64image",
+      "community": 5,
+      "norm_label": "savebase64image"
+    },
+    {
+      "label": "loadProducts",
+      "file_type": "code",
+      "source_file": "backend/lib/store.js",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "id": "store_loadproducts",
+      "community": 24,
+      "norm_label": "loadproducts"
+    },
+    {
+      "label": "saveProducts",
+      "file_type": "code",
+      "source_file": "backend/lib/store.js",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "id": "store_saveproducts",
+      "community": 5,
+      "norm_label": "saveproducts"
+    },
+    {
+      "label": "POST /api/admin/login handler",
+      "file_type": "code",
+      "source_file": "backend/routes/admin-auth.js",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "id": "adminauth_login",
+      "community": 7,
+      "norm_label": "post /api/admin/login handler"
+    },
+    {
+      "label": "GET /api/admin/setup-totp handler",
+      "file_type": "code",
+      "source_file": "backend/routes/admin-auth.js",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "id": "adminauth_setuptotp",
+      "community": 7,
+      "norm_label": "get /api/admin/setup-totp handler"
+    },
+    {
+      "label": "POST /api/admin/products handler",
+      "file_type": "code",
+      "source_file": "backend/routes/catalog.js",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "id": "catalog_postproducts",
+      "community": 5,
+      "norm_label": "post /api/admin/products handler"
+    },
+    {
+      "label": "PUT /api/admin/products/:id handler",
+      "file_type": "code",
+      "source_file": "backend/routes/catalog.js",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "id": "catalog_putproducts",
+      "community": 5,
+      "norm_label": "put /api/admin/products/:id handler"
+    },
+    {
+      "label": "DELETE /api/admin/products/:id handler",
+      "file_type": "code",
+      "source_file": "backend/routes/catalog.js",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "id": "catalog_deleteproducts",
+      "community": 5,
+      "norm_label": "delete /api/admin/products/:id handler"
+    },
+    {
+      "label": "useImageUpload composable",
+      "file_type": "code",
+      "source_file": "frontend/composables/useImageUpload.ts",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "id": "useimageupload_useimageupload",
+      "community": 5,
+      "norm_label": "useimageupload composable"
+    },
+    {
+      "label": "admin/add handleSubmit",
+      "file_type": "code",
+      "source_file": "frontend/pages/admin/add.vue",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "id": "add_handlesubmit",
+      "community": 5,
+      "norm_label": "admin/add handlesubmit"
+    },
+    {
+      "label": "admin/add addCollection",
+      "file_type": "code",
+      "source_file": "frontend/pages/admin/add.vue",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "id": "add_addcollection",
+      "community": 5,
+      "norm_label": "admin/add addcollection"
+    },
+    {
+      "label": "admin/edit handleSubmit",
+      "file_type": "code",
+      "source_file": "frontend/pages/admin/edit.vue",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "id": "edit_handlesubmit",
+      "community": 5,
+      "norm_label": "admin/edit handlesubmit"
+    },
+    {
+      "label": "admin/edit/[id] handleSubmit",
+      "file_type": "code",
+      "source_file": "frontend/pages/admin/edit/[id].vue",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "id": "id_handlesubmit",
+      "community": 5,
+      "norm_label": "admin/edit/[id] handlesubmit"
+    },
+    {
+      "label": "default layout cartCreatePayment",
+      "file_type": "code",
+      "source_file": "frontend/layouts/default.vue",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "id": "default_cartcreatepayment",
+      "community": 24,
+      "norm_label": "default layout cartcreatepayment"
+    },
+    {
+      "label": "Graph-first workflow principle",
+      "file_type": "rationale",
+      "source_file": "GRAPH_FIRST.md",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "id": "graph_first_principle",
+      "community": 41,
+      "norm_label": "graph-first workflow principle"
+    },
+    {
+      "label": "OWASP-tagged security hardening",
+      "file_type": "rationale",
+      "source_file": "CLAUDE.md",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "id": "claudemd_owasp_hardening",
+      "community": 5,
+      "norm_label": "owasp-tagged security hardening"
+    },
+    {
+      "label": "Dual admin edit route design",
+      "file_type": "rationale",
+      "source_file": "CLAUDE.md",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "id": "claudemd_admin_edit_dual_route",
+      "community": 5,
+      "norm_label": "dual admin edit route design"
+    }
+  ],
+  "links": [
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/orders.js",
+      "source_location": "L6",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "backend_orders_js",
+      "target": "backend_orders_express"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/orders.js",
+      "source_location": "L7",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "backend_orders_js",
+      "target": "backend_orders_router"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/orders.js",
+      "source_location": "L8",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "backend_orders_js",
+      "target": "backend_orders_jwt"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/orders.js",
+      "source_location": "L9",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "backend_orders_js",
+      "target": "backend_orders_createclient"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/orders.js",
+      "source_location": "L22",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "backend_orders_js",
+      "target": "backend_orders_authmiddleware"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/orders.js",
+      "source_location": "L77",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "backend_orders_js",
+      "target": "backend_orders_q"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/orders.js",
+      "source_location": "L97",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "backend_orders_js",
+      "target": "backend_orders_id"
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/test/orders.test.js",
+      "source_location": "L21",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "backend_orders_js",
+      "target": "backend_test_orders_test_js"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/test/orders.test.js",
+      "source_location": "L4",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "backend_test_orders_test_js",
+      "target": "test_orders_test_test"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/test/orders.test.js",
+      "source_location": "L5",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "backend_test_orders_test_js",
+      "target": "test_orders_test_assert"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/test/orders.test.js",
+      "source_location": "L6",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "backend_test_orders_test_js",
+      "target": "test_orders_test_fs"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/test/orders.test.js",
+      "source_location": "L7",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "backend_test_orders_test_js",
+      "target": "test_orders_test_path"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/test/orders.test.js",
+      "source_location": "L9",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "backend_test_orders_test_js",
+      "target": "test_orders_test_src"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/test/orders.test.js",
+      "source_location": "L21",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "backend_test_orders_test_js",
+      "target": "test_orders_test_router"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/test/orders.test.js",
+      "source_location": "L42",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "backend_test_orders_test_js",
+      "target": "test_orders_test_createidx"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/test/orders.test.js",
+      "source_location": "L43",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "backend_test_orders_test_js",
+      "target": "test_orders_test_dynamicidx"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/test/orders.test.js",
+      "source_location": "L54",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "backend_test_orders_test_js",
+      "target": "test_orders_test_serversrc"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/test/orders.test.js",
+      "source_location": "L70",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "backend_test_orders_test_js",
+      "target": "test_orders_test_createsection"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/test/orders.test.js",
+      "source_location": "L103",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "backend_test_orders_test_js",
+      "target": "test_orders_test_insertblock"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/test/orders.test.js",
+      "source_location": "L120",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "backend_test_orders_test_js",
+      "target": "test_orders_test_sendsection"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/test/orders.test.js",
+      "source_location": "L4",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "test_orders_test_test",
+      "target": "frontend_test_orders_test_js"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/test/orders.test.js",
+      "source_location": "L5",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "test_orders_test_assert",
+      "target": "frontend_test_orders_test_js"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/test/orders.test.js",
+      "source_location": "L6",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "test_orders_test_fs",
+      "target": "frontend_test_orders_test_js"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/test/orders.test.js",
+      "source_location": "L7",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "test_orders_test_path",
+      "target": "frontend_test_orders_test_js"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/composables/useApi.ts",
+      "source_location": "L1",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "frontend_composables_useapi_ts",
+      "target": "composables_useapi_getbase"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/composables/useApi.ts",
+      "source_location": "L11",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "frontend_composables_useapi_ts",
+      "target": "composables_useapi_fetchjson"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/composables/useApi.ts",
+      "source_location": "L18",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "frontend_composables_useapi_ts",
+      "target": "composables_useapi_useapi"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/composables/useApi.ts",
+      "source_location": "L54",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "frontend_composables_useapi_ts",
+      "target": "composables_useapi_useadminapi"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/composables/useApi.ts",
+      "source_location": "L19",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "composables_useapi_getbase",
+      "target": "composables_useapi_useapi"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/composables/useApi.ts",
+      "source_location": "L56",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "composables_useapi_getbase",
+      "target": "composables_useapi_useadminapi"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/composables/useCart.ts",
+      "source_location": "L3",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "frontend_composables_usecart_ts",
+      "target": "composables_usecart_cartitem"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/composables/useCart.ts",
+      "source_location": "L14",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "frontend_composables_usecart_ts",
+      "target": "composables_usecart_cartitems"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/composables/useCart.ts",
+      "source_location": "L15",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "frontend_composables_usecart_ts",
+      "target": "composables_usecart_cartopen"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/composables/useCart.ts",
+      "source_location": "L17",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "frontend_composables_usecart_ts",
+      "target": "composables_usecart_usecart"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/middleware/auth.ts",
+      "source_location": "L4",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "frontend_middleware_auth_ts",
+      "target": "middleware_auth_token"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/pages/index.vue",
+      "source_location": "L597",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "frontend_pages_index_vue",
+      "target": "pages_index_sizes"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/pages/index.vue",
+      "source_location": "L623",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "frontend_pages_index_vue",
+      "target": "pages_index_q"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/pages/index.vue",
+      "source_location": "L696",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "frontend_pages_index_vue",
+      "target": "pages_index_parts"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/pages/index.vue",
+      "source_location": "L758",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "frontend_pages_index_vue",
+      "target": "pages_index_withnew"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/pages/index.vue",
+      "source_location": "L760",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "frontend_pages_index_vue",
+      "target": "pages_index_others"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/pages/index.vue",
+      "source_location": "L787",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "frontend_pages_index_vue",
+      "target": "pages_index_list"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/pages/index.vue",
+      "source_location": "L806",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "frontend_pages_index_vue",
+      "target": "pages_index_string"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/pages/index.vue",
+      "source_location": "L855",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "frontend_pages_index_vue",
+      "target": "pages_index_script"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/pages/index.vue",
+      "source_location": "L877",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "frontend_pages_index_vue",
+      "target": "pages_index_ids"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/pages/payment/success.vue",
+      "source_location": "L22",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "frontend_pages_payment_success_vue",
+      "target": "payment_success_url"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/server/api/collections.get.ts",
+      "source_location": "L5",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "frontend_server_api_collections_get_ts",
+      "target": "api_collections_get_file"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/server/api/products.get.ts",
+      "source_location": "L5",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "frontend_server_api_products_get_ts",
+      "target": "api_products_get_query"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/server/api/products.get.ts",
+      "source_location": "L6",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "frontend_server_api_products_get_ts",
+      "target": "api_products_get_file"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/server/api/products.get.ts",
+      "source_location": "L9",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "frontend_server_api_products_get_ts",
+      "target": "api_products_get_products"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/test/checkout-form.test.js",
+      "source_location": "L4",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "frontend_test_checkout_form_test_js",
+      "target": "test_checkout_form_test_test"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/test/checkout-form.test.js",
+      "source_location": "L5",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "frontend_test_checkout_form_test_js",
+      "target": "test_checkout_form_test_assert"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/test/checkout-form.test.js",
+      "source_location": "L6",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "frontend_test_checkout_form_test_js",
+      "target": "test_checkout_form_test_fs"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/test/checkout-form.test.js",
+      "source_location": "L7",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "frontend_test_checkout_form_test_js",
+      "target": "test_checkout_form_test_path"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/test/checkout-form.test.js",
+      "source_location": "L9",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "frontend_test_checkout_form_test_js",
+      "target": "test_checkout_form_test_layoutsrc"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/test/checkout-form.test.js",
+      "source_location": "L81",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "frontend_test_checkout_form_test_js",
+      "target": "test_checkout_form_test_contactidx"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/test/checkout-form.test.js",
+      "source_location": "L82",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "frontend_test_checkout_form_test_js",
+      "target": "test_checkout_form_test_deliveryidx"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/test/orders.test.js",
+      "source_location": "L9",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "frontend_test_orders_test_js",
+      "target": "test_orders_test_apisrc"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/test/orders.test.js",
+      "source_location": "L10",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "frontend_test_orders_test_js",
+      "target": "test_orders_test_orderssrc"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/test/orders.test.js",
+      "source_location": "L11",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "frontend_test_orders_test_js",
+      "target": "test_orders_test_loginsrc"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/test/orders.test.js",
+      "source_location": "L24",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "frontend_test_orders_test_js",
+      "target": "test_orders_test_loginkey"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/test/orders.test.js",
+      "source_location": "L25",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "frontend_test_orders_test_js",
+      "target": "test_orders_test_apikey"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/test/orders.test.js",
+      "source_location": "L52",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "frontend_test_orders_test_js",
+      "target": "test_orders_test_getordersblock"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/test/orders.test.js",
+      "source_location": "L67",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "frontend_test_orders_test_js",
+      "target": "test_orders_test_sendblock"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/test/orders.test.js",
+      "source_location": "L126",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "frontend_test_orders_test_js",
+      "target": "test_orders_test_envpath"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/test/orders.test.js",
+      "source_location": "L128",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "frontend_test_orders_test_js",
+      "target": "test_orders_test_env"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/test/orders.test.js",
+      "source_location": "L133",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "frontend_test_orders_test_js",
+      "target": "test_orders_test_examplepath"
+    },
+    {
+      "relation": "shares_data_with",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "backend/orders.js",
+      "source_location": null,
+      "weight": 1.0,
+      "source": "orders_supabase",
+      "target": "customers_table"
+    },
+    {
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "backend/orders.js",
+      "source_location": null,
+      "weight": 1.0,
+      "source": "orders_supabase",
+      "target": "edgefn_send_payment_link"
+    },
+    {
+      "relation": "references",
+      "confidence": "INFERRED",
+      "confidence_score": 0.85,
+      "source_file": "frontend/composables/useApi.ts",
+      "source_location": null,
+      "weight": 1.0,
+      "source": "orders_supabase",
+      "target": "useapi_createorder"
+    },
+    {
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "frontend/composables/useApi.ts",
+      "source_location": null,
+      "weight": 1.0,
+      "source": "useapi_useapi",
+      "target": "useapi_fetchjson"
+    },
+    {
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "frontend/composables/useApi.ts",
+      "source_location": null,
+      "weight": 1.0,
+      "source": "useapi_useapi",
+      "target": "useapi_getbase"
+    },
+    {
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "frontend/pages/index.vue",
+      "source_location": null,
+      "weight": 1.0,
+      "source": "useapi_useapi",
+      "target": "index_page"
+    },
+    {
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "frontend/composables/useApi.ts",
+      "source_location": null,
+      "weight": 1.0,
+      "source": "useapi_useadminapi",
+      "target": "useapi_getbase"
+    },
+    {
+      "relation": "conceptually_related_to",
+      "confidence": "INFERRED",
+      "confidence_score": 0.65,
+      "source_file": "frontend/composables/useApi.ts",
+      "source_location": null,
+      "weight": 1.0,
+      "source": "useapi_fetchjson",
+      "target": "useapi_getbase"
+    },
+    {
+      "relation": "references",
+      "confidence": "INFERRED",
+      "confidence_score": 0.85,
+      "source_file": "frontend/pages/index.vue",
+      "source_location": null,
+      "weight": 1.0,
+      "source": "usecart_usecart",
+      "target": "index_page"
+    },
+    {
+      "relation": "references",
+      "confidence": "INFERRED",
+      "confidence_score": 0.85,
+      "source_file": "frontend/middleware/auth.ts",
+      "source_location": null,
+      "weight": 1.0,
+      "source": "auth_authmiddleware_fn",
+      "target": "admin_layout"
+    },
+    {
+      "relation": "semantically_similar_to",
+      "confidence": "INFERRED",
+      "confidence_score": 0.65,
+      "source_file": "frontend/pages/oferta.vue",
+      "source_location": null,
+      "weight": 1.0,
+      "source": "oferta_page",
+      "target": "zamer_page"
+    },
+    {
+      "relation": "conceptually_related_to",
+      "confidence": "AMBIGUOUS",
+      "confidence_score": 0.2,
+      "source_file": "frontend/public/fonts/README.txt",
+      "source_location": null,
+      "weight": 1.0,
+      "source": "zamer_page",
+      "target": "mellizan_font"
+    },
+    {
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "frontend/pages/admin/index.vue",
+      "source_location": null,
+      "weight": 1.0,
+      "source": "index_dashboard",
+      "target": "useapi_composable"
+    },
+    {
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "frontend/pages/admin/login.vue",
+      "source_location": null,
+      "weight": 1.0,
+      "source": "login_handlelogin",
+      "target": "useadminapi_composable"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "frontend/pages/admin/login.vue",
+      "source_location": null,
+      "weight": 1.0,
+      "source": "login_handlelogin",
+      "target": "admin_token_concept"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "frontend/test/orders.test.js",
+      "source_location": null,
+      "weight": 1.0,
+      "source": "login_handlelogin",
+      "target": "orders_test"
+    },
+    {
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "frontend/pages/admin/orders.vue",
+      "source_location": null,
+      "weight": 1.0,
+      "source": "orders_fetchorders",
+      "target": "useadminapi_composable"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "frontend/test/orders.test.js",
+      "source_location": null,
+      "weight": 1.0,
+      "source": "orders_fetchorders",
+      "target": "orders_test"
+    },
+    {
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "frontend/pages/admin/orders.vue",
+      "source_location": null,
+      "weight": 1.0,
+      "source": "orders_submitlink",
+      "target": "useadminapi_composable"
+    },
+    {
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "frontend/pages/admin/products.vue",
+      "source_location": null,
+      "weight": 1.0,
+      "source": "products_fetchproducts",
+      "target": "useapi_composable"
+    },
+    {
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "frontend/pages/admin/products.vue",
+      "source_location": null,
+      "weight": 1.0,
+      "source": "products_handledelete",
+      "target": "useadminapi_composable"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "frontend/test/checkout-form.test.js",
+      "source_location": null,
+      "weight": 1.0,
+      "source": "success_page",
+      "target": "checkout_form_test"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "frontend/server/api/collections.get.ts",
+      "source_location": null,
+      "weight": 1.0,
+      "source": "collections_get_handler",
+      "target": "collections_json"
+    },
+    {
+      "relation": "references",
+      "confidence": "INFERRED",
+      "confidence_score": 0.75,
+      "source_file": "PROJECT_NOTES.md",
+      "source_location": null,
+      "weight": 1.0,
+      "source": "collections_get_handler",
+      "target": "useapi_composable"
+    },
+    {
+      "relation": "implements",
+      "confidence": "INFERRED",
+      "confidence_score": 0.85,
+      "source_file": "PROJECT_NOTES.md",
+      "source_location": null,
+      "weight": 1.0,
+      "source": "collections_get_handler",
+      "target": "ssg_prerender_concept"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "frontend/server/api/products.get.ts",
+      "source_location": null,
+      "weight": 1.0,
+      "source": "products_get_handler",
+      "target": "products_json"
+    },
+    {
+      "relation": "references",
+      "confidence": "INFERRED",
+      "confidence_score": 0.75,
+      "source_file": "PROJECT_NOTES.md",
+      "source_location": null,
+      "weight": 1.0,
+      "source": "products_get_handler",
+      "target": "useapi_composable"
+    },
+    {
+      "relation": "implements",
+      "confidence": "INFERRED",
+      "confidence_score": 0.85,
+      "source_file": "PROJECT_NOTES.md",
+      "source_location": null,
+      "weight": 1.0,
+      "source": "products_get_handler",
+      "target": "ssg_prerender_concept"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "frontend/test/orders.test.js",
+      "source_location": null,
+      "weight": 1.0,
+      "source": "orders_test",
+      "target": "useapi_composable"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "frontend/test/orders.test.js",
+      "source_location": null,
+      "weight": 1.0,
+      "source": "orders_test",
+      "target": "admin_token_concept"
+    },
+    {
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "edge.md",
+      "source_location": null,
+      "weight": 1.0,
+      "source": "edge_notify_paid_order",
+      "target": "edge_buildemailhtml"
+    },
+    {
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "edge.md",
+      "source_location": null,
+      "weight": 1.0,
+      "source": "edge_notify_paid_order",
+      "target": "resend_api"
+    },
+    {
+      "relation": "references",
+      "confidence": "INFERRED",
+      "confidence_score": 0.95,
+      "source_file": "frontend/composables/useApi.ts",
+      "source_location": null,
+      "weight": 1.0,
+      "source": "useadminapi_composable",
+      "target": "admin_token_concept"
+    },
+    {
+      "relation": "references",
+      "confidence": "INFERRED",
+      "confidence_score": 0.85,
+      "source_file": "frontend/middleware/auth.ts",
+      "source_location": null,
+      "weight": 1.0,
+      "source": "auth_middleware",
+      "target": "admin_token_concept"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "PROJECT_NOTES.md",
+      "source_location": null,
+      "weight": 1.0,
+      "source": "project_notes_doc",
+      "target": "ssg_prerender_concept"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/server.js",
+      "source_location": "L10",
+      "weight": 1.0,
+      "source": "backend_server_js",
+      "target": "backend_server_express",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/server.js",
+      "source_location": "L11",
+      "weight": 1.0,
+      "source": "backend_server_js",
+      "target": "backend_server_cors",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/server.js",
+      "source_location": "L13",
+      "weight": 1.0,
+      "source": "backend_server_js",
+      "target": "backend_server_app",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/server.js",
+      "source_location": "L35",
+      "weight": 1.0,
+      "source": "backend_server_js",
+      "target": "backend_lib_auth_js",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/server.js",
+      "source_location": "L35",
+      "weight": 1.0,
+      "source": "backend_server_js",
+      "target": "lib_auth_getadmins",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/server.js",
+      "source_location": "L35",
+      "weight": 1.0,
+      "source": "backend_server_js",
+      "target": "backend_server_getadmins",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/server.js",
+      "source_location": "L42",
+      "weight": 1.0,
+      "source": "backend_server_js",
+      "target": "backend_lib_store_js",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/server.js",
+      "source_location": "L42",
+      "weight": 1.0,
+      "source": "backend_server_js",
+      "target": "lib_store_uploads_dir",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/server.js",
+      "source_location": "L42",
+      "weight": 1.0,
+      "source": "backend_server_js",
+      "target": "backend_server_uploads_dir",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/lib/auth.js",
+      "source_location": "L6",
+      "weight": 1.0,
+      "source": "backend_lib_auth_js",
+      "target": "lib_auth_fs",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/lib/auth.js",
+      "source_location": "L7",
+      "weight": 1.0,
+      "source": "backend_lib_auth_js",
+      "target": "lib_auth_path",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/lib/auth.js",
+      "source_location": "L8",
+      "weight": 1.0,
+      "source": "backend_lib_auth_js",
+      "target": "lib_auth_jwt",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/lib/auth.js",
+      "source_location": "L10",
+      "weight": 1.0,
+      "source": "backend_lib_auth_js",
+      "target": "lib_auth_secrets_file",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/lib/auth.js",
+      "source_location": "L14",
+      "weight": 1.0,
+      "source": "backend_lib_auth_js",
+      "target": "lib_auth_getadmins",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/lib/auth.js",
+      "source_location": "L32",
+      "weight": 1.0,
+      "source": "backend_lib_auth_js",
+      "target": "lib_auth_loadsecrets",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/lib/auth.js",
+      "source_location": "L36",
+      "weight": 1.0,
+      "source": "backend_lib_auth_js",
+      "target": "lib_auth_savesecrets",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/lib/auth.js",
+      "source_location": "L39",
+      "weight": 1.0,
+      "source": "backend_lib_auth_js",
+      "target": "lib_auth_getadminsecret",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/lib/auth.js",
+      "source_location": "L45",
+      "weight": 1.0,
+      "source": "backend_lib_auth_js",
+      "target": "lib_auth_authmiddleware",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/routes/admin-auth.js",
+      "source_location": "L14",
+      "weight": 1.0,
+      "source": "backend_lib_auth_js",
+      "target": "backend_routes_admin_auth_js",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/routes/catalog.js",
+      "source_location": "L12",
+      "weight": 1.0,
+      "source": "backend_lib_auth_js",
+      "target": "backend_routes_catalog_js",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/lib/auth.js",
+      "source_location": "L41",
+      "weight": 1.0,
+      "source": "lib_auth_getadmins",
+      "target": "lib_auth_getadminsecret",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/routes/admin-auth.js",
+      "source_location": "L14",
+      "weight": 1.0,
+      "source": "lib_auth_getadmins",
+      "target": "backend_routes_admin_auth_js",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/lib/auth.js",
+      "source_location": "L40",
+      "weight": 1.0,
+      "source": "lib_auth_loadsecrets",
+      "target": "lib_auth_getadminsecret",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/routes/admin-auth.js",
+      "source_location": "L14",
+      "weight": 1.0,
+      "source": "lib_auth_loadsecrets",
+      "target": "backend_routes_admin_auth_js",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/routes/admin-auth.js",
+      "source_location": "L14",
+      "weight": 1.0,
+      "source": "lib_auth_savesecrets",
+      "target": "backend_routes_admin_auth_js",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/routes/admin-auth.js",
+      "source_location": "L14",
+      "weight": 1.0,
+      "source": "lib_auth_getadminsecret",
+      "target": "backend_routes_admin_auth_js",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/routes/admin-auth.js",
+      "source_location": "L14",
+      "weight": 1.0,
+      "source": "lib_auth_authmiddleware",
+      "target": "backend_routes_admin_auth_js",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/routes/catalog.js",
+      "source_location": "L12",
+      "weight": 1.0,
+      "source": "lib_auth_authmiddleware",
+      "target": "backend_routes_catalog_js",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/lib/sanitize.js",
+      "source_location": "L6",
+      "weight": 1.0,
+      "source": "backend_lib_sanitize_js",
+      "target": "lib_sanitize_allowed_badges",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/lib/sanitize.js",
+      "source_location": "L7",
+      "weight": 1.0,
+      "source": "backend_lib_sanitize_js",
+      "target": "lib_sanitize_allowed_clothing",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/lib/sanitize.js",
+      "source_location": "L9",
+      "weight": 1.0,
+      "source": "backend_lib_sanitize_js",
+      "target": "lib_sanitize_sanitizestring",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/routes/admin-auth.js",
+      "source_location": "L15",
+      "weight": 1.0,
+      "source": "backend_lib_sanitize_js",
+      "target": "backend_routes_admin_auth_js",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/routes/catalog.js",
+      "source_location": "L13",
+      "weight": 1.0,
+      "source": "backend_lib_sanitize_js",
+      "target": "backend_routes_catalog_js",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/routes/catalog.js",
+      "source_location": "L13",
+      "weight": 1.0,
+      "source": "lib_sanitize_allowed_badges",
+      "target": "backend_routes_catalog_js",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/routes/admin-auth.js",
+      "source_location": "L15",
+      "weight": 1.0,
+      "source": "lib_sanitize_sanitizestring",
+      "target": "backend_routes_admin_auth_js",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/routes/catalog.js",
+      "source_location": "L13",
+      "weight": 1.0,
+      "source": "lib_sanitize_sanitizestring",
+      "target": "backend_routes_catalog_js",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/lib/security.js",
+      "source_location": "L7",
+      "weight": 1.0,
+      "source": "backend_lib_security_js",
+      "target": "lib_security_fs",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/lib/security.js",
+      "source_location": "L8",
+      "weight": 1.0,
+      "source": "backend_lib_security_js",
+      "target": "lib_security_path",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/lib/security.js",
+      "source_location": "L10",
+      "weight": 1.0,
+      "source": "backend_lib_security_js",
+      "target": "lib_security_banlist_file",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/lib/security.js",
+      "source_location": "L16",
+      "weight": 1.0,
+      "source": "backend_lib_security_js",
+      "target": "lib_security_loginattempts",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/lib/security.js",
+      "source_location": "L18",
+      "weight": 1.0,
+      "source": "backend_lib_security_js",
+      "target": "lib_security_loadbanlist",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/lib/security.js",
+      "source_location": "L22",
+      "weight": 1.0,
+      "source": "backend_lib_security_js",
+      "target": "lib_security_savebanlist",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/lib/security.js",
+      "source_location": "L31",
+      "weight": 1.0,
+      "source": "backend_lib_security_js",
+      "target": "lib_security_getclientip",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/lib/security.js",
+      "source_location": "L38",
+      "weight": 1.0,
+      "source": "backend_lib_security_js",
+      "target": "lib_security_getentry",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/lib/security.js",
+      "source_location": "L42",
+      "weight": 1.0,
+      "source": "backend_lib_security_js",
+      "target": "lib_security_isipbanned",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/lib/security.js",
+      "source_location": "L64",
+      "weight": 1.0,
+      "source": "backend_lib_security_js",
+      "target": "lib_security_recordfailedattempt",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/lib/security.js",
+      "source_location": "L84",
+      "weight": 1.0,
+      "source": "backend_lib_security_js",
+      "target": "lib_security_resetattempts",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/routes/admin-auth.js",
+      "source_location": "L13",
+      "weight": 1.0,
+      "source": "backend_lib_security_js",
+      "target": "backend_routes_admin_auth_js",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/lib/security.js",
+      "source_location": "L48",
+      "weight": 1.0,
+      "source": "lib_security_loadbanlist",
+      "target": "lib_security_isipbanned",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/lib/security.js",
+      "source_location": "L78",
+      "weight": 1.0,
+      "source": "lib_security_loadbanlist",
+      "target": "lib_security_recordfailedattempt",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/lib/security.js",
+      "source_location": "L86",
+      "weight": 1.0,
+      "source": "lib_security_loadbanlist",
+      "target": "lib_security_resetattempts",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/lib/security.js",
+      "source_location": "L58",
+      "weight": 1.0,
+      "source": "lib_security_savebanlist",
+      "target": "lib_security_isipbanned",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/lib/security.js",
+      "source_location": "L80",
+      "weight": 1.0,
+      "source": "lib_security_savebanlist",
+      "target": "lib_security_recordfailedattempt",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/lib/security.js",
+      "source_location": "L87",
+      "weight": 1.0,
+      "source": "lib_security_savebanlist",
+      "target": "lib_security_resetattempts",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/lib/store.js",
+      "source_location": "L7",
+      "weight": 1.0,
+      "source": "backend_lib_store_js",
+      "target": "lib_store_fs",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/lib/store.js",
+      "source_location": "L8",
+      "weight": 1.0,
+      "source": "backend_lib_store_js",
+      "target": "lib_store_path",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/lib/store.js",
+      "source_location": "L9",
+      "weight": 1.0,
+      "source": "backend_lib_store_js",
+      "target": "lib_store_crypto",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/lib/store.js",
+      "source_location": "L12",
+      "weight": 1.0,
+      "source": "backend_lib_store_js",
+      "target": "lib_store_data_dir",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/lib/store.js",
+      "source_location": "L13",
+      "weight": 1.0,
+      "source": "backend_lib_store_js",
+      "target": "lib_store_uploads_dir",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/lib/store.js",
+      "source_location": "L14",
+      "weight": 1.0,
+      "source": "backend_lib_store_js",
+      "target": "lib_store_products_file",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/lib/store.js",
+      "source_location": "L15",
+      "weight": 1.0,
+      "source": "backend_lib_store_js",
+      "target": "lib_store_collections_file",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/lib/store.js",
+      "source_location": "L24",
+      "weight": 1.0,
+      "source": "backend_lib_store_js",
+      "target": "lib_store_savebase64image",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/lib/store.js",
+      "source_location": "L50",
+      "weight": 1.0,
+      "source": "backend_lib_store_js",
+      "target": "lib_store_getdefaultproducts",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/lib/store.js",
+      "source_location": "L61",
+      "weight": 1.0,
+      "source": "backend_lib_store_js",
+      "target": "lib_store_loadproducts",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/lib/store.js",
+      "source_location": "L67",
+      "weight": 1.0,
+      "source": "backend_lib_store_js",
+      "target": "lib_store_products",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/lib/store.js",
+      "source_location": "L69",
+      "weight": 1.0,
+      "source": "backend_lib_store_js",
+      "target": "lib_store_saveproducts",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/lib/store.js",
+      "source_location": "L74",
+      "weight": 1.0,
+      "source": "backend_lib_store_js",
+      "target": "lib_store_default_collections",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/lib/store.js",
+      "source_location": "L76",
+      "weight": 1.0,
+      "source": "backend_lib_store_js",
+      "target": "lib_store_loadcollections",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/lib/store.js",
+      "source_location": "L85",
+      "weight": 1.0,
+      "source": "backend_lib_store_js",
+      "target": "lib_store_collections",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/lib/store.js",
+      "source_location": "L87",
+      "weight": 1.0,
+      "source": "backend_lib_store_js",
+      "target": "lib_store_savecollections",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/routes/catalog.js",
+      "source_location": "L11",
+      "weight": 1.0,
+      "source": "backend_lib_store_js",
+      "target": "backend_routes_catalog_js",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/lib/store.js",
+      "source_location": "L62",
+      "weight": 1.0,
+      "source": "lib_store_getdefaultproducts",
+      "target": "lib_store_loadproducts",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/routes/admin-auth.js",
+      "source_location": "L7",
+      "weight": 1.0,
+      "source": "backend_routes_admin_auth_js",
+      "target": "routes_admin_auth_express",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/routes/admin-auth.js",
+      "source_location": "L8",
+      "weight": 1.0,
+      "source": "backend_routes_admin_auth_js",
+      "target": "routes_admin_auth_jwt",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/routes/admin-auth.js",
+      "source_location": "L9",
+      "weight": 1.0,
+      "source": "backend_routes_admin_auth_js",
+      "target": "routes_admin_auth_speakeasy",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/routes/admin-auth.js",
+      "source_location": "L10",
+      "weight": 1.0,
+      "source": "backend_routes_admin_auth_js",
+      "target": "routes_admin_auth_qrcode",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/routes/admin-auth.js",
+      "source_location": "L11",
+      "weight": 1.0,
+      "source": "backend_routes_admin_auth_js",
+      "target": "routes_admin_auth_router",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/routes/admin-auth.js",
+      "source_location": "L13",
+      "weight": 1.0,
+      "source": "backend_routes_admin_auth_js",
+      "target": "routes_admin_auth_security",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/routes/admin-auth.js",
+      "source_location": "L14",
+      "weight": 1.0,
+      "source": "backend_routes_admin_auth_js",
+      "target": "routes_admin_auth_getadmins_getadminsecret_loadsecrets_savesecrets_authmiddleware",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/routes/admin-auth.js",
+      "source_location": "L15",
+      "weight": 1.0,
+      "source": "backend_routes_admin_auth_js",
+      "target": "routes_admin_auth_sanitizestring",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/routes/admin-auth.js",
+      "source_location": "L19",
+      "weight": 1.0,
+      "source": "backend_routes_admin_auth_js",
+      "target": "routes_admin_auth_ip",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/routes/admin-auth.js",
+      "source_location": "L23",
+      "weight": 1.0,
+      "source": "backend_routes_admin_auth_js",
+      "target": "routes_admin_auth_entry",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/routes/admin-auth.js",
+      "source_location": "L24",
+      "weight": 1.0,
+      "source": "backend_routes_admin_auth_js",
+      "target": "routes_admin_auth_remaining",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/routes/admin-auth.js",
+      "source_location": "L114",
+      "weight": 1.0,
+      "source": "backend_routes_admin_auth_js",
+      "target": "routes_admin_auth_secret",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/routes/admin-auth.js",
+      "source_location": "L56",
+      "weight": 1.0,
+      "source": "backend_routes_admin_auth_js",
+      "target": "routes_admin_auth_verified",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/routes/admin-auth.js",
+      "source_location": "L72",
+      "weight": 1.0,
+      "source": "backend_routes_admin_auth_js",
+      "target": "routes_admin_auth_token",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/routes/admin-auth.js",
+      "source_location": "L83",
+      "weight": 1.0,
+      "source": "backend_routes_admin_auth_js",
+      "target": "routes_admin_auth_bl",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/routes/admin-auth.js",
+      "source_location": "L84",
+      "weight": 1.0,
+      "source": "backend_routes_admin_auth_js",
+      "target": "routes_admin_auth_result",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/routes/admin-auth.js",
+      "source_location": "L106",
+      "weight": 1.0,
+      "source": "backend_routes_admin_auth_js",
+      "target": "routes_admin_auth_username",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/routes/admin-auth.js",
+      "source_location": "L109",
+      "weight": 1.0,
+      "source": "backend_routes_admin_auth_js",
+      "target": "routes_admin_auth_secrets",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/routes/catalog.js",
+      "source_location": "L6",
+      "weight": 1.0,
+      "source": "backend_routes_catalog_js",
+      "target": "routes_catalog_express",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/routes/catalog.js",
+      "source_location": "L7",
+      "weight": 1.0,
+      "source": "backend_routes_catalog_js",
+      "target": "routes_catalog_fs",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/routes/catalog.js",
+      "source_location": "L8",
+      "weight": 1.0,
+      "source": "backend_routes_catalog_js",
+      "target": "routes_catalog_path",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/routes/catalog.js",
+      "source_location": "L9",
+      "weight": 1.0,
+      "source": "backend_routes_catalog_js",
+      "target": "routes_catalog_router",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/routes/catalog.js",
+      "source_location": "L11",
+      "weight": 1.0,
+      "source": "backend_routes_catalog_js",
+      "target": "routes_catalog_store",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/routes/catalog.js",
+      "source_location": "L12",
+      "weight": 1.0,
+      "source": "backend_routes_catalog_js",
+      "target": "routes_catalog_authmiddleware",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/routes/catalog.js",
+      "source_location": "L13",
+      "weight": 1.0,
+      "source": "backend_routes_catalog_js",
+      "target": "routes_catalog_allowed_badges_sanitizestring",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/routes/catalog.js",
+      "source_location": "L17",
+      "weight": 1.0,
+      "source": "backend_routes_catalog_js",
+      "target": "routes_catalog_result",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/routes/catalog.js",
+      "source_location": "L116",
+      "weight": 1.0,
+      "source": "backend_routes_catalog_js",
+      "target": "routes_catalog_id",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/routes/catalog.js",
+      "source_location": "L96",
+      "weight": 1.0,
+      "source": "backend_routes_catalog_js",
+      "target": "routes_catalog_p",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/routes/catalog.js",
+      "source_location": "L126",
+      "weight": 1.0,
+      "source": "backend_routes_catalog_js",
+      "target": "routes_catalog_name",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/routes/catalog.js",
+      "source_location": "L39",
+      "weight": 1.0,
+      "source": "backend_routes_catalog_js",
+      "target": "routes_catalog_collections",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/routes/catalog.js",
+      "source_location": "L127",
+      "weight": 1.0,
+      "source": "backend_routes_catalog_js",
+      "target": "routes_catalog_category",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/routes/catalog.js",
+      "source_location": "L128",
+      "weight": 1.0,
+      "source": "backend_routes_catalog_js",
+      "target": "routes_catalog_clothingtype",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/routes/catalog.js",
+      "source_location": "L129",
+      "weight": 1.0,
+      "source": "backend_routes_catalog_js",
+      "target": "routes_catalog_desc",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/routes/catalog.js",
+      "source_location": "L63",
+      "weight": 1.0,
+      "source": "backend_routes_catalog_js",
+      "target": "routes_catalog_price",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/routes/catalog.js",
+      "source_location": "L138",
+      "weight": 1.0,
+      "source": "backend_routes_catalog_js",
+      "target": "routes_catalog_saved",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/routes/catalog.js",
+      "source_location": "L79",
+      "weight": 1.0,
+      "source": "backend_routes_catalog_js",
+      "target": "routes_catalog_product",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/routes/catalog.js",
+      "source_location": "L119",
+      "weight": 1.0,
+      "source": "backend_routes_catalog_js",
+      "target": "routes_catalog_products",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/routes/catalog.js",
+      "source_location": "L102",
+      "weight": 1.0,
+      "source": "backend_routes_catalog_js",
+      "target": "routes_catalog_resolved",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/routes/catalog.js",
+      "source_location": "L120",
+      "weight": 1.0,
+      "source": "backend_routes_catalog_js",
+      "target": "routes_catalog_idx",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/composables/useImageUpload.ts",
+      "source_location": "L10",
+      "weight": 1.0,
+      "source": "frontend_composables_useimageupload_ts",
+      "target": "composables_useimageupload_useimageupload",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "backend/server.js",
+      "source_location": null,
+      "weight": 1.0,
+      "source": "server_app",
+      "target": "auth_getadmins"
+    },
+    {
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "backend/routes/admin-auth.js",
+      "source_location": null,
+      "weight": 1.0,
+      "source": "auth_getadmins",
+      "target": "adminauth_login"
+    },
+    {
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "backend/routes/admin-auth.js",
+      "source_location": null,
+      "weight": 1.0,
+      "source": "auth_getadmins",
+      "target": "adminauth_setuptotp"
+    },
+    {
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "backend/lib/auth.js",
+      "source_location": null,
+      "weight": 1.0,
+      "source": "auth_getadmins",
+      "target": "auth_getadminsecret"
+    },
+    {
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "backend/routes/admin-auth.js",
+      "source_location": null,
+      "weight": 1.0,
+      "source": "auth_getadminsecret",
+      "target": "adminauth_login"
+    },
+    {
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "backend/lib/auth.js",
+      "source_location": null,
+      "weight": 1.0,
+      "source": "auth_getadminsecret",
+      "target": "auth_loadsecrets"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "backend/routes/catalog.js",
+      "source_location": null,
+      "weight": 1.0,
+      "source": "auth_authmiddleware",
+      "target": "catalog_postproducts"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "backend/routes/catalog.js",
+      "source_location": null,
+      "weight": 1.0,
+      "source": "auth_authmiddleware",
+      "target": "catalog_putproducts"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "backend/routes/catalog.js",
+      "source_location": null,
+      "weight": 1.0,
+      "source": "auth_authmiddleware",
+      "target": "catalog_deleteproducts"
+    },
+    {
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "backend/routes/admin-auth.js",
+      "source_location": null,
+      "weight": 1.0,
+      "source": "auth_loadsecrets",
+      "target": "adminauth_setuptotp"
+    },
+    {
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "backend/routes/admin-auth.js",
+      "source_location": null,
+      "weight": 1.0,
+      "source": "auth_savesecrets",
+      "target": "adminauth_setuptotp"
+    },
+    {
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "backend/routes/admin-auth.js",
+      "source_location": null,
+      "weight": 1.0,
+      "source": "sanitize_sanitizestring",
+      "target": "adminauth_setuptotp"
+    },
+    {
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "backend/routes/catalog.js",
+      "source_location": null,
+      "weight": 1.0,
+      "source": "sanitize_sanitizestring",
+      "target": "catalog_postproducts"
+    },
+    {
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "backend/routes/catalog.js",
+      "source_location": null,
+      "weight": 1.0,
+      "source": "sanitize_sanitizestring",
+      "target": "catalog_putproducts"
+    },
+    {
+      "relation": "shares_data_with",
+      "confidence": "INFERRED",
+      "confidence_score": 0.75,
+      "source_file": "frontend/pages/admin/add.vue",
+      "source_location": null,
+      "weight": 1.0,
+      "source": "sanitize_sanitizestring",
+      "target": "add_addcollection"
+    },
+    {
+      "relation": "rationale_for",
+      "confidence": "INFERRED",
+      "confidence_score": 0.85,
+      "source_file": "CLAUDE.md",
+      "source_location": null,
+      "weight": 1.0,
+      "source": "sanitize_sanitizestring",
+      "target": "claudemd_owasp_hardening"
+    },
+    {
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "backend/routes/admin-auth.js",
+      "source_location": null,
+      "weight": 1.0,
+      "source": "security_isipbanned",
+      "target": "adminauth_login"
+    },
+    {
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "backend/lib/security.js",
+      "source_location": null,
+      "weight": 1.0,
+      "source": "security_isipbanned",
+      "target": "security_loadbanlist"
+    },
+    {
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "backend/lib/security.js",
+      "source_location": null,
+      "weight": 1.0,
+      "source": "security_isipbanned",
+      "target": "security_savebanlist"
+    },
+    {
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "backend/routes/admin-auth.js",
+      "source_location": null,
+      "weight": 1.0,
+      "source": "security_recordfailedattempt",
+      "target": "adminauth_login"
+    },
+    {
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "backend/lib/security.js",
+      "source_location": null,
+      "weight": 1.0,
+      "source": "security_recordfailedattempt",
+      "target": "security_loadbanlist"
+    },
+    {
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "backend/lib/security.js",
+      "source_location": null,
+      "weight": 1.0,
+      "source": "security_recordfailedattempt",
+      "target": "security_savebanlist"
+    },
+    {
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "backend/routes/admin-auth.js",
+      "source_location": null,
+      "weight": 1.0,
+      "source": "security_resetattempts",
+      "target": "adminauth_login"
+    },
+    {
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "backend/lib/security.js",
+      "source_location": null,
+      "weight": 1.0,
+      "source": "security_resetattempts",
+      "target": "security_loadbanlist"
+    },
+    {
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "backend/lib/security.js",
+      "source_location": null,
+      "weight": 1.0,
+      "source": "security_resetattempts",
+      "target": "security_savebanlist"
+    },
+    {
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "backend/routes/catalog.js",
+      "source_location": null,
+      "weight": 1.0,
+      "source": "store_savebase64image",
+      "target": "catalog_postproducts"
+    },
+    {
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "backend/routes/catalog.js",
+      "source_location": null,
+      "weight": 1.0,
+      "source": "store_savebase64image",
+      "target": "catalog_putproducts"
+    },
+    {
+      "relation": "shares_data_with",
+      "confidence": "INFERRED",
+      "confidence_score": 0.85,
+      "source_file": "frontend/composables/useImageUpload.ts",
+      "source_location": null,
+      "weight": 1.0,
+      "source": "store_savebase64image",
+      "target": "useimageupload_useimageupload"
+    },
+    {
+      "relation": "rationale_for",
+      "confidence": "INFERRED",
+      "confidence_score": 0.85,
+      "source_file": "CLAUDE.md",
+      "source_location": null,
+      "weight": 1.0,
+      "source": "store_savebase64image",
+      "target": "claudemd_owasp_hardening"
+    },
+    {
+      "relation": "shares_data_with",
+      "confidence": "INFERRED",
+      "confidence_score": 0.65,
+      "source_file": "frontend/layouts/default.vue",
+      "source_location": null,
+      "weight": 1.0,
+      "source": "store_loadproducts",
+      "target": "default_cartcreatepayment"
+    },
+    {
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "backend/routes/catalog.js",
+      "source_location": null,
+      "weight": 1.0,
+      "source": "store_saveproducts",
+      "target": "catalog_postproducts"
+    },
+    {
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "backend/routes/catalog.js",
+      "source_location": null,
+      "weight": 1.0,
+      "source": "store_saveproducts",
+      "target": "catalog_putproducts"
+    },
+    {
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "backend/routes/catalog.js",
+      "source_location": null,
+      "weight": 1.0,
+      "source": "store_saveproducts",
+      "target": "catalog_deleteproducts"
+    },
+    {
+      "relation": "rationale_for",
+      "confidence": "INFERRED",
+      "confidence_score": 0.85,
+      "source_file": "CLAUDE.md",
+      "source_location": null,
+      "weight": 1.0,
+      "source": "adminauth_login",
+      "target": "claudemd_owasp_hardening"
+    },
+    {
+      "relation": "references",
+      "confidence": "INFERRED",
+      "confidence_score": 0.85,
+      "source_file": "frontend/pages/admin/add.vue",
+      "source_location": null,
+      "weight": 1.0,
+      "source": "catalog_postproducts",
+      "target": "add_handlesubmit"
+    },
+    {
+      "relation": "references",
+      "confidence": "INFERRED",
+      "confidence_score": 0.85,
+      "source_file": "frontend/pages/admin/edit/[id].vue",
+      "source_location": null,
+      "weight": 1.0,
+      "source": "catalog_putproducts",
+      "target": "id_handlesubmit"
+    },
+    {
+      "relation": "references",
+      "confidence": "INFERRED",
+      "confidence_score": 0.85,
+      "source_file": "frontend/pages/admin/edit.vue",
+      "source_location": null,
+      "weight": 1.0,
+      "source": "catalog_putproducts",
+      "target": "edit_handlesubmit"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "frontend/pages/admin/add.vue",
+      "source_location": null,
+      "weight": 1.0,
+      "source": "useimageupload_useimageupload",
+      "target": "add_handlesubmit"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "frontend/pages/admin/edit/[id].vue",
+      "source_location": null,
+      "weight": 1.0,
+      "source": "useimageupload_useimageupload",
+      "target": "id_handlesubmit"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "frontend/pages/admin/edit.vue",
+      "source_location": null,
+      "weight": 1.0,
+      "source": "useimageupload_useimageupload",
+      "target": "edit_handlesubmit"
+    },
+    {
+      "relation": "semantically_similar_to",
+      "confidence": "INFERRED",
+      "confidence_score": 0.95,
+      "source_file": "frontend/pages/admin/edit.vue",
+      "source_location": null,
+      "weight": 1.0,
+      "source": "edit_handlesubmit",
+      "target": "id_handlesubmit"
+    },
+    {
+      "relation": "rationale_for",
+      "confidence": "INFERRED",
+      "confidence_score": 0.85,
+      "source_file": "CLAUDE.md",
+      "source_location": null,
+      "weight": 1.0,
+      "source": "edit_handlesubmit",
+      "target": "claudemd_admin_edit_dual_route"
+    },
+    {
+      "relation": "rationale_for",
+      "confidence": "INFERRED",
+      "confidence_score": 0.85,
+      "source_file": "CLAUDE.md",
+      "source_location": null,
+      "weight": 1.0,
+      "source": "id_handlesubmit",
+      "target": "claudemd_admin_edit_dual_route"
+    }
+  ],
+  "hyperedges": [
+    {
+      "id": "admin_login_security_flow",
+      "label": "Admin login: rate limit + IP ban + TOTP",
+      "nodes": [
+        "adminauth_login",
+        "security_isipbanned",
+        "security_recordfailedattempt",
+        "security_resetattempts",
+        "auth_getadminsecret"
+      ],
+      "relation": "participate_in",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "backend/routes/admin-auth.js"
+    },
+    {
+      "id": "product_image_upload_pipeline",
+      "label": "Product image upload pipeline: frontend composable to backend base64 storage",
+      "nodes": [
+        "useimageupload_useimageupload",
+        "add_handlesubmit",
+        "id_handlesubmit",
+        "catalog_postproducts",
+        "store_savebase64image"
+      ],
+      "relation": "form",
+      "confidence": "INFERRED",
+      "confidence_score": 0.75,
+      "source_file": "backend/routes/catalog.js"
+    }
+  ],
+  "built_at_commit": "0c49ac186b51d98956edd3027dcc42cd5509494b"
+}
