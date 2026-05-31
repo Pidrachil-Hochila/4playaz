@@ -1,5 +1,20 @@
 <template>
   <div class="site-wrapper">
+    <!-- PROMO BANNER (управляется из админки) -->
+    <div
+      v-if="showPromoBanner"
+      class="promo-banner"
+      :style="{ background: promoBanner.bgColor, color: promoBanner.textColor }"
+    >
+      <span class="promo-banner-text">{{ promoBanner.text }}</span>
+      <button
+        class="promo-banner-close"
+        :style="{ color: promoBanner.textColor }"
+        aria-label="Закрыть"
+        @click="closePromoBanner"
+      >✕</button>
+    </div>
+
     <!-- ANNOUNCEMENT BAR -->
     <div class="announcement">
       <div class="announcement-inner">
@@ -410,7 +425,7 @@
 </template>
 
 <script setup lang="ts">
-import { ref, computed, provide, nextTick } from 'vue'
+import { ref, computed, provide, nextTick, onMounted } from 'vue'
 import { useCart } from '~/composables/useCart'
 import { useApi } from '~/composables/useApi'
 
@@ -448,6 +463,30 @@ const resolveImg = (src: string): string => {
   return `${appBase}${src}`
 }
 const formatPrice = (price: number) => price.toLocaleString('ru') + ' ₽'
+
+// ─── ПРОМО-БАННЕР (тонкая полоса вверху сайта) ─────────────
+const promoBanner = ref<any>(null)
+// подпись баннера — чтобы «закрытие» сбрасывалось при смене текста/дат
+const bannerSig = (b: any) => `${b.text}|${b.startDate}|${b.endDate}`
+const showPromoBanner = computed(() => {
+  const b = promoBanner.value
+  if (!b || !b.active || !b.text) return false
+  if (import.meta.client && localStorage.getItem('promo_dismissed') === bannerSig(b)) return false
+  return true
+})
+const closePromoBanner = () => {
+  if (promoBanner.value && import.meta.client) {
+    localStorage.setItem('promo_dismissed', bannerSig(promoBanner.value))
+  }
+  promoBanner.value = { ...promoBanner.value, active: false }
+}
+
+onMounted(async () => {
+  try {
+    const res = await fetch(`${API_BASE}/api/banner`)
+    if (res.ok) promoBanner.value = await res.json()
+  } catch {}
+})
 
 // ─── CHECKOUT STATE ────────────────────────────────────────
 const checkoutMode = ref(false)
@@ -676,6 +715,38 @@ const cartCreatePayment = async () => {
 </script>
 
 <style scoped>
+/* ─── PROMO BANNER ─── */
+.promo-banner {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 14px;
+  padding: 9px 44px;
+  font-family: var(--font-cinzel);
+  font-size: 11px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  text-align: center;
+}
+.promo-banner-text { line-height: 1.4; }
+.promo-banner-close {
+  position: absolute;
+  right: 14px;
+  top: 50%;
+  transform: translateY(-50%);
+  background: none;
+  border: none;
+  font-size: 14px;
+  cursor: pointer;
+  opacity: 0.7;
+  transition: opacity 0.2s;
+}
+.promo-banner-close:hover { opacity: 1; }
+@media (max-width: 600px) {
+  .promo-banner { font-size: 9px; padding: 8px 36px; letter-spacing: 0.12em; }
+}
+
 /* ─── ANNOUNCEMENT ─── */
 .announcement {
   background: var(--red-deep);

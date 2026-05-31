@@ -98,6 +98,21 @@ export const useAdminApi = () => {
     })
   }
 
+  const getAllProducts = async () => {
+    const data = await $fetch(`${base}/api/admin/products`, {
+      headers: { Authorization: `Bearer ${getToken()}` }
+    })
+    return Array.isArray(data) ? data : []
+  }
+
+  const toggleVisibility = async (id: number, hidden: boolean) => {
+    return await $fetch<{ id: number; hidden: boolean }>(`${base}/api/admin/products/${id}/visibility`, {
+      method: 'PATCH',
+      headers: { Authorization: `Bearer ${getToken()}` },
+      body: { hidden }
+    })
+  }
+
   const getOrders = async (pendingOnly = false) => {
     const url = pendingOnly ? `${base}/api/orders?pending=1` : `${base}/api/orders`
     const data = await $fetch(url, {
@@ -128,5 +143,5 @@ export const useAdminApi = () => {
     })
   }
 
-  return { login, addProduct, deleteProduct, updateProduct, getOrders, sendPaymentLink, getBroadcastRecipients, sendBroadcast }
+  return { login, addProduct, deleteProduct, updateProduct, getAllProducts, toggleVisibility, getOrders, sendPaymentLink, getBroadcastRecipients, sendBroadcast }
 }

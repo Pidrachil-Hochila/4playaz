@@ -8,16 +8,19 @@ const fs      = require('fs')
 const path    = require('path')
 const router  = express.Router()
 
-const store = require('../lib/store')
+const store  = require('../lib/store')
+const promos = require('../lib/promos')
 const { authMiddleware } = require('../lib/auth')
 const { ALLOWED_BADGES, sanitizeString } = require('../lib/sanitize')
 
 // ─── PUBLIC: ТОВАРЫ ────────────────────────────────────────
+// Цены под активные акции считаются «на лету» (promos.applyDiscounts),
+// базовые цены в products.json не меняются.
 router.get('/api/products', (req, res) => {
-  let result = [...store.getProducts()]
+  let result = store.getProducts().filter(p => !p.hidden)
   if (req.query.category)     result = result.filter(p => p.category     === req.query.category)
   if (req.query.clothingType) result = result.filter(p => p.clothingType === req.query.clothingType)
-  res.json(result)
+  res.json(promos.applyDiscounts(result))
 })
 
 // A04: parseInt + isNaN везде
@@ -25,8 +28,13 @@ router.get('/api/products/:id', (req, res) => {
   const id = parseInt(req.params.id, 10)
   if (isNaN(id)) return res.status(400).json({ error: 'Некорректный ID' })
   const p = store.getProducts().find(p => p.id === id)
-  if (!p) return res.status(404).json({ error: 'Not found' })
-  res.json(p)
+  if (!p || p.hidden) return res.status(404).json({ error: 'Not found' })
+  res.json(promos.applyDiscounts([p])[0])
+})
+
+// ─── ADMIN: ВСЕ ТОВАРЫ (включая скрытые) ───────────────────
+router.get('/api/admin/products', authMiddleware, (req, res) => {
+  res.json(store.getProducts())
 })
 
 // ─── PUBLIC: КОЛЛЕКЦИИ ─────────────────────────────────────
@@ -80,6 +88,7 @@ router.post('/api/admin/products', authMiddleware, (req, res) => {
     id, name, category, clothingType, price, oldPrice, desc, badge,
     image: saved[0] || '',
     images: saved,
+    hidden: false,
   }
   store.getProducts().unshift(product)
   store.saveProducts()
@@ -159,6 +168,21 @@ router.put('/api/admin/products/:id', authMiddleware, (req, res) => {
 
   store.saveProducts()
   res.json(products[idx])
+})
+
+// PATCH видимости — отдельный эндпоинт, чтобы не таскать всю модель ради toggle
+router.patch('/api/admin/products/:id/visibility', authMiddleware, (req, res) => {
+  const id = parseInt(req.params.id, 10)
+  if (isNaN(id)) return res.status(400).json({ error: 'Некорректный ID' })
+
+  const products = store.getProducts()
+  const p = products.find(x => x.id === id)
+  if (!p) return res.status(404).json({ error: 'Not found' })
+
+  p.hidden = typeof req.body.hidden === 'boolean' ? req.body.hidden : !p.hidden
+  store.saveProducts()
+  console.log('[VISIBILITY]', id, '→', p.hidden ? 'hidden' : 'visible')
+  res.json({ id: p.id, hidden: p.hidden })
 })
 
 module.exports = router

@@ -4,14 +4,16 @@
     "name": "Memphis Marlboro White Hoodie",
     "category": "MEMPHIS",
     "clothingType": "hoodie",
-    "price": 3800,
+    "price": 4500,
     "oldPrice": null,
     "desc": "",
     "badge": "",
     "image": "/uploads/d78a8f22c53a32407ab0c576d327b03c.webp",
     "images": [
       "/uploads/d78a8f22c53a32407ab0c576d327b03c.webp"
-    ]
+    ],
+    "basePrice": 4500,
+    "discountPercent": 0
   },
   {
     "id": 1777537046186,
@@ -25,7 +27,9 @@
     "image": "/uploads/89f81d81cba96d753c74d7bb54ddccec.webp",
     "images": [
       "/uploads/89f81d81cba96d753c74d7bb54ddccec.webp"
-    ]
+    ],
+    "basePrice": 3000,
+    "discountPercent": 0
   },
   {
     "id": 1777537022504,
@@ -39,21 +43,25 @@
     "image": "/uploads/4e00ef48f4fd727e7162724b9c6d1194.webp",
     "images": [
       "/uploads/4e00ef48f4fd727e7162724b9c6d1194.webp"
-    ]
+    ],
+    "basePrice": 2500,
+    "discountPercent": 0
   },
   {
     "id": 1777536999448,
     "name": "Shawty Pimp Play No Playa Black Hoodie",
     "category": "MEMPHIS",
     "clothingType": "hoodie",
-    "price": 3800,
+    "price": 4500,
     "oldPrice": null,
     "desc": "",
     "badge": "",
     "image": "/uploads/8a7c94e7be89f188758cabcfde2da40c.webp",
     "images": [
       "/uploads/8a7c94e7be89f188758cabcfde2da40c.webp"
-    ]
+    ],
+    "basePrice": 4500,
+    "discountPercent": 0
   },
   {
     "id": 1777536969700,
@@ -67,7 +75,9 @@
     "image": "/uploads/f64c651e96fbd3beb42ad94374318672.webp",
     "images": [
       "/uploads/f64c651e96fbd3beb42ad94374318672.webp"
-    ]
+    ],
+    "basePrice": 2500,
+    "discountPercent": 0
   },
   {
     "id": 1777536950264,
@@ -81,7 +91,9 @@
     "image": "/uploads/29eb9434479e027b10ae00d197151bcf.webp",
     "images": [
       "/uploads/29eb9434479e027b10ae00d197151bcf.webp"
-    ]
+    ],
+    "basePrice": 3000,
+    "discountPercent": 0
   },
   {
     "id": 1777311404552,
@@ -96,7 +108,9 @@
     "images": [
       "/uploads/e4a95783818230dfe77a7935705516cc.webp",
       "/uploads/f15fd9e2381570427e2db02ccb228390.webp"
-    ]
+    ],
+    "basePrice": 2500,
+    "discountPercent": 0
   },
   {
     "id": 1777311377475,
@@ -111,14 +125,16 @@
     "images": [
       "/uploads/359c52a285a503057ee227b35113185a.webp",
       "/uploads/94d2a3f35955873ea46d2419f52a3c3f.webp"
-    ]
+    ],
+    "basePrice": 3000,
+    "discountPercent": 0
   },
   {
     "id": 1777311348855,
     "name": "187 White Hoodie",
     "category": "F.A.Y.B.",
     "clothingType": "hoodie",
-    "price": 3800,
+    "price": 4500,
     "oldPrice": null,
     "desc": "",
     "badge": "",
@@ -126,7 +142,9 @@
     "images": [
       "/uploads/279dabfa3f6e338d2f3527d5eb1e3d7b.webp",
       "/uploads/38c8397c1d0136feac8344c7bd017625.webp"
-    ]
+    ],
+    "basePrice": 4500,
+    "discountPercent": 0
   },
   {
     "id": 1777311281466,
@@ -141,7 +159,9 @@
     "images": [
       "/uploads/8c0abdb0108b137a5e45cf491dd27c6e.webp",
       "/uploads/6da16376bdf190b66977e5a3abb88913.webp"
-    ]
+    ],
+    "basePrice": 2500,
+    "discountPercent": 0
   },
   {
     "id": 1777311221662,
@@ -156,14 +176,16 @@
     "images": [
       "/uploads/c852c092d42f7d1e3a949c6148977fab.webp",
       "/uploads/efd48af35aa60e68236283a5a0755db0.webp"
-    ]
+    ],
+    "basePrice": 3000,
+    "discountPercent": 0
   },
   {
     "id": 1777311107422,
     "name": "187 Black Hoodie",
     "category": "F.A.Y.B.",
     "clothingType": "hoodie",
-    "price": 3800,
+    "price": 4500,
     "oldPrice": null,
     "desc": "",
     "badge": "New",
@@ -171,7 +193,9 @@
     "images": [
       "/uploads/e6a0cc7f091bc795c8c2706debbfff44.webp",
       "/uploads/210d0c396749796e6f5be59b4a823977.webp"
-    ]
+    ],
+    "basePrice": 4500,
+    "discountPercent": 0
   },
   {
     "id": 1777303579916,
@@ -185,21 +209,25 @@
     "image": "/uploads/bdc639dbae4f94e4e8316479632a7b77.webp",
     "images": [
       "/uploads/bdc639dbae4f94e4e8316479632a7b77.webp"
-    ]
+    ],
+    "basePrice": 2500,
+    "discountPercent": 0
   },
   {
     "id": 1777303527536,
     "name": "Memphis Tennesee Thrash White Logo Black Hoodie",
     "category": "MEMPHIS",
     "clothingType": "hoodie",
-    "price": 3800,
+    "price": 4500,
     "oldPrice": null,
     "desc": "",
     "badge": "Exclusive",
     "image": "/uploads/d0ecea98f61bd3c9890f68fa52729c23.webp",
     "images": [
       "/uploads/d0ecea98f61bd3c9890f68fa52729c23.webp"
-    ]
+    ],
+    "basePrice": 4500,
+    "discountPercent": 0
   },
   {
     "id": 1777303503230,
@@ -213,7 +241,9 @@
     "image": "/uploads/7093a3b97a764d3b9dcd66df8d95a031.webp",
     "images": [
       "/uploads/7093a3b97a764d3b9dcd66df8d95a031.webp"
-    ]
+    ],
+    "basePrice": 2500,
+    "discountPercent": 0
   },
   {
     "id": 1777303465215,
@@ -227,21 +257,25 @@
     "image": "/uploads/7615b663eb2dab64fa7b8b948f368299.webp",
     "images": [
       "/uploads/7615b663eb2dab64fa7b8b948f368299.webp"
-    ]
+    ],
+    "basePrice": 3000,
+    "discountPercent": 0
   },
   {
     "id": 1777303435842,
     "name": "Memphis Tennesee Thrash Red White Hoodie",
     "category": "MEMPHIS",
     "clothingType": "hoodie",
-    "price": 3800,
+    "price": 4500,
     "oldPrice": null,
     "desc": "",
     "badge": "Exclusive",
     "image": "/uploads/6de6a29997fc70d0b15e091c0e5e115c.webp",
     "images": [
       "/uploads/6de6a29997fc70d0b15e091c0e5e115c.webp"
-    ]
+    ],
+    "basePrice": 4500,
+    "discountPercent": 0
   },
   {
     "id": 1777303365973,
@@ -255,7 +289,9 @@
     "image": "/uploads/dacc8cbf76af988ef062258f853dc7c4.webp",
     "images": [
       "/uploads/dacc8cbf76af988ef062258f853dc7c4.webp"
-    ]
+    ],
+    "basePrice": 2500,
+    "discountPercent": 0
   },
   {
     "id": 1777303333570,
@@ -269,21 +305,25 @@
     "image": "/uploads/d3f4370f7fa9b430b2146fb66dd44e24.webp",
     "images": [
       "/uploads/d3f4370f7fa9b430b2146fb66dd44e24.webp"
-    ]
+    ],
+    "basePrice": 3000,
+    "discountPercent": 0
   },
   {
     "id": 1777303303875,
     "name": "Memphis Tennesee Thrash Red Black Hoodie",
     "category": "MEMPHIS",
     "clothingType": "hoodie",
-    "price": 3800,
+    "price": 4500,
     "oldPrice": null,
     "desc": "",
     "badge": "Exclusive",
     "image": "/uploads/07d72f258a24355ad6b8a28f0c578ff1.webp",
     "images": [
       "/uploads/07d72f258a24355ad6b8a28f0c578ff1.webp"
-    ]
+    ],
+    "basePrice": 4500,
+    "discountPercent": 0
   },
   {
     "id": 1777303254490,
@@ -297,35 +337,41 @@
     "image": "/uploads/d8f59808ff694f939072ece38c6db38e.webp",
     "images": [
       "/uploads/d8f59808ff694f939072ece38c6db38e.webp"
-    ]
+    ],
+    "basePrice": 2500,
+    "discountPercent": 0
   },
   {
     "id": 1777303221534,
     "name": "Memphis Tennesee Thrash Original White Longsleeve",
     "category": "MEMPHIS",
     "clothingType": "longsleeve",
-    "price": 3800,
+    "price": 4500,
     "oldPrice": null,
     "desc": "",
     "badge": "Exclusive",
     "image": "/uploads/2ade99d2c56c11a047818b010109f680.webp",
     "images": [
       "/uploads/2ade99d2c56c11a047818b010109f680.webp"
-    ]
+    ],
+    "basePrice": 4500,
+    "discountPercent": 0
   },
   {
     "id": 1777303186136,
     "name": "Memphis Tennesee Thrash Original White Hoodie",
     "category": "MEMPHIS",
     "clothingType": "hoodie",
-    "price": 3800,
+    "price": 4500,
     "oldPrice": null,
     "desc": "",
     "badge": "Exclusive",
     "image": "/uploads/9e93d93d0ada6a560df78ef56abfc773.webp",
     "images": [
       "/uploads/9e93d93d0ada6a560df78ef56abfc773.webp"
-    ]
+    ],
+    "basePrice": 4500,
+    "discountPercent": 0
   },
   {
     "id": 1777303152670,
@@ -339,7 +385,9 @@
     "image": "/uploads/cb46ab857db9807370bee6772bd29748.webp",
     "images": [
       "/uploads/cb46ab857db9807370bee6772bd29748.webp"
-    ]
+    ],
+    "basePrice": 2500,
+    "discountPercent": 0
   },
   {
     "id": 1777303123542,
@@ -353,35 +401,41 @@
     "image": "/uploads/28c4a11540abeb07bd92e57813cebbd2.webp",
     "images": [
       "/uploads/28c4a11540abeb07bd92e57813cebbd2.webp"
-    ]
+    ],
+    "basePrice": 3000,
+    "discountPercent": 0
   },
   {
     "id": 1777303090903,
     "name": "Memphis Tennesee Thrash Original Black Hoodie",
     "category": "MEMPHIS",
     "clothingType": "hoodie",
-    "price": 3800,
+    "price": 4500,
     "oldPrice": null,
     "desc": "",
     "badge": "New",
     "image": "/uploads/7cc6f2fdadc619f9e5676767dea5ba99.png",
     "images": [
       "/uploads/7cc6f2fdadc619f9e5676767dea5ba99.png"
-    ]
+    ],
+    "basePrice": 4500,
+    "discountPercent": 0
   },
   {
     "id": 1777303061949,
     "name": "Memphis Tennesee Thrash Black Logo White Hoodie",
     "category": "MEMPHIS",
     "clothingType": "hoodie",
-    "price": 3800,
+    "price": 4500,
     "oldPrice": null,
     "desc": "",
     "badge": "Exclusive",
     "image": "/uploads/7d2d6b972ed8545ed16994579b86d7a0.png",
     "images": [
       "/uploads/7d2d6b972ed8545ed16994579b86d7a0.png"
-    ]
+    ],
+    "basePrice": 4500,
+    "discountPercent": 0
   },
   {
     "id": 1777303017147,
@@ -395,14 +449,16 @@
     "image": "/uploads/2d45d37e4a9f4664456aa4d2b91629d0.webp",
     "images": [
       "/uploads/2d45d37e4a9f4664456aa4d2b91629d0.webp"
-    ]
+    ],
+    "basePrice": 3000,
+    "discountPercent": 0
   },
   {
     "id": 1777302881375,
     "name": "Memphis Jookin As Buck Black Hoodie",
     "category": "MEMPHIS",
     "clothingType": "hoodie",
-    "price": 3800,
+    "price": 4500,
     "oldPrice": null,
     "desc": "",
     "badge": "Exclusive",
@@ -410,7 +466,9 @@
     "images": [
       "/uploads/4f3369a1a3ae0881a70a1f257dcc43f2.png",
       "/uploads/ae18b64cdb517e570ea74ef36514e2e8.png"
-    ]
+    ],
+    "basePrice": 4500,
+    "discountPercent": 0
   },
   {
     "id": 1777302379615,
@@ -424,7 +482,9 @@
     "image": "/uploads/63bc53dca8f24ad65d63bfae0f19f0f4.webp",
     "images": [
       "/uploads/63bc53dca8f24ad65d63bfae0f19f0f4.webp"
-    ]
+    ],
+    "basePrice": 2500,
+    "discountPercent": 0
   },
   {
     "id": 1777302346146,
@@ -438,7 +498,9 @@
     "image": "/uploads/ff038668cc5c582d374ebf2458378789.webp",
     "images": [
       "/uploads/ff038668cc5c582d374ebf2458378789.webp"
-    ]
+    ],
+    "basePrice": 2500,
+    "discountPercent": 0
   },
   {
     "id": 1777302322377,
@@ -452,7 +514,9 @@
     "image": "/uploads/98d52c4efae156e36c7fa10910c56bad.webp",
     "images": [
       "/uploads/98d52c4efae156e36c7fa10910c56bad.webp"
-    ]
+    ],
+    "basePrice": 3000,
+    "discountPercent": 0
   },
   {
     "id": 1777302281062,
@@ -466,14 +530,16 @@
     "image": "/uploads/78031b62e46e1d2fac4de67c892e7725.webp",
     "images": [
       "/uploads/78031b62e46e1d2fac4de67c892e7725.webp"
-    ]
+    ],
+    "basePrice": 3000,
+    "discountPercent": 0
   },
   {
     "id": 1777302231318,
     "name": "Уходя Рисуй Везде! White Hoodie",
     "category": "F.A.Y.B.",
     "clothingType": "hoodie",
-    "price": 3800,
+    "price": 4500,
     "oldPrice": null,
     "desc": "",
     "badge": "Exclusive",
@@ -481,14 +547,16 @@
     "images": [
       "/uploads/c146c4691358f0012f0dd2ac2651d243.webp",
       "/uploads/39c79dbe98137e8b4291768f2df9e487.webp"
-    ]
+    ],
+    "basePrice": 4500,
+    "discountPercent": 0
   },
   {
     "id": 1777302157421,
     "name": "Уходя Рисуй Везде! Black Hoodie",
     "category": "F.A.Y.B.",
     "clothingType": "hoodie",
-    "price": 3800,
+    "price": 4500,
     "oldPrice": null,
     "desc": "",
     "badge": "Exclusive",
@@ -496,7 +564,9 @@
     "images": [
       "/uploads/8bf6253910ab063a0c20d1eecbcc254f.webp",
       "/uploads/7c5ddc624341c01265e5e9b48df52beb.webp"
-    ]
+    ],
+    "basePrice": 4500,
+    "discountPercent": 0
   },
   {
     "id": 1776899481437,
@@ -511,7 +581,9 @@
     "images": [
       "/uploads/07934a00b7f70e299541ce704d6080f7.webp",
       "/uploads/1946a7280be549dc74bb7a2f902ee2b4.webp"
-    ]
+    ],
+    "basePrice": 2500,
+    "discountPercent": 0
   },
   {
     "id": 1776899481450,
@@ -526,14 +598,16 @@
     "images": [
       "/uploads/fa97daeadefec294a2269a654e3deff9.webp",
       "/uploads/73c0d175d0b9b921868f095d0e88ed15.webp"
-    ]
+    ],
+    "basePrice": 2500,
+    "discountPercent": 0
   },
   {
     "id": 1776899481484,
     "name": "3.5 PROPOVEDNIK COLLECTION Hoodie",
     "category": "3.5 PROPOVEDNIK COLLECTION",
     "clothingType": "hoodie",
-    "price": 3800,
+    "price": 4500,
     "oldPrice": null,
     "desc": "",
     "badge": "New",
@@ -541,7 +615,9 @@
     "images": [
       "/uploads/90492b087a590a6dbc3e7b133c515ad3.webp",
       "/uploads/88cbccd852b419a9a49b893bf3b06ffa.webp"
-    ]
+    ],
+    "basePrice": 4500,
+    "discountPercent": 0
   },
   {
     "id": 1776899481558,
@@ -556,7 +632,9 @@
     "images": [
       "/uploads/24007c3e91f8b8ec9adac27a8569bb87.webp",
       "/uploads/d60f3e3b0f0b0473e0ab215034f63711.webp"
-    ]
+    ],
+    "basePrice": 3000,
+    "discountPercent": 0
   },
   {
     "id": 1776899481607,
@@ -571,7 +649,9 @@
     "images": [
       "/uploads/c71f35f3fcf8c60b147da0916170252a.webp",
       "/uploads/9d251bc5aa74628e7e834b9ca5cb5221.webp"
-    ]
+    ],
+    "basePrice": 2500,
+    "discountPercent": 0
   },
   {
     "id": 1776899481618,
@@ -586,7 +666,9 @@
     "images": [
       "/uploads/9e2730f72f01ace07505a0775d69c963.webp",
       "/uploads/d201768b0cf20320e4ec994999d2eb65.webp"
-    ]
+    ],
+    "basePrice": 2500,
+    "discountPercent": 0
   },
   {
     "id": 1776899481629,
@@ -601,14 +683,16 @@
     "images": [
       "/uploads/a3b3244a99fa8a2eba055c63ed478fb9.webp",
       "/uploads/ac810ec3989d351fd0f3a680f7f8bdc6.webp"
-    ]
+    ],
+    "basePrice": 2500,
+    "discountPercent": 0
   },
   {
     "id": 1776899481643,
-    "name": "BONE THUGS N HARMPNY TEE",
+    "name": "BONE THUGS N HARMONY TEE",
     "category": "BONE THUGS-N-HARMONY",
     "clothingType": "tshirt",
-    "price": 2500,
+    "price": 2125,
     "oldPrice": null,
     "desc": "",
     "badge": "",
@@ -616,7 +700,9 @@
     "images": [
       "/uploads/e007d0d4ee3430c9d7bf3b88334c8c75.webp",
       "/uploads/c0904986d4cf2791525492148000c239.webp"
-    ]
+    ],
+    "basePrice": 2125,
+    "discountPercent": 0
   },
   {
     "id": 1776899481680,
@@ -630,7 +716,9 @@
     "image": "/uploads/0de149d0c95b8018101ec16894160bcb.webp",
     "images": [
       "/uploads/0de149d0c95b8018101ec16894160bcb.webp"
-    ]
+    ],
+    "basePrice": 3000,
+    "discountPercent": 0
   },
   {
     "id": 1776899481717,
@@ -644,7 +732,9 @@
     "image": "/uploads/6e7f98a4a50c5ebd13db884a330f5a71.webp",
     "images": [
       "/uploads/6e7f98a4a50c5ebd13db884a330f5a71.webp"
-    ]
+    ],
+    "basePrice": 3000,
+    "discountPercent": 0
   },
   {
     "id": 1776899481750,
@@ -658,14 +748,16 @@
     "image": "/uploads/030b78da5f16aec18ff772bfac1e4bfb.webp",
     "images": [
       "/uploads/030b78da5f16aec18ff772bfac1e4bfb.webp"
-    ]
+    ],
+    "basePrice": 3000,
+    "discountPercent": 0
   },
   {
     "id": 1776899481770,
     "name": "DEVILISH TRIO - PAST JUNTS Hoodie",
     "category": "DEVILISH TRIO",
     "clothingType": "hoodie",
-    "price": 3800,
+    "price": 4500,
     "oldPrice": null,
     "desc": "",
     "badge": "",
@@ -673,7 +765,9 @@
     "images": [
       "/uploads/ca0ea12ebac0bbc4c58d54b531392e53.webp",
       "/uploads/63988f3aec2f7eb764d37478a4fcfde1.webp"
-    ]
+    ],
+    "basePrice": 4500,
+    "discountPercent": 0
   },
   {
     "id": 1776899481783,
@@ -688,7 +782,9 @@
     "images": [
       "/uploads/cbecdff0815421a3ea1a259e30ad5bee.webp",
       "/uploads/e06a4f913e55ea7b608aa08e73d2a5d8.webp"
-    ]
+    ],
+    "basePrice": 2500,
+    "discountPercent": 0
   },
   {
     "id": 1776899481795,
@@ -703,7 +799,9 @@
     "images": [
       "/uploads/0b4b7ecac23aaa7da1cf1cccd110e8c0.webp",
       "/uploads/fa8693fbbb5ed5b0f2b0dd33dc2665de.webp"
-    ]
+    ],
+    "basePrice": 2500,
+    "discountPercent": 0
   },
   {
     "id": 1776899481805,
@@ -718,14 +816,16 @@
     "images": [
       "/uploads/bb900397bce953dd68262d66b69e37a4.webp",
       "/uploads/b1999ea885cbe77a721e18ffb3fe3d67.webp"
-    ]
+    ],
+    "basePrice": 2500,
+    "discountPercent": 0
   },
   {
     "id": 1776899481821,
     "name": "DEVILISH TRIO Hoodie",
     "category": "DEVILISH TRIO",
     "clothingType": "hoodie",
-    "price": 3800,
+    "price": 4500,
     "oldPrice": null,
     "desc": "",
     "badge": "",
@@ -733,7 +833,9 @@
     "images": [
       "/uploads/5fd11fb2dca773c2b85a3d38b58dc1e3.webp",
       "/uploads/b769a48a8cf1d36351c37d4a7212781c.webp"
-    ]
+    ],
+    "basePrice": 4500,
+    "discountPercent": 0
   },
   {
     "id": 1776899481887,
@@ -748,14 +850,16 @@
     "images": [
       "/uploads/10ceaabf4f53da39797ac167c3333875.webp",
       "/uploads/922b3018e05a7f136b5d4a67a400701a.webp"
-    ]
+    ],
+    "basePrice": 3000,
+    "discountPercent": 0
   },
   {
     "id": 1776899481905,
     "name": "DJ Akoza Black Hoodie",
     "category": "DJ AKOZA",
     "clothingType": "hoodie",
-    "price": 3800,
+    "price": 4500,
     "oldPrice": null,
     "desc": "",
     "badge": "",
@@ -763,7 +867,9 @@
     "images": [
       "/uploads/40fc83d3815bfc54dcc7410ce80da39d.webp",
       "/uploads/4333d00fe435a7a48290146081003e5b.webp"
-    ]
+    ],
+    "basePrice": 4500,
+    "discountPercent": 0
   },
   {
     "id": 1776899481916,
@@ -778,14 +884,16 @@
     "images": [
       "/uploads/c1ae5182fac27037fe131fe84c84de4d.webp",
       "/uploads/d768cb21dae090bce05733a3c300e819.webp"
-    ]
+    ],
+    "basePrice": 2500,
+    "discountPercent": 0
   },
   {
     "id": 1776899481932,
     "name": "DJ Akoza – Inherit The Wasteland Hoodie",
     "category": "DJ AKOZA",
     "clothingType": "hoodie",
-    "price": 3800,
+    "price": 4500,
     "oldPrice": null,
     "desc": "",
     "badge": "",
@@ -793,7 +901,9 @@
     "images": [
       "/uploads/0aa55e1479dae3392dea1a51792d7991.webp",
       "/uploads/e420e78bd6b1f0d320eb7799a1b33d5a.webp"
-    ]
+    ],
+    "basePrice": 4500,
+    "discountPercent": 0
   },
   {
     "id": 1776899481943,
@@ -808,7 +918,9 @@
     "images": [
       "/uploads/d66787df0602f6636f7654468f8963d0.webp",
       "/uploads/a6ee8a5ec8b6036831ba3c259bdf9bb5.webp"
-    ]
+    ],
+    "basePrice": 2500,
+    "discountPercent": 0
   },
   {
     "id": 1776899481957,
@@ -823,14 +935,16 @@
     "images": [
       "/uploads/11bd6e476f68815f2d46ba378f415d06.webp",
       "/uploads/8840933c821758690875febe54457a29.webp"
-    ]
+    ],
+    "basePrice": 2500,
+    "discountPercent": 0
   },
   {
     "id": 1776899481988,
     "name": "DJ CHROME TONE White Hoodie",
     "category": "DJ CHROME TONE",
     "clothingType": "hoodie",
-    "price": 3800,
+    "price": 4500,
     "oldPrice": null,
     "desc": "",
     "badge": "",
@@ -838,14 +952,16 @@
     "images": [
       "/uploads/4d903f6368ee464962a446391639b79d.webp",
       "/uploads/ed36730d926209366e7421454ade9b79.webp"
-    ]
+    ],
+    "basePrice": 4500,
+    "discountPercent": 0
   },
   {
     "id": 1776899481997,
     "name": "DJ SACRED HOODIE",
     "category": "DJ SACRED",
     "clothingType": "hoodie",
-    "price": 3800,
+    "price": 4500,
     "oldPrice": null,
     "desc": "",
     "badge": "Best Seller",
@@ -853,7 +969,9 @@
     "images": [
       "/uploads/437c0b58a8e48a920b9a29911a714e47.webp",
       "/uploads/e3958f36062fae74132d5e960da8bebd.webp"
-    ]
+    ],
+    "basePrice": 4500,
+    "discountPercent": 0
   },
   {
     "id": 1776899482007,
@@ -868,7 +986,9 @@
     "images": [
       "/uploads/70ecd23f99860b7f535ee4f133cf6b95.webp",
       "/uploads/4eb4c5d5aa88edb03ef5cb2764fe13f2.webp"
-    ]
+    ],
+    "basePrice": 2500,
+    "discountPercent": 0
   },
   {
     "id": 1776899482052,
@@ -882,7 +1002,9 @@
     "image": "/uploads/29b54f7f087a455827b1910085c5762b.webp",
     "images": [
       "/uploads/29b54f7f087a455827b1910085c5762b.webp"
-    ]
+    ],
+    "basePrice": 3000,
+    "discountPercent": 0
   },
   {
     "id": 1776899482063,
@@ -897,14 +1019,16 @@
     "images": [
       "/uploads/95337ca2dbabdd01c7863c435b17317f.webp",
       "/uploads/70fbad01e5a6808bbc14050632d42ae0.webp"
-    ]
+    ],
+    "basePrice": 2500,
+    "discountPercent": 0
   },
   {
     "id": 1776899482078,
     "name": "DJ SCREW Hoodie",
     "category": "DJ SCREW",
     "clothingType": "hoodie",
-    "price": 3800,
+    "price": 4500,
     "oldPrice": null,
     "desc": "",
     "badge": "",
@@ -912,7 +1036,9 @@
     "images": [
       "/uploads/2cea421d57c453e72067f2e611aa05fc.webp",
       "/uploads/cf125a8492e785c9f7ae0506e83e6a4d.webp"
-    ]
+    ],
+    "basePrice": 4500,
+    "discountPercent": 0
   },
   {
     "id": 1776899482090,
@@ -927,14 +1053,16 @@
     "images": [
       "/uploads/56ad2f180a9da762e5efac6fe651e8e1.webp",
       "/uploads/9e274f32ccb9e3bad5a730a35778b6e6.webp"
-    ]
+    ],
+    "basePrice": 2500,
+    "discountPercent": 0
   },
   {
     "id": 1776899482119,
     "name": "DJ XBOX360 - LOWRIDE 2 Hoodie",
     "category": "DJ XBOX360",
     "clothingType": "hoodie",
-    "price": 3800,
+    "price": 4500,
     "oldPrice": null,
     "desc": "",
     "badge": "",
@@ -942,14 +1070,16 @@
     "images": [
       "/uploads/98bd973bd703086d3a13833298518009.webp",
       "/uploads/7529c9e67c6f7b8ace315f3e6e48d0d7.webp"
-    ]
+    ],
+    "basePrice": 4500,
+    "discountPercent": 0
   },
   {
     "id": 1776899482151,
     "name": "DJ XBOX360 - LOWRIDE Hoodie",
     "category": "DJ XBOX360",
     "clothingType": "hoodie",
-    "price": 3800,
+    "price": 4500,
     "oldPrice": null,
     "desc": "",
     "badge": "",
@@ -957,7 +1087,9 @@
     "images": [
       "/uploads/4125c7a6f796e01f870167315917cd47.webp",
       "/uploads/7529c9e67c6f7b8ace315f3e6e48d0d7.webp"
-    ]
+    ],
+    "basePrice": 4500,
+    "discountPercent": 0
   },
   {
     "id": 1776899482183,
@@ -971,7 +1103,9 @@
     "image": "/uploads/5a6c114556050d5808d453e1aa9ef4e5.webp",
     "images": [
       "/uploads/5a6c114556050d5808d453e1aa9ef4e5.webp"
-    ]
+    ],
+    "basePrice": 2500,
+    "discountPercent": 0
   },
   {
     "id": 1776899482212,
@@ -985,7 +1119,9 @@
     "image": "/uploads/c61e246ab4ef25b2d98cfdb426518ea8.webp",
     "images": [
       "/uploads/c61e246ab4ef25b2d98cfdb426518ea8.webp"
-    ]
+    ],
+    "basePrice": 2500,
+    "discountPercent": 0
   },
   {
     "id": 1776899482248,
@@ -999,7 +1135,9 @@
     "image": "/uploads/a3c6670991f21347f74e1e4da588f9b8.webp",
     "images": [
       "/uploads/a3c6670991f21347f74e1e4da588f9b8.webp"
-    ]
+    ],
+    "basePrice": 3000,
+    "discountPercent": 0
   },
   {
     "id": 1776899482260,
@@ -1014,7 +1152,9 @@
     "images": [
       "/uploads/19aafcee26e9db67117c783e4ec64578.webp",
       "/uploads/b62f4e042a525b13e05aa1dff984ba46.webp"
-    ]
+    ],
+    "basePrice": 2500,
+    "discountPercent": 0
   },
   {
     "id": 1776899482271,
@@ -1029,14 +1169,16 @@
     "images": [
       "/uploads/6143b747a94f548ef3100cc15628f946.webp",
       "/uploads/1d2f206cba2300f65eb1f50f6ee094ca.webp"
-    ]
+    ],
+    "basePrice": 2500,
+    "discountPercent": 0
   },
   {
     "id": 1776899482292,
     "name": "DOOMSHOP - DUNGEON SESSION Hoodie",
     "category": "DOOMSHOP",
     "clothingType": "hoodie",
-    "price": 3800,
+    "price": 4500,
     "oldPrice": null,
     "desc": "",
     "badge": "",
@@ -1044,7 +1186,9 @@
     "images": [
       "/uploads/7d7907a1915e8b231928647ff21db33b.webp",
       "/uploads/20d3c212a1cc98e9a3b1062c5a0829cd.webp"
-    ]
+    ],
+    "basePrice": 4500,
+    "discountPercent": 0
   },
   {
     "id": 1776899482365,
@@ -1059,14 +1203,16 @@
     "images": [
       "/uploads/bf6a80aa3f4206c6ba8c9b02cc349be5.webp",
       "/uploads/3712537c3da163f1fafbab76564caf8c.webp"
-    ]
+    ],
+    "basePrice": 3000,
+    "discountPercent": 0
   },
   {
     "id": 1776899482388,
     "name": "DOOMSHOP FIRE LOGO Hoodie",
     "category": "DOOMSHOP",
     "clothingType": "hoodie",
-    "price": 3800,
+    "price": 4500,
     "oldPrice": null,
     "desc": "",
     "badge": "",
@@ -1074,14 +1220,16 @@
     "images": [
       "/uploads/c4898747f7b07bf1e2a464b985bfc1bc.webp",
       "/uploads/343dba1f64c824efd69110f65682fc48.webp"
-    ]
+    ],
+    "basePrice": 4500,
+    "discountPercent": 0
   },
   {
     "id": 1776899482409,
     "name": "DOOMSHOP GREEN THUNDER 2024 Hoodie",
     "category": "DOOMSHOP",
     "clothingType": "hoodie",
-    "price": 3800,
+    "price": 4500,
     "oldPrice": null,
     "desc": "",
     "badge": "",
@@ -1089,7 +1237,9 @@
     "images": [
       "/uploads/ed76c7c53a03fb969510e1846a90267d.webp",
       "/uploads/372ec2a2eba579ef84f1929196ee72e3.webp"
-    ]
+    ],
+    "basePrice": 4500,
+    "discountPercent": 0
   },
   {
     "id": 1776899482422,
@@ -1104,14 +1254,16 @@
     "images": [
       "/uploads/cbdca79c374478dca5f99dca448adb86.webp",
       "/uploads/72fd9eb6786e980ffe52115e0747ac9a.webp"
-    ]
+    ],
+    "basePrice": 2500,
+    "discountPercent": 0
   },
   {
     "id": 1776899482436,
     "name": "DOOMSHOP ORIGINAL LOGO Hoodie",
     "category": "DOOMSHOP",
     "clothingType": "hoodie",
-    "price": 3800,
+    "price": 4500,
     "oldPrice": null,
     "desc": "",
     "badge": "",
@@ -1119,14 +1271,16 @@
     "images": [
       "/uploads/16ae74c27498023989211e75f2104b19.webp",
       "/uploads/11c68388334f92429136e7b69e1f024b.webp"
-    ]
+    ],
+    "basePrice": 4500,
+    "discountPercent": 0
   },
   {
     "id": 1776899482452,
     "name": "DOOMSHOP PURPLE LOGO Hoodie",
     "category": "DOOMSHOP",
     "clothingType": "hoodie",
-    "price": 3800,
+    "price": 4500,
     "oldPrice": null,
     "desc": "",
     "badge": "",
@@ -1134,7 +1288,9 @@
     "images": [
       "/uploads/4a768bfd6056bf569269a271af152f85.webp",
       "/uploads/02a40848df6cf8fe1d6f6d591a58efb4.webp"
-    ]
+    ],
+    "basePrice": 4500,
+    "discountPercent": 0
   },
   {
     "id": 1776899482529,
@@ -1149,7 +1305,9 @@
     "images": [
       "/uploads/c804a33d88a406a9387303a9fdb11bb4.webp",
       "/uploads/c0953a7784373eba2c05c6d054257033.webp"
-    ]
+    ],
+    "basePrice": 3000,
+    "discountPercent": 0
   },
   {
     "id": 1776899482540,
@@ -1164,14 +1322,16 @@
     "images": [
       "/uploads/a4fa343c5fe7caf8c0bf983d9fb0a857.webp",
       "/uploads/df1585cca71e0f04dd66f1ab6b3a6431.webp"
-    ]
+    ],
+    "basePrice": 2500,
+    "discountPercent": 0
   },
   {
     "id": 1776899482567,
     "name": "DOOMSHOP RECORDS (PURPLE LOGO) White Hoodie",
     "category": "DOOMSHOP",
     "clothingType": "hoodie",
-    "price": 3800,
+    "price": 4500,
     "oldPrice": null,
     "desc": "",
     "badge": "",
@@ -1179,7 +1339,9 @@
     "images": [
       "/uploads/de362964d32848772b84d9613f56a001.webp",
       "/uploads/f970fd1da640ee05236769493a97fcaf.webp"
-    ]
+    ],
+    "basePrice": 4500,
+    "discountPercent": 0
   },
   {
     "id": 1776899482582,
@@ -1194,7 +1356,9 @@
     "images": [
       "/uploads/863d8ae26fce2394ef6ae81c6501bab0.webp",
       "/uploads/a351e4046737453592ab586ba461b825.webp"
-    ]
+    ],
+    "basePrice": 2500,
+    "discountPercent": 0
   },
   {
     "id": 1776899482592,
@@ -1209,7 +1373,9 @@
     "images": [
       "/uploads/ab846c11480b7d4a39ce4d059bbd787b.webp",
       "/uploads/45883e6027e1ad8455aea0222221b277.webp"
-    ]
+    ],
+    "basePrice": 2500,
+    "discountPercent": 0
   },
   {
     "id": 1776899482606,
@@ -1224,7 +1390,9 @@
     "images": [
       "/uploads/01c32705571294353cf91ccf6901a5cd.webp",
       "/uploads/246c5733101a200cf8e28590278e4de9.webp"
-    ]
+    ],
+    "basePrice": 2500,
+    "discountPercent": 0
   },
   {
     "id": 1776899482625,
@@ -1239,14 +1407,16 @@
     "images": [
       "/uploads/c9edfc2b2947752d4963d6903c8cb117.webp",
       "/uploads/6f316c48ddc595ed454fa968c0240bf0.webp"
-    ]
+    ],
+    "basePrice": 2500,
+    "discountPercent": 0
   },
   {
     "id": 1776899482653,
     "name": "DOOMSHOP RECORDS (RED LOGO) White Hoodie",
     "category": "DOOMSHOP",
     "clothingType": "hoodie",
-    "price": 3800,
+    "price": 4500,
     "oldPrice": null,
     "desc": "",
     "badge": "",
@@ -1254,7 +1424,9 @@
     "images": [
       "/uploads/54220fdf6751b88eb325a38eb3927b2e.webp",
       "/uploads/52d47d2589494f31fa81bad03bfc71a3.webp"
-    ]
+    ],
+    "basePrice": 4500,
+    "discountPercent": 0
   },
   {
     "id": 1776899482668,
@@ -1268,8 +1440,10 @@
     "image": "/uploads/b64b5b37b4c3729e7b2d82335e4cefc9.webp",
     "images": [
       "/uploads/b64b5b37b4c3729e7b2d82335e4cefc9.webp",
-      "/uploads/347c6b0c017fabe02a5e83002ac33800.webp"
-    ]
+      "/uploads/347c6b0c017fabe02a5e83002ac34500.webp"
+    ],
+    "basePrice": 2500,
+    "discountPercent": 0
   },
   {
     "id": 1776899482704,
@@ -1283,7 +1457,9 @@
     "image": "/uploads/003102fd82a859cf9250c29a8320d36c.webp",
     "images": [
       "/uploads/003102fd82a859cf9250c29a8320d36c.webp"
-    ]
+    ],
+    "basePrice": 3000,
+    "discountPercent": 0
   },
   {
     "id": 1776899482715,
@@ -1298,14 +1474,16 @@
     "images": [
       "/uploads/74f9bc7b495673b445d4cef417f8986e.webp",
       "/uploads/a6b0e2e1573a6eda92c6893ef80ccfbc.webp"
-    ]
+    ],
+    "basePrice": 2500,
+    "discountPercent": 0
   },
   {
     "id": 1776899482743,
     "name": "DOOMSHOP RECORDS White Hoodie",
     "category": "DOOMSHOP",
     "clothingType": "hoodie",
-    "price": 3800,
+    "price": 4500,
     "oldPrice": null,
     "desc": "",
     "badge": "Best Seller",
@@ -1313,7 +1491,9 @@
     "images": [
       "/uploads/a281e09686c642606127b30cc98003a4.webp",
       "/uploads/3dfc25f52f62d3ef0f8654b2a6df9380.webp"
-    ]
+    ],
+    "basePrice": 4500,
+    "discountPercent": 0
   },
   {
     "id": 1776899482756,
@@ -1328,14 +1508,16 @@
     "images": [
       "/uploads/364df2022a6b00ada45a7c5d2ce4df8d.webp",
       "/uploads/980418683c08cda6914f078a27d75cb9.webp"
-    ]
+    ],
+    "basePrice": 2500,
+    "discountPercent": 0
   },
   {
     "id": 1776899482772,
     "name": "DOOMSHOP RECORDS Hoodie",
     "category": "DOOMSHOP",
     "clothingType": "hoodie",
-    "price": 3800,
+    "price": 4500,
     "oldPrice": null,
     "desc": "",
     "badge": "",
@@ -1343,14 +1525,16 @@
     "images": [
       "/uploads/b7f0e9ddf21a5c879375cc725bb1d851.webp",
       "/uploads/1a7a923e846cceedc877371d47f099bf.webp"
-    ]
+    ],
+    "basePrice": 4500,
+    "discountPercent": 0
   },
   {
     "id": 1776899482789,
     "name": "DOOMSHOP RED LOGO Hoodie",
     "category": "DOOMSHOP",
     "clothingType": "hoodie",
-    "price": 3800,
+    "price": 4500,
     "oldPrice": null,
     "desc": "",
     "badge": "Best Seller",
@@ -1358,7 +1542,9 @@
     "images": [
       "/uploads/15bb1809a7c5b35cdbce3b4a2fdb5309.webp",
       "/uploads/0481b92f4375a4daafbd16fe1341540d.webp"
-    ]
+    ],
+    "basePrice": 4500,
+    "discountPercent": 0
   },
   {
     "id": 1776899482801,
@@ -1373,14 +1559,16 @@
     "images": [
       "/uploads/afcb4330e4b591769b40afe0dee5d18b.webp",
       "/uploads/a19ed4cde2f6da13bbcc3f835087ac77.webp"
-    ]
+    ],
+    "basePrice": 2500,
+    "discountPercent": 0
   },
   {
     "id": 1776899482816,
     "name": "DOOMSHOP RECORDS MAIN Hoodie",
     "category": "DOOMSHOP",
     "clothingType": "hoodie",
-    "price": 3800,
+    "price": 4500,
     "oldPrice": null,
     "desc": "",
     "badge": "Best Seller",
@@ -1388,14 +1576,16 @@
     "images": [
       "/uploads/dd7ea77adad79de4deceba26a0b73f34.webp",
       "/uploads/8f14fec26ad6b86ee0e41948f9c775e8.webp"
-    ]
+    ],
+    "basePrice": 4500,
+    "discountPercent": 0
   },
   {
     "id": 1776899482845,
     "name": "DOOMSHOP War Before Civilization 1726 White Hoodie",
     "category": "DOOMSHOP",
     "clothingType": "hoodie",
-    "price": 3800,
+    "price": 4500,
     "oldPrice": null,
     "desc": "",
     "badge": "",
@@ -1403,7 +1593,9 @@
     "images": [
       "/uploads/c5a86b73e2580b94f7de4dff94ac3fe5.webp",
       "/uploads/bd2d9fb79d3b7d206d91acac49f7cd4a.webp"
-    ]
+    ],
+    "basePrice": 4500,
+    "discountPercent": 0
   },
   {
     "id": 1776899482908,
@@ -1417,7 +1609,9 @@
     "image": "/uploads/6efe75b0bcebd5cc8eab10c147b516dc.webp",
     "images": [
       "/uploads/6efe75b0bcebd5cc8eab10c147b516dc.webp"
-    ]
+    ],
+    "basePrice": 3000,
+    "discountPercent": 0
   },
   {
     "id": 1776899482937,
@@ -1431,14 +1625,16 @@
     "image": "/uploads/b6383a3e9b479f4ff4475b8a985f7995.webp",
     "images": [
       "/uploads/b6383a3e9b479f4ff4475b8a985f7995.webp"
-    ]
+    ],
+    "basePrice": 3000,
+    "discountPercent": 0
   },
   {
     "id": 1776899482960,
     "name": "FAYB GRAFFITI Hoodie",
     "category": "F.A.Y.B.",
     "clothingType": "hoodie",
-    "price": 3800,
+    "price": 4500,
     "oldPrice": null,
     "desc": "",
     "badge": "",
@@ -1446,7 +1642,9 @@
     "images": [
       "/uploads/c42092b9252fffcdd94fe1a965b0f870.webp",
       "/uploads/280b03ce8aa0ff07257eb98eadb3a63e.webp"
-    ]
+    ],
+    "basePrice": 4500,
+    "discountPercent": 0
   },
   {
     "id": 1776899482978,
@@ -1461,7 +1659,9 @@
     "images": [
       "/uploads/e269cdae2f7137cd6226fe8940e31d29.webp",
       "/uploads/48843f458df659673dec610dbbc39be0.webp"
-    ]
+    ],
+    "basePrice": 2500,
+    "discountPercent": 0
   },
   {
     "id": 1776899482994,
@@ -1476,14 +1676,16 @@
     "images": [
       "/uploads/fe8e4c10e806fec420ea4c169af4608e.webp",
       "/uploads/62bd5f868d5e6dc372da04eb12b0179e.webp"
-    ]
+    ],
+    "basePrice": 2500,
+    "discountPercent": 0
   },
   {
     "id": 1776899483010,
     "name": "FAYB Hoodie",
     "category": "F.A.Y.B.",
     "clothingType": "hoodie",
-    "price": 3800,
+    "price": 4500,
     "oldPrice": null,
     "desc": "",
     "badge": "",
@@ -1491,14 +1693,16 @@
     "images": [
       "/uploads/b5d7f0cd5fcce0fc979ab4d2a71e1a89.webp",
       "/uploads/4472ba9b5caa5515a95d5cad2ea2567e.webp"
-    ]
+    ],
+    "basePrice": 4500,
+    "discountPercent": 0
   },
   {
     "id": 1776899483029,
     "name": "Freddie Dredd - INFERNO TOUR Hoodie",
     "category": "FREDDIE DREDD",
     "clothingType": "hoodie",
-    "price": 3800,
+    "price": 4500,
     "oldPrice": null,
     "desc": "",
     "badge": "",
@@ -1506,7 +1710,9 @@
     "images": [
       "/uploads/8fdad11ac3ae823fa42eacadab33e375.webp",
       "/uploads/c75200098a829244ebc35a7495692fd3.webp"
-    ]
+    ],
+    "basePrice": 4500,
+    "discountPercent": 0
   },
   {
     "id": 1776899483040,
@@ -1521,7 +1727,9 @@
     "images": [
       "/uploads/a48d8bbbd103559404201b3756d980d9.webp",
       "/uploads/f093be66b960c2a6a592d33502d6d7c6.webp"
-    ]
+    ],
+    "basePrice": 2500,
+    "discountPercent": 0
   },
   {
     "id": 1776899483050,
@@ -1536,7 +1744,9 @@
     "images": [
       "/uploads/13761e6d47ef51cda709b8fcbfe3074b.webp",
       "/uploads/cc166a9401a2a73c52550d49bab5db1c.webp"
-    ]
+    ],
+    "basePrice": 2500,
+    "discountPercent": 0
   },
   {
     "id": 1776899483061,
@@ -1551,7 +1761,9 @@
     "images": [
       "/uploads/36ff94fd8cd16016d306a7a52f2549e2.webp",
       "/uploads/1da7a65226e24ef18dda62ec82cf7da7.webp"
-    ]
+    ],
+    "basePrice": 2500,
+    "discountPercent": 0
   },
   {
     "id": 1776899483074,
@@ -1566,7 +1778,9 @@
     "images": [
       "/uploads/05a58f8292223b6861c0ce98612e95cf.webp",
       "/uploads/c2f2eb2bb632d91dc793d7b62d4a39d3.webp"
-    ]
+    ],
+    "basePrice": 2500,
+    "discountPercent": 0
   },
   {
     "id": 1776899483088,
@@ -1581,7 +1795,9 @@
     "images": [
       "/uploads/f272ad155b25c18acd0e398114a1dead.webp",
       "/uploads/d72cc8210f2afb42b173916a0de051ee.webp"
-    ]
+    ],
+    "basePrice": 2500,
+    "discountPercent": 0
   },
   {
     "id": 1776899483097,
@@ -1596,7 +1812,9 @@
     "images": [
       "/uploads/62f9e1f06c92667af706fec705e5b21a.webp",
       "/uploads/c3b9e7a06657e327f18c6815a12f4334.webp"
-    ]
+    ],
+    "basePrice": 2500,
+    "discountPercent": 0
   },
   {
     "id": 1776899483111,
@@ -1611,7 +1829,9 @@
     "images": [
       "/uploads/2cb141e4783a8e1c4ae475467a5708be.webp",
       "/uploads/792af209004f547e54e467fb139a877b.webp"
-    ]
+    ],
+    "basePrice": 2500,
+    "discountPercent": 0
   },
   {
     "id": 1776899483140,
@@ -1625,7 +1845,9 @@
     "image": "/uploads/63fc28a194400da9764100a4578cfb1a.webp",
     "images": [
       "/uploads/63fc28a194400da9764100a4578cfb1a.webp"
-    ]
+    ],
+    "basePrice": 3000,
+    "discountPercent": 0
   },
   {
     "id": 1776899483151,
@@ -1640,14 +1862,16 @@
     "images": [
       "/uploads/10c692b944c250bb7f8e68b320632c5e.webp",
       "/uploads/cfa5ecff692285dd0ddb359fc8d03826.webp"
-    ]
+    ],
+    "basePrice": 2500,
+    "discountPercent": 0
   },
   {
     "id": 1776899483166,
     "name": "HYPNOTIZE Hoodie",
     "category": "HYPNOTIZE MINDS",
     "clothingType": "hoodie",
-    "price": 3800,
+    "price": 4500,
     "oldPrice": null,
     "desc": "",
     "badge": "",
@@ -1655,14 +1879,16 @@
     "images": [
       "/uploads/af181f8350d868a211e832d800a12401.webp",
       "/uploads/44e151a6ebe90632426a8c681aad0cbb.webp"
-    ]
+    ],
+    "basePrice": 4500,
+    "discountPercent": 0
   },
   {
     "id": 1776899483185,
     "name": "KRUCIFIX KLAN Hoodie",
     "category": "KRUCIFIX KLAN",
     "clothingType": "hoodie",
-    "price": 3800,
+    "price": 4500,
     "oldPrice": null,
     "desc": "",
     "badge": "",
@@ -1670,7 +1896,9 @@
     "images": [
       "/uploads/b9cc016d3441f134bfb4900de7fb0f68.webp",
       "/uploads/1d26c87abaab8e3e6843ad32fdf51723.webp"
-    ]
+    ],
+    "basePrice": 4500,
+    "discountPercent": 0
   },
   {
     "id": 1776899483198,
@@ -1685,21 +1913,25 @@
     "images": [
       "/uploads/1dd846edb1f4833a159697297644b1df.webp",
       "/uploads/53046cd44b380929120079603cd44bd9.webp"
-    ]
+    ],
+    "basePrice": 2500,
+    "discountPercent": 0
   },
   {
     "id": 1776899483211,
     "name": "LIL UGLY MANE - MISTA THUG ISOLATION Hoodie",
     "category": "LIL UGLY MANE",
     "clothingType": "hoodie",
-    "price": 3800,
+    "price": 4500,
     "oldPrice": null,
     "desc": "",
     "badge": "",
     "image": "/uploads/d61d8e8a3befc3cad429e89c5ad5281a.webp",
     "images": [
       "/uploads/d61d8e8a3befc3cad429e89c5ad5281a.webp"
-    ]
+    ],
+    "basePrice": 4500,
+    "discountPercent": 0
   },
   {
     "id": 1776899483224,
@@ -1714,21 +1946,25 @@
     "images": [
       "/uploads/ab7766dde31ad440e05edb1f8835d2ed.webp",
       "/uploads/9891e9f0209201462fda4b73ab56dea6.webp"
-    ]
+    ],
+    "basePrice": 2500,
+    "discountPercent": 0
   },
   {
     "id": 1776899483231,
     "name": "LIL UGLY MANE - MISTA THUG ISOLATION Hoodie",
     "category": "LIL UGLY MANE",
     "clothingType": "hoodie",
-    "price": 3800,
+    "price": 4500,
     "oldPrice": null,
     "desc": "",
     "badge": "",
     "image": "/uploads/944db88111d3af295dcac31cd7dc2d91.webp",
     "images": [
       "/uploads/944db88111d3af295dcac31cd7dc2d91.webp"
-    ]
+    ],
+    "basePrice": 4500,
+    "discountPercent": 0
   },
   {
     "id": 1776899483271,
@@ -1742,7 +1978,9 @@
     "image": "/uploads/8282028c1b5fa123dd04cda0d909a0e8.webp",
     "images": [
       "/uploads/8282028c1b5fa123dd04cda0d909a0e8.webp"
-    ]
+    ],
+    "basePrice": 3000,
+    "discountPercent": 0
   },
   {
     "id": 1776899483308,
@@ -1756,7 +1994,9 @@
     "image": "/uploads/c037eadddd0bcdddfd30185b3f1c39fc.webp",
     "images": [
       "/uploads/c037eadddd0bcdddfd30185b3f1c39fc.webp"
-    ]
+    ],
+    "basePrice": 3000,
+    "discountPercent": 0
   },
   {
     "id": 1776899483337,
@@ -1770,7 +2010,9 @@
     "image": "/uploads/1004b41a943582d3fb904050f8edc720.webp",
     "images": [
       "/uploads/1004b41a943582d3fb904050f8edc720.webp"
-    ]
+    ],
+    "basePrice": 3000,
+    "discountPercent": 0
   },
   {
     "id": 1776899483377,
@@ -1784,7 +2026,9 @@
     "image": "/uploads/df26caac8a0cc4d4b612a38f925c48ab.webp",
     "images": [
       "/uploads/df26caac8a0cc4d4b612a38f925c48ab.webp"
-    ]
+    ],
+    "basePrice": 3000,
+    "discountPercent": 0
   },
   {
     "id": 1776899483387,
@@ -1799,14 +2043,16 @@
     "images": [
       "/uploads/2be9ca88bd4b9287353f4197465374ff.webp",
       "/uploads/6547b44c6a2386177eeebf9553218c5b.webp"
-    ]
+    ],
+    "basePrice": 2500,
+    "discountPercent": 0
   },
   {
     "id": 1776899483402,
     "name": "OCCVLT Hoodie",
     "category": "OCCVLT",
     "clothingType": "hoodie",
-    "price": 3800,
+    "price": 4500,
     "oldPrice": null,
     "desc": "",
     "badge": "",
@@ -1814,7 +2060,9 @@
     "images": [
       "/uploads/cfcc9b6006f82e4999ac2c44f467d5ef.webp",
       "/uploads/a9c3b91096293b66701bb45e30ae8232.webp"
-    ]
+    ],
+    "basePrice": 4500,
+    "discountPercent": 0
   },
   {
     "id": 1776899483414,
@@ -1829,14 +2077,16 @@
     "images": [
       "/uploads/bb088765a10d6517f571aad94f5cb1e2.webp",
       "/uploads/a61d4644201ca5b351207308f6446904.webp"
-    ]
+    ],
+    "basePrice": 2500,
+    "discountPercent": 0
   },
   {
     "id": 1776899483440,
     "name": "PRODUCTS OF DA UNDAGROUND White Hoodie",
     "category": "PRODUCTS OF DA UNDAGROUND",
     "clothingType": "hoodie",
-    "price": 3800,
+    "price": 4500,
     "oldPrice": null,
     "desc": "",
     "badge": "",
@@ -1844,7 +2094,9 @@
     "images": [
       "/uploads/181ab753596d1deb8f89e15fc5db8800.webp",
       "/uploads/52ac49d0f66ebb74f38d7465efc0471d.webp"
-    ]
+    ],
+    "basePrice": 4500,
+    "discountPercent": 0
   },
   {
     "id": 1776899483485,
@@ -1858,14 +2110,16 @@
     "image": "/uploads/c893aeb0894b5e13d285d09c8cfc92c9.webp",
     "images": [
       "/uploads/c893aeb0894b5e13d285d09c8cfc92c9.webp"
-    ]
+    ],
+    "basePrice": 3000,
+    "discountPercent": 0
   },
   {
     "id": 1776899483499,
     "name": "RIP DJ CHROME TONE Hoodie",
     "category": "DJ CHROME TONE",
     "clothingType": "hoodie",
-    "price": 3800,
+    "price": 4500,
     "oldPrice": null,
     "desc": "",
     "badge": "",
@@ -1873,14 +2127,16 @@
     "images": [
       "/uploads/f3acf8f78c20198579156285383b62db.webp",
       "/uploads/96f0d72eedbb46bf12a0527ecd82810f.webp"
-    ]
+    ],
+    "basePrice": 4500,
+    "discountPercent": 0
   },
   {
     "id": 1776899483512,
     "name": "RVIDXR KLVN Hoodie",
     "category": "RVIDXR KLVN",
     "clothingType": "hoodie",
-    "price": 3800,
+    "price": 4500,
     "oldPrice": null,
     "desc": "",
     "badge": "",
@@ -1888,7 +2144,9 @@
     "images": [
       "/uploads/293874a3acc1bdc8bf7ca34f24643b29.webp",
       "/uploads/685188fada64922545bf885d048b4905.webp"
-    ]
+    ],
+    "basePrice": 4500,
+    "discountPercent": 0
   },
   {
     "id": 1776899483548,
@@ -1902,7 +2160,9 @@
     "image": "/uploads/09a481b5565d0125bc9874ebbdd523ae.webp",
     "images": [
       "/uploads/09a481b5565d0125bc9874ebbdd523ae.webp"
-    ]
+    ],
+    "basePrice": 3000,
+    "discountPercent": 0
   },
   {
     "id": 1776899483590,
@@ -1916,21 +2176,25 @@
     "image": "/uploads/e52013ec34538bb40f6a28dc3e0ec852.webp",
     "images": [
       "/uploads/e52013ec34538bb40f6a28dc3e0ec852.webp"
-    ]
+    ],
+    "basePrice": 3000,
+    "discountPercent": 0
   },
   {
     "id": 1776899483601,
     "name": "SCREWED UP CLICK Hoodie",
     "category": "SCREWED UP CLICK",
     "clothingType": "hoodie",
-    "price": 3800,
+    "price": 4500,
     "oldPrice": null,
     "desc": "",
     "badge": "",
     "image": "/uploads/a672486b57aa9b221bc905b446b71f7b.webp",
     "images": [
       "/uploads/a672486b57aa9b221bc905b446b71f7b.webp"
-    ]
+    ],
+    "basePrice": 4500,
+    "discountPercent": 0
   },
   {
     "id": 1776899483645,
@@ -1944,7 +2208,9 @@
     "image": "/uploads/dd880480a554e1ebe271fa97f5a8ebc6.webp",
     "images": [
       "/uploads/dd880480a554e1ebe271fa97f5a8ebc6.webp"
-    ]
+    ],
+    "basePrice": 3000,
+    "discountPercent": 0
   },
   {
     "id": 1776899483673,
@@ -1958,7 +2224,9 @@
     "image": "/uploads/5dccb4898a681527fdb5ea4d34aaf296.webp",
     "images": [
       "/uploads/5dccb4898a681527fdb5ea4d34aaf296.webp"
-    ]
+    ],
+    "basePrice": 3000,
+    "discountPercent": 0
   },
   {
     "id": 1776899483679,
@@ -1972,14 +2240,16 @@
     "image": "/uploads/a5572886ccfcc252a1317cb696bcfc5b.webp",
     "images": [
       "/uploads/a5572886ccfcc252a1317cb696bcfc5b.webp"
-    ]
+    ],
+    "basePrice": 2500,
+    "discountPercent": 0
   },
   {
     "id": 1776899483693,
     "name": "SIXSET CURSED RED Hoodie",
     "category": "SIXSET",
     "clothingType": "hoodie",
-    "price": 3800,
+    "price": 4500,
     "oldPrice": null,
     "desc": "",
     "badge": "",
@@ -1987,7 +2257,9 @@
     "images": [
       "/uploads/ddf92bdddf604cfedabbccd297a2ef36.webp",
       "/uploads/996f1952b647cbe9a98809ad79238cd9.webp"
-    ]
+    ],
+    "basePrice": 4500,
+    "discountPercent": 0
   },
   {
     "id": 1776899483703,
@@ -2002,7 +2274,9 @@
     "images": [
       "/uploads/df8d1b5cddaf08e84b37c421a247d7d7.webp",
       "/uploads/e1a9a9df30704fcf50658af3234d95f1.webp"
-    ]
+    ],
+    "basePrice": 2500,
+    "discountPercent": 0
   },
   {
     "id": 1776899483713,
@@ -2017,7 +2291,9 @@
     "images": [
       "/uploads/167933259cf551957f86f86c19b2ced0.webp",
       "/uploads/d4e256fbccdfe5ef7750b8b187270f01.webp"
-    ]
+    ],
+    "basePrice": 2500,
+    "discountPercent": 0
   },
   {
     "id": 1776899483722,
@@ -2032,14 +2308,16 @@
     "images": [
       "/uploads/2dda9d042594a11c9cb16f4f1697a878.webp",
       "/uploads/a2b01f731b9029689709f47f5d3f65bc.webp"
-    ]
+    ],
+    "basePrice": 2500,
+    "discountPercent": 0
   },
   {
     "id": 1776899483738,
     "name": "SIXSET Hoodie",
     "category": "SIXSET",
     "clothingType": "hoodie",
-    "price": 3800,
+    "price": 4500,
     "oldPrice": null,
     "desc": "",
     "badge": "",
@@ -2047,7 +2325,9 @@
     "images": [
       "/uploads/3a2648786da399d7693d0269fe9e92e0.webp",
       "/uploads/21cebd23d4aee38b644f5ce19fe2b224.webp"
-    ]
+    ],
+    "basePrice": 4500,
+    "discountPercent": 0
   },
   {
     "id": 1776899483774,
@@ -2061,14 +2341,16 @@
     "image": "/uploads/743a5bfba478648719e1fa2d5c24fb91.webp",
     "images": [
       "/uploads/743a5bfba478648719e1fa2d5c24fb91.webp"
-    ]
+    ],
+    "basePrice": 3000,
+    "discountPercent": 0
   },
   {
     "id": 1776899483791,
     "name": "The Devilish Trio Hoodie",
     "category": "DEVILISH TRIO",
     "clothingType": "hoodie",
-    "price": 3800,
+    "price": 4500,
     "oldPrice": null,
     "desc": "",
     "badge": "",
@@ -2076,7 +2358,9 @@
     "images": [
       "/uploads/c3fe9651aa534b5278c08989feb8d3ab.webp",
       "/uploads/1ad09e2a8e0b4c39f64f4def5e46d98e.webp"
-    ]
+    ],
+    "basePrice": 4500,
+    "discountPercent": 0
   },
   {
     "id": 1776899483802,
@@ -2091,7 +2375,9 @@
     "images": [
       "/uploads/f9d27295a194001b4fa0c2412c9c6b10.webp",
       "/uploads/5fd99fd7c42e4495d1edfe7de8f38467.webp"
-    ]
+    ],
+    "basePrice": 2500,
+    "discountPercent": 0
   },
   {
     "id": 1776899483841,
@@ -2105,14 +2391,16 @@
     "image": "/uploads/2c1efcaeab0bfc276a29ac1cf9006c1c.webp",
     "images": [
       "/uploads/2c1efcaeab0bfc276a29ac1cf9006c1c.webp"
-    ]
+    ],
+    "basePrice": 3000,
+    "discountPercent": 0
   },
   {
     "id": 1776899483855,
     "name": "THREE SIX MAFIA",
     "category": "THREE SIX MAFIA",
     "clothingType": "hoodie",
-    "price": 3800,
+    "price": 4500,
     "oldPrice": null,
     "desc": "",
     "badge": "",
@@ -2120,14 +2408,16 @@
     "images": [
       "/uploads/179ce533d471e4e740ca3edda6341ace.webp",
       "/uploads/ebda56aadb5057c159c1231aa11f69bf.webp"
-    ]
+    ],
+    "basePrice": 4500,
+    "discountPercent": 0
   },
   {
     "id": 1776899483870,
     "name": "THREE SIX MAFIA 2 Hoodie",
     "category": "THREE SIX MAFIA",
     "clothingType": "hoodie",
-    "price": 3800,
+    "price": 4500,
     "oldPrice": null,
     "desc": "",
     "badge": "",
@@ -2135,7 +2425,9 @@
     "images": [
       "/uploads/5c2ad506c765b1dd8557cd650f2d509a.webp",
       "/uploads/3c1d33fc83329bc15f18a209d5d092a1.webp"
-    ]
+    ],
+    "basePrice": 4500,
+    "discountPercent": 0
   },
   {
     "id": 1776899483887,
@@ -2150,7 +2442,9 @@
     "images": [
       "/uploads/74f6558cc0925a7e8e322efde2676cd6.webp",
       "/uploads/1a8609881d38a8fc1ef4dd53429b1c1e.webp"
-    ]
+    ],
+    "basePrice": 2500,
+    "discountPercent": 0
   },
   {
     "id": 1776899483924,
@@ -2164,14 +2458,16 @@
     "image": "/uploads/0c085f859a6ada0335a934a5bcd3472a.webp",
     "images": [
       "/uploads/0c085f859a6ada0335a934a5bcd3472a.webp"
-    ]
+    ],
+    "basePrice": 3000,
+    "discountPercent": 0
   },
   {
     "id": 1776899483954,
     "name": "Tommy Wright III White Hoodie",
     "category": "TOMMY WRIGHT III",
     "clothingType": "hoodie",
-    "price": 3800,
+    "price": 4500,
     "oldPrice": null,
     "desc": "",
     "badge": "",
@@ -2179,7 +2475,9 @@
     "images": [
       "/uploads/fae9a0168833b4a00cc274bad094033f.webp",
       "/uploads/76eb97044b6c1295ea4da01b16ef7db7.webp"
-    ]
+    ],
+    "basePrice": 4500,
+    "discountPercent": 0
   },
   {
     "id": 1776899484018,
@@ -2193,7 +2491,9 @@
     "image": "/uploads/503318aaef14d91192f3cc2e0fa35a54.webp",
     "images": [
       "/uploads/503318aaef14d91192f3cc2e0fa35a54.webp"
-    ]
+    ],
+    "basePrice": 3000,
+    "discountPercent": 0
   },
   {
     "id": 1776899484029,
@@ -2208,14 +2508,16 @@
     "images": [
       "/uploads/603997eb3c33bd826b7a63fc6e987fb9.webp",
       "/uploads/a67e585634fe1b90bc4b9254c629d4af.webp"
-    ]
+    ],
+    "basePrice": 2500,
+    "discountPercent": 0
   },
   {
     "id": 1776899484045,
     "name": "TOMMY Hoodie",
     "category": "TOMMY WRIGHT III",
     "clothingType": "hoodie",
-    "price": 3800,
+    "price": 4500,
     "oldPrice": null,
     "desc": "",
     "badge": "",
@@ -2223,7 +2525,9 @@
     "images": [
       "/uploads/d3c2d119b533ce4b8c0c1f5058821bbf.webp",
       "/uploads/6fa1f0be235759c2ec376851692d1c73.webp"
-    ]
+    ],
+    "basePrice": 4500,
+    "discountPercent": 0
   },
   {
     "id": 1776899484101,
@@ -2237,7 +2541,9 @@
     "image": "/uploads/1def7a85e5d2664701098bcfb420dddc.webp",
     "images": [
       "/uploads/1def7a85e5d2664701098bcfb420dddc.webp"
-    ]
+    ],
+    "basePrice": 3000,
+    "discountPercent": 0
   },
   {
     "id": 1776899484170,
@@ -2251,28 +2557,32 @@
     "image": "/uploads/de2054f721aee01ee77e9f9a35fca075.webp",
     "images": [
       "/uploads/de2054f721aee01ee77e9f9a35fca075.webp"
-    ]
+    ],
+    "basePrice": 3000,
+    "discountPercent": 0
   },
   {
     "id": 1776899484188,
     "name": "Triple Six Mafia White Hoodie",
     "category": "THREE SIX MAFIA",
     "clothingType": "hoodie",
-    "price": 3800,
+    "price": 4500,
     "oldPrice": null,
     "desc": "",
     "badge": "",
     "image": "/uploads/1ade50dec88680179cef04fcd9dcbaf0.webp",
     "images": [
       "/uploads/1ade50dec88680179cef04fcd9dcbaf0.webp"
-    ]
+    ],
+    "basePrice": 4500,
+    "discountPercent": 0
   },
   {
     "id": 1776899484206,
     "name": "TRIPLE SIX MAFIA Hoodie",
     "category": "THREE SIX MAFIA",
     "clothingType": "hoodie",
-    "price": 3800,
+    "price": 4500,
     "oldPrice": null,
     "desc": "",
     "badge": "",
@@ -2280,6 +2590,8 @@
     "images": [
       "/uploads/0fc5380d4f48ca63c88d6bb6dd5e2618.webp",
       "/uploads/b73d78296b5ebf730184c5bf26fc3462.webp"
-    ]
+    ],
+    "basePrice": 4500,
+    "discountPercent": 0
   }
 ]

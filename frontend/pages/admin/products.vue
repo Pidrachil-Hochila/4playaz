@@ -13,13 +13,16 @@
     </div>
 
     <div v-else class="products-list">
-      <div class="product-item" v-for="p in products" :key="p.id">
+      <div class="product-item" v-for="p in products" :key="p.id" :class="{ 'is-hidden': p.hidden }">
         <div class="product-thumb">
           <img v-if="p.image" :src="p.image" :alt="p.name">
           <div v-else class="thumb-placeholder">4PZ</div>
         </div>
         <div class="product-data">
-          <div class="product-name">{{ p.name }}</div>
+          <div class="product-name">
+            {{ p.name }}
+            <span v-if="p.hidden" class="hidden-tag">СКРЫТ</span>
+          </div>
           <div class="product-meta">
             <span class="cat">{{ p.category }}</span>
             <span class="price">{{ p.price.toLocaleString('ru') }} ₽</span>
@@ -29,6 +32,14 @@
         </div>
         <div class="product-actions">
           <NuxtLink :to="`/admin/edit/${p.id}`" class="edit-btn">Изменить</NuxtLink>
+          <button
+            class="hide-btn"
+            :class="{ 'is-active': p.hidden }"
+            :disabled="togglingId === p.id"
+            @click="handleToggle(p)"
+          >
+            {{ p.hidden ? 'Показать' : 'Скрыть' }}
+          </button>
           <button class="delete-btn" @click="handleDelete(p.id)">Удалить</button>
         </div>
       </div>
@@ -38,20 +49,19 @@
 
 <script setup lang="ts">
 import { ref, onMounted } from 'vue'
-import { useApi } from '~/composables/useApi'
 import { useAdminApi } from '~/composables/useApi'
 
 definePageMeta({ layout: 'admin', middleware: 'auth' })
 
-const { getProducts } = useApi()
-const { deleteProduct } = useAdminApi()
+const { deleteProduct, getAllProducts, toggleVisibility } = useAdminApi()
 
 const products = ref<any[]>([])
 const loading = ref(true)
+const togglingId = ref<number | null>(null)
 
 const fetchProducts = async () => {
   try {
-    products.value = await getProducts() as any[]
+    products.value = await getAllProducts() as any[]
   } catch {} finally {
     loading.value = false
   }
@@ -64,6 +74,18 @@ const handleDelete = async (id: number) => {
     products.value = products.value.filter(p => p.id !== id)
   } catch {
     alert('Ошибка при удалении')
+  }
+}
+
+const handleToggle = async (p: any) => {
+  togglingId.value = p.id
+  try {
+    const res = await toggleVisibility(p.id, !p.hidden)
+    p.hidden = res.hidden
+  } catch {
+    alert('Не удалось изменить видимость')
+  } finally {
+    togglingId.value = null
   }
 }
 
@@ -120,6 +142,20 @@ onMounted(fetchProducts)
   transition: border-color 0.2s;
 }
 .product-item:hover { border-color: var(--border-red); }
+.product-item.is-hidden { opacity: 0.55; }
+.product-item.is-hidden .product-thumb img { filter: grayscale(1); }
+
+.hidden-tag {
+  display: inline-block;
+  margin-left: 8px;
+  font-family: var(--font-cinzel);
+  font-size: 8px;
+  letter-spacing: 0.2em;
+  color: var(--mid);
+  border: 1px solid var(--border);
+  padding: 2px 6px;
+  vertical-align: middle;
+}
 
 .product-thumb {
   width: 60px; height: 80px;
@@ -196,6 +232,25 @@ onMounted(fetchProducts)
 }
 .edit-btn:hover { border-color: var(--red-bright); color: var(--red-bright); }
 
+.hide-btn {
+  background: none;
+  border: 1px solid var(--border);
+  color: var(--mid);
+  padding: 6px 14px;
+  font-family: var(--font-cinzel);
+  font-size: 8px;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: all 0.2s;
+  display: block;
+  margin-top: 4px;
+  width: 100%;
+}
+.hide-btn:hover:not(:disabled) { border-color: var(--off-white); color: var(--off-white); }
+.hide-btn:disabled { opacity: 0.5; cursor: wait; }
+.hide-btn.is-active { border-color: var(--off-white); color: var(--off-white); }
+
 @media (max-width: 768px) {
   .page-header { margin-bottom: 14px; }
   .page-title { font-size: 11px; letter-spacing: 0.12em; }
@@ -208,6 +263,7 @@ onMounted(fetchProducts)
   .price { font-size: 11px; }
   .product-desc { font-size: 10px; }
   .product-actions { display: flex; flex-direction: column; gap: 5px; }
-  .edit-btn, .delete-btn { padding: 5px 10px; font-size: 7px; }
+  .edit-btn, .delete-btn, .hide-btn { padding: 5px 10px; font-size: 7px; }
+  .hide-btn { margin-top: 0; }
 }
 </style>

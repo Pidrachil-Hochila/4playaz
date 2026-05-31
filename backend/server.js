@@ -46,6 +46,7 @@ app.use('/uploads', express.static(UPLOADS_DIR, { index: false, dotfiles: 'deny'
 app.use('/api/orders', require('./orders'))      // заказы (Supabase)
 app.use('/api/broadcast', require('./broadcast')) // массовая рассылка писем
 app.use(require('./routes/catalog'))             // каталог + админский CRUD товаров
+app.use(require('./routes/promos'))              // акции (скидки) + промо-баннер
 app.use(require('./routes/admin-auth'))          // логин, TOTP, бан-лист
 
 // ─── START ─────────────────────────────────────────────────
