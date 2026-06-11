@@ -52,6 +52,34 @@ router.post('/api/admin/collections', authMiddleware, (req, res) => {
   res.status(201).json({ name, linkedCount })
 })
 
+// Переименование коллекции: меняем имя в списке И в category у всех
+// привязанных товаров (иначе товары «осиротеют» на старой категории).
+router.put('/api/admin/collections/:name', authMiddleware, (req, res) => {
+  const oldName = sanitizeString(decodeURIComponent(req.params.name), 100)
+  const newName = sanitizeString(req.body.name, 100)
+  if (!newName) return res.status(400).json({ error: 'Введите название' })
+
+  const collections = store.getCollections()
+  if (!collections.includes(oldName)) return res.status(404).json({ error: 'Коллекция не найдена' })
+  if (oldName === newName) {
+    const linkedCount = store.getProducts().filter(p => p.category === oldName).length
+    return res.json({ name: newName, linkedCount })
+  }
+  if (collections.includes(newName)) return res.status(409).json({ error: 'Коллекция с таким именем уже существует' })
+
+  store.setCollections(collections.map(c => (c === oldName ? newName : c)))
+  store.saveCollections()
+
+  let linkedCount = 0
+  store.getProducts().forEach(p => {
+    if (p.category === oldName) { p.category = newName; linkedCount++ }
+  })
+  if (linkedCount > 0) store.saveProducts()
+
+  console.log('[COLLECTION RENAME]', oldName, '→', newName, '| товаров:', linkedCount)
+  res.json({ name: newName, linkedCount })
+})
+
 router.delete('/api/admin/collections/:name', authMiddleware, (req, res) => {
   const name = sanitizeString(decodeURIComponent(req.params.name), 100)
   store.setCollections(store.getCollections().filter(c => c !== name))

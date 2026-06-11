@@ -26,6 +26,10 @@
           <span class="nav-icon">⊕</span>
           <span>Добавить товар</span>
         </NuxtLink>
+        <NuxtLink to="/admin/collections" class="nav-item">
+          <span class="nav-icon">▤</span>
+          <span>Коллекции</span>
+        </NuxtLink>
         <NuxtLink to="/admin/discounts" class="nav-item">
           <span class="nav-icon">％</span>
           <span>Акции</span>

@@ -129,6 +129,36 @@ export const useAdminApi = () => {
     })
   }
 
+  const getCollections = async () => {
+    const data = await $fetch(`${base}/api/collections`, {
+      headers: { Authorization: `Bearer ${getToken()}` }
+    })
+    return Array.isArray(data) ? data as string[] : []
+  }
+
+  const createCollection = async (name: string) => {
+    return await $fetch<{ name: string; linkedCount: number }>(`${base}/api/admin/collections`, {
+      method: 'POST',
+      headers: { Authorization: `Bearer ${getToken()}` },
+      body: { name }
+    })
+  }
+
+  const renameCollection = async (oldName: string, name: string) => {
+    return await $fetch<{ name: string; linkedCount: number }>(`${base}/api/admin/collections/${encodeURIComponent(oldName)}`, {
+      method: 'PUT',
+      headers: { Authorization: `Bearer ${getToken()}` },
+      body: { name }
+    })
+  }
+
+  const deleteCollection = async (name: string) => {
+    return await $fetch<{ ok: boolean }>(`${base}/api/admin/collections/${encodeURIComponent(name)}`, {
+      method: 'DELETE',
+      headers: { Authorization: `Bearer ${getToken()}` }
+    })
+  }
+
   const getBroadcastRecipients = async () => {
     return await $fetch<{ count: number }>(`${base}/api/broadcast/recipients`, {
       headers: { Authorization: `Bearer ${getToken()}` }
@@ -143,5 +173,5 @@ export const useAdminApi = () => {
     })
   }
 
-  return { login, addProduct, deleteProduct, updateProduct, getAllProducts, toggleVisibility, getOrders, sendPaymentLink, getBroadcastRecipients, sendBroadcast }
+  return { login, addProduct, deleteProduct, updateProduct, getAllProducts, toggleVisibility, getCollections, createCollection, renameCollection, deleteCollection, getOrders, sendPaymentLink, getBroadcastRecipients, sendBroadcast }
 }

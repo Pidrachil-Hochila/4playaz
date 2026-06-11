@@ -17,15 +17,13 @@
 
     <!-- ANNOUNCEMENT BAR -->
     <div class="announcement">
-      <div class="announcement-inner">
-        <span>DONT TEST MY PIMPIN.</span>
-        <span class="dot">✦</span>
-        <span>DONT TEST MY PIMPIN.</span>
-        <span class="dot">✦</span>
-        <span>DONT TEST MY PIMPIN.</span>
-        <span class="dot">✦</span>
-        <span>DONT TEST MY PIMPIN.</span>
-        <span class="dot">✦</span>
+      <div class="announcement-track">
+        <div class="announcement-group" v-for="g in 2" :key="g" aria-hidden="true">
+          <template v-for="i in 6" :key="i">
+            <span>DONT TEST MY PIMPIN.</span>
+            <span class="dot">✦</span>
+          </template>
+        </div>
       </div>
     </div>
 
@@ -759,24 +757,28 @@ const cartCreatePayment = async () => {
   overflow: hidden;
   border-bottom: 1px solid var(--red);
 }
-.announcement-inner {
-  display: inline-block;
-  animation: marquee 18s linear infinite;
-  white-space: nowrap;
+.announcement-track { display: flex; width: 100%; }
+.announcement-group {
+  flex-shrink: 0;
+  min-width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  animation: marquee 50s linear infinite;
+  will-change: transform;
 }
-.announcement-inner span { margin: 0 24px; }
-.announcement-inner .dot { color: var(--red-bright); font-size: 8px; }
+.announcement-group span { margin: 0 14px; white-space: nowrap; }
+.announcement-group .dot { color: var(--red-bright); font-size: 8px; }
 @keyframes marquee {
-  from { transform: translateX(100vw); }
-  to   { transform: translateX(-100%); }
+  from { transform: translate3d(0, 0, 0); }
+  to   { transform: translate3d(-100%, 0, 0); }
 }
 
 /* ─── HEADER ─── */
 header {
   position: sticky; top: 0; z-index: 100;
-  background: rgba(10, 10, 10, 0.97);
+  background: rgba(10, 10, 10, 0.98);
   border-bottom: 1px solid var(--border-red);
-  backdrop-filter: blur(10px);
 }
 .header-inner {
   display: grid;
@@ -1274,7 +1276,7 @@ footer {
 /* ─── RESPONSIVE ─── */
 @media (max-width: 900px) {
   .cart-drawer { max-width: 100%; }
-  .header-inner { padding: 0 20px; }
+  .header-inner { padding: 0 20px; grid-template-columns: auto 1fr; }
   .nav-left { display: none; }
   .footer-grid { grid-template-columns: 1fr 1fr; }
   .form-row-2 { grid-template-columns: 1fr; }

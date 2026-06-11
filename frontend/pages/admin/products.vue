@@ -12,8 +12,49 @@
       <NuxtLink to="/admin/add" class="add-btn">Добавить первый товар</NuxtLink>
     </div>
 
-    <div v-else class="products-list">
-      <div class="product-item" v-for="p in products" :key="p.id" :class="{ 'is-hidden': p.hidden }">
+    <template v-else>
+      <div class="filters">
+        <div class="search-wrap">
+          <svg class="search-icon" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+            <circle cx="11" cy="11" r="7"/>
+            <line x1="21" y1="21" x2="16.65" y2="16.65"/>
+          </svg>
+          <input
+            v-model="search"
+            type="text"
+            class="search-input"
+            placeholder="Поиск по названию или описанию…"
+          >
+          <button v-if="search" class="search-clear" aria-label="Очистить" @click="search = ''">✕</button>
+        </div>
+
+        <select v-model="categoryFilter" class="filter-select">
+          <option value="">Все категории</option>
+          <option v-for="c in categories" :key="c" :value="c">{{ c }}</option>
+        </select>
+
+        <select v-if="clothingTypes.length" v-model="typeFilter" class="filter-select">
+          <option value="">Все типы</option>
+          <option v-for="t in clothingTypes" :key="t" :value="t">{{ t }}</option>
+        </select>
+
+        <select v-model="visibilityFilter" class="filter-select">
+          <option value="all">Все</option>
+          <option value="visible">Видимые</option>
+          <option value="hidden">Скрытые</option>
+        </select>
+
+        <button v-if="hasActiveFilters" class="reset-btn" @click="resetFilters">Сбросить</button>
+      </div>
+
+      <div class="results-count">{{ filteredProducts.length }} из {{ products.length }}</div>
+
+      <div v-if="filteredProducts.length === 0" class="empty">
+        <p>Ничего не найдено</p>
+      </div>
+
+      <div v-else class="products-list">
+        <div class="product-item" v-for="p in filteredProducts" :key="p.id" :class="{ 'is-hidden': p.hidden }">
         <div class="product-thumb">
           <img v-if="p.image" :src="p.image" :alt="p.name">
           <div v-else class="thumb-placeholder">4PZ</div>
@@ -42,13 +83,14 @@
           </button>
           <button class="delete-btn" @click="handleDelete(p.id)">Удалить</button>
         </div>
+        </div>
       </div>
-    </div>
+    </template>
   </div>
 </template>
 
 <script setup lang="ts">
-import { ref, onMounted } from 'vue'
+import { ref, computed, onMounted } from 'vue'
 import { useAdminApi } from '~/composables/useApi'
 
 definePageMeta({ layout: 'admin', middleware: 'auth' })
@@ -58,6 +100,41 @@ const { deleteProduct, getAllProducts, toggleVisibility } = useAdminApi()
 const products = ref<any[]>([])
 const loading = ref(true)
 const togglingId = ref<number | null>(null)
+
+const search = ref('')
+const categoryFilter = ref('')
+const typeFilter = ref('')
+const visibilityFilter = ref('all')
+
+const categories = computed(() =>
+  [...new Set(products.value.map(p => p.category).filter(Boolean))].sort()
+)
+const clothingTypes = computed(() =>
+  [...new Set(products.value.map(p => p.clothingType).filter(Boolean))].sort()
+)
+
+const hasActiveFilters = computed(() =>
+  !!search.value || !!categoryFilter.value || !!typeFilter.value || visibilityFilter.value !== 'all'
+)
+
+const filteredProducts = computed(() => {
+  const q = search.value.trim().toLowerCase()
+  return products.value.filter(p => {
+    if (q && !(`${p.name ?? ''} ${p.desc ?? ''}`.toLowerCase().includes(q))) return false
+    if (categoryFilter.value && p.category !== categoryFilter.value) return false
+    if (typeFilter.value && p.clothingType !== typeFilter.value) return false
+    if (visibilityFilter.value === 'visible' && p.hidden) return false
+    if (visibilityFilter.value === 'hidden' && !p.hidden) return false
+    return true
+  })
+})
+
+const resetFilters = () => {
+  search.value = ''
+  categoryFilter.value = ''
+  typeFilter.value = ''
+  visibilityFilter.value = 'all'
+}
 
 const fetchProducts = async () => {
   try {
@@ -130,6 +207,84 @@ onMounted(fetchProducts)
   letter-spacing: 0.15em;
 }
 .empty { display: flex; flex-direction: column; align-items: center; gap: 20px; }
+
+.filters {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  flex-wrap: wrap;
+  margin-bottom: 14px;
+}
+.search-wrap {
+  position: relative;
+  flex: 1;
+  min-width: 220px;
+  display: flex;
+  align-items: center;
+}
+.search-icon {
+  position: absolute;
+  left: 12px;
+  color: var(--mid);
+  pointer-events: none;
+}
+.search-input {
+  width: 100%;
+  background: var(--deep);
+  border: 1px solid var(--border);
+  color: var(--white);
+  font-family: var(--font-body);
+  font-size: 13px;
+  padding: 10px 34px 10px 36px;
+  outline: none;
+  transition: border-color 0.2s;
+}
+.search-input::placeholder { color: var(--mid); }
+.search-input:focus { border-color: var(--border-red); }
+.search-clear {
+  position: absolute;
+  right: 8px;
+  background: none;
+  border: none;
+  color: var(--mid);
+  font-size: 12px;
+  cursor: pointer;
+  padding: 4px 6px;
+  transition: color 0.2s;
+}
+.search-clear:hover { color: var(--red-bright); }
+.filter-select {
+  background: var(--deep);
+  border: 1px solid var(--border);
+  color: var(--white);
+  font-family: var(--font-body);
+  font-size: 12px;
+  padding: 10px 12px;
+  outline: none;
+  cursor: pointer;
+  transition: border-color 0.2s;
+}
+.filter-select:focus { border-color: var(--border-red); }
+.reset-btn {
+  background: none;
+  border: 1px solid var(--border);
+  color: var(--mid);
+  padding: 9px 14px;
+  font-family: var(--font-cinzel);
+  font-size: 8px;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+.reset-btn:hover { border-color: var(--red); color: var(--red-bright); }
+.results-count {
+  font-family: var(--font-cinzel);
+  font-size: 9px;
+  letter-spacing: 0.15em;
+  color: var(--mid);
+  margin-bottom: 14px;
+}
 
 .products-list { display: flex; flex-direction: column; gap: 12px; }
 .product-item {
@@ -265,5 +420,8 @@ onMounted(fetchProducts)
   .product-actions { display: flex; flex-direction: column; gap: 5px; }
   .edit-btn, .delete-btn, .hide-btn { padding: 5px 10px; font-size: 7px; }
   .hide-btn { margin-top: 0; }
+  .filters { gap: 8px; }
+  .search-wrap { flex-basis: 100%; min-width: 0; }
+  .filter-select { flex: 1; font-size: 11px; padding: 9px 8px; }
 }
 </style>

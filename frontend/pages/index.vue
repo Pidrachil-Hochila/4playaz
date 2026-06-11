@@ -9,7 +9,7 @@
           <span class="hero-accent">STORE.</span>
         </h1>
         <p class="hero-desc">
-          Уличная одежда не для всех. Коллаборации DJ XBOX360 и 3.5 PROPOVEDNIK.
+          Уличная одежда не для всех. Коллаборации DJ XBOX360<br>и 3.5 PROPOVEDNIK.
         </p>
         <button class="btn-primary" @click="scrollToProducts">Смотреть</button>
       </div>
@@ -17,23 +17,30 @@
       <!-- КАРУСЕЛЬ НОВИНОК -->
       <div class="hero-carousel">
         <template v-if="newProducts.length > 0">
-          <div class="carousel-track" :style="{ transform: `translateX(-${carouselIndex * 100}%)` }">
-            <div v-for="product in newProducts" :key="product.id" class="carousel-slide" @click="openProduct(product)">
-              <img v-if="product.image" :src="resolveImg(product.image)" :alt="product.name" class="carousel-img">
+          <Transition :name="slideDir === 'prev' ? 'fly-prev' : 'fly-next'">
+            <div
+              v-if="currentProduct"
+              :key="currentProduct.id"
+              class="carousel-slide"
+              @click="openProduct(currentProduct)"
+            >
+              <img v-if="currentProduct.image" :src="resolveImg(currentProduct.image)" :alt="currentProduct.name" class="carousel-img">
               <div v-else class="carousel-placeholder"><span>4PLAYAZ</span></div>
-              <div class="carousel-info">
-                <div class="carousel-badge">NEW</div>
-                <div class="carousel-name">{{ product.name }}</div>
-                <div class="carousel-price">{{ formatPrice(product.price) }}</div>
-              </div>
             </div>
-          </div>
+          </Transition>
+          <Transition name="info-fade">
+            <div v-if="currentProduct" :key="currentProduct.id" class="carousel-info" @click="openProduct(currentProduct)">
+              <div class="carousel-badge">NEW</div>
+              <div class="carousel-name">{{ currentProduct.name }}</div>
+              <div class="carousel-price">{{ formatPrice(currentProduct.price) }}</div>
+            </div>
+          </Transition>
           <div class="carousel-nav" v-if="newProducts.length > 1">
-            <button class="carousel-btn prev" @click="prevSlide">‹</button>
+            <button class="carousel-btn prev" @click="nextSlide">‹</button>
             <div class="carousel-dots">
-              <button v-for="(_, i) in newProducts" :key="i" class="dot" :class="{ active: i === carouselIndex }" @click="carouselIndex = i"></button>
+              <button v-for="(_, i) in newProducts" :key="i" class="dot" :class="{ active: i === carouselIndex }" @click="goToSlide(i)"></button>
             </div>
-            <button class="carousel-btn next" @click="nextSlide">›</button>
+            <button class="carousel-btn next" @click="prevSlide">›</button>
           </div>
         </template>
         <template v-else>
@@ -98,7 +105,7 @@
            :class="{ 'product-card--selected': isSelected(product.id) }"
            @click="handleCardClick(product)">
         <div class="product-card-image">
-          <img v-if="product.image" :src="resolveImg(product.image)" :alt="product.name" loading="lazy" class="card-img">
+          <img v-if="product.image" :src="resolveImg(product.image)" :alt="product.name" loading="lazy" decoding="async" class="card-img">
           <div v-else class="no-img">4PZ</div>
           <span v-if="product.badge" class="product-badge" :class="{ sale: product.badge === 'Sale' }">{{ product.badge }}</span>
           <div class="card-overlay">
@@ -192,7 +199,7 @@
                     class="size-btn"
                     :class="{ active: selectedHoodieType === 'oversize' }"
                     @click="selectedHoodieType = 'oversize'; selectedSize = ''; sizeError = false"
-                  >Оверсайз</button>
+                  >Оверсайз <span class="size-btn-note">тёплая</span></button>
                 </div>
                 <span v-if="sizeError && !selectedHoodieType" class="size-error">Выберите тип</span>
               </div>
@@ -763,12 +770,16 @@ const newProducts = computed(() => {
   return withNew
 })
 
-const nextSlide = () => { carouselIndex.value = (carouselIndex.value + 1) % newProducts.value.length }
-const prevSlide = () => { carouselIndex.value = (carouselIndex.value - 1 + newProducts.value.length) % newProducts.value.length }
+const slideDir = ref<'next' | 'prev'>('next')
+const currentProduct = computed(() => newProducts.value[carouselIndex.value] ?? null)
+
+const nextSlide = () => { slideDir.value = 'next'; carouselIndex.value = (carouselIndex.value + 1) % newProducts.value.length }
+const prevSlide = () => { slideDir.value = 'prev'; carouselIndex.value = (carouselIndex.value - 1 + newProducts.value.length) % newProducts.value.length }
+const goToSlide = (i: number) => { slideDir.value = i >= carouselIndex.value ? 'next' : 'prev'; carouselIndex.value = i }
 
 let autoplayTimer: ReturnType<typeof setInterval> | null = null
 const startAutoplay = () => {
-  autoplayTimer = setInterval(() => { if (newProducts.value.length > 1) nextSlide() }, 4000)
+  autoplayTimer = setInterval(() => { if (newProducts.value.length > 1) nextSlide() }, 5000)
 }
 
 const prevModalImg = () => {
@@ -892,39 +903,64 @@ onUnmounted(() => {
 .size-btn { background: none; border: 1px solid var(--border); color: var(--mid); font-family: var(--font-cinzel); font-size: 10px; letter-spacing: 0.1em; padding: 6px 12px; cursor: pointer; transition: border-color 0.2s, color 0.2s, background 0.2s; }
 .size-btn:hover { border-color: var(--red); color: var(--white); }
 .size-btn.active { background: var(--red-deep); border-color: var(--red-bright); color: var(--white); }
+.size-btn-note { font-size: 8px; opacity: 0.6; letter-spacing: 0.05em; text-transform: lowercase; }
 .size-error { font-size: 10px; color: #e74c3c; }
 
 /* ─── HERO ─── */
-.hero { display: grid; grid-template-columns: 1fr 1fr; min-height: 88vh; overflow: hidden; }
-.hero-text { display: flex; flex-direction: column; justify-content: center; padding: 80px 64px; background: var(--deep); border-right: 1px solid var(--border-red); }
-.hero-eyebrow { font-family: var(--font-cinzel); font-size: 9px; letter-spacing: 0.35em; color: var(--red); text-transform: uppercase; margin-bottom: 24px; }
+.hero { position: relative; display: flex; align-items: center; min-height: 88vh; overflow: hidden; background: radial-gradient(ellipse 55% 78% at 80% 50%, rgba(170,28,28,0.42) 0%, rgba(120,0,0,0.14) 40%, transparent 66%), linear-gradient(150deg, #141414 0%, #0c0c0c 55%, #080808 100%); }
+/* Мягкое затухание верхнего и нижнего края в фон страницы — без резких границ */
+.hero::after { content: ''; position: absolute; inset: 0; z-index: 0; pointer-events: none; background: linear-gradient(to bottom, #0a0a0a 0%, transparent 15%, transparent 85%, #0a0a0a 100%); }
+.hero-text { position: relative; z-index: 3; display: flex; flex-direction: column; justify-content: center; max-width: 600px; padding: 80px 64px; text-shadow: 0 2px 24px rgba(0,0,0,0.5); }
+.hero-eyebrow { font-family: var(--font-cinzel); font-size: 10px; font-weight: 600; letter-spacing: 0.35em; color: var(--red-bright); text-transform: uppercase; margin-bottom: 24px; text-shadow: 0 0 18px var(--red-glow); }
 .hero-title { font-family: var(--font-gothic); font-weight: 400; font-size: clamp(52px, 6vw, 90px); line-height: 1.0; letter-spacing: 0.02em; color: var(--white); margin-bottom: 28px; text-shadow: 0 0 60px rgba(192,57,43,0.2); }
 .hero-accent { color: var(--red-bright); text-shadow: 0 0 30px var(--red); }
-.hero-desc { color: var(--mid); font-size: 13px; line-height: 1.8; max-width: 380px; margin-bottom: 40px; }
+.hero-desc { color: var(--off-white); font-weight: 400; font-size: 14px; line-height: 1.8; max-width: 320px; margin-bottom: 40px; text-shadow: 0 1px 12px rgba(0,0,0,0.6); }
 .btn-primary { display: inline-block; background: transparent; color: var(--red-bright); padding: 14px 40px; font-family: var(--font-cinzel); font-size: 9px; letter-spacing: 0.25em; text-transform: uppercase; border: 1px solid var(--red); cursor: pointer; transition: background 0.3s, box-shadow 0.3s; width: fit-content; text-decoration: none; }
 .btn-primary:hover { background: var(--red-deep); border-color: var(--red-bright); color: var(--white); box-shadow: 0 0 30px var(--red-glow); }
 .btn-primary:disabled { opacity: 0.4; cursor: not-allowed; }
 .btn-primary:disabled:hover { background: transparent; border-color: var(--red); color: var(--red-bright); box-shadow: none; }
 
+/* Насыщенная кнопка «Смотреть» только в hero */
+.hero-text .btn-primary { background: var(--red); border-color: var(--red-bright); color: var(--white); font-weight: 600; box-shadow: 0 0 28px var(--red-glow); }
+.hero-text .btn-primary:hover { background: var(--red-bright); border-color: var(--red-bright); box-shadow: 0 0 40px var(--red-glow); }
+
 /* ─── HERO CAROUSEL ─── */
-.hero-carousel { position: relative; background: var(--surface); overflow: hidden; display: flex; flex-direction: column; }
-.carousel-track { display: flex; width: 100%; height: 100%; transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1); flex: 1; }
-.carousel-slide { min-width: 100%; position: relative; cursor: pointer; overflow: hidden; }
-.carousel-img { width: 100%; height: 100%; object-fit: contain; object-position: center; display: block; background: var(--deep); transition: transform 0.6s ease; }
+.hero-carousel { position: absolute; inset: 0; z-index: 1; background: transparent; overflow: hidden; }
+.carousel-slide { position: absolute; inset: 0; display: flex; align-items: center; justify-content: flex-end; cursor: pointer; }
+.carousel-img { width: 55%; height: 100%; object-fit: contain; object-position: right center; display: block; background: transparent; transition: transform 0.6s ease; }
 .carousel-slide:hover .carousel-img { transform: scale(1.03); }
-.carousel-placeholder { width: 100%; height: 100%; min-height: 400px; display: flex; align-items: center; justify-content: center; background: linear-gradient(160deg, #1a0000 0%, #0a0a0a 60%); }
+.carousel-placeholder { width: 55%; height: 100%; min-height: 400px; display: flex; align-items: center; justify-content: center; background: transparent; }
 .carousel-placeholder span { font-family: var(--font-gothic); font-size: 72px; color: rgba(192,57,43,0.12); }
-.carousel-info { position: absolute; bottom: 0; left: 0; right: 0; padding: 20px 24px; background: linear-gradient(transparent, rgba(0,0,0,0.85)); }
+.carousel-info { position: absolute; bottom: 0; left: auto; right: 0; z-index: 3; width: min(360px, 50%); padding: 16px 24px; background: linear-gradient(to top left, rgba(0,0,0,0.82) 0%, rgba(0,0,0,0) 72%); cursor: pointer; }
+
+/* Подпись (название + цена): при уходе товара съезжает вниз и тает,
+   новая появляется снизу с лёгкой задержкой под медленный въезд товара. */
+.info-fade-leave-active { transition: transform .5s ease-in, opacity .5s ease-in; }
+.info-fade-leave-to     { transform: translateY(34px); opacity: 0; }
+.info-fade-enter-active { transition: transform .6s cubic-bezier(.16,1,.3,1) .2s, opacity .6s ease .2s; }
+.info-fade-enter-from   { transform: translateY(22px); opacity: 0; }
+
+/* Покадровый переход: уходящий слайд ускоряется и улетает влево,
+   новый медленно подъезжает справа на «старое место» (и наоборот для prev). */
+.fly-next-leave-active { transition: transform .55s cubic-bezier(.55,0,1,.45), opacity .55s ease-in; z-index: 1; }
+.fly-next-leave-to     { transform: translateX(-160%); opacity: .4; }
+.fly-next-enter-active { transition: transform 1.2s cubic-bezier(.16,1,.3,1); z-index: 2; }
+.fly-next-enter-from   { transform: translateX(70%); }
+
+.fly-prev-leave-active { transition: transform .55s cubic-bezier(.55,0,1,.45), opacity .55s ease-in; z-index: 1; }
+.fly-prev-leave-to     { transform: translateX(160%); opacity: .4; }
+.fly-prev-enter-active { transition: transform 1.2s cubic-bezier(.16,1,.3,1); z-index: 2; }
+.fly-prev-enter-from   { transform: translateX(-70%); }
 .carousel-badge { font-family: var(--font-cinzel); font-size: 8px; letter-spacing: 0.25em; color: var(--white); background: var(--red-deep); border: 1px solid var(--red); padding: 3px 10px; display: inline-block; margin-bottom: 6px; }
-.carousel-name { font-family: var(--font-cinzel); font-size: 16px; font-weight: 600; color: var(--white); letter-spacing: 0.05em; }
-.carousel-price { font-family: var(--font-cinzel); font-size: 13px; color: var(--off-white); margin-top: 4px; }
-.carousel-nav { position: absolute; bottom: 70px; left: 0; right: 0; display: flex; align-items: center; justify-content: center; gap: 12px; z-index: 10; }
+.carousel-name { font-family: var(--font-cinzel); font-size: 20px; font-weight: 600; color: var(--white); letter-spacing: 0.05em; }
+.carousel-price { font-family: var(--font-cinzel); font-size: 15px; color: var(--off-white); margin-top: 4px; }
+.carousel-nav { position: absolute; bottom: 24px; left: 0; right: 0; display: flex; align-items: center; justify-content: center; gap: 12px; z-index: 4; }
 .carousel-btn { background: rgba(0,0,0,0.6); border: 1px solid var(--border-red); color: var(--white); width: 36px; height: 36px; font-size: 20px; cursor: pointer; transition: background 0.2s; display: flex; align-items: center; justify-content: center; line-height: 1; }
 .carousel-btn:hover { background: var(--red-deep); border-color: var(--red); }
 .carousel-dots { display: flex; gap: 6px; align-items: center; }
 .dot { width: 6px; height: 6px; border-radius: 50%; background: var(--border); border: none; cursor: pointer; transition: background 0.2s, transform 0.2s; padding: 0; }
 .dot.active { background: var(--red-bright); transform: scale(1.4); }
-.hero-placeholder { width: 100%; height: 100%; display: flex; align-items: center; justify-content: center; background: linear-gradient(160deg, #1a0000 0%, #0a0a0a 60%, #000 100%); position: relative; overflow: hidden; }
+.hero-placeholder { width: 100%; height: 100%; display: flex; align-items: center; justify-content: center; background: transparent; position: relative; overflow: hidden; }
 .hero-placeholder-text { font-family: var(--font-gothic); font-size: 72px; color: rgba(192,57,43,0.12); letter-spacing: 0.15em; z-index: 2; }
 .hero-placeholder-lines { position: absolute; inset: 0; display: flex; flex-direction: column; justify-content: space-around; }
 .hero-line { height: 1px; background: linear-gradient(90deg, transparent, rgba(192,57,43,0.15), transparent); animation: scanline 4s linear infinite; opacity: 0; }
@@ -953,11 +989,11 @@ onUnmounted(() => {
 
 /* ─── PRODUCT GRID ─── */
 .products-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 1px; background: var(--border); margin: 0 40px 80px; border: 1px solid var(--border); }
-.product-card { background: var(--surface); position: relative; overflow: hidden; cursor: pointer; transition: background 0.2s; contain: layout style paint; }
+.product-card { background: var(--surface); position: relative; overflow: hidden; cursor: pointer; transition: background 0.2s; contain: layout style paint; content-visibility: auto; contain-intrinsic-size: auto 480px; }
 .product-card:hover { background: var(--card); }
 .product-card-image { aspect-ratio: 3/4; overflow: hidden; position: relative; background: var(--deep); display: flex; align-items: center; justify-content: center; }
-.card-img { width: 100%; height: 100%; object-fit: contain; object-position: center; display: block; transition: transform 0.6s ease; will-change: transform; }
-.product-card:hover .card-img { transform: scale(1.04); }
+.card-img { width: 100%; height: 100%; object-fit: contain; object-position: center; display: block; transition: transform 0.6s ease; }
+.product-card:hover .card-img { transform: scale(1.04); will-change: transform; }
 .no-img { width: 100%; height: 100%; display: flex; align-items: center; justify-content: center; background: linear-gradient(145deg, #1c1c1c, #111); font-family: var(--font-gothic); font-size: 40px; color: rgba(192,57,43,0.15); letter-spacing: 0.15em; }
 .card-overlay { position: absolute; inset: 0; background: rgba(120,0,0,0.75); display: flex; align-items: center; justify-content: center; opacity: 0; transition: opacity 0.3s; }
 .product-card:hover .card-overlay { opacity: 1; }
@@ -970,9 +1006,8 @@ onUnmounted(() => {
 .product-price-row { display: flex; align-items: center; justify-content: space-between; gap: 8px; }
 .product-price { font-size: 14px; color: var(--off-white); letter-spacing: 0.05em; }
 .old-price { text-decoration: line-through; color: var(--mid); margin-right: 8px; }
-.card-share-btn { display: none; background: none; border: 1px solid var(--border); color: var(--mid); width: 30px; height: 30px; align-items: center; justify-content: center; cursor: pointer; flex-shrink: 0; transition: border-color 0.2s, color 0.2s; }
+.card-share-btn { display: flex; background: none; border: 1px solid var(--border); color: var(--mid); width: 30px; height: 30px; align-items: center; justify-content: center; cursor: pointer; flex-shrink: 0; transition: border-color 0.2s, color 0.2s; }
 .card-share-btn:hover { border-color: var(--red); color: var(--red-bright); }
-@media (pointer: coarse) { .card-share-btn { display: flex; } }
 .product-desc { font-size: 11px; color: var(--mid); line-height: 1.6; margin-top: 8px; overflow: hidden; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; line-clamp: 2; }
 .loading-state { display: flex; flex-direction: column; align-items: center; gap: 20px; padding: 100px 40px; color: var(--mid); font-family: var(--font-cinzel); font-size: 10px; letter-spacing: 0.2em; text-transform: uppercase; }
 .loading-spinner { width: 36px; height: 36px; border: 2px solid var(--border); border-top-color: var(--red); border-radius: 50%; animation: spin 0.8s linear infinite; }
@@ -1083,8 +1118,12 @@ onUnmounted(() => {
 .success-text { font-size: 13px; color: var(--mid); line-height: 1.7; }
 
 @media (max-width: 900px) {
-  .hero { grid-template-columns: 1fr; }
-  .hero-carousel { min-height: 60vw; }
+  .hero { min-height: 72vh; }
+  .hero-text { max-width: 100%; padding: 60px 24px; }
+  .hero-desc { max-width: 200px; }
+  .carousel-img, .carousel-placeholder { width: 72%; }
+  .carousel-info { width: min(320px, 72%); }
+  .carousel-nav { justify-content: center; transform: translateX(-150px); }
   .products-grid { margin: 0 20px 40px; grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)); }
   .section-header, .filters-bar, .sort-row { padding-left: 20px; padding-right: 20px; }
   .modal { grid-template-columns: 1fr; }

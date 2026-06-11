@@ -50,9 +50,16 @@ body {
   overflow-x: hidden;
 }
 
-::-webkit-scrollbar { width: 4px; }
+::-webkit-scrollbar { width: 10px; }
 ::-webkit-scrollbar-track { background: var(--deep); }
-::-webkit-scrollbar-thumb { background: var(--red-deep); }
+::-webkit-scrollbar-thumb {
+  background: var(--red-deep);
+  background-clip: padding-box;
+  border: 3px solid transparent;
+  border-top-width: 14px;
+  border-bottom-width: 14px;
+  border-radius: 8px;
+}
 
 ::selection { background: var(--red-deep); color: var(--white); }
 
